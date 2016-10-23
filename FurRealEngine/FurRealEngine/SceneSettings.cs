@@ -9,7 +9,7 @@ namespace FurRealEngine
     struct SceneSettings
     {
         int level;
-        String environment;
+        string environment;
         int challengeDifficulty;
         List<Monster> monsters; 
         List<Character> characters;

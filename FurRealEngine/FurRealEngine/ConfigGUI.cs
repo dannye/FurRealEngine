@@ -118,13 +118,34 @@ namespace FurRealEngine
 
         private void mapSceneSettings()
         {
-            SceneSettings scene = new SceneSettings();
+            setCharacterPlayability();
+            List<string> monsterTypes = getSelectedMonsters();
+            configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD(), monsterTypes);
         }
 
         private void mapScenarioSettings()
         {
             ScenarioSettings scenario = new ScenarioSettings(getStartingDifficulty(), getStartingLevel(), getMaxLevel(),
                 getRepeatTimes(), getNumberOfCharacters(), getMonstersStartingCD());
+        }
+
+        private void setCharacterPlayability()
+        {
+            foreach (int index in checkedListBoxChars.CheckedIndices)
+            {
+                int id = index + 1;
+                configController.setCharacterPlayability(id);
+            }
+        }
+
+        private List<string> getSelectedMonsters()
+        {
+            List<string> monsters = new List<string>();
+            foreach (var item in listBoxMonsters.Items)
+            {
+                monsters.Add(item.ToString());
+            }
+            return monsters;
         }
 
         private int getStartingLevel()

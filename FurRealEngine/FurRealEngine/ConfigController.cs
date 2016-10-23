@@ -12,6 +12,7 @@ namespace FurRealEngine
         private SceneSettings scene;
         private ScenarioSettings scenario;
         private List<Character> characters;
+        private List<Monster> monsters;
 
         private static int COMBAT_MAGE = 1;
         private static int SOLDIER = 2;
@@ -20,16 +21,26 @@ namespace FurRealEngine
         public ConfigController()
         {
             characters = new List<Character>();
+            monsters = new List<Monster>();
         }
 
-        public void setScene(SceneSettings scene)
+        public void setScene(int level, string environment, int challengeDifficulty, List<string> monsterTypes)
         {
-            this.scene = scene;
+            this.scene = new SceneSettings(level, environment, challengeDifficulty, monsters, characters);
         }
 
         public void setScenario(ScenarioSettings scenario)
         {
             this.scenario = scenario;
+        }
+
+        private void initializeMonsters(List<string> monsterTypes)
+        {
+            foreach (string type in monsterTypes)
+            {
+                Monster monster = new Monster(type);
+                monsters.Add(monster);
+            }
         }
 
         public bool areSettingsValid()
@@ -76,6 +87,17 @@ namespace FurRealEngine
             Character character = new Character();
             character.setIdentifier(identifier);
             characters.Add(character);
+        }
+
+        public void setCharacterPlayability(int identifier)
+        {
+            foreach (Character character in characters)
+            {
+                if (character.getIdentifier() == identifier)
+                {
+                    character.setIsPlayable(true);
+                }
+            }
         }
 
         public void checkForListUpdate(int listBoxLength)

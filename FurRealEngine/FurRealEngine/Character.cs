@@ -10,6 +10,17 @@ namespace FurRealEngine
     {
         int identifier;
         int profession;
+        bool isPlayable;
+
+        public bool isCharacterPlayable()
+        {
+            return this.isPlayable;
+        }
+
+        public void setIsPlayable(bool isPlayable)
+        {
+            this.isPlayable = isPlayable;
+        }
 
         public int getIdentifier()
         {
