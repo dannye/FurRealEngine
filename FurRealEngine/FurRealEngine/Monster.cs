@@ -8,5 +8,11 @@ namespace FurRealEngine
 {
     class Monster
     {
+        string type;
+
+        public Monster(String type)
+        {
+            this.type = type;
+        }
     }
 }
