@@ -59,6 +59,16 @@ namespace FurRealEngine
             listBoxMonsters.Items.Remove(listBoxMonsters.SelectedItem);
         }
 
+        private void buttonRemoveAll_Click(object sender, EventArgs e)
+        {
+            if (listBoxMonsters.Items.Count == 0)
+            {
+                MessageBox.Show("No monsters to remove!");
+                return;
+            }
+            listBoxMonsters.Items.Clear();
+        }
+
         private void buttonRandomizeNumOfChars_Click(object sender, EventArgs e)
         {
             Random rng = new Random();
@@ -75,6 +85,29 @@ namespace FurRealEngine
         {
             Random rng = new Random();
             numericUpDownMonsterCD.Value = rng.Next(1, 100);
+        }
+
+        private void numericUpDownNumOfChars_ValueChanged(object sender, EventArgs e)
+        {
+            checkedListBoxChars.Items.Clear();
+            listBoxCharacters.Items.Clear();
+
+            for (int i = 0; i < this.getNumberOfCharacters(); i++)
+            {
+                checkedListBoxChars.Items.Add("Character" + (i+1));
+                listBoxCharacters.Items.Add("Character" + (i+1));
+                configController.addCharacter((i + 1));
+            }
+
+            configController.checkForListUpdate(listBoxCharacters.Items.Count);
+
+        }
+
+        private void buttonSelect_Click(object sender, EventArgs e)
+        {
+            int characterIdentifier = listBoxCharacters.SelectedIndex + 1;
+            string selectedProfession = comboBoxProfessions.SelectedItem.ToString();
+            configController.assignProfession(characterIdentifier, selectedProfession);
         }
 
         private void initSimulationSettings()
@@ -111,11 +144,11 @@ namespace FurRealEngine
 
         private int getStartingDifficulty()
         {
-            if (comboBoxDifficulty.SelectedText.Equals("Novice"))
+            if (comboBoxDifficulty.SelectedItem.ToString().Equals("Novice"))
             {
                 return NOVICE;
             }
-            if (comboBoxDifficulty.SelectedText.Equals("Apprentice"))
+            if (comboBoxDifficulty.SelectedItem.ToString().Equals("Apprentice"))
             {
                 return APPRENTICE;
             }
@@ -142,7 +175,7 @@ namespace FurRealEngine
             return (int) numericUpDownMonsterCD.Value;
         }
 
-        private String getEnvironment()
+        private string getEnvironment()
         {
             return comboBoxEnvironment.SelectedItem.ToString();
         }
