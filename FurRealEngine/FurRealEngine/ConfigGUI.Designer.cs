@@ -56,14 +56,14 @@
             this.buttonRandomizeEnvironment = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.groupBoxCharacterSettings = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelNumCharMsg = new System.Windows.Forms.Label();
             this.groupBoxCharacters = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonSelect = new System.Windows.Forms.Button();
             this.comboBoxProfessions = new System.Windows.Forms.ComboBox();
             this.listBoxCharacters = new System.Windows.Forms.ListBox();
             this.checkedListBoxChars = new System.Windows.Forms.CheckedListBox();
-            this.labelNumCharMsg = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.selectedMonstersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).BeginInit();
@@ -379,6 +379,25 @@
             this.groupBoxCharacterSettings.TabStop = false;
             this.groupBoxCharacterSettings.Text = "Character Settings";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(236, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Check a Character to Identify as Playable";
+            // 
+            // labelNumCharMsg
+            // 
+            this.labelNumCharMsg.AutoSize = true;
+            this.labelNumCharMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumCharMsg.Location = new System.Drawing.Point(20, 33);
+            this.labelNumCharMsg.Name = "labelNumCharMsg";
+            this.labelNumCharMsg.Size = new System.Drawing.Size(102, 13);
+            this.labelNumCharMsg.TabIndex = 20;
+            this.labelNumCharMsg.Text = "Max of 6 Characters";
+            // 
             // groupBoxCharacters
             // 
             this.groupBoxCharacters.Controls.Add(this.richTextBox1);
@@ -391,6 +410,16 @@
             this.groupBoxCharacters.TabIndex = 18;
             this.groupBoxCharacters.TabStop = false;
             this.groupBoxCharacters.Text = "Character Profession Selection";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(229, 31);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(132, 129);
+            this.richTextBox1.TabIndex = 20;
+            this.richTextBox1.Text = "Select one of the entered characters and choose\na profession from the drop down b" +
+    "ox and click\n\'Select\'. If a profession for a character is not chosen,\na professi" +
+    "on will be selected at random for you";
             // 
             // buttonSelect
             // 
@@ -430,35 +459,6 @@
             this.checkedListBoxChars.Size = new System.Drawing.Size(171, 64);
             this.checkedListBoxChars.TabIndex = 16;
             // 
-            // labelNumCharMsg
-            // 
-            this.labelNumCharMsg.AutoSize = true;
-            this.labelNumCharMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumCharMsg.Location = new System.Drawing.Point(20, 33);
-            this.labelNumCharMsg.Name = "labelNumCharMsg";
-            this.labelNumCharMsg.Size = new System.Drawing.Size(102, 13);
-            this.labelNumCharMsg.TabIndex = 20;
-            this.labelNumCharMsg.Text = "Max of 6 Characters";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(229, 31);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(132, 129);
-            this.richTextBox1.TabIndex = 20;
-            this.richTextBox1.Text = "Select one of the entered characters and choose\na profession from the drop down b" +
-    "ox and click\n\'Select\'. If a profession for a character is not chosen,\na professi" +
-    "on will be selected at random for you";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Check a Character to Identify as Playable";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -472,7 +472,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Linen;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1005, 489);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBoxCharacterSettings);
