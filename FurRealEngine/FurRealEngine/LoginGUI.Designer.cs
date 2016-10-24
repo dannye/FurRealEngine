@@ -91,7 +91,7 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(125, 62);
+            this.textBox3.Location = new System.Drawing.Point(372, 559);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(267, 13);
             this.textBox3.TabIndex = 7;
@@ -101,7 +101,7 @@
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(125, 36);
+            this.textBox4.Location = new System.Drawing.Point(372, 530);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(267, 13);
             this.textBox4.TabIndex = 8;
