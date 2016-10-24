@@ -12,15 +12,17 @@ namespace FurRealEngine
 {
     public partial class SimulatorGUI : Form
     {
-        SimulatorController simController = new SimulatorController();
+        SimulatorController simController;
 
-        public SimulatorGUI()
+        public SimulatorGUI(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters)
         {
             InitializeComponent();
+            simController = new SimulatorController(scenario, scene, characters, monsters);
             simController.fillCharacterList(characterList);
             simController.fillCharacterGroup(characterGroup);
             simController.fillMonsterList(monsterList);
             simController.fillMonsterGroup(monsterGroup);
+            Show();
         }
     }
 }

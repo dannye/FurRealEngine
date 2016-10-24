@@ -7,13 +7,13 @@ using FurRealEngine;
 
 namespace FurRealEngine
 {
-    enum TYPE
+    public enum TYPE
     {
         HUMANOID,
         UNDEAD
     }
 
-    enum VARIANT
+    public enum VARIANT
     {
         KOBOLD,
         GOBLIN,
@@ -27,7 +27,7 @@ namespace FurRealEngine
         LICH
     }
 
-    class Monster
+    public class Monster
     {
         TYPE type;
         VARIANT name;
@@ -107,6 +107,33 @@ namespace FurRealEngine
                     return "Lich";
                 default:
                     return "Alien";
+            }
+        }
+
+        public static VARIANT getVariant(string name)
+        {
+            switch (name)
+            {
+                case "Kobold":
+                    return VARIANT.KOBOLD;
+                case "Goblin":
+                    return VARIANT.GOBLIN;
+                case "Orc":
+                    return VARIANT.ORC;
+                case "Bugbear":
+                    return VARIANT.BUGBEAR;
+                case "Skeleton":
+                    return VARIANT.SKELETON;
+                case "Zombie":
+                    return VARIANT.ZOMBIE;
+                case "Ghost":
+                    return VARIANT.GHOST;
+                case "Vampire":
+                    return VARIANT.VAMPIRE;
+                case "Lich":
+                    return VARIANT.LICH;
+                default:
+                    return VARIANT.KOBOLD;
             }
         }
 

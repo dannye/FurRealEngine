@@ -7,21 +7,21 @@ using FurRealEngine;
 
 namespace FurRealEngine
 {
-    enum PROFESSION
+    public enum PROFESSION
     {
         SOLDIER,
         MAGE,
         PRIEST
     };
 
-    enum HEAL_OPTION
+    public enum HEAL_OPTION
     {
         NEVER,
         ON_DEATH,
         ALWAYS
     };
 
-    class Character
+    public class Character
     {
         int identifier;
         PROFESSION profession;
@@ -46,6 +46,10 @@ namespace FurRealEngine
             wisdom = SimulatorController.diceRoll(3, 6);
             dexterity = SimulatorController.diceRoll(3, 6);
             constitution = SimulatorController.diceRoll(3, 6);
+            if (profession == PROFESSION.SOLDIER)
+            {
+                
+            }
         }
 
         public Character(PROFESSION prof, HEAL_OPTION heal, bool playable)

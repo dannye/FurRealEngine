@@ -89,7 +89,7 @@ namespace FurRealEngine
         private void buttonRandomizeNumOfChars_Click(object sender, EventArgs e)
         {
             Random rng = new Random();
-            numericUpDownNumOfChars.Value = rng.Next(1, 6);
+            numericUpDownNumOfChars.Value = rng.Next(1, 6 + 1);
         }
 
         private void buttonRandomizeEnvironment_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace FurRealEngine
         private void buttonRadomizeCD_Click(object sender, EventArgs e)
         {
             Random rng = new Random();
-            numericUpDownMonsterCD.Value = rng.Next(1, 100);
+            numericUpDownMonsterCD.Value = rng.Next(1, 100 + 1);
         }
 
         private void numericUpDownNumOfChars_ValueChanged(object sender, EventArgs e)
@@ -147,7 +147,7 @@ namespace FurRealEngine
             }
             mapScenarioSettings();
             mapSceneSettings();
-            configController.initSimulation();
+            configController.initSimulation(listBoxMonsters.Items.Cast<string>().ToList());
             hideSettingsGui();
         }
 

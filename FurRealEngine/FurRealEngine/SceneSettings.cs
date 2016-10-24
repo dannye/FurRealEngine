@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    struct SceneSettings
+    public struct SceneSettings
     {
         int level;
         string environment;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    struct ScenarioSettings
+    public struct ScenarioSettings
     {
 
         int difficulty;

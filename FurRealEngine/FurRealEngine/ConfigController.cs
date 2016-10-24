@@ -21,11 +21,12 @@ namespace FurRealEngine
             monsters = new List<Monster>();
         }
 
-        public void initSimulation()
+        public void initSimulation(List<string> monsterTypes)
         {
+            initializeMonsters(monsterTypes);
             autoAssignMissingProfessions();
             autoFillMonstersToMatchCD();
-            //simulator.initSimulation(user, scene, scenario);
+            SimulatorGUI simGui = new SimulatorGUI(scenario, scene, characters, monsters);
         }
 
         public void setActiveUser(User user)
@@ -47,7 +48,8 @@ namespace FurRealEngine
         {
             foreach (string type in monsterTypes)
             {
-                Monster monster = new Monster(VARIANT.KOBOLD);
+                VARIANT variant = Monster.getVariant(type);
+                Monster monster = new Monster(variant);
                 monsters.Add(monster);
             }
         }
@@ -83,7 +85,7 @@ namespace FurRealEngine
             }
         }
 
-        public void assignProfession(Character character, int profession)
+        public void assignProfession(Character character, PROFESSION profession)
         {
             character.setProfession(profession);
         }
@@ -95,7 +97,7 @@ namespace FurRealEngine
             {
                 if (character.getProfession() == 0)
                 {
-                    assignProfession(character, rng.Next(1, 3));
+                    assignProfession(character, (PROFESSION)rng.Next(0, 2 + 1));
                 }
             }
         }

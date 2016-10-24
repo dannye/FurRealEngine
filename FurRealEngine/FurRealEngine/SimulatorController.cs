@@ -9,15 +9,21 @@ namespace FurRealEngine
 {
     class SimulatorController
     {
-        List<Character> characters = new List<Character>();
-        List<Monster> monsters = new List<Monster>();
+        ScenarioSettings scenario;
+        SceneSettings scene;
+        List<Character> characters;
+        List<Monster> monsters;
 
         static Random rand = new Random();
 
-        public SimulatorController()
+        public SimulatorController(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters)
         {
-            characters.Add(new Character(PROFESSION.MAGE, HEAL_OPTION.ALWAYS, true));
-            monsters.Add(new Monster(VARIANT.ORC));
+            //characters.Add(new Character(PROFESSION.MAGE, HEAL_OPTION.ALWAYS, true));
+            //monsters.Add(new Monster(VARIANT.ORC));
+            this.scenario = scenario;
+            this.scene = scene;
+            this.characters = characters;
+            this.monsters = monsters;
         }
 
         public static uint diceRoll(uint numRolls, uint sides)
@@ -41,42 +47,45 @@ namespace FurRealEngine
 
         public void fillCharacterGroup(GroupBox group)
         {
-            Character character = characters.First();
-            IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
-            List<TextBox> boxesList = boxes.ToList();
-            foreach (TextBox box in boxesList)
+            if (characters.Count() > 0)
             {
-                if (box.Name == "professionText")
+                Character character = characters.First();
+                IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
+                List<TextBox> boxesList = boxes.ToList();
+                foreach (TextBox box in boxesList)
                 {
-                    box.Text = character.getProfessionName();
-                }
-                else if (box.Name == "curHealthText")
-                {
-                    box.Text = character.getCurHealth().ToString();
-                }
-                else if (box.Name == "maxHealthText")
-                {
-                    box.Text = character.getMaxHealth().ToString();
-                }
-                else if (box.Name == "strengthText")
-                {
-                    box.Text = character.getStrength().ToString();
-                }
-                else if (box.Name == "intelligenceText")
-                {
-                    box.Text = character.getIntelligence().ToString();
-                }
-                else if (box.Name == "wisdomText")
-                {
-                    box.Text = character.getWisdom().ToString();
-                }
-                else if (box.Name == "dexterityText")
-                {
-                    box.Text = character.getDexterity().ToString();
-                }
-                else if (box.Name == "constitutionText")
-                {
-                    box.Text = character.getConstitution().ToString();
+                    if (box.Name == "professionText")
+                    {
+                        box.Text = character.getProfessionName();
+                    }
+                    else if (box.Name == "curHealthText")
+                    {
+                        box.Text = character.getCurHealth().ToString();
+                    }
+                    else if (box.Name == "maxHealthText")
+                    {
+                        box.Text = character.getMaxHealth().ToString();
+                    }
+                    else if (box.Name == "strengthText")
+                    {
+                        box.Text = character.getStrength().ToString();
+                    }
+                    else if (box.Name == "intelligenceText")
+                    {
+                        box.Text = character.getIntelligence().ToString();
+                    }
+                    else if (box.Name == "wisdomText")
+                    {
+                        box.Text = character.getWisdom().ToString();
+                    }
+                    else if (box.Name == "dexterityText")
+                    {
+                        box.Text = character.getDexterity().ToString();
+                    }
+                    else if (box.Name == "constitutionText")
+                    {
+                        box.Text = character.getConstitution().ToString();
+                    }
                 }
             }
         }
@@ -91,30 +100,33 @@ namespace FurRealEngine
 
         public void fillMonsterGroup(GroupBox group)
         {
-            Monster monster = monsters.First();
-            IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
-            List<TextBox> boxesList = boxes.ToList();
-            foreach (TextBox box in boxesList)
+            if (monsters.Count() > 0)
             {
-                if (box.Name == "typeText")
+                Monster monster = monsters.First();
+                IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
+                List<TextBox> boxesList = boxes.ToList();
+                foreach (TextBox box in boxesList)
                 {
-                    box.Text = monster.getType();
-                }
-                else if (box.Name == "nameText")
-                {
-                    box.Text = monster.getName();
-                }
-                else if (box.Name == "monsterCurHealthText")
-                {
-                    box.Text = monster.getCurHealth().ToString();
-                }
-                else if (box.Name == "monsterMaxHealthText")
-                {
-                    box.Text = monster.getMaxHealth().ToString();
-                }
-                else if (box.Name == "difficultyLevelText")
-                {
-                    box.Text = monster.getDifficultyLevel().ToString();
+                    if (box.Name == "typeText")
+                    {
+                        box.Text = monster.getType();
+                    }
+                    else if (box.Name == "nameText")
+                    {
+                        box.Text = monster.getName();
+                    }
+                    else if (box.Name == "monsterCurHealthText")
+                    {
+                        box.Text = monster.getCurHealth().ToString();
+                    }
+                    else if (box.Name == "monsterMaxHealthText")
+                    {
+                        box.Text = monster.getMaxHealth().ToString();
+                    }
+                    else if (box.Name == "difficultyLevelText")
+                    {
+                        box.Text = monster.getDifficultyLevel().ToString();
+                    }
                 }
             }
         }

@@ -250,11 +250,15 @@
             this.comboBoxMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxMonsters.FormattingEnabled = true;
             this.comboBoxMonsters.Items.AddRange(new object[] {
-            "Monster1",
-            "Monster2",
-            "Monster3",
-            "Monster4",
-            "Monster5"});
+            "Kobold",
+            "Goblin",
+            "Orc",
+            "Bugbear",
+            "Skeleton",
+            "Zombie",
+            "Ghost",
+            "Vampire",
+            "Lich"});
             this.comboBoxMonsters.Location = new System.Drawing.Point(547, 61);
             this.comboBoxMonsters.Name = "comboBoxMonsters";
             this.comboBoxMonsters.Size = new System.Drawing.Size(121, 21);
@@ -353,10 +357,9 @@
             this.comboBoxEnvironment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxEnvironment.FormattingEnabled = true;
             this.comboBoxEnvironment.Items.AddRange(new object[] {
-            "Environment1",
-            "Environment2",
-            "Envrionment3",
-            "Environment4"});
+            "Dungeon",
+            "Cavern",
+            "Forest"});
             this.comboBoxEnvironment.Location = new System.Drawing.Point(547, 376);
             this.comboBoxEnvironment.Name = "comboBoxEnvironment";
             this.comboBoxEnvironment.Size = new System.Drawing.Size(121, 21);
