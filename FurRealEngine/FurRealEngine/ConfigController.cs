@@ -14,10 +14,6 @@ namespace FurRealEngine
         private List<Character> characters;
         private List<Monster> monsters;
 
-        private static int COMBAT_MAGE = 1;
-        private static int SOLDIER = 2;
-        private static int PRIEST = 3;
-
         public ConfigController()
         {
             characters = new List<Character>();
@@ -38,7 +34,7 @@ namespace FurRealEngine
         {
             foreach (string type in monsterTypes)
             {
-                Monster monster = new Monster(type);
+                Monster monster = new Monster(VARIANT.KOBOLD);
                 monsters.Add(monster);
             }
         }
@@ -48,18 +44,18 @@ namespace FurRealEngine
             return false;
         }
 
-        public int getProfessionIdentifier(string profession)
+        public PROFESSION getProfessionIdentifier(string profession)
         {
             if (profession.Equals("Combat Mage"))
             {
-                return COMBAT_MAGE;
+                return PROFESSION.MAGE;
             }
 
             if (profession.Equals("Soldier"))
             {
-                return SOLDIER;
+                return PROFESSION.SOLDIER;
             }
-            return PRIEST;
+            return PROFESSION.PRIEST;
         }
 
         public void assignProfession(int identifier, string profession)
@@ -95,7 +91,7 @@ namespace FurRealEngine
             {
                 if (character.getIdentifier() == identifier)
                 {
-                    character.setIsPlayable(true);
+                    character.setPlayable(true);
                 }
             }
         }
