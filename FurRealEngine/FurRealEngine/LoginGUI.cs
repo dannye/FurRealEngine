@@ -66,11 +66,17 @@ namespace FurRealEngine
             if (String.Equals(username, unameUser) && String.Equals(password,passUser))
             {
 
+                //Zach - This is if they are a user.
+                //Display next GUI.
+
             }
 
             //If ADMIN
             else if (String.Equals(username, unameAdmin) && String.Equals(password, passAdmin))
             {
+
+                //Zach - This is if they are an Admin.
+                //Display next GUI.
 
             }
 
@@ -78,13 +84,23 @@ namespace FurRealEngine
 
 
 
-            //Zach - Add the onClick command to load the next GUI HERE!.
+            
 
 
         }
 
         //Remember Password
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
