@@ -25,6 +25,11 @@ namespace FurRealEngine
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
+            if (areFieldsEmpty())
+            {
+                return;
+            }
+
             initSimulationSettings();
         }
 
@@ -105,9 +110,15 @@ namespace FurRealEngine
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
+            if (comboBoxProfessions.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a profession to assign a profession!");
+                return;
+            }
             int characterIdentifier = listBoxCharacters.SelectedIndex + 1;
             string selectedProfession = comboBoxProfessions.SelectedItem.ToString();
             configController.assignProfession(characterIdentifier, selectedProfession);
+            MessageBox.Show("Profession Assigned");
         }
 
         private void initSimulationSettings()
@@ -118,13 +129,50 @@ namespace FurRealEngine
 
         private void mapSceneSettings()
         {
-            SceneSettings scene = new SceneSettings();
+            setCharacterPlayability();
+            List<string> monsterTypes = getSelectedMonsters();
+            configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD(), monsterTypes);
         }
 
         private void mapScenarioSettings()
         {
             ScenarioSettings scenario = new ScenarioSettings(getStartingDifficulty(), getStartingLevel(), getMaxLevel(),
                 getRepeatTimes(), getNumberOfCharacters(), getMonstersStartingCD());
+        }
+
+        public bool areFieldsEmpty()
+        {
+            if (comboBoxDifficulty.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a difficulty!");
+                return true;
+            }
+
+            if (comboBoxEnvironment.SelectedItem == null)
+            {
+                MessageBox.Show("You must select an environment!");
+                return true;
+            }
+            return false;
+        }
+
+        private void setCharacterPlayability()
+        {
+            foreach (int index in checkedListBoxChars.CheckedIndices)
+            {
+                int id = index + 1;
+                configController.setCharacterPlayability(id);
+            }
+        }
+
+        private List<string> getSelectedMonsters()
+        {
+            List<string> monsters = new List<string>();
+            foreach (var item in listBoxMonsters.Items)
+            {
+                monsters.Add(item.ToString());
+            }
+            return monsters;
         }
 
         private int getStartingLevel()
@@ -143,7 +191,7 @@ namespace FurRealEngine
         }
 
         private int getStartingDifficulty()
-        {
+        {          
             if (comboBoxDifficulty.SelectedItem.ToString().Equals("Novice"))
             {
                 return NOVICE;
