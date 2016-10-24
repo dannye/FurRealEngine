@@ -87,9 +87,11 @@
             // selectedMonstersGroupBox
             // 
             this.selectedMonstersGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.selectedMonstersGroupBox.BackColor = System.Drawing.Color.Transparent;
             this.selectedMonstersGroupBox.Controls.Add(this.buttonRemoveAll);
             this.selectedMonstersGroupBox.Controls.Add(this.buttonRemoveMonster);
             this.selectedMonstersGroupBox.Controls.Add(this.listBoxMonsters);
+            this.selectedMonstersGroupBox.ForeColor = System.Drawing.Color.White;
             this.selectedMonstersGroupBox.Location = new System.Drawing.Point(547, 88);
             this.selectedMonstersGroupBox.Name = "selectedMonstersGroupBox";
             this.selectedMonstersGroupBox.Size = new System.Drawing.Size(418, 163);
@@ -100,7 +102,8 @@
             // buttonRemoveAll
             // 
             this.buttonRemoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonRemoveAll.Location = new System.Drawing.Point(90, 117);
+            this.buttonRemoveAll.ForeColor = System.Drawing.Color.Black;
+            this.buttonRemoveAll.Location = new System.Drawing.Point(251, 117);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(75, 25);
             this.buttonRemoveAll.TabIndex = 2;
@@ -111,7 +114,8 @@
             // buttonRemoveMonster
             // 
             this.buttonRemoveMonster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonRemoveMonster.Location = new System.Drawing.Point(251, 117);
+            this.buttonRemoveMonster.ForeColor = System.Drawing.Color.Black;
+            this.buttonRemoveMonster.Location = new System.Drawing.Point(127, 117);
             this.buttonRemoveMonster.Name = "buttonRemoveMonster";
             this.buttonRemoveMonster.Size = new System.Drawing.Size(75, 25);
             this.buttonRemoveMonster.TabIndex = 1;
@@ -123,6 +127,8 @@
             // 
             this.labelStartLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelStartLevel.AutoSize = true;
+            this.labelStartLevel.BackColor = System.Drawing.Color.Transparent;
+            this.labelStartLevel.ForeColor = System.Drawing.Color.White;
             this.labelStartLevel.Location = new System.Drawing.Point(709, 292);
             this.labelStartLevel.Name = "labelStartLevel";
             this.labelStartLevel.Size = new System.Drawing.Size(75, 13);
@@ -133,6 +139,8 @@
             // 
             this.labelMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelMonsters.AutoSize = true;
+            this.labelMonsters.BackColor = System.Drawing.Color.Transparent;
+            this.labelMonsters.ForeColor = System.Drawing.Color.White;
             this.labelMonsters.Location = new System.Drawing.Point(545, 45);
             this.labelMonsters.Name = "labelMonsters";
             this.labelMonsters.Size = new System.Drawing.Size(95, 13);
@@ -143,6 +151,8 @@
             // 
             this.labelRepeatTimes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelRepeatTimes.AutoSize = true;
+            this.labelRepeatTimes.BackColor = System.Drawing.Color.Transparent;
+            this.labelRepeatTimes.ForeColor = System.Drawing.Color.White;
             this.labelRepeatTimes.Location = new System.Drawing.Point(842, 360);
             this.labelRepeatTimes.Name = "labelRepeatTimes";
             this.labelRepeatTimes.Size = new System.Drawing.Size(90, 13);
@@ -153,6 +163,8 @@
             // 
             this.labelDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelDifficulty.AutoSize = true;
+            this.labelDifficulty.BackColor = System.Drawing.Color.Transparent;
+            this.labelDifficulty.ForeColor = System.Drawing.Color.White;
             this.labelDifficulty.Location = new System.Drawing.Point(544, 291);
             this.labelDifficulty.Name = "labelDifficulty";
             this.labelDifficulty.Size = new System.Drawing.Size(89, 13);
@@ -173,6 +185,8 @@
             // 
             this.labelMaxLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelMaxLevel.AutoSize = true;
+            this.labelMaxLevel.BackColor = System.Drawing.Color.Transparent;
+            this.labelMaxLevel.ForeColor = System.Drawing.Color.White;
             this.labelMaxLevel.Location = new System.Drawing.Point(870, 293);
             this.labelMaxLevel.Name = "labelMaxLevel";
             this.labelMaxLevel.Size = new System.Drawing.Size(83, 13);
@@ -206,6 +220,7 @@
             // numericUpDownNumOfChars
             // 
             this.numericUpDownNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownNumOfChars.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownNumOfChars.Location = new System.Drawing.Point(23, 74);
             this.numericUpDownNumOfChars.Maximum = new decimal(new int[] {
             6,
@@ -259,6 +274,7 @@
             // buttonRandomizeNumOfChars
             // 
             this.buttonRandomizeNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.buttonRandomizeNumOfChars.ForeColor = System.Drawing.Color.Black;
             this.buttonRandomizeNumOfChars.Location = new System.Drawing.Point(149, 74);
             this.buttonRandomizeNumOfChars.Name = "buttonRandomizeNumOfChars";
             this.buttonRandomizeNumOfChars.Size = new System.Drawing.Size(75, 23);
@@ -293,6 +309,8 @@
             // 
             this.labelMonstersCD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelMonstersCD.AutoSize = true;
+            this.labelMonstersCD.BackColor = System.Drawing.Color.Transparent;
+            this.labelMonstersCD.ForeColor = System.Drawing.Color.White;
             this.labelMonstersCD.Location = new System.Drawing.Point(761, 45);
             this.labelMonstersCD.Name = "labelMonstersCD";
             this.labelMonstersCD.Size = new System.Drawing.Size(112, 13);
@@ -310,9 +328,9 @@
             // buttonRadomizeCD
             // 
             this.buttonRadomizeCD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonRadomizeCD.Location = new System.Drawing.Point(890, 58);
+            this.buttonRadomizeCD.Location = new System.Drawing.Point(890, 61);
             this.buttonRadomizeCD.Name = "buttonRadomizeCD";
-            this.buttonRadomizeCD.Size = new System.Drawing.Size(75, 24);
+            this.buttonRadomizeCD.Size = new System.Drawing.Size(75, 21);
             this.buttonRadomizeCD.TabIndex = 21;
             this.buttonRadomizeCD.Text = "Randomize";
             this.buttonRadomizeCD.UseVisualStyleBackColor = true;
@@ -322,6 +340,8 @@
             // 
             this.labelEnviornment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelEnviornment.AutoSize = true;
+            this.labelEnviornment.BackColor = System.Drawing.Color.Transparent;
+            this.labelEnviornment.ForeColor = System.Drawing.Color.White;
             this.labelEnviornment.Location = new System.Drawing.Point(544, 360);
             this.labelEnviornment.Name = "labelEnviornment";
             this.labelEnviornment.Size = new System.Drawing.Size(96, 13);
@@ -356,15 +376,18 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(24, 18);
+            this.labelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitle.Font = new System.Drawing.Font("Matura MT Script Capitals", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(12, 18);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(316, 29);
+            this.labelTitle.Size = new System.Drawing.Size(352, 34);
             this.labelTitle.TabIndex = 25;
             this.labelTitle.Text = "Configure Combat Simulator";
             // 
             // groupBoxCharacterSettings
             // 
+            this.groupBoxCharacterSettings.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxCharacterSettings.Controls.Add(this.label1);
             this.groupBoxCharacterSettings.Controls.Add(this.labelNumCharMsg);
             this.groupBoxCharacterSettings.Controls.Add(this.groupBoxCharacters);
@@ -372,6 +395,7 @@
             this.groupBoxCharacterSettings.Controls.Add(this.labelNumOfChars);
             this.groupBoxCharacterSettings.Controls.Add(this.numericUpDownNumOfChars);
             this.groupBoxCharacterSettings.Controls.Add(this.buttonRandomizeNumOfChars);
+            this.groupBoxCharacterSettings.ForeColor = System.Drawing.Color.White;
             this.groupBoxCharacterSettings.Location = new System.Drawing.Point(29, 65);
             this.groupBoxCharacterSettings.Name = "groupBoxCharacterSettings";
             this.groupBoxCharacterSettings.Size = new System.Drawing.Size(461, 389);
@@ -382,6 +406,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(236, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 13);
@@ -392,6 +417,7 @@
             // 
             this.labelNumCharMsg.AutoSize = true;
             this.labelNumCharMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumCharMsg.ForeColor = System.Drawing.Color.White;
             this.labelNumCharMsg.Location = new System.Drawing.Point(20, 33);
             this.labelNumCharMsg.Name = "labelNumCharMsg";
             this.labelNumCharMsg.Size = new System.Drawing.Size(102, 13);
@@ -404,6 +430,7 @@
             this.groupBoxCharacters.Controls.Add(this.buttonSelect);
             this.groupBoxCharacters.Controls.Add(this.comboBoxProfessions);
             this.groupBoxCharacters.Controls.Add(this.listBoxCharacters);
+            this.groupBoxCharacters.ForeColor = System.Drawing.Color.White;
             this.groupBoxCharacters.Location = new System.Drawing.Point(20, 118);
             this.groupBoxCharacters.Name = "groupBoxCharacters";
             this.groupBoxCharacters.Size = new System.Drawing.Size(380, 228);
@@ -413,6 +440,8 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.richTextBox1.ForeColor = System.Drawing.Color.Black;
             this.richTextBox1.Location = new System.Drawing.Point(229, 31);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(132, 129);
@@ -423,6 +452,7 @@
             // 
             // buttonSelect
             // 
+            this.buttonSelect.ForeColor = System.Drawing.Color.Black;
             this.buttonSelect.Location = new System.Drawing.Point(147, 152);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(75, 23);
@@ -433,6 +463,7 @@
             // 
             // comboBoxProfessions
             // 
+            this.comboBoxProfessions.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxProfessions.FormattingEnabled = true;
             this.comboBoxProfessions.Items.AddRange(new object[] {
             "Combat Mage",
@@ -445,6 +476,7 @@
             // 
             // listBoxCharacters
             // 
+            this.listBoxCharacters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBoxCharacters.FormattingEnabled = true;
             this.listBoxCharacters.Location = new System.Drawing.Point(6, 31);
             this.listBoxCharacters.Name = "listBoxCharacters";
@@ -453,6 +485,9 @@
             // 
             // checkedListBoxChars
             // 
+            this.checkedListBoxChars.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.checkedListBoxChars.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.checkedListBoxChars.ForeColor = System.Drawing.SystemColors.WindowText;
             this.checkedListBoxChars.FormattingEnabled = true;
             this.checkedListBoxChars.Location = new System.Drawing.Point(249, 42);
             this.checkedListBoxChars.Name = "checkedListBoxChars";
@@ -462,6 +497,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(567, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(306, 13);
@@ -473,6 +510,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::FurRealEngine.Properties.Resources.settingsBackground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1005, 489);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBoxCharacterSettings);
@@ -498,6 +537,7 @@
             this.Controls.Add(this.labelStartLevel);
             this.Controls.Add(this.selectedMonstersGroupBox);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "ConfigGUI";
             this.Text = "FurReal Engine (Simulation Settings)";
             this.selectedMonstersGroupBox.ResumeLayout(false);
