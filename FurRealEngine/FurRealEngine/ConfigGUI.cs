@@ -31,6 +31,11 @@ namespace FurRealEngine
             this.Show();
         }
 
+        public void hideSettingsGui()
+        {
+            this.Hide();
+        }
+
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (areFieldsEmpty())
@@ -143,6 +148,7 @@ namespace FurRealEngine
             mapScenarioSettings();
             mapSceneSettings();
             configController.initSimulation();
+            hideSettingsGui();
         }
 
         private bool areNumericsValid()
