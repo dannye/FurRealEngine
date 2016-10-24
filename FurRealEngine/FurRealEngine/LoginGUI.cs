@@ -67,7 +67,7 @@ namespace FurRealEngine
             {
 
                 //Zach - This is if they are a user.
-                //Display next GUI.
+                //Display next GUI..
 
             }
 
@@ -76,7 +76,7 @@ namespace FurRealEngine
             {
 
                 //Zach - This is if they are an Admin.
-                //Display next GUI.
+                //Display next GUI..
 
             }
 
