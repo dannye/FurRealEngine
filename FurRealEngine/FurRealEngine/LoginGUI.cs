@@ -40,7 +40,7 @@ namespace FurRealEngine
         }
 
         //Submit
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
             string uname = textBox1.Text;
             string pass = textBox2.Text;
@@ -63,12 +63,14 @@ namespace FurRealEngine
             string passAdmin = "password";
 
             //If USER
-            if (String.Equals(username, unameUser) && String.Equals(password,passUser))
+            if (String.Equals(username, unameUser) && String.Equals(password, passUser))
             {
 
                 //Zach - This is if they are a user.
                 //Display next GUI..
-
+                ConfigGUI configGui = new ConfigGUI();
+                this.Hide();
+                configGui.initConfigGui(new User(uname, passUser, false));
             }
 
             //If ADMIN
@@ -77,14 +79,16 @@ namespace FurRealEngine
 
                 //Zach - This is if they are an Admin.
                 //Display next GUI..
-
+                ConfigGUI configGui = new ConfigGUI();
+                this.Hide();
+                configGui.initConfigGui(new User(uname, passUser, true));
             }
 
             //If not a User or Admin 
 
 
 
-            
+
 
 
         }
@@ -104,5 +108,7 @@ namespace FurRealEngine
         {
 
         }
+
+
     }
 }
