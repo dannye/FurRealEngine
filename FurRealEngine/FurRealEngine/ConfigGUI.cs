@@ -13,6 +13,7 @@ namespace FurRealEngine
     public partial class ConfigGUI : Form
     {
         private ConfigController configController;
+        private User user;
         private static int NOVICE = 1;
         private static int APPRENTICE = 2;
         private static int MASTER = 3;
@@ -23,13 +24,19 @@ namespace FurRealEngine
             configController = new ConfigController();
         }
 
+        public void initConfigGui(User user)
+        {
+            this.user = user;
+            configController.setActiveUser(user);
+            this.Show();
+        }
+
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (areFieldsEmpty())
             {
                 return;
             }
-
             initSimulationSettings();
         }
 
@@ -123,8 +130,50 @@ namespace FurRealEngine
 
         private void initSimulationSettings()
         {
+            if (!areNumericsValid())
+            {
+                MessageBox.Show("Numeric values cannot be negative or zero!");
+                return;
+            }
             mapScenarioSettings();
             mapSceneSettings();
+            configController.initSimulation();
+        }
+
+        private bool areNumericsValid()
+        {
+            int invalids = 0;
+            if ((int) numericUpDownMaxLevel.Value <= 0)
+            {
+                invalids++;
+            }
+
+            if ((int) numericUpDownMonsterCD.Value <= 0)
+            {
+                invalids++;
+            }
+
+            if ((int) numericUpDownNumOfChars.Value <= 0)
+            {
+                invalids++;
+            }
+
+            if ((int) numericUpDownRepeat.Value <= 0)
+            {
+                invalids++;
+            }
+
+            if ((int) numericUpDownStartLevel.Value <= 0)
+            {
+                invalids++;
+            }
+
+            if(invalids > 0)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void mapSceneSettings()
@@ -138,6 +187,7 @@ namespace FurRealEngine
         {
             ScenarioSettings scenario = new ScenarioSettings(getStartingDifficulty(), getStartingLevel(), getMaxLevel(),
                 getRepeatTimes(), getNumberOfCharacters(), getMonstersStartingCD());
+            configController.setScenario(scenario);
         }
 
         public bool areFieldsEmpty()

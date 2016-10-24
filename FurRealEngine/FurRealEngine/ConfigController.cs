@@ -13,6 +13,7 @@ namespace FurRealEngine
         private ScenarioSettings scenario;
         private List<Character> characters;
         private List<Monster> monsters;
+        private User user;
 
         private static int COMBAT_MAGE = 1;
         private static int SOLDIER = 2;
@@ -22,6 +23,18 @@ namespace FurRealEngine
         {
             characters = new List<Character>();
             monsters = new List<Monster>();
+        }
+
+        public void initSimulation()
+        {
+            autoAssignMissingProfessions();
+            autoFillMonstersToMatchCD();
+            //simulator.initSimulation(user, scene, scenario);
+        }
+
+        public void setActiveUser(User user)
+        {
+            this.user = user;
         }
 
         public void setScene(int level, string environment, int challengeDifficulty, List<string> monsterTypes)
@@ -43,9 +56,10 @@ namespace FurRealEngine
             }
         }
 
-        public bool areSettingsValid()
+        private void autoFillMonstersToMatchCD()
         {
-            return false;
+            //TODO: will determine how many/which monsters need added to the monster list
+            //      to fill the remainder of entered CD the the monsters list couldn't fill
         }
 
         public int getProfessionIdentifier(string profession)
@@ -69,6 +83,23 @@ namespace FurRealEngine
                 if (character.getIdentifier() == identifier)
                 {
                     character.setProfession(getProfessionIdentifier(profession));
+                }
+            }
+        }
+
+        public void assignProfession(Character character, int profession)
+        {
+            character.setProfession(profession);
+        }
+
+        private void autoAssignMissingProfessions()
+        {
+            Random rng = new Random();
+            foreach (Character character in characters)
+            {
+                if (character.getProfession() == 0)
+                {
+                    assignProfession(character, rng.Next(1, 3));
                 }
             }
         }

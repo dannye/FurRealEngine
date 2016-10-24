@@ -328,9 +328,9 @@
             // buttonRadomizeCD
             // 
             this.buttonRadomizeCD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonRadomizeCD.Location = new System.Drawing.Point(890, 58);
+            this.buttonRadomizeCD.Location = new System.Drawing.Point(890, 61);
             this.buttonRadomizeCD.Name = "buttonRadomizeCD";
-            this.buttonRadomizeCD.Size = new System.Drawing.Size(75, 24);
+            this.buttonRadomizeCD.Size = new System.Drawing.Size(75, 21);
             this.buttonRadomizeCD.TabIndex = 21;
             this.buttonRadomizeCD.Text = "Randomize";
             this.buttonRadomizeCD.UseVisualStyleBackColor = true;
@@ -510,6 +510,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::FurRealEngine.Properties.Resources.settingsBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1005, 489);
             this.Controls.Add(this.label2);
