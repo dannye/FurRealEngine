@@ -122,10 +122,15 @@ namespace FurRealEngine
                 MessageBox.Show("You must select a profession to assign a profession!");
                 return;
             }
+            if(listBoxCharacters.SelectedItem == null)
+            {
+                MessageBox.Show("You must select a character before assigning a profession!");
+                return;
+            }
             int characterIdentifier = listBoxCharacters.SelectedIndex + 1;
             string selectedProfession = comboBoxProfessions.SelectedItem.ToString();
             configController.assignProfession(characterIdentifier, selectedProfession);
-            MessageBox.Show("Profession Assigned");
+            MessageBox.Show("Profession assigned!");
         }
 
         private void initSimulationSettings()

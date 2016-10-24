@@ -103,7 +103,7 @@
             // 
             this.buttonRemoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.Black;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(90, 117);
+            this.buttonRemoveAll.Location = new System.Drawing.Point(251, 117);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(75, 25);
             this.buttonRemoveAll.TabIndex = 2;
@@ -115,7 +115,7 @@
             // 
             this.buttonRemoveMonster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonRemoveMonster.ForeColor = System.Drawing.Color.Black;
-            this.buttonRemoveMonster.Location = new System.Drawing.Point(251, 117);
+            this.buttonRemoveMonster.Location = new System.Drawing.Point(127, 117);
             this.buttonRemoveMonster.Name = "buttonRemoveMonster";
             this.buttonRemoveMonster.Size = new System.Drawing.Size(75, 25);
             this.buttonRemoveMonster.TabIndex = 1;
@@ -537,6 +537,7 @@
             this.Controls.Add(this.labelStartLevel);
             this.Controls.Add(this.selectedMonstersGroupBox);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "ConfigGUI";
             this.Text = "FurReal Engine (Simulation Settings)";
             this.selectedMonstersGroupBox.ResumeLayout(false);
