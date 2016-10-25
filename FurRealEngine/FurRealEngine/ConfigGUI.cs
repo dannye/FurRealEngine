@@ -22,6 +22,9 @@ namespace FurRealEngine
         {
             InitializeComponent();
             configController = new ConfigController();
+            comboBoxMonsters.SelectedIndex = 0;
+            comboBoxDifficulty.SelectedIndex = 0;
+            comboBoxEnvironment.SelectedIndex = 0;
         }
 
         public void initConfigGui(User user)
