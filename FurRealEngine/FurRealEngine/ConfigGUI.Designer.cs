@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigGUI));
             this.listBoxMonsters = new System.Windows.Forms.ListBox();
             this.selectedMonstersGroupBox = new System.Windows.Forms.GroupBox();
             this.buttonRemoveAll = new System.Windows.Forms.Button();
@@ -59,6 +60,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelNumCharMsg = new System.Windows.Forms.Label();
             this.groupBoxCharacters = new System.Windows.Forms.GroupBox();
+            this.buttonSelectProfessionLevel = new System.Windows.Forms.Button();
+            this.comboBoxProfessionLevel = new System.Windows.Forms.ComboBox();
+            this.buttonSelectRevive = new System.Windows.Forms.Button();
+            this.comboBoxReviveOpt = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonSelect = new System.Windows.Forms.Button();
             this.comboBoxProfessions = new System.Windows.Forms.ComboBox();
@@ -78,10 +83,11 @@
             // listBoxMonsters
             // 
             this.listBoxMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.listBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBoxMonsters.FormattingEnabled = true;
             this.listBoxMonsters.ItemHeight = 16;
             this.listBoxMonsters.Location = new System.Drawing.Point(59, 23);
-            this.listBoxMonsters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxMonsters.Name = "listBoxMonsters";
             this.listBoxMonsters.Size = new System.Drawing.Size(440, 84);
             this.listBoxMonsters.TabIndex = 0;
@@ -95,9 +101,9 @@
             this.selectedMonstersGroupBox.Controls.Add(this.listBoxMonsters);
             this.selectedMonstersGroupBox.ForeColor = System.Drawing.Color.White;
             this.selectedMonstersGroupBox.Location = new System.Drawing.Point(729, 108);
-            this.selectedMonstersGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.selectedMonstersGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.selectedMonstersGroupBox.Name = "selectedMonstersGroupBox";
-            this.selectedMonstersGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.selectedMonstersGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.selectedMonstersGroupBox.Size = new System.Drawing.Size(557, 201);
             this.selectedMonstersGroupBox.TabIndex = 1;
             this.selectedMonstersGroupBox.TabStop = false;
@@ -108,7 +114,7 @@
             this.buttonRemoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.Black;
             this.buttonRemoveAll.Location = new System.Drawing.Point(335, 144);
-            this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(100, 31);
             this.buttonRemoveAll.TabIndex = 2;
@@ -121,7 +127,7 @@
             this.buttonRemoveMonster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonRemoveMonster.ForeColor = System.Drawing.Color.Black;
             this.buttonRemoveMonster.Location = new System.Drawing.Point(169, 144);
-            this.buttonRemoveMonster.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRemoveMonster.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRemoveMonster.Name = "buttonRemoveMonster";
             this.buttonRemoveMonster.Size = new System.Drawing.Size(100, 31);
             this.buttonRemoveMonster.TabIndex = 1;
@@ -208,8 +214,9 @@
             // numericUpDownStartLevel
             // 
             this.numericUpDownStartLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownStartLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownStartLevel.Location = new System.Drawing.Point(949, 379);
-            this.numericUpDownStartLevel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownStartLevel.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownStartLevel.Name = "numericUpDownStartLevel";
             this.numericUpDownStartLevel.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownStartLevel.TabIndex = 8;
@@ -217,8 +224,9 @@
             // numericUpDownMaxLevel
             // 
             this.numericUpDownMaxLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownMaxLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownMaxLevel.Location = new System.Drawing.Point(1164, 379);
-            this.numericUpDownMaxLevel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownMaxLevel.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
             this.numericUpDownMaxLevel.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMaxLevel.TabIndex = 9;
@@ -226,8 +234,9 @@
             // numericUpDownRepeat
             // 
             this.numericUpDownRepeat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownRepeat.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownRepeat.Location = new System.Drawing.Point(1127, 463);
-            this.numericUpDownRepeat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownRepeat.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownRepeat.Name = "numericUpDownRepeat";
             this.numericUpDownRepeat.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownRepeat.TabIndex = 10;
@@ -237,7 +246,7 @@
             this.numericUpDownNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.numericUpDownNumOfChars.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownNumOfChars.Location = new System.Drawing.Point(31, 91);
-            this.numericUpDownNumOfChars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownNumOfChars.Maximum = new decimal(new int[] {
             6,
             0,
@@ -251,13 +260,14 @@
             // comboBoxDifficulty
             // 
             this.comboBoxDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBoxDifficulty.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxDifficulty.FormattingEnabled = true;
             this.comboBoxDifficulty.Items.AddRange(new object[] {
             "Novice",
             "Apprentice",
             "Master"});
             this.comboBoxDifficulty.Location = new System.Drawing.Point(729, 378);
-            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             this.comboBoxDifficulty.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDifficulty.TabIndex = 12;
@@ -265,6 +275,7 @@
             // comboBoxMonsters
             // 
             this.comboBoxMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxMonsters.FormattingEnabled = true;
             this.comboBoxMonsters.Items.AddRange(new object[] {
             "Kobold",
@@ -277,7 +288,7 @@
             "Vampire",
             "Lich"});
             this.comboBoxMonsters.Location = new System.Drawing.Point(729, 75);
-            this.comboBoxMonsters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMonsters.Name = "comboBoxMonsters";
             this.comboBoxMonsters.Size = new System.Drawing.Size(160, 24);
             this.comboBoxMonsters.TabIndex = 13;
@@ -286,7 +297,7 @@
             // 
             this.buttonAddMonster.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonAddMonster.Location = new System.Drawing.Point(899, 75);
-            this.buttonAddMonster.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddMonster.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddMonster.Name = "buttonAddMonster";
             this.buttonAddMonster.Size = new System.Drawing.Size(100, 25);
             this.buttonAddMonster.TabIndex = 2;
@@ -298,10 +309,10 @@
             // 
             this.buttonRandomizeNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonRandomizeNumOfChars.ForeColor = System.Drawing.Color.Black;
-            this.buttonRandomizeNumOfChars.Location = new System.Drawing.Point(199, 91);
-            this.buttonRandomizeNumOfChars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRandomizeNumOfChars.Location = new System.Drawing.Point(199, 88);
+            this.buttonRandomizeNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRandomizeNumOfChars.Name = "buttonRandomizeNumOfChars";
-            this.buttonRandomizeNumOfChars.Size = new System.Drawing.Size(100, 28);
+            this.buttonRandomizeNumOfChars.Size = new System.Drawing.Size(100, 25);
             this.buttonRandomizeNumOfChars.TabIndex = 15;
             this.buttonRandomizeNumOfChars.Text = "Randomize";
             this.buttonRandomizeNumOfChars.UseVisualStyleBackColor = true;
@@ -311,7 +322,7 @@
             // 
             this.buttonQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonQuit.Location = new System.Drawing.Point(1009, 540);
-            this.buttonQuit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonQuit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(100, 30);
             this.buttonQuit.TabIndex = 17;
@@ -323,7 +334,7 @@
             // 
             this.buttonConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonConfirm.Location = new System.Drawing.Point(1187, 540);
-            this.buttonConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(100, 30);
             this.buttonConfirm.TabIndex = 18;
@@ -347,8 +358,9 @@
             // numericUpDownMonsterCD
             // 
             this.numericUpDownMonsterCD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.numericUpDownMonsterCD.Location = new System.Drawing.Point(1019, 75);
-            this.numericUpDownMonsterCD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDownMonsterCD.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDownMonsterCD.Location = new System.Drawing.Point(1019, 77);
+            this.numericUpDownMonsterCD.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
             this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMonsterCD.TabIndex = 20;
@@ -356,8 +368,8 @@
             // buttonRadomizeCD
             // 
             this.buttonRadomizeCD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonRadomizeCD.Location = new System.Drawing.Point(1187, 75);
-            this.buttonRadomizeCD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRadomizeCD.Location = new System.Drawing.Point(1187, 73);
+            this.buttonRadomizeCD.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRadomizeCD.Name = "buttonRadomizeCD";
             this.buttonRadomizeCD.Size = new System.Drawing.Size(100, 26);
             this.buttonRadomizeCD.TabIndex = 21;
@@ -381,13 +393,14 @@
             // comboBoxEnvironment
             // 
             this.comboBoxEnvironment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBoxEnvironment.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxEnvironment.FormattingEnabled = true;
             this.comboBoxEnvironment.Items.AddRange(new object[] {
             "Dungeon",
             "Cavern",
             "Forest"});
             this.comboBoxEnvironment.Location = new System.Drawing.Point(729, 463);
-            this.comboBoxEnvironment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxEnvironment.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxEnvironment.Name = "comboBoxEnvironment";
             this.comboBoxEnvironment.Size = new System.Drawing.Size(160, 24);
             this.comboBoxEnvironment.TabIndex = 23;
@@ -395,8 +408,8 @@
             // buttonRandomizeEnvironment
             // 
             this.buttonRandomizeEnvironment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.buttonRandomizeEnvironment.Location = new System.Drawing.Point(899, 466);
-            this.buttonRandomizeEnvironment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRandomizeEnvironment.Location = new System.Drawing.Point(899, 463);
+            this.buttonRandomizeEnvironment.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRandomizeEnvironment.Name = "buttonRandomizeEnvironment";
             this.buttonRandomizeEnvironment.Size = new System.Drawing.Size(100, 25);
             this.buttonRandomizeEnvironment.TabIndex = 24;
@@ -429,10 +442,10 @@
             this.groupBoxCharacterSettings.Controls.Add(this.buttonRandomizeNumOfChars);
             this.groupBoxCharacterSettings.ForeColor = System.Drawing.Color.White;
             this.groupBoxCharacterSettings.Location = new System.Drawing.Point(39, 80);
-            this.groupBoxCharacterSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCharacterSettings.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCharacterSettings.Name = "groupBoxCharacterSettings";
-            this.groupBoxCharacterSettings.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBoxCharacterSettings.Size = new System.Drawing.Size(615, 479);
+            this.groupBoxCharacterSettings.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxCharacterSettings.Size = new System.Drawing.Size(615, 490);
             this.groupBoxCharacterSettings.TabIndex = 26;
             this.groupBoxCharacterSettings.TabStop = false;
             this.groupBoxCharacterSettings.Text = "Character Settings";
@@ -462,38 +475,89 @@
             // 
             // groupBoxCharacters
             // 
+            this.groupBoxCharacters.Controls.Add(this.buttonSelectProfessionLevel);
+            this.groupBoxCharacters.Controls.Add(this.comboBoxProfessionLevel);
+            this.groupBoxCharacters.Controls.Add(this.buttonSelectRevive);
+            this.groupBoxCharacters.Controls.Add(this.comboBoxReviveOpt);
             this.groupBoxCharacters.Controls.Add(this.richTextBox1);
             this.groupBoxCharacters.Controls.Add(this.buttonSelect);
             this.groupBoxCharacters.Controls.Add(this.comboBoxProfessions);
             this.groupBoxCharacters.Controls.Add(this.listBoxCharacters);
             this.groupBoxCharacters.ForeColor = System.Drawing.Color.White;
             this.groupBoxCharacters.Location = new System.Drawing.Point(27, 145);
-            this.groupBoxCharacters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCharacters.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCharacters.Name = "groupBoxCharacters";
-            this.groupBoxCharacters.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBoxCharacters.Size = new System.Drawing.Size(507, 281);
+            this.groupBoxCharacters.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxCharacters.Size = new System.Drawing.Size(532, 337);
             this.groupBoxCharacters.TabIndex = 18;
             this.groupBoxCharacters.TabStop = false;
             this.groupBoxCharacters.Text = "Character Profession Selection";
+            // 
+            // buttonSelectProfessionLevel
+            // 
+            this.buttonSelectProfessionLevel.ForeColor = System.Drawing.Color.Black;
+            this.buttonSelectProfessionLevel.Location = new System.Drawing.Point(199, 211);
+            this.buttonSelectProfessionLevel.Name = "buttonSelectProfessionLevel";
+            this.buttonSelectProfessionLevel.Size = new System.Drawing.Size(98, 30);
+            this.buttonSelectProfessionLevel.TabIndex = 24;
+            this.buttonSelectProfessionLevel.Text = "Select";
+            this.buttonSelectProfessionLevel.UseVisualStyleBackColor = true;
+            this.buttonSelectProfessionLevel.Click += new System.EventHandler(this.buttonSelectProfessionLevel_Click);
+            // 
+            // comboBoxProfessionLevel
+            // 
+            this.comboBoxProfessionLevel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxProfessionLevel.FormattingEnabled = true;
+            this.comboBoxProfessionLevel.Items.AddRange(new object[] {
+            "Apprentice",
+            "Novice",
+            "Expert",
+            "Master"});
+            this.comboBoxProfessionLevel.Location = new System.Drawing.Point(8, 218);
+            this.comboBoxProfessionLevel.Name = "comboBoxProfessionLevel";
+            this.comboBoxProfessionLevel.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxProfessionLevel.TabIndex = 23;
+            // 
+            // buttonSelectRevive
+            // 
+            this.buttonSelectRevive.ForeColor = System.Drawing.Color.Black;
+            this.buttonSelectRevive.Location = new System.Drawing.Point(197, 273);
+            this.buttonSelectRevive.Name = "buttonSelectRevive";
+            this.buttonSelectRevive.Size = new System.Drawing.Size(98, 29);
+            this.buttonSelectRevive.TabIndex = 22;
+            this.buttonSelectRevive.Text = "Select";
+            this.buttonSelectRevive.UseVisualStyleBackColor = true;
+            this.buttonSelectRevive.Click += new System.EventHandler(this.buttonSelectRevive_Click);
+            // 
+            // comboBoxReviveOpt
+            // 
+            this.comboBoxReviveOpt.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxReviveOpt.FormattingEnabled = true;
+            this.comboBoxReviveOpt.Items.AddRange(new object[] {
+            "Upon Death",
+            "Each Level",
+            "Never Revive"});
+            this.comboBoxReviveOpt.Location = new System.Drawing.Point(8, 273);
+            this.comboBoxReviveOpt.Name = "comboBoxReviveOpt";
+            this.comboBoxReviveOpt.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxReviveOpt.TabIndex = 21;
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox1.ForeColor = System.Drawing.Color.Black;
             this.richTextBox1.Location = new System.Drawing.Point(305, 38);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(175, 158);
+            this.richTextBox1.Size = new System.Drawing.Size(219, 264);
             this.richTextBox1.TabIndex = 20;
-            this.richTextBox1.Text = "Select one of the entered characters and choose\na profession from the drop down b" +
-    "ox and click\n\'Select\'. If a profession for a character is not chosen,\na professi" +
-    "on will be selected at random for you";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // buttonSelect
             // 
             this.buttonSelect.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelect.Location = new System.Drawing.Point(196, 187);
-            this.buttonSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSelect.Location = new System.Drawing.Point(197, 153);
+            this.buttonSelect.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(100, 28);
             this.buttonSelect.TabIndex = 19;
@@ -509,8 +573,8 @@
             "Combat Mage",
             "Soldier",
             "Priest"});
-            this.comboBoxProfessions.Location = new System.Drawing.Point(8, 190);
-            this.comboBoxProfessions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxProfessions.Location = new System.Drawing.Point(8, 157);
+            this.comboBoxProfessions.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxProfessions.Name = "comboBoxProfessions";
             this.comboBoxProfessions.Size = new System.Drawing.Size(160, 24);
             this.comboBoxProfessions.TabIndex = 18;
@@ -521,9 +585,9 @@
             this.listBoxCharacters.FormattingEnabled = true;
             this.listBoxCharacters.ItemHeight = 16;
             this.listBoxCharacters.Location = new System.Drawing.Point(8, 38);
-            this.listBoxCharacters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxCharacters.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxCharacters.Name = "listBoxCharacters";
-            this.listBoxCharacters.Size = new System.Drawing.Size(287, 132);
+            this.listBoxCharacters.Size = new System.Drawing.Size(287, 100);
             this.listBoxCharacters.TabIndex = 17;
             // 
             // checkedListBoxChars
@@ -533,7 +597,7 @@
             this.checkedListBoxChars.ForeColor = System.Drawing.SystemColors.WindowText;
             this.checkedListBoxChars.FormattingEnabled = true;
             this.checkedListBoxChars.Location = new System.Drawing.Point(332, 52);
-            this.checkedListBoxChars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkedListBoxChars.Margin = new System.Windows.Forms.Padding(4);
             this.checkedListBoxChars.Name = "checkedListBoxChars";
             this.checkedListBoxChars.Size = new System.Drawing.Size(227, 72);
             this.checkedListBoxChars.TabIndex = 16;
@@ -583,7 +647,7 @@
             this.Controls.Add(this.selectedMonstersGroupBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ConfigGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -641,6 +705,10 @@
         private System.Windows.Forms.Label labelNumCharMsg;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonSelectProfessionLevel;
+        private System.Windows.Forms.ComboBox comboBoxProfessionLevel;
+        private System.Windows.Forms.Button buttonSelectRevive;
+        private System.Windows.Forms.ComboBox comboBoxReviveOpt;
     }
 }
 

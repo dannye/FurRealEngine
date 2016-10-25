@@ -74,6 +74,11 @@ namespace FurRealEngine
             return PROFESSION.PRIEST;
         }
 
+        public List<Character> getCharacters()
+        {
+            return this.characters;
+        }
+
         public void assignProfession(int identifier, string profession)
         {
             foreach (Character character in characters)

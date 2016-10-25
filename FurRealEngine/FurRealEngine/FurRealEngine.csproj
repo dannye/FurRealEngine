@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
+    <Compile Include="TestClasses\ConfigControllerTests.cs" />
     <Compile Include="ConfigGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +117,9 @@
     <Content Include="Resources\dungeon.jpg" />
     <Content Include="Resources\forest.jpg" />
     <Content Include="Resources\settingsBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
