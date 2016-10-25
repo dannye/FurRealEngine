@@ -28,11 +28,11 @@ namespace FurRealEngine
         HEAL_OPTION healOption;
         int maxHealth;
         int curHealth;
-        uint strength;
-        uint intelligence;
-        uint wisdom;
-        uint dexterity;
-        uint constitution;
+        int strength;
+        int intelligence;
+        int wisdom;
+        int dexterity;
+        int constitution;
         bool playable;
         int initiative;
 
@@ -128,52 +128,52 @@ namespace FurRealEngine
             healOption = heal;
         }
 
-        public uint getStrength()
+        public int getStrength()
         {
             return strength;
         }
 
-        public void setStrength(uint str)
+        public void setStrength(int str)
         {
             strength = str;
         }
 
-        public uint getIntelligence()
+        public int getIntelligence()
         {
             return intelligence;
         }
 
-        public void setIntelligence(uint intelligence)
+        public void setIntelligence(int intelligence)
         {
             this.intelligence = intelligence;
         }
 
-        public uint getWisdom()
+        public int getWisdom()
         {
             return wisdom;
         }
 
-        public void setWisdom(uint wis)
+        public void setWisdom(int wis)
         {
             wisdom = wis;
         }
 
-        public uint getDexterity()
+        public int getDexterity()
         {
             return dexterity;
         }
 
-        public void setDexterity(uint dex)
+        public void setDexterity(int dex)
         {
             dexterity = dex;
         }
 
-        public uint getConstitution()
+        public int getConstitution()
         {
             return constitution;
         }
 
-        public void setConstitution(uint constitution)
+        public void setConstitution(int constitution)
         {
             this.constitution = constitution;
         }

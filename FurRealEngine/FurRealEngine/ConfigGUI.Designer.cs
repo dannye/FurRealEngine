@@ -220,6 +220,11 @@
             this.numericUpDownStartLevel.Name = "numericUpDownStartLevel";
             this.numericUpDownStartLevel.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownStartLevel.TabIndex = 8;
+            this.numericUpDownStartLevel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownMaxLevel
             // 
@@ -230,6 +235,11 @@
             this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
             this.numericUpDownMaxLevel.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMaxLevel.TabIndex = 9;
+            this.numericUpDownMaxLevel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownRepeat
             // 
@@ -240,6 +250,11 @@
             this.numericUpDownRepeat.Name = "numericUpDownRepeat";
             this.numericUpDownRepeat.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownRepeat.TabIndex = 10;
+            this.numericUpDownRepeat.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownNumOfChars
             // 
@@ -364,6 +379,11 @@
             this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
             this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMonsterCD.TabIndex = 20;
+            this.numericUpDownMonsterCD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // buttonRadomizeCD
             // 
