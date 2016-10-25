@@ -17,7 +17,7 @@ namespace FurRealEngine
             // arrange
             string selectedProfession = "Soldier";
             PROFESSION expectedRetVal = PROFESSION.SOLDIER;
-            ConfigController controller = new ConfigController();
+            ConfigController controller = new ConfigController(null);
 
             // act
             PROFESSION actual = controller.getProfessionIdentifier(selectedProfession);
@@ -32,7 +32,7 @@ namespace FurRealEngine
             // arrange
             string selectedProfession = "Combat Mage";
             PROFESSION expectedRetVal = PROFESSION.MAGE;
-            ConfigController controller = new ConfigController();
+            ConfigController controller = new ConfigController(null);
 
             // act
             PROFESSION actual = controller.getProfessionIdentifier(selectedProfession);
@@ -47,7 +47,7 @@ namespace FurRealEngine
             // arrange
             string selectedProfession = "Priest";
             PROFESSION expectedRetVal = PROFESSION.PRIEST;
-            ConfigController controller = new ConfigController();
+            ConfigController controller = new ConfigController(null);
 
             // act
             PROFESSION actual = controller.getProfessionIdentifier(selectedProfession);
@@ -60,7 +60,7 @@ namespace FurRealEngine
         public void addingCharacterAssignsProffesionCorrectly()
         {
             // arrange
-            ConfigController controller = new ConfigController();
+            ConfigController controller = new ConfigController(null);
             List<Character> characters;
             int soldier = 1;
             int mage = 2;

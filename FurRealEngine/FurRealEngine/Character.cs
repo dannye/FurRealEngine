@@ -90,7 +90,7 @@ namespace FurRealEngine
 
         public bool isCharacterPlayable()
         {
-            return this.playable;
+            return playable;
         }
 
         public void setPlayable(bool playable)
@@ -100,7 +100,7 @@ namespace FurRealEngine
 
         public int getIdentifier()
         {
-            return this.identifier;
+            return identifier;
         }
 
         public void setIdentifier(int identifier)
@@ -110,7 +110,7 @@ namespace FurRealEngine
 
         public PROFESSION getProfession()
         {
-            return this.profession;
+            return profession;
         }
 
         public void setProfession(PROFESSION profession)

@@ -672,6 +672,7 @@
             this.Name = "ConfigGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FurReal Engine (Simulation Settings)";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigGUI_FormClosed);
             this.selectedMonstersGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).EndInit();

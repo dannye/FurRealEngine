@@ -6,19 +6,30 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    class ConfigController
+    public class ConfigController
     {
-
+        private ConfigGUI gui;
         private SceneSettings scene;
         private ScenarioSettings scenario;
         private List<Character> characters;
         private List<Monster> monsters;
         private User user;
+        private SimulatorController simController;
 
-        public ConfigController()
+        public ConfigController(ConfigGUI gui)
         {
+            this.gui = gui;
             characters = new List<Character>();
             monsters = new List<Monster>();
+        }
+
+        public void show()
+        {
+            if (gui != null)
+            {
+                gui.Show();
+                simController = null;
+            }
         }
 
         public void initSimulation(List<string> monsterTypes)
@@ -26,7 +37,7 @@ namespace FurRealEngine
             initializeMonsters(monsterTypes);
             autoAssignMissingProfessions();
             autoFillMonstersToMatchCD();
-            SimulatorGUI simGui = new SimulatorGUI(scenario, scene, characters, monsters);
+            simController = new SimulatorController(scenario, scene, characters, monsters, this);
         }
 
         public void setActiveUser(User user)
@@ -76,7 +87,7 @@ namespace FurRealEngine
 
         public List<Character> getCharacters()
         {
-            return this.characters;
+            return characters;
         }
 
         public void assignProfession(int identifier, string profession)

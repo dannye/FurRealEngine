@@ -53,7 +53,7 @@ namespace FurRealEngine
                 //Zach - This is if they are a user.
                 //Display next GUI..
                 ConfigGUI configGui = new ConfigGUI();
-                this.Hide();
+                Hide();
                 configGui.initConfigGui(new User(uname, passUser, false));
             }
 
@@ -64,7 +64,7 @@ namespace FurRealEngine
                 //Zach - This is if they are an Admin.
                 //Display next GUI..
                 ConfigGUI configGui = new ConfigGUI();
-                this.Hide();
+                Hide();
                 configGui.initConfigGui(new User(uname, passUser, true));
             }
 

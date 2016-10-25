@@ -7,21 +7,26 @@ using System.Windows.Forms;
 
 namespace FurRealEngine
 {
-    class SimulatorController
+    public class SimulatorController
     {
+        SimulatorGUI simGUI;
         ScenarioSettings scenario;
         SceneSettings scene;
         List<Character> characters;
         List<Monster> monsters;
+        ConfigController config;
 
         static Random rand = new Random();
 
-        public SimulatorController(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters)
+        public SimulatorController(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters, ConfigController config)
         {
             this.scenario = scenario;
             this.scene = scene;
             this.characters = characters;
             this.monsters = monsters;
+            this.config = config;
+            simGUI = new SimulatorGUI(this, new CombatRoundController(scenario, scene, characters, monsters));
+            setBackground();
         }
 
         public static int diceRoll(int numRolls, int sides)
@@ -98,7 +103,7 @@ namespace FurRealEngine
 
         public void fillMonsterGroup(GroupBox group, int index)
         {
-            if (monsters.Count() > 0)
+            if (monsters.Count() > 0 && index >= 0 && index < monsters.Count())
             {
                 Monster monster = monsters.ElementAt(index);
                 IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
@@ -127,6 +132,41 @@ namespace FurRealEngine
                     }
                 }
             }
+        }
+
+        public void checkForDeath()
+        {
+            for (int i = 0; i < monsters.Count(); ++i)
+            {
+                if (monsters[i].getCurHealth() <= 0)
+                {
+                    simGUI.removeFromMonsterList(i);
+                    monsters.RemoveAt(i);
+                }
+            }
+        }
+
+        public void setBackground()
+        {
+            if (scene.environment == "dungeon")
+            {
+                simGUI.BackgroundImage = Properties.Resources.dungeon;
+            }
+            else if (scene.environment == "cavern")
+            {
+                simGUI.BackgroundImage = Properties.Resources.cavern;
+            }
+            else if (scene.environment == "forest")
+            {
+                simGUI.BackgroundImage = Properties.Resources.forest;
+            }
+        }
+
+        public void close()
+        {
+            simGUI.Hide();
+            simGUI = null;
+            config.show();
         }
     }
 }

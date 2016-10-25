@@ -15,36 +15,29 @@ namespace FurRealEngine
         SimulatorController simController;
         CombatRoundController turnController;
 
-        public SimulatorGUI(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters)
+        public SimulatorGUI(SimulatorController simController, CombatRoundController turnController)
         {
             InitializeComponent();
-            simController = new SimulatorController(scenario, scene, characters, monsters);
-            turnController = new CombatRoundController(scenario, scene, characters, monsters);
+            this.simController = simController;
+            this.turnController = turnController;
             simController.fillCharacterList(characterList);
             if (characterList.Items.Count > 0)
             {
                 characterList.SelectedIndex = 0;
             }
-            
             simController.fillMonsterList(monsterList);
             if (monsterList.Items.Count > 0)
             {
                 monsterList.SelectedIndex = 0;
             }
-            
-            if (scene.environment == "dungeon")
-            {
-                BackgroundImage = Properties.Resources.dungeon;
-            }
-            else if (scene.environment == "cavern")
-            {
-                BackgroundImage = Properties.Resources.cavern;
-            }
-            else if (scene.environment == "forest")
-            {
-                BackgroundImage = Properties.Resources.forest;
-            }
             Show();
+        }
+
+        public void removeFromMonsterList(int i)
+        {
+            int index = monsterList.SelectedIndex;
+            monsterList.Items.RemoveAt(i);
+            index = monsterList.SelectedIndex;
         }
 
         private void characterList_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,9 +47,12 @@ namespace FurRealEngine
 
         private void monsterList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (monsterList.SelectedIndex < 0 && monsterList.Items.Count > 0)
+            {
+                monsterList.SelectedIndex = 0;
+            }
             simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
         }
-		
 		
         private void meleeButton_Click(object sender, EventArgs e)
         {
@@ -65,6 +61,8 @@ namespace FurRealEngine
             if (monsterList.Items.Count > 0)
             {
                 turnController.meleeAttack(character, monster);
+                simController.checkForDeath();
+                simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
             }
         }
 
@@ -75,7 +73,14 @@ namespace FurRealEngine
             if(monsterList.Items.Count > 0 && characterList.Items.Count > 0)
             {
                 turnController.spellAttack(character, monster);
+                simController.checkForDeath();
+                simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
             }
 		}
+
+        private void SimulatorGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            simController.close();
+        }
     }
 }

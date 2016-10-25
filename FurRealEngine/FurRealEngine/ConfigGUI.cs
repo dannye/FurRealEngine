@@ -21,7 +21,7 @@ namespace FurRealEngine
         public ConfigGUI()
         {
             InitializeComponent();
-            configController = new ConfigController();
+            configController = new ConfigController(this);
             comboBoxMonsters.SelectedIndex = 0;
             comboBoxDifficulty.SelectedIndex = 0;
             comboBoxEnvironment.SelectedIndex = 0;
@@ -300,6 +300,11 @@ namespace FurRealEngine
         private void buttonSelectRevive_Click(object sender, EventArgs e)
         {
             //TODO: Assign revive option to selected character
+        }
+
+        private void ConfigGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

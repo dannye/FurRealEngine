@@ -398,6 +398,7 @@
             this.Name = "SimulatorGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SimulatorGUI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SimulatorGUI_FormClosed);
             this.characterGroup.ResumeLayout(false);
             this.characterGroup.PerformLayout();
             this.monsterGroup.ResumeLayout(false);

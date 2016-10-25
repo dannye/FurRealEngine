@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    class CombatRoundController
+    public class CombatRoundController
     {
         ScenarioSettings scenario;
         SceneSettings scene;
@@ -21,6 +21,7 @@ namespace FurRealEngine
             this.characters = characters;
             this.monsters = monsters;
         }
+
         public void meleeAttack(int character, int monster)
         {
             //add real level once Zach adds it to his class
@@ -55,7 +56,6 @@ namespace FurRealEngine
                 {
                     damage = diceRoll(2, 6) + lvl;
                 }
-
                 monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
         }
