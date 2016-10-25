@@ -35,7 +35,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -93,9 +92,9 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(372, 573);
+            this.textBox3.Location = new System.Drawing.Point(372, 559);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(249, 13);
+            this.textBox3.Size = new System.Drawing.Size(267, 13);
             this.textBox3.TabIndex = 7;
             this.textBox3.Text = "Admin || Username: admin   || Password = password";
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
@@ -103,23 +102,12 @@
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(372, 554);
+            this.textBox4.Location = new System.Drawing.Point(372, 530);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(249, 13);
+            this.textBox4.Size = new System.Drawing.Size(267, 13);
             this.textBox4.TabIndex = 8;
             this.textBox4.Text = "User || Username: user        || Password = password";
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // errorLabel
-            // 
-            this.errorLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.errorLabel.AutoSize = true;
-            this.errorLabel.BackColor = System.Drawing.Color.Transparent;
-            this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(490, 527);
-            this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(0, 13);
-            this.errorLabel.TabIndex = 9;
             // 
             // LoginGUI
             // 
@@ -128,7 +116,6 @@
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.BackgroundImage = global::FurRealEngine.Properties.Resources.FurRealEngine;
             this.ClientSize = new System.Drawing.Size(995, 623);
-            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.checkBox1);
@@ -156,6 +143,5 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label errorLabel;
     }
 }
