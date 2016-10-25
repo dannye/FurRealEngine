@@ -31,6 +31,8 @@
             this.characterList = new System.Windows.Forms.ListBox();
             this.monsterList = new System.Windows.Forms.ListBox();
             this.characterGroup = new System.Windows.Forms.GroupBox();
+            this.levelLabel = new System.Windows.Forms.Label();
+            this.levelText = new System.Windows.Forms.TextBox();
             this.professionText = new System.Windows.Forms.TextBox();
             this.professionLabel = new System.Windows.Forms.Label();
             this.charMaxHealthText = new System.Windows.Forms.TextBox();
@@ -60,8 +62,6 @@
             this.monsterHealthLabel = new System.Windows.Forms.Label();
             this.meleeButton = new System.Windows.Forms.Button();
             this.spellButton = new System.Windows.Forms.Button();
-            this.levelText = new System.Windows.Forms.TextBox();
-            this.levelLabel = new System.Windows.Forms.Label();
             this.characterGroup.SuspendLayout();
             this.monsterGroup.SuspendLayout();
             this.SuspendLayout();
@@ -70,9 +70,9 @@
             // 
             this.characterList.FormattingEnabled = true;
             this.characterList.ItemHeight = 16;
-            this.characterList.Location = new System.Drawing.Point(156, 93);
+            this.characterList.Location = new System.Drawing.Point(57, 73);
             this.characterList.Name = "characterList";
-            this.characterList.Size = new System.Drawing.Size(120, 260);
+            this.characterList.Size = new System.Drawing.Size(120, 196);
             this.characterList.TabIndex = 0;
             this.characterList.SelectedIndexChanged += new System.EventHandler(this.characterList_SelectedIndexChanged);
             // 
@@ -80,9 +80,9 @@
             // 
             this.monsterList.FormattingEnabled = true;
             this.monsterList.ItemHeight = 16;
-            this.monsterList.Location = new System.Drawing.Point(1038, 89);
+            this.monsterList.Location = new System.Drawing.Point(1257, 73);
             this.monsterList.Name = "monsterList";
-            this.monsterList.Size = new System.Drawing.Size(120, 260);
+            this.monsterList.Size = new System.Drawing.Size(120, 196);
             this.monsterList.TabIndex = 1;
             this.monsterList.SelectedIndexChanged += new System.EventHandler(this.monsterList_SelectedIndexChanged);
             // 
@@ -106,12 +106,30 @@
             this.characterGroup.Controls.Add(this.intelligenceLabel);
             this.characterGroup.Controls.Add(this.strengthText);
             this.characterGroup.Controls.Add(this.strengthLabel);
-            this.characterGroup.Location = new System.Drawing.Point(351, 93);
+            this.characterGroup.Location = new System.Drawing.Point(216, 73);
             this.characterGroup.Name = "characterGroup";
-            this.characterGroup.Size = new System.Drawing.Size(234, 256);
+            this.characterGroup.Size = new System.Drawing.Size(234, 326);
             this.characterGroup.TabIndex = 2;
             this.characterGroup.TabStop = false;
             this.characterGroup.Text = "Character Stats";
+            // 
+            // levelLabel
+            // 
+            this.levelLabel.AutoSize = true;
+            this.levelLabel.Location = new System.Drawing.Point(16, 61);
+            this.levelLabel.Name = "levelLabel";
+            this.levelLabel.Size = new System.Drawing.Size(46, 17);
+            this.levelLabel.TabIndex = 19;
+            this.levelLabel.Text = "Level:";
+            // 
+            // levelText
+            // 
+            this.levelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.levelText.Location = new System.Drawing.Point(109, 58);
+            this.levelText.Name = "levelText";
+            this.levelText.ReadOnly = true;
+            this.levelText.Size = new System.Drawing.Size(99, 22);
+            this.levelText.TabIndex = 18;
             // 
             // professionText
             // 
@@ -134,7 +152,7 @@
             // charMaxHealthText
             // 
             this.charMaxHealthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.charMaxHealthText.Location = new System.Drawing.Point(170, 88);
+            this.charMaxHealthText.Location = new System.Drawing.Point(170, 92);
             this.charMaxHealthText.Name = "charMaxHealthText";
             this.charMaxHealthText.ReadOnly = true;
             this.charMaxHealthText.Size = new System.Drawing.Size(38, 22);
@@ -143,7 +161,7 @@
             // slash1Label
             // 
             this.slash1Label.AutoSize = true;
-            this.slash1Label.Location = new System.Drawing.Point(152, 91);
+            this.slash1Label.Location = new System.Drawing.Point(152, 95);
             this.slash1Label.Name = "slash1Label";
             this.slash1Label.Size = new System.Drawing.Size(12, 17);
             this.slash1Label.TabIndex = 14;
@@ -152,7 +170,7 @@
             // charCurHealthText
             // 
             this.charCurHealthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.charCurHealthText.Location = new System.Drawing.Point(109, 88);
+            this.charCurHealthText.Location = new System.Drawing.Point(109, 92);
             this.charCurHealthText.Name = "charCurHealthText";
             this.charCurHealthText.ReadOnly = true;
             this.charCurHealthText.Size = new System.Drawing.Size(37, 22);
@@ -161,7 +179,7 @@
             // charHealthLabel
             // 
             this.charHealthLabel.AutoSize = true;
-            this.charHealthLabel.Location = new System.Drawing.Point(16, 88);
+            this.charHealthLabel.Location = new System.Drawing.Point(16, 92);
             this.charHealthLabel.Name = "charHealthLabel";
             this.charHealthLabel.Size = new System.Drawing.Size(53, 17);
             this.charHealthLabel.TabIndex = 12;
@@ -170,7 +188,7 @@
             // constitutionText
             // 
             this.constitutionText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.constitutionText.Location = new System.Drawing.Point(109, 218);
+            this.constitutionText.Location = new System.Drawing.Point(109, 280);
             this.constitutionText.Name = "constitutionText";
             this.constitutionText.ReadOnly = true;
             this.constitutionText.Size = new System.Drawing.Size(99, 22);
@@ -179,7 +197,7 @@
             // constitutionLabel
             // 
             this.constitutionLabel.AutoSize = true;
-            this.constitutionLabel.Location = new System.Drawing.Point(16, 218);
+            this.constitutionLabel.Location = new System.Drawing.Point(16, 280);
             this.constitutionLabel.Name = "constitutionLabel";
             this.constitutionLabel.Size = new System.Drawing.Size(86, 17);
             this.constitutionLabel.TabIndex = 10;
@@ -188,7 +206,7 @@
             // dexterityText
             // 
             this.dexterityText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dexterityText.Location = new System.Drawing.Point(109, 193);
+            this.dexterityText.Location = new System.Drawing.Point(109, 242);
             this.dexterityText.Name = "dexterityText";
             this.dexterityText.ReadOnly = true;
             this.dexterityText.Size = new System.Drawing.Size(99, 22);
@@ -197,7 +215,7 @@
             // dexterityLabel
             // 
             this.dexterityLabel.AutoSize = true;
-            this.dexterityLabel.Location = new System.Drawing.Point(16, 193);
+            this.dexterityLabel.Location = new System.Drawing.Point(16, 242);
             this.dexterityLabel.Name = "dexterityLabel";
             this.dexterityLabel.Size = new System.Drawing.Size(71, 17);
             this.dexterityLabel.TabIndex = 8;
@@ -206,7 +224,7 @@
             // wisdomText
             // 
             this.wisdomText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.wisdomText.Location = new System.Drawing.Point(109, 168);
+            this.wisdomText.Location = new System.Drawing.Point(109, 204);
             this.wisdomText.Name = "wisdomText";
             this.wisdomText.ReadOnly = true;
             this.wisdomText.Size = new System.Drawing.Size(99, 22);
@@ -215,7 +233,7 @@
             // intelligenceText
             // 
             this.intelligenceText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.intelligenceText.Location = new System.Drawing.Point(109, 143);
+            this.intelligenceText.Location = new System.Drawing.Point(109, 166);
             this.intelligenceText.Name = "intelligenceText";
             this.intelligenceText.ReadOnly = true;
             this.intelligenceText.Size = new System.Drawing.Size(99, 22);
@@ -224,7 +242,7 @@
             // wisdomLabel
             // 
             this.wisdomLabel.AutoSize = true;
-            this.wisdomLabel.Location = new System.Drawing.Point(16, 168);
+            this.wisdomLabel.Location = new System.Drawing.Point(16, 204);
             this.wisdomLabel.Name = "wisdomLabel";
             this.wisdomLabel.Size = new System.Drawing.Size(62, 17);
             this.wisdomLabel.TabIndex = 6;
@@ -233,7 +251,7 @@
             // intelligenceLabel
             // 
             this.intelligenceLabel.AutoSize = true;
-            this.intelligenceLabel.Location = new System.Drawing.Point(16, 143);
+            this.intelligenceLabel.Location = new System.Drawing.Point(16, 166);
             this.intelligenceLabel.Name = "intelligenceLabel";
             this.intelligenceLabel.Size = new System.Drawing.Size(87, 17);
             this.intelligenceLabel.TabIndex = 2;
@@ -242,7 +260,7 @@
             // strengthText
             // 
             this.strengthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.strengthText.Location = new System.Drawing.Point(109, 117);
+            this.strengthText.Location = new System.Drawing.Point(109, 128);
             this.strengthText.Name = "strengthText";
             this.strengthText.ReadOnly = true;
             this.strengthText.Size = new System.Drawing.Size(99, 22);
@@ -251,7 +269,7 @@
             // strengthLabel
             // 
             this.strengthLabel.AutoSize = true;
-            this.strengthLabel.Location = new System.Drawing.Point(16, 117);
+            this.strengthLabel.Location = new System.Drawing.Point(16, 128);
             this.strengthLabel.Name = "strengthLabel";
             this.strengthLabel.Size = new System.Drawing.Size(70, 17);
             this.strengthLabel.TabIndex = 0;
@@ -269,9 +287,9 @@
             this.monsterGroup.Controls.Add(this.typeLabel);
             this.monsterGroup.Controls.Add(this.monsterCurHealthText);
             this.monsterGroup.Controls.Add(this.monsterHealthLabel);
-            this.monsterGroup.Location = new System.Drawing.Point(751, 93);
+            this.monsterGroup.Location = new System.Drawing.Point(964, 73);
             this.monsterGroup.Name = "monsterGroup";
-            this.monsterGroup.Size = new System.Drawing.Size(255, 260);
+            this.monsterGroup.Size = new System.Drawing.Size(255, 196);
             this.monsterGroup.TabIndex = 3;
             this.monsterGroup.TabStop = false;
             this.monsterGroup.Text = "Monster Stats";
@@ -279,7 +297,7 @@
             // nameText
             // 
             this.nameText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nameText.Location = new System.Drawing.Point(128, 59);
+            this.nameText.Location = new System.Drawing.Point(128, 66);
             this.nameText.Name = "nameText";
             this.nameText.ReadOnly = true;
             this.nameText.Size = new System.Drawing.Size(97, 22);
@@ -297,7 +315,7 @@
             // difficultyLevelText
             // 
             this.difficultyLevelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.difficultyLevelText.Location = new System.Drawing.Point(128, 125);
+            this.difficultyLevelText.Location = new System.Drawing.Point(128, 102);
             this.difficultyLevelText.Name = "difficultyLevelText";
             this.difficultyLevelText.ReadOnly = true;
             this.difficultyLevelText.Size = new System.Drawing.Size(97, 22);
@@ -306,7 +324,7 @@
             // difficultyLevelLabel
             // 
             this.difficultyLevelLabel.AutoSize = true;
-            this.difficultyLevelLabel.Location = new System.Drawing.Point(10, 128);
+            this.difficultyLevelLabel.Location = new System.Drawing.Point(10, 105);
             this.difficultyLevelLabel.Name = "difficultyLevelLabel";
             this.difficultyLevelLabel.Size = new System.Drawing.Size(103, 17);
             this.difficultyLevelLabel.TabIndex = 22;
@@ -315,7 +333,7 @@
             // monsterMaxHealthText
             // 
             this.monsterMaxHealthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.monsterMaxHealthText.Location = new System.Drawing.Point(185, 92);
+            this.monsterMaxHealthText.Location = new System.Drawing.Point(185, 140);
             this.monsterMaxHealthText.Name = "monsterMaxHealthText";
             this.monsterMaxHealthText.ReadOnly = true;
             this.monsterMaxHealthText.Size = new System.Drawing.Size(40, 22);
@@ -324,7 +342,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(11, 59);
+            this.nameLabel.Location = new System.Drawing.Point(11, 66);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(49, 17);
             this.nameLabel.TabIndex = 1;
@@ -333,7 +351,7 @@
             // slash2Label
             // 
             this.slash2Label.AutoSize = true;
-            this.slash2Label.Location = new System.Drawing.Point(169, 94);
+            this.slash2Label.Location = new System.Drawing.Point(169, 142);
             this.slash2Label.Name = "slash2Label";
             this.slash2Label.Size = new System.Drawing.Size(12, 17);
             this.slash2Label.TabIndex = 20;
@@ -351,7 +369,7 @@
             // monsterCurHealthText
             // 
             this.monsterCurHealthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.monsterCurHealthText.Location = new System.Drawing.Point(128, 92);
+            this.monsterCurHealthText.Location = new System.Drawing.Point(128, 140);
             this.monsterCurHealthText.Name = "monsterCurHealthText";
             this.monsterCurHealthText.ReadOnly = true;
             this.monsterCurHealthText.Size = new System.Drawing.Size(35, 22);
@@ -360,7 +378,7 @@
             // monsterHealthLabel
             // 
             this.monsterHealthLabel.AutoSize = true;
-            this.monsterHealthLabel.Location = new System.Drawing.Point(11, 96);
+            this.monsterHealthLabel.Location = new System.Drawing.Point(11, 144);
             this.monsterHealthLabel.Name = "monsterHealthLabel";
             this.monsterHealthLabel.Size = new System.Drawing.Size(53, 17);
             this.monsterHealthLabel.TabIndex = 18;
@@ -368,9 +386,9 @@
             // 
             // meleeButton
             // 
-            this.meleeButton.Location = new System.Drawing.Point(536, 457);
+            this.meleeButton.Location = new System.Drawing.Point(57, 302);
             this.meleeButton.Name = "meleeButton";
-            this.meleeButton.Size = new System.Drawing.Size(109, 35);
+            this.meleeButton.Size = new System.Drawing.Size(120, 35);
             this.meleeButton.TabIndex = 4;
             this.meleeButton.Text = "Melee";
             this.meleeButton.UseVisualStyleBackColor = true;
@@ -378,38 +396,20 @@
             // 
             // spellButton
             // 
-            this.spellButton.Location = new System.Drawing.Point(702, 457);
+            this.spellButton.Location = new System.Drawing.Point(57, 364);
             this.spellButton.Name = "spellButton";
-            this.spellButton.Size = new System.Drawing.Size(109, 35);
+            this.spellButton.Size = new System.Drawing.Size(120, 35);
             this.spellButton.TabIndex = 5;
             this.spellButton.Text = "Spell";
             this.spellButton.UseVisualStyleBackColor = true;
             this.spellButton.Click += new System.EventHandler(this.spellButton_Click);
-            // 
-            // levelText
-            // 
-            this.levelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.levelText.Location = new System.Drawing.Point(109, 56);
-            this.levelText.Name = "levelText";
-            this.levelText.ReadOnly = true;
-            this.levelText.Size = new System.Drawing.Size(99, 22);
-            this.levelText.TabIndex = 18;
-            // 
-            // levelLabel
-            // 
-            this.levelLabel.AutoSize = true;
-            this.levelLabel.Location = new System.Drawing.Point(16, 59);
-            this.levelLabel.Name = "levelLabel";
-            this.levelLabel.Size = new System.Drawing.Size(46, 17);
-            this.levelLabel.TabIndex = 19;
-            this.levelLabel.Text = "Level:";
             // 
             // SimulatorGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1323, 663);
+            this.ClientSize = new System.Drawing.Size(1434, 663);
             this.Controls.Add(this.spellButton);
             this.Controls.Add(this.meleeButton);
             this.Controls.Add(this.monsterGroup);

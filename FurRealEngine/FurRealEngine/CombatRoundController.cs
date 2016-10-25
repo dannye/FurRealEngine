@@ -32,7 +32,7 @@ namespace FurRealEngine
 
             if (characters[character].getProfessionName() == "Soldier")
             {
-                toHit = diceRoll(1, 20) + (2 * lvl) + getStrMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getStrMod();
                 attackDef = getPhysAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -46,7 +46,7 @@ namespace FurRealEngine
             }
             else if (characters[character].getProfessionName() == "Priest")
             {
-                toHit = diceRoll(1, 20) + (2 * lvl) + getWisMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getWisMod();
                 attackDef = getPhysAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -70,7 +70,7 @@ namespace FurRealEngine
 
             if (characters[character].getProfessionName() == "Combat Mage")
             {
-                toHit = diceRoll(1, 20) + (2 * lvl) + getIntMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getIntMod();
                 attackDef = getMagicAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -84,7 +84,7 @@ namespace FurRealEngine
             }
             else if (characters[character].getProfessionName() == "Priest")
             {
-                toHit = diceRoll(1, 20) + (2 * lvl) + getWisMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getWisMod();
                 attackDef = getPhysAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -106,111 +106,6 @@ namespace FurRealEngine
                 result += (rand.Next() % sides) + 1;
             }
             return result;
-        }
-
-        private int getStrMod(int character)
-        {
-            int strMod = 0;
-            int strength = characters[character].getStrength();
-            if(strength < 3)
-            {
-                strMod = -5;
-            }
-            else if(strength >= 3 || strength <= 5)
-            {
-                strMod = -3;
-            }
-            else if(strength >= 6 || strength <= 9)
-            {
-                strMod = -1;
-            }
-            else if(strength >= 10 || strength <= 12)
-            {
-                strMod = 0;
-            }
-            else if(strength >= 13 || strength <= 15)
-            {
-                strMod = 1;
-            }
-            else if(strength >= 16 || strength <= 18)
-            {
-                strMod = 3;
-            }
-            else if(strength > 18)
-            {
-                strMod = 5;
-            }
-            return strMod;
-        }
-
-        private int getIntMod(int character)
-        {
-            int intMod = 0;
-            int intelligence = characters[character].getIntelligence();
-            if (intelligence < 3)
-            {
-                intMod = -5;
-            }
-            else if (intelligence >= 3 || intelligence <= 5)
-            {
-                intMod = -3;
-            }
-            else if (intelligence >= 6 || intelligence <= 9)
-            {
-                intMod = -1;
-            }
-            else if (intelligence >= 10 || intelligence <= 12)
-            {
-                intMod = 0;
-            }
-            else if (intelligence >= 13 || intelligence <= 15)
-            {
-                intMod = 1;
-            }
-            else if (intelligence >= 16 || intelligence <= 18)
-            {
-                intMod = 3;
-            }
-            else if (intelligence > 18)
-            {
-                intMod = 5;
-            }
-            return intMod;
-        }
-
-        private int getWisMod(int character)
-        {
-            int wisMod = 0;
-            int wisdom = characters[character].getWisdom();
-            if (wisdom < 3)
-            {
-                wisMod = -5;
-            }
-            else if (wisdom >= 3 || wisdom <= 5)
-            {
-                wisMod = -3;
-            }
-            else if (wisdom >= 6 || wisdom <= 9)
-            {
-                wisMod = -1;
-            }
-            else if (wisdom >= 10 || wisdom <= 12)
-            {
-                wisMod = 0;
-            }
-            else if (wisdom >= 13 || wisdom <= 15)
-            {
-                wisMod = 1;
-            }
-            else if (wisdom >= 16 || wisdom <= 18)
-            {
-                wisMod = 3;
-            }
-            else if (wisdom > 18)
-            {
-                wisMod = 5;
-            }
-            return wisMod;
         }
 
         private int getPhysAttackDef(int monster)

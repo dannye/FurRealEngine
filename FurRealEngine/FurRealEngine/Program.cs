@@ -16,7 +16,7 @@ namespace FurRealEngine
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConfigGUI());
+            Application.Run(new LoginGUI());
         }
     }
 }

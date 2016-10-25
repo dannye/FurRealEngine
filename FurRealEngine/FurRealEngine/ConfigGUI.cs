@@ -56,8 +56,16 @@ namespace FurRealEngine
                 MessageBox.Show("Cannot add empty item!");
                 return;
             }
-
+            int curDL = configController.initializeMonsters(listBoxMonsters.Items.Cast<string>().ToList());
+            VARIANT variant = Monster.getVariant(comboBoxMonsters.SelectedItem.ToString());
+            Monster monster = new Monster(variant);
+            if (curDL + monster.getDifficultyLevel() > 100)
+            {
+                MessageBox.Show("There are already too many monsters!");
+                return;
+            }
             listBoxMonsters.Items.Add(comboBoxMonsters.SelectedItem);
+            configController.updatedMonsters(listBoxMonsters.Items.Cast<string>().ToList(), numericUpDownMonsterCD);
         }
 
         private void buttonRemoveMonster_Click(object sender, EventArgs e)
@@ -73,6 +81,7 @@ namespace FurRealEngine
                 return;
             }
             listBoxMonsters.Items.Remove(listBoxMonsters.SelectedItem);
+            configController.updatedMonsters(listBoxMonsters.Items.Cast<string>().ToList(), numericUpDownMonsterCD);
         }
 
         private void buttonRemoveAll_Click(object sender, EventArgs e)
@@ -83,6 +92,7 @@ namespace FurRealEngine
                 return;
             }
             listBoxMonsters.Items.Clear();
+            configController.updatedMonsters(listBoxMonsters.Items.Cast<string>().ToList(), numericUpDownMonsterCD);
         }
 
         private void buttonRandomizeNumOfChars_Click(object sender, EventArgs e)
@@ -108,7 +118,7 @@ namespace FurRealEngine
         private void buttonRadomizeCD_Click(object sender, EventArgs e)
         {
             Random rng = new Random();
-            numericUpDownMonsterCD.Value = rng.Next(1, 100 + 1);
+            numericUpDownMonsterCD.Value = rng.Next(configController.initializeMonsters(listBoxMonsters.Items.Cast<string>().ToList()), 100 + 1);
         }
 
         private void numericUpDownNumOfChars_ValueChanged(object sender, EventArgs e)
@@ -202,11 +212,6 @@ namespace FurRealEngine
             if (comboBoxEnvironment.SelectedItem == null)
             {
                 MessageBox.Show("You must select an environment!");
-                return true;
-            }
-            if (listBoxMonsters.Items.Count == 0)
-            {
-                MessageBox.Show("You must add at least one monster!");
                 return true;
             }
             return false;
@@ -304,6 +309,22 @@ namespace FurRealEngine
         private void listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
         {
             configController.setProfessionFields(comboBoxProfessions, comboBoxProfessionLevel, comboBoxReviveOpt, listBoxCharacters.SelectedIndex);
+        }
+
+        private void numericUpDownStartLevel_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownStartLevel.Value > numericUpDownMaxLevel.Value)
+            {
+                numericUpDownMaxLevel.Value = numericUpDownStartLevel.Value;
+            }
+        }
+
+        private void numericUpDownMaxLevel_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownStartLevel.Value > numericUpDownMaxLevel.Value)
+            {
+                numericUpDownStartLevel.Value = numericUpDownMaxLevel.Value;
+            }
         }
     }
 }

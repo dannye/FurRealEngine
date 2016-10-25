@@ -48,18 +48,77 @@ namespace FurRealEngine
             wisdom = SimulatorController.diceRoll(3, 6);
             dexterity = SimulatorController.diceRoll(3, 6);
             constitution = SimulatorController.diceRoll(3, 6);
-            if (profession == PROFESSION.SOLDIER)
-            {
-                
-            }
         }
 
-        public Character(PROFESSION prof, HEAL_OPTION heal, bool playable)
+        public Character(PROFESSION prof, HEAL_OPTION heal = HEAL_OPTION.NEVER, bool playable = false)
         : this()
         {
             setProfession(prof);
             setHealOption(heal);
             setPlayable(playable);
+            if (profession == PROFESSION.SOLDIER)
+            {
+                if (strength < 13)
+                {
+                    strength = 13;
+                }
+                if (dexterity < 13)
+                {
+                    dexterity = 13;
+                }
+                if (constitution < 10)
+                {
+                    constitution = 10;
+                }
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 12) + 10 + getConMod();
+                initiative = SimulatorController.diceRoll(1, 20) + 1 + getWisMod();
+            }
+            else if (profession == PROFESSION.MAGE)
+            {
+                if (intelligence < 13)
+                {
+                    intelligence = 13;
+                }
+                if (constitution < 13)
+                {
+                    constitution = 13;
+                }
+                if (wisdom < 10)
+                {
+                    wisdom = 10;
+                }
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 6) + 4 + getConMod();
+                initiative = SimulatorController.diceRoll(1, 20) - 3 + getWisMod();
+            }
+            else if (profession == PROFESSION.PRIEST)
+            {
+                if (intelligence < 13)
+                {
+                    intelligence = 13;
+                }
+                if (wisdom < 13)
+                {
+                    wisdom = 13;
+                }
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 8) + 8 + getConMod();
+                initiative = SimulatorController.diceRoll(1, 20) + getWisMod();
+            }
+        }
+
+        private void calcHealth()
+        {
+            if (profession == PROFESSION.SOLDIER)
+            {
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 12) + 10 + getConMod();
+            }
+            else if (profession == PROFESSION.MAGE)
+            {
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 6) + 4 + getConMod();
+            }
+            else if (profession == PROFESSION.PRIEST)
+            {
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 8) + 8 + getConMod();
+            }
         }
 
         public string getProfessionName()
@@ -88,6 +147,7 @@ namespace FurRealEngine
         public void setLevel(int level)
         {
             this.level = level;
+            calcHealth();
         }
 
         public int getCurHealth()
@@ -188,6 +248,65 @@ namespace FurRealEngine
         public void setConstitution(int constitution)
         {
             this.constitution = constitution;
+        }
+
+        public int getStrMod()
+        {
+            return getStatMod(strength);
+        }
+
+        public int getIntMod()
+        {
+            return getStatMod(intelligence);
+        }
+
+        public int getWisMod()
+        {
+            return getStatMod(wisdom);
+        }
+
+        public int getDexMod()
+        {
+            return getStatMod(dexterity);
+        }
+
+        public int getConMod()
+        {
+            return getStatMod(constitution);
+        }
+
+        public int getStatMod(int stat)
+        {
+            int statMod = 0;
+            if (stat < 3)
+            {
+                statMod = -5;
+            }
+            else if (stat >= 3 && stat <= 5)
+            {
+                statMod = -3;
+            }
+            else if (stat >= 6 && stat <= 9)
+            {
+                statMod = -1;
+            }
+            else if (stat >= 10 && stat <= 12)
+            {
+                statMod = 0;
+            }
+            else if (stat >= 13 && stat <= 15)
+            {
+                statMod = 1;
+            }
+            else if (stat >= 16 && stat <= 18)
+            {
+                statMod = 3;
+            }
+            else if (stat > 18)
+            {
+                statMod = 5;
+            }
+            return statMod;
         }
     }
 }

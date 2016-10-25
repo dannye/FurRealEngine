@@ -36,8 +36,8 @@ namespace FurRealEngine
 
         public void initSimulation(List<string> monsterTypes)
         {
-            initializeMonsters(monsterTypes);
-            autoFillMonstersToMatchCD();
+            int totalDL = initializeMonsters(monsterTypes);
+            autoFillMonstersToMatchCD(totalDL);
             simController = new SimulatorController(scenario, scene, characters, monsters, this);
         }
 
@@ -56,20 +56,65 @@ namespace FurRealEngine
             this.scenario = scenario;
         }
 
-        private void initializeMonsters(List<string> monsterTypes)
+        public void updatedMonsters(List<string> monsterTypes, NumericUpDown oldDL)
         {
+            int curDL = initializeMonsters(monsterTypes);
+            if ((int)oldDL.Value < curDL )
+            {
+                oldDL.Value = curDL;
+            }
+        }
+
+        public int initializeMonsters(List<string> monsterTypes)
+        {
+            monsters.Clear();
+            int totalDL = 0;
             foreach (string type in monsterTypes)
             {
                 VARIANT variant = Monster.getVariant(type);
                 Monster monster = new Monster(variant);
                 monsters.Add(monster);
+                totalDL += monster.getDifficultyLevel();
             }
+            return totalDL;
         }
 
-        private void autoFillMonstersToMatchCD()
+        private void autoFillMonstersToMatchCD(int curDL)
         {
-            //TODO: will determine how many/which monsters need added to the monster list
-            //      to fill the remainder of entered CD the the monsters list couldn't fill
+            int rem = scenario.initCD - curDL;
+            while (rem > 0)
+            {
+                if (rem >= 12)
+                {
+                    monsters.Add(new Monster(VARIANT.LICH));
+                    rem -= 12;
+                    continue;
+                }
+                else if (rem >= 9)
+                {
+                    monsters.Add(new Monster(VARIANT.VAMPIRE));
+                    rem -= 9;
+                    continue;
+                }
+                else if (rem >= 6)
+                {
+                    monsters.Add(new Monster(VARIANT.GHOST));
+                    rem -= 6;
+                    continue;
+                }
+                else if (rem >= 2)
+                {
+                    monsters.Add(new Monster(VARIANT.ZOMBIE));
+                    rem -= 2;
+                    continue;
+                }
+                else
+                {
+                    monsters.Add(new Monster(VARIANT.SKELETON));
+                    rem -= 1;
+                    continue;
+                }
+            }
         }
 
         public PROFESSION getProfessionIdentifier(string profession)
@@ -109,7 +154,7 @@ namespace FurRealEngine
             }
             while (num > numChars)
             {
-                Character newChar = new Character((PROFESSION)rng.Next(0, 2 + 1), HEAL_OPTION.NEVER, false);
+                Character newChar = new Character((PROFESSION)rng.Next(0, 2 + 1));
                 characters.Add(newChar);
                 list.Items.Add(newChar.getProfessionName());
                 checks.Items.Add(newChar.getProfessionName());

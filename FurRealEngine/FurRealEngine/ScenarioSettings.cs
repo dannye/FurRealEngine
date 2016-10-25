@@ -9,12 +9,12 @@ namespace FurRealEngine
     public struct ScenarioSettings
     {
 
-        int difficulty;
-        int startLevel;
-        int endLevel;
-        int numberOfRuns;
-        int numberOfCharacters;
-        int initCD;
+        public int difficulty;
+        public int startLevel;
+        public int endLevel;
+        public int numberOfRuns;
+        public int numberOfCharacters;
+        public int initCD;
 
         public ScenarioSettings(int difficulty, int startLevel, int endLevel, int numberOfRuns, int numberOfCharacters, int initCD)
         {

@@ -217,6 +217,11 @@
             this.numericUpDownStartLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownStartLevel.Location = new System.Drawing.Point(949, 379);
             this.numericUpDownStartLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownStartLevel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownStartLevel.Name = "numericUpDownStartLevel";
             this.numericUpDownStartLevel.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownStartLevel.TabIndex = 8;
@@ -225,6 +230,7 @@
             0,
             0,
             0});
+            this.numericUpDownStartLevel.ValueChanged += new System.EventHandler(this.numericUpDownStartLevel_ValueChanged);
             // 
             // numericUpDownMaxLevel
             // 
@@ -232,6 +238,11 @@
             this.numericUpDownMaxLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownMaxLevel.Location = new System.Drawing.Point(1164, 379);
             this.numericUpDownMaxLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMaxLevel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
             this.numericUpDownMaxLevel.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMaxLevel.TabIndex = 9;
@@ -240,6 +251,7 @@
             0,
             0,
             0});
+            this.numericUpDownMaxLevel.ValueChanged += new System.EventHandler(this.numericUpDownMaxLevel_ValueChanged);
             // 
             // numericUpDownRepeat
             // 
@@ -247,6 +259,11 @@
             this.numericUpDownRepeat.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownRepeat.Location = new System.Drawing.Point(1127, 463);
             this.numericUpDownRepeat.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownRepeat.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownRepeat.Name = "numericUpDownRepeat";
             this.numericUpDownRepeat.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownRepeat.TabIndex = 10;
@@ -381,11 +398,6 @@
             this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
             this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMonsterCD.TabIndex = 20;
-            this.numericUpDownMonsterCD.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // buttonRadomizeCD
             // 
@@ -627,7 +639,7 @@
             // checkedListBoxChars
             // 
             this.checkedListBoxChars.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.checkedListBoxChars.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.checkedListBoxChars.Cursor = System.Windows.Forms.Cursors.Default;
             this.checkedListBoxChars.ForeColor = System.Drawing.SystemColors.WindowText;
             this.checkedListBoxChars.FormattingEnabled = true;
             this.checkedListBoxChars.Location = new System.Drawing.Point(332, 35);

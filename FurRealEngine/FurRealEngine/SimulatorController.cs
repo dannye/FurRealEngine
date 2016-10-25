@@ -65,11 +65,11 @@ namespace FurRealEngine
                     {
                         box.Text = character.getLevel().ToString();
                     }
-                    else if (box.Name == "curHealthText")
+                    else if (box.Name == "charCurHealthText")
                     {
                         box.Text = character.getCurHealth().ToString();
                     }
-                    else if (box.Name == "maxHealthText")
+                    else if (box.Name == "charMaxHealthText")
                     {
                         box.Text = character.getMaxHealth().ToString();
                     }
