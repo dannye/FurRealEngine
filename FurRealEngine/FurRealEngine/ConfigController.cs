@@ -39,6 +39,8 @@ namespace FurRealEngine
             int totalDL = initializeMonsters(monsterTypes);
             autoFillMonstersToMatchCD(totalDL);
             simController = new SimulatorController(scenario, scene, characters, monsters, this);
+            
+            gui.Hide();
         }
 
         public void setActiveUser(User user)
@@ -48,7 +50,7 @@ namespace FurRealEngine
 
         public void setScene(int level, string environment, int challengeDifficulty)
         {
-            scene = new SceneSettings(level, environment.ToLower(), challengeDifficulty, characters, monsters);
+            scene = new SceneSettings(level, environment.ToLower(), challengeDifficulty, null, null);
         }
 
         public void setScenario(ScenarioSettings scenario)

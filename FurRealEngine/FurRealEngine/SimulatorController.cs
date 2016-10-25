@@ -10,11 +10,14 @@ namespace FurRealEngine
     public class SimulatorController
     {
         SimulatorGUI simGUI;
+        CombatRoundController roundController;
         ScenarioSettings scenario;
         SceneSettings scene;
         List<Character> characters;
         List<Monster> monsters;
         ConfigController config;
+        int runNum = 1;
+        int curLevel;
 
         static Random rand = new Random();
 
@@ -25,8 +28,20 @@ namespace FurRealEngine
             this.characters = characters;
             this.monsters = monsters;
             this.config = config;
-            simGUI = new SimulatorGUI(this, new CombatRoundController(scenario, scene, characters, monsters));
+            roundController = new CombatRoundController(scenario, scene, characters, monsters);
+            simGUI = new SimulatorGUI(this, roundController);
             setBackground();
+            curLevel = scenario.startLevel;
+            this.scene.characters = new List<Character>();
+            this.scene.monsters = new List<Monster>();
+            foreach (Character character in this.characters)
+            {
+                this.scene.characters.Add(character.clone());
+            }
+            foreach (Monster monster in this.monsters)
+            {
+                this.scene.monsters.Add(monster.clone());
+            }
         }
 
         public static int diceRoll(int numRolls, int sides)
@@ -41,6 +56,7 @@ namespace FurRealEngine
 
         public void fillCharacterList(ListBox list)
         {
+            list.Items.Clear();
             foreach (Character character in characters) {
                 string prof = "";
                 prof = character.getProfessionName();
@@ -99,6 +115,7 @@ namespace FurRealEngine
 
         public void fillMonsterList(ListBox list)
         {
+            list.Items.Clear();
             foreach (Monster monster in monsters)
             {
                 list.Items.Add(monster.getName() + " - LVL " + monster.getDifficultyLevel().ToString());
@@ -150,7 +167,28 @@ namespace FurRealEngine
             }
             if (monsters.Count() == 0)
             {
-                close();
+                curLevel++;
+                if (curLevel > scenario.endLevel)
+                {
+                    curLevel = scenario.startLevel;
+                    runNum++;
+                    if (runNum > scenario.numberOfRuns)
+                    {
+                        close();
+                    }
+                }
+                characters = new List<Character>();
+                monsters = new List<Monster>();
+                foreach (Character character in scene.characters)
+                {
+                    characters.Add(character.clone());
+                }
+                foreach (Monster monster in scene.monsters)
+                {
+                    monsters.Add(monster.clone());
+                }
+                roundController.setCharacters(characters);
+                roundController.setMonsters(monsters);
             }
         }
 

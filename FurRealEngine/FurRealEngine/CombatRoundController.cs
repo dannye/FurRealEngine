@@ -22,79 +22,92 @@ namespace FurRealEngine
             this.monsters = monsters;
         }
 
+        public void setCharacters(List<Character> characters)
+        {
+            this.characters = characters;
+        }
+
+        public void setMonsters(List<Monster> monsters)
+        {
+            this.monsters = monsters;
+        }
+
         public void meleeAttack(int character, int monster)
         {
-            //add real level once Zach adds it to his class
-            int lvl = 10;
             int damage = 0;
             int toHit = 0;
             int attackDef = 0;
 
-            if (characters[character].getProfessionName() == "Soldier")
+            if (character >= 0 && monster >= 0)
             {
-                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getStrMod();
-                attackDef = getPhysAttackDef(monster);
-                if (toHit >= 20)
+                Character c = characters[character];
+                if (c.getProfessionName() == "Soldier")
                 {
-                    damage = 12 + lvl;
+                    toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getStrMod();
+                    attackDef = getPhysAttackDef(monster);
+                    if (toHit >= 20)
+                    {
+                        damage = 12 + c.getLevel();
+                    }
+                    else if (toHit >= attackDef)
+                    {
+                        damage = diceRoll(1, 12) + c.getLevel();
+                    }
+                    monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
-                else if (toHit >= attackDef)
+                else if (c.getProfessionName() == "Priest")
                 {
-                    damage = diceRoll(1, 12) + lvl;
+                    toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getWisMod();
+                    attackDef = getPhysAttackDef(monster);
+                    if (toHit >= 20)
+                    {
+                        damage = 6 + c.getLevel();
+                    }
+                    else if (toHit >= attackDef)
+                    {
+                        damage = diceRoll(2, 6) + c.getLevel();
+                    }
+                    monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
-            }
-            else if (characters[character].getProfessionName() == "Priest")
-            {
-                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getWisMod();
-                attackDef = getPhysAttackDef(monster);
-                if (toHit >= 20)
-                {
-                    damage = 6 + lvl;
-                }
-                else if (toHit >= attackDef)
-                {
-                    damage = diceRoll(2, 6) + lvl;
-                }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
         }
 
         public void spellAttack(int character, int monster)
         {
-            //add real level once Zach adds it to his class
-            int lvl = 10;
             int damage = 0;
             int toHit = 0;
             int attackDef = 0;
-
-            if (characters[character].getProfessionName() == "Combat Mage")
+            if (character >= 0 && monster >= 0)
             {
-                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getIntMod();
-                attackDef = getMagicAttackDef(monster);
-                if (toHit >= 20)
+                Character c = characters[character];
+                if (c.getProfessionName() == "Combat Mage")
                 {
-                    damage = 8 + lvl;
+                    toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getIntMod();
+                    attackDef = getMagicAttackDef(monster);
+                    if (toHit >= 20)
+                    {
+                        damage = 8 + c.getLevel();
+                    }
+                    else if (toHit >= attackDef)
+                    {
+                        damage = diceRoll(2, 8) + c.getLevel();
+                    }
+                    monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
-                else if (toHit >= attackDef)
+                else if (c.getProfessionName() == "Priest")
                 {
-                    damage = diceRoll(2, 8) + lvl;
+                    toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getWisMod();
+                    attackDef = getPhysAttackDef(monster);
+                    if (toHit >= 20)
+                    {
+                        damage = 6 + c.getLevel();
+                    }
+                    else if (toHit >= attackDef)
+                    {
+                        damage = diceRoll(2, 6) + c.getLevel();
+                    }
+                    monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
-            }
-            else if (characters[character].getProfessionName() == "Priest")
-            {
-                toHit = diceRoll(1, 20) + (2 * lvl) + characters[character].getWisMod();
-                attackDef = getPhysAttackDef(monster);
-                if (toHit >= 20)
-                {
-                    damage = 6 + lvl;
-                }
-                else if (toHit >= attackDef)
-                {
-                    damage = diceRoll(2, 6) + lvl;
-                }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
         }
 
@@ -111,13 +124,16 @@ namespace FurRealEngine
         private int getPhysAttackDef(int monster)
         {
             int attackDef = 0;
-            if(monsters[monster].getType() == "Humanoid")
+            if (monster >= 0)
             {
-                attackDef = diceRoll(1, 20) + (2 * monsters[monster].getDifficultyLevel());
-            }
-            else if(monsters[monster].getType() == "Undead")
-            {
-                attackDef = diceRoll(1, 10) + (2 * monsters[monster].getDifficultyLevel());
+                if (monsters[monster].getType() == "Humanoid")
+                {
+                    attackDef = diceRoll(1, 20) + (2 * monsters[monster].getDifficultyLevel());
+                }
+                else if (monsters[monster].getType() == "Undead")
+                {
+                    attackDef = diceRoll(1, 10) + (2 * monsters[monster].getDifficultyLevel());
+                }
             }
             return attackDef;
         }
@@ -125,13 +141,16 @@ namespace FurRealEngine
         private int getMagicAttackDef(int monster)
         {
             int attackDef = 0;
-            if (monsters[monster].getType() == "Humanoid")
+            if (monster >= 0)
             {
-                attackDef = diceRoll(1, 20) - 5 + monsters[monster].getDifficultyLevel();
-            }
-            else if (monsters[monster].getType() == "Undead")
-            {
-                attackDef = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
+                if (monsters[monster].getType() == "Humanoid")
+                {
+                    attackDef = diceRoll(1, 20) - 5 + monsters[monster].getDifficultyLevel();
+                }
+                else if (monsters[monster].getType() == "Undead")
+                {
+                    attackDef = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
+                }
             }
             return attackDef;
         }

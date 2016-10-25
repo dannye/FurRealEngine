@@ -8,11 +8,11 @@ namespace FurRealEngine
 {
     public struct SceneSettings
     {
-        int level;
+        public int level;
         public string environment;
-        int challengeDifficulty;
-        List<Character> characters;
-        List<Monster> monsters;
+        public int challengeDifficulty;
+        public List<Character> characters;
+        public List<Monster> monsters;
 
         public SceneSettings(int level, string environment, int challengeDifficulty, List<Character> characters, List<Monster> monsters)
         {

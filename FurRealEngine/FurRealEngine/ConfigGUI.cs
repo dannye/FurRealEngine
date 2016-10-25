@@ -149,7 +149,6 @@ namespace FurRealEngine
             mapScenarioSettings();
             mapSceneSettings();
             configController.initSimulation(listBoxMonsters.Items.Cast<string>().ToList());
-            Hide();
         }
 
         private bool areNumericsValid()

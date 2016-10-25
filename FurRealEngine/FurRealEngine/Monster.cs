@@ -38,6 +38,18 @@ namespace FurRealEngine
         int difficultyLevel;
         int initiative;
 
+        public Monster clone()
+        {
+            Monster m = new Monster(name);
+            m.curHealth = curHealth;
+            m.maxHealth = maxHealth;
+            m.numAttacks = numAttacks;
+            m.damage = damage;
+            m.difficultyLevel = difficultyLevel;
+            m.initiative = initiative;
+            return m;
+        }
+
         public Monster(VARIANT name)
         {
             this.name = name;

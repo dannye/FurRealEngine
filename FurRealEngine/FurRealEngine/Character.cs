@@ -37,6 +37,22 @@ namespace FurRealEngine
         bool playable;
         int initiative;
 
+        public Character clone()
+        {
+            Character c = new Character(profession, healOption, playable);
+            c.identifier = identifier;
+            c.level = level;
+            c.maxHealth = maxHealth;
+            c.curHealth = curHealth;
+            c.strength = strength;
+            c.intelligence = intelligence;
+            c.wisdom = wisdom;
+            c.dexterity = dexterity;
+            c.constitution = constitution;
+            c.initiative = initiative;
+            return c;
+        }
+
         public Character()
         {
             profession = PROFESSION.SOLDIER;

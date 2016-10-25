@@ -58,11 +58,19 @@ namespace FurRealEngine
         {
             int character = characterList.SelectedIndex;
             int monster = monsterList.SelectedIndex;
-            if (monsterList.Items.Count > 0)
+            if (monsterList.Items.Count > 0 && characterList.Items.Count > 0)
             {
-                turnController.meleeAttack(character, monster);
-                simController.checkForDeath();
-                simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+                if (character >= 0 && monster >= 0)
+                {
+                    turnController.meleeAttack(character, monster);
+                    simController.checkForDeath();
+                    simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+                }
+            }
+            if (monsterList.Items.Count == 0 && characterList.Items.Count > 0) 
+            {
+                simController.fillMonsterList(monsterList);
+                monsterList.SelectedIndex = 0;
             }
         }
 
@@ -72,11 +80,19 @@ namespace FurRealEngine
             int monster = monsterList.SelectedIndex;
             if(monsterList.Items.Count > 0 && characterList.Items.Count > 0)
             {
-                turnController.spellAttack(character, monster);
-                simController.checkForDeath();
-                simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+                if (character >= 0 && monster >= 0)
+                {
+                    turnController.spellAttack(character, monster);
+                    simController.checkForDeath();
+                    simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+                }
             }
-		}
+            if (monsterList.Items.Count == 0 && characterList.Items.Count > 0)
+            {
+                simController.fillMonsterList(monsterList);
+                monsterList.SelectedIndex = 0;
+            }
+        }
 
         private void SimulatorGUI_FormClosed(object sender, FormClosedEventArgs e)
         {
