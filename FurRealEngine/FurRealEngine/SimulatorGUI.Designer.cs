@@ -370,6 +370,7 @@
             this.meleeButton.TabIndex = 4;
             this.meleeButton.Text = "Melee";
             this.meleeButton.UseVisualStyleBackColor = true;
+            this.meleeButton.Click += new System.EventHandler(this.meleeButton_Click);
             // 
             // spellButton
             // 
@@ -379,6 +380,7 @@
             this.spellButton.TabIndex = 5;
             this.spellButton.Text = "Spell";
             this.spellButton.UseVisualStyleBackColor = true;
+            this.spellButton.Click += new System.EventHandler(this.spellButton_Click);
             // 
             // SimulatorGUI
             // 
