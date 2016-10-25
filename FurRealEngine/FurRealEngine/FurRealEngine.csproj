@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
+    <Compile Include="TestClasses\CombatRoundControllerTests.cs" />
     <Compile Include="TestClasses\ConfigControllerTests.cs" />
     <Compile Include="ConfigGUI.cs">
       <SubType>Form</SubType>
