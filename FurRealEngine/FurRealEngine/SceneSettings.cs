@@ -11,12 +11,16 @@ namespace FurRealEngine
         int level;
         public string environment;
         int challengeDifficulty;
-        
-        public SceneSettings(int level, String environment, int challengeDifficulty)
+        List<Character> characters;
+        List<Monster> monsters;
+
+        public SceneSettings(int level, String environment, int challengeDifficulty, List<Character> characters, List<Monster> monsters)
         {
             this.level = level;
             this.environment = environment;
             this.challengeDifficulty = challengeDifficulty;
+            this.characters = characters;
+            this.monsters = monsters;
         } 
 
     }

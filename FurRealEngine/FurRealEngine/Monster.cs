@@ -188,5 +188,10 @@ namespace FurRealEngine
         {
             return maxHealth;
         }
+
+        public void setCurHealth(uint health)
+        {
+            curHealth = health;
+        }
     }
 }

@@ -39,25 +39,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(428, 309);
+            this.textBox1.Location = new System.Drawing.Point(571, 380);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
+            this.textBox1.Size = new System.Drawing.Size(212, 22);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(428, 397);
+            this.textBox2.Location = new System.Drawing.Point(571, 489);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
+            this.textBox2.Size = new System.Drawing.Size(212, 22);
             this.textBox2.TabIndex = 1;
             // 
             // buttonSubmit
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSubmit.Location = new System.Drawing.Point(513, 472);
+            this.buttonSubmit.Location = new System.Drawing.Point(684, 581);
+            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
+            this.buttonSubmit.Size = new System.Drawing.Size(100, 28);
             this.buttonSubmit.TabIndex = 4;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
@@ -67,13 +70,13 @@
             // 
             this.buttonCancel.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCancel.Location = new System.Drawing.Point(428, 472);
+            this.buttonCancel.Location = new System.Drawing.Point(571, 581);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 28);
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // checkBox1
             // 
@@ -81,9 +84,10 @@
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.Location = new System.Drawing.Point(435, 434);
+            this.checkBox1.Location = new System.Drawing.Point(580, 534);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(153, 19);
+            this.checkBox1.Size = new System.Drawing.Size(185, 22);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Remember Password?";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -92,30 +96,31 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(372, 559);
+            this.textBox3.Location = new System.Drawing.Point(496, 688);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(267, 13);
+            this.textBox3.Size = new System.Drawing.Size(356, 15);
             this.textBox3.TabIndex = 7;
             this.textBox3.Text = "Admin || Username: admin   || Password = password";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(372, 530);
+            this.textBox4.Location = new System.Drawing.Point(496, 652);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(267, 13);
+            this.textBox4.Size = new System.Drawing.Size(356, 15);
             this.textBox4.TabIndex = 8;
             this.textBox4.Text = "User || Username: user        || Password = password";
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // LoginGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.BackgroundImage = global::FurRealEngine.Properties.Resources.FurRealEngine;
-            this.ClientSize = new System.Drawing.Size(995, 623);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1327, 767);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.checkBox1);
@@ -125,10 +130,11 @@
             this.Controls.Add(this.textBox1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FurRealEngine";
-            this.Load += new System.EventHandler(this.LoginGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

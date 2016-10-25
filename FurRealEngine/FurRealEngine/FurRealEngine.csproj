@@ -75,7 +75,7 @@
     <Compile Include="SimulatorGUI.Designer.cs">
       <DependentUpon>SimulatorGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="TakeTurnController.cs" />
+    <Compile Include="CombatRoundController.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="ConfigGUI.resx">
       <DependentUpon>ConfigGUI.cs</DependentUpon>
