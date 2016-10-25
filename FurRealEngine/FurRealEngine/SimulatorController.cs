@@ -61,6 +61,10 @@ namespace FurRealEngine
                     {
                         box.Text = character.getProfessionName();
                     }
+                    else if (box.Name == "levelText")
+                    {
+                        box.Text = character.getLevel().ToString();
+                    }
                     else if (box.Name == "curHealthText")
                     {
                         box.Text = character.getCurHealth().ToString();
@@ -144,6 +148,10 @@ namespace FurRealEngine
                     monsters.RemoveAt(i);
                 }
             }
+            if (monsters.Count() == 0)
+            {
+                close();
+            }
         }
 
         public void setBackground()
@@ -164,7 +172,10 @@ namespace FurRealEngine
 
         public void close()
         {
-            simGUI.Hide();
+            if (simGUI != null)
+            {
+                simGUI.Hide();
+            }
             simGUI = null;
             config.show();
         }

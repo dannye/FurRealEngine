@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FurRealEngine
@@ -31,18 +27,18 @@ namespace FurRealEngine
         {
             this.user = user;
             configController.setActiveUser(user);
-            this.Show();
-        }
-
-        public void hideSettingsGui()
-        {
-            this.Hide();
+            Show();
         }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (areFieldsEmpty())
             {
+                return;
+            }
+            if (!areNumericsValid())
+            {
+                MessageBox.Show("Numeric values cannot be negative or zero!");
                 return;
             }
             initSimulationSettings();
@@ -57,7 +53,7 @@ namespace FurRealEngine
         {
             if (comboBoxMonsters.SelectedItem == null)
             {
-                MessageBox.Show("Cannot add empty item");
+                MessageBox.Show("Cannot add empty item!");
                 return;
             }
 
@@ -92,7 +88,15 @@ namespace FurRealEngine
         private void buttonRandomizeNumOfChars_Click(object sender, EventArgs e)
         {
             Random rng = new Random();
-            numericUpDownNumOfChars.Value = rng.Next(1, 6 + 1);
+            checkedListBoxChars.Items.Clear();
+            listBoxCharacters.Items.Clear();
+            configController.resetChars();
+            int newNum;
+            do
+            {
+                newNum = rng.Next(1, 6 + 1);
+            } while (newNum == numericUpDownNumOfChars.Value);
+            numericUpDownNumOfChars.Value = newNum;
         }
 
         private void buttonRandomizeEnvironment_Click(object sender, EventArgs e)
@@ -109,18 +113,7 @@ namespace FurRealEngine
 
         private void numericUpDownNumOfChars_ValueChanged(object sender, EventArgs e)
         {
-            checkedListBoxChars.Items.Clear();
-            listBoxCharacters.Items.Clear();
-
-            for (int i = 0; i < this.getNumberOfCharacters(); i++)
-            {
-                checkedListBoxChars.Items.Add("Character" + (i+1));
-                listBoxCharacters.Items.Add("Character" + (i+1));
-                configController.addCharacter((i + 1));
-            }
-
-            configController.checkForListUpdate(listBoxCharacters.Items.Count);
-
+            configController.updateChars(getNumberOfCharacters(), checkedListBoxChars, listBoxCharacters);
         }
 
         private void buttonSelect_Click(object sender, EventArgs e)
@@ -130,28 +123,23 @@ namespace FurRealEngine
                 MessageBox.Show("You must select a profession to assign a profession!");
                 return;
             }
-            if(listBoxCharacters.SelectedItem == null)
+            if (listBoxCharacters.SelectedItem == null)
             {
                 MessageBox.Show("You must select a character before assigning a profession!");
                 return;
             }
-            int characterIdentifier = listBoxCharacters.SelectedIndex + 1;
+            int characterIdentifier = listBoxCharacters.SelectedIndex;
             string selectedProfession = comboBoxProfessions.SelectedItem.ToString();
-            configController.assignProfession(characterIdentifier, selectedProfession);
+            configController.assignProfession(characterIdentifier, selectedProfession, checkedListBoxChars, listBoxCharacters);
             MessageBox.Show("Profession assigned!");
         }
 
         private void initSimulationSettings()
         {
-            if (!areNumericsValid())
-            {
-                MessageBox.Show("Numeric values cannot be negative or zero!");
-                return;
-            }
             mapScenarioSettings();
             mapSceneSettings();
             configController.initSimulation(listBoxMonsters.Items.Cast<string>().ToList());
-            hideSettingsGui();
+            Hide();
         }
 
         private bool areNumericsValid()
@@ -193,7 +181,6 @@ namespace FurRealEngine
         private void mapSceneSettings()
         {
             setCharacterPlayability();
-            List<string> monsterTypes = getSelectedMonsters();
             configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD());
         }
 
@@ -217,6 +204,11 @@ namespace FurRealEngine
                 MessageBox.Show("You must select an environment!");
                 return true;
             }
+            if (listBoxMonsters.Items.Count == 0)
+            {
+                MessageBox.Show("You must add at least one monster!");
+                return true;
+            }
             return false;
         }
 
@@ -227,16 +219,6 @@ namespace FurRealEngine
                 int id = index + 1;
                 configController.setCharacterPlayability(id);
             }
-        }
-
-        private List<string> getSelectedMonsters()
-        {
-            List<string> monsters = new List<string>();
-            foreach (var item in listBoxMonsters.Items)
-            {
-                monsters.Add(item.ToString());
-            }
-            return monsters;
         }
 
         private int getStartingLevel()
@@ -294,17 +276,34 @@ namespace FurRealEngine
 
         private void buttonSelectProfessionLevel_Click(object sender, EventArgs e)
         {
-            // TODO: Assign profesion level to selected character
+            if (listBoxCharacters.SelectedIndex < 0 || comboBoxProfessionLevel.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a character and a Level!");
+                return;
+            }
+            configController.setProfLevel(listBoxCharacters.SelectedIndex, comboBoxProfessionLevel.SelectedIndex + 5);
+            MessageBox.Show("Profession level assigned!");
         }
 
         private void buttonSelectRevive_Click(object sender, EventArgs e)
         {
-            //TODO: Assign revive option to selected character
+            if (listBoxCharacters.SelectedIndex < 0 || comboBoxReviveOpt.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a character and a revive option!");
+                return;
+            }
+            configController.setReviveOpt(listBoxCharacters.SelectedIndex, comboBoxReviveOpt.SelectedIndex);
+            MessageBox.Show("Revive option assigned!");
         }
 
         private void ConfigGUI_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            configController.setProfessionFields(comboBoxProfessions, comboBoxProfessionLevel, comboBoxReviveOpt, listBoxCharacters.SelectedIndex);
         }
     }
 }

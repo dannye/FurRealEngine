@@ -26,6 +26,7 @@ namespace FurRealEngine
         int identifier;
         PROFESSION profession;
         HEAL_OPTION healOption;
+        int level;
         int maxHealth;
         int curHealth;
         int strength;
@@ -40,6 +41,7 @@ namespace FurRealEngine
         {
             profession = PROFESSION.SOLDIER;
             healOption = HEAL_OPTION.NEVER;
+            level = 5;
             playable = false;
             strength = SimulatorController.diceRoll(3, 6);
             intelligence = SimulatorController.diceRoll(3, 6);
@@ -76,6 +78,16 @@ namespace FurRealEngine
                 prof = "Priest";
             }
             return prof;
+        }
+
+        public int getLevel()
+        {
+            return level;
+        }
+
+        public void setLevel(int level)
+        {
+            this.level = level;
         }
 
         public int getCurHealth()

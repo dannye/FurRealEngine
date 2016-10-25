@@ -276,6 +276,7 @@
             // 
             this.comboBoxDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxDifficulty.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDifficulty.FormattingEnabled = true;
             this.comboBoxDifficulty.Items.AddRange(new object[] {
             "Novice",
@@ -291,6 +292,7 @@
             // 
             this.comboBoxMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxMonsters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMonsters.FormattingEnabled = true;
             this.comboBoxMonsters.Items.AddRange(new object[] {
             "Kobold",
@@ -414,6 +416,7 @@
             // 
             this.comboBoxEnvironment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxEnvironment.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxEnvironment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEnvironment.FormattingEnabled = true;
             this.comboBoxEnvironment.Items.AddRange(new object[] {
             "Dungeon",
@@ -474,7 +477,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(315, 28);
+            this.label1.Location = new System.Drawing.Point(315, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 17);
@@ -504,11 +507,11 @@
             this.groupBoxCharacters.Controls.Add(this.comboBoxProfessions);
             this.groupBoxCharacters.Controls.Add(this.listBoxCharacters);
             this.groupBoxCharacters.ForeColor = System.Drawing.Color.White;
-            this.groupBoxCharacters.Location = new System.Drawing.Point(27, 145);
+            this.groupBoxCharacters.Location = new System.Drawing.Point(27, 172);
             this.groupBoxCharacters.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCharacters.Name = "groupBoxCharacters";
             this.groupBoxCharacters.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxCharacters.Size = new System.Drawing.Size(532, 337);
+            this.groupBoxCharacters.Size = new System.Drawing.Size(532, 310);
             this.groupBoxCharacters.TabIndex = 18;
             this.groupBoxCharacters.TabStop = false;
             this.groupBoxCharacters.Text = "Character Profession Selection";
@@ -516,7 +519,7 @@
             // buttonSelectProfessionLevel
             // 
             this.buttonSelectProfessionLevel.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelectProfessionLevel.Location = new System.Drawing.Point(199, 211);
+            this.buttonSelectProfessionLevel.Location = new System.Drawing.Point(197, 211);
             this.buttonSelectProfessionLevel.Name = "buttonSelectProfessionLevel";
             this.buttonSelectProfessionLevel.Size = new System.Drawing.Size(98, 30);
             this.buttonSelectProfessionLevel.TabIndex = 24;
@@ -527,13 +530,21 @@
             // comboBoxProfessionLevel
             // 
             this.comboBoxProfessionLevel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxProfessionLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProfessionLevel.FormattingEnabled = true;
             this.comboBoxProfessionLevel.Items.AddRange(new object[] {
-            "Apprentice",
-            "Novice",
-            "Expert",
-            "Master"});
-            this.comboBoxProfessionLevel.Location = new System.Drawing.Point(8, 218);
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"});
+            this.comboBoxProfessionLevel.Location = new System.Drawing.Point(8, 212);
             this.comboBoxProfessionLevel.Name = "comboBoxProfessionLevel";
             this.comboBoxProfessionLevel.Size = new System.Drawing.Size(160, 24);
             this.comboBoxProfessionLevel.TabIndex = 23;
@@ -541,7 +552,7 @@
             // buttonSelectRevive
             // 
             this.buttonSelectRevive.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelectRevive.Location = new System.Drawing.Point(197, 273);
+            this.buttonSelectRevive.Location = new System.Drawing.Point(197, 258);
             this.buttonSelectRevive.Name = "buttonSelectRevive";
             this.buttonSelectRevive.Size = new System.Drawing.Size(98, 29);
             this.buttonSelectRevive.TabIndex = 22;
@@ -552,12 +563,13 @@
             // comboBoxReviveOpt
             // 
             this.comboBoxReviveOpt.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxReviveOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxReviveOpt.FormattingEnabled = true;
             this.comboBoxReviveOpt.Items.AddRange(new object[] {
+            "Never Revive",
             "Upon Death",
-            "Each Level",
-            "Never Revive"});
-            this.comboBoxReviveOpt.Location = new System.Drawing.Point(8, 273);
+            "Each Level"});
+            this.comboBoxReviveOpt.Location = new System.Drawing.Point(8, 261);
             this.comboBoxReviveOpt.Name = "comboBoxReviveOpt";
             this.comboBoxReviveOpt.Size = new System.Drawing.Size(160, 24);
             this.comboBoxReviveOpt.TabIndex = 21;
@@ -576,10 +588,10 @@
             // buttonSelect
             // 
             this.buttonSelect.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelect.Location = new System.Drawing.Point(197, 153);
+            this.buttonSelect.Location = new System.Drawing.Point(197, 162);
             this.buttonSelect.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(100, 28);
+            this.buttonSelect.Size = new System.Drawing.Size(98, 28);
             this.buttonSelect.TabIndex = 19;
             this.buttonSelect.Text = "Select";
             this.buttonSelect.UseVisualStyleBackColor = true;
@@ -588,12 +600,13 @@
             // comboBoxProfessions
             // 
             this.comboBoxProfessions.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxProfessions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProfessions.FormattingEnabled = true;
             this.comboBoxProfessions.Items.AddRange(new object[] {
             "Combat Mage",
             "Soldier",
             "Priest"});
-            this.comboBoxProfessions.Location = new System.Drawing.Point(8, 157);
+            this.comboBoxProfessions.Location = new System.Drawing.Point(8, 162);
             this.comboBoxProfessions.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxProfessions.Name = "comboBoxProfessions";
             this.comboBoxProfessions.Size = new System.Drawing.Size(160, 24);
@@ -609,6 +622,7 @@
             this.listBoxCharacters.Name = "listBoxCharacters";
             this.listBoxCharacters.Size = new System.Drawing.Size(287, 100);
             this.listBoxCharacters.TabIndex = 17;
+            this.listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.listBoxCharacters_SelectedIndexChanged);
             // 
             // checkedListBoxChars
             // 
@@ -616,10 +630,10 @@
             this.checkedListBoxChars.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.checkedListBoxChars.ForeColor = System.Drawing.SystemColors.WindowText;
             this.checkedListBoxChars.FormattingEnabled = true;
-            this.checkedListBoxChars.Location = new System.Drawing.Point(332, 52);
+            this.checkedListBoxChars.Location = new System.Drawing.Point(332, 35);
             this.checkedListBoxChars.Margin = new System.Windows.Forms.Padding(4);
             this.checkedListBoxChars.Name = "checkedListBoxChars";
-            this.checkedListBoxChars.Size = new System.Drawing.Size(227, 72);
+            this.checkedListBoxChars.Size = new System.Drawing.Size(227, 123);
             this.checkedListBoxChars.TabIndex = 16;
             // 
             // label2

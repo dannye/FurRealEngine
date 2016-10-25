@@ -25,7 +25,7 @@ namespace FurRealEngine
         public void meleeAttack(int character, int monster)
         {
             //add real level once Zach adds it to his class
-            int lvl = 1;
+            int lvl = 10;
             int damage = 0;
             int toHit = 0;
             int attackDef = 0;
@@ -63,7 +63,7 @@ namespace FurRealEngine
         public void spellAttack(int character, int monster)
         {
             //add real level once Zach adds it to his class
-            int lvl = 1;
+            int lvl = 10;
             int damage = 0;
             int toHit = 0;
             int attackDef = 0;
