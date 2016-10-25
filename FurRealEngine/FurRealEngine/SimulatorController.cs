@@ -24,12 +24,12 @@ namespace FurRealEngine
             this.monsters = monsters;
         }
 
-        public static uint diceRoll(uint numRolls, uint sides)
+        public static int diceRoll(int numRolls, int sides)
         {
-            uint result = 0;
+            int result = 0;
             for (int i = 0; i < numRolls; ++i)
             {
-                result += ((uint)rand.Next() % sides) + 1;
+                result += (rand.Next() % sides) + 1;
             }
             return result;
         }

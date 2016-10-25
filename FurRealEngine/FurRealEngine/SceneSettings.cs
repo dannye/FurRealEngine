@@ -14,7 +14,7 @@ namespace FurRealEngine
         List<Character> characters;
         List<Monster> monsters;
 
-        public SceneSettings(int level, String environment, int challengeDifficulty, List<Character> characters, List<Monster> monsters)
+        public SceneSettings(int level, string environment, int challengeDifficulty, List<Character> characters, List<Monster> monsters)
         {
             this.level = level;
             this.environment = environment;

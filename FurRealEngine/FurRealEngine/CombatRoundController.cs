@@ -31,7 +31,7 @@ namespace FurRealEngine
 
             if (characters[character].getProfessionName() == "Soldier")
             {
-                toHit = (int)diceRoll(1, 20) + (2 * lvl) + getStrMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + getStrMod(character);
                 attackDef = getPhysAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -39,13 +39,13 @@ namespace FurRealEngine
                 }
                 else if (toHit >= attackDef)
                 {
-                    damage = (int)diceRoll(1, 12) + lvl;
+                    damage = diceRoll(1, 12) + lvl;
                 }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - (uint)damage);
+                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
             else if (characters[character].getProfessionName() == "Priest")
             {
-                toHit = (int)diceRoll(1, 20) + (2 * lvl) + getWisMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + getWisMod(character);
                 attackDef = getPhysAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -53,10 +53,10 @@ namespace FurRealEngine
                 }
                 else if (toHit >= attackDef)
                 {
-                    damage = (int)diceRoll(2, 6) + lvl;
+                    damage = diceRoll(2, 6) + lvl;
                 }
 
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - (uint)damage);
+                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
         }
 
@@ -70,7 +70,7 @@ namespace FurRealEngine
 
             if (characters[character].getProfessionName() == "Combat Mage")
             {
-                toHit = (int)diceRoll(1, 20) + (2 * lvl) + getIntMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + getIntMod(character);
                 attackDef = getMagicAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -78,13 +78,13 @@ namespace FurRealEngine
                 }
                 else if (toHit >= attackDef)
                 {
-                    damage = (int)diceRoll(2, 8) + lvl;
+                    damage = diceRoll(2, 8) + lvl;
                 }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - (uint)damage);
+                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
             else if (characters[character].getProfessionName() == "Priest")
             {
-                toHit = (int)diceRoll(1, 20) + (2 * lvl) + getWisMod(character);
+                toHit = diceRoll(1, 20) + (2 * lvl) + getWisMod(character);
                 attackDef = getPhysAttackDef(monster);
                 if (toHit >= 20)
                 {
@@ -92,18 +92,18 @@ namespace FurRealEngine
                 }
                 else if (toHit >= attackDef)
                 {
-                    damage = (int)diceRoll(2, 6) + lvl;
+                    damage = diceRoll(2, 6) + lvl;
                 }
-                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - (uint)damage);
+                monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
             }
         }
 
-        public static uint diceRoll(uint numRolls, uint sides)
+        public static int diceRoll(int numRolls, int sides)
         {
-            uint result = 0;
+            int result = 0;
             for (int i = 0; i < numRolls; ++i)
             {
-                result += ((uint)rand.Next() % sides) + 1;
+                result += (rand.Next() % sides) + 1;
             }
             return result;
         }
@@ -111,7 +111,7 @@ namespace FurRealEngine
         private int getStrMod(int character)
         {
             int strMod = 0;
-            int strength = (int)characters[character].getStrength();
+            int strength = characters[character].getStrength();
             if(strength < 3)
             {
                 strMod = -5;
@@ -146,7 +146,7 @@ namespace FurRealEngine
         private int getIntMod(int character)
         {
             int intMod = 0;
-            int intelligence = (int)characters[character].getIntelligence();
+            int intelligence = characters[character].getIntelligence();
             if (intelligence < 3)
             {
                 intMod = -5;
@@ -181,7 +181,7 @@ namespace FurRealEngine
         private int getWisMod(int character)
         {
             int wisMod = 0;
-            int wisdom = (int)characters[character].getWisdom();
+            int wisdom = characters[character].getWisdom();
             if (wisdom < 3)
             {
                 wisMod = -5;
@@ -218,11 +218,11 @@ namespace FurRealEngine
             int attackDef = 0;
             if(monsters[monster].getType() == "Humanoid")
             {
-                attackDef = (int)diceRoll(1, 20) + (2 * (int)monsters[monster].getDifficultyLevel());
+                attackDef = diceRoll(1, 20) + (2 * monsters[monster].getDifficultyLevel());
             }
             else if(monsters[monster].getType() == "Undead")
             {
-                attackDef = (int)diceRoll(1, 10) + (2 * (int)monsters[monster].getDifficultyLevel());
+                attackDef = diceRoll(1, 10) + (2 * monsters[monster].getDifficultyLevel());
             }
             return attackDef;
         }
@@ -232,11 +232,11 @@ namespace FurRealEngine
             int attackDef = 0;
             if (monsters[monster].getType() == "Humanoid")
             {
-                attackDef = (int)diceRoll(1, 20) - 5 + (int)monsters[monster].getDifficultyLevel();
+                attackDef = diceRoll(1, 20) - 5 + monsters[monster].getDifficultyLevel();
             }
             else if (monsters[monster].getType() == "Undead")
             {
-                attackDef = (int)diceRoll(1, 20) + (int)monsters[monster].getDifficultyLevel();
+                attackDef = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
             }
             return attackDef;
         }

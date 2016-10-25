@@ -31,12 +31,12 @@ namespace FurRealEngine
     {
         TYPE type;
         VARIANT name;
-        uint curHealth;
-        uint maxHealth;
+        int curHealth;
+        int maxHealth;
         int numAttacks;
         int damage;
-        uint difficultyLevel;
-        uint initiative;
+        int difficultyLevel;
+        int initiative;
 
         public Monster(VARIANT name)
         {
@@ -137,7 +137,7 @@ namespace FurRealEngine
             }
         }
 
-        public uint getDifficultyLevel()
+        public int getDifficultyLevel()
         {
             return difficultyLevel;
         }
@@ -179,17 +179,17 @@ namespace FurRealEngine
             }
         }
 
-        public uint getCurHealth()
+        public int getCurHealth()
         {
             return curHealth;
         }
 
-        public uint getMaxHealth()
+        public int getMaxHealth()
         {
             return maxHealth;
         }
 
-        public void setCurHealth(uint health)
+        public void setCurHealth(int health)
         {
             curHealth = health;
         }
