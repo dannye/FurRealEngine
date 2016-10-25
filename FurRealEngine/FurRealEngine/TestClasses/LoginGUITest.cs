@@ -22,7 +22,7 @@ namespace FurRealEngine
             // act
             if (String.Equals(username, blank))
             {
-                ///Error Message
+                //Error Message
                 //LoginGUI.errorLabel.Text = errorMessage;
 
             }
