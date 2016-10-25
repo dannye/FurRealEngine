@@ -9,18 +9,14 @@ namespace FurRealEngine
     public struct SceneSettings
     {
         int level;
-        string environment;
+        public string environment;
         int challengeDifficulty;
-        List<Monster> monsters; 
-        List<Character> characters;
         
-        public SceneSettings(int level, String environment, int challengeDifficulty, List<Monster> monsters, List<Character> characters)
+        public SceneSettings(int level, String environment, int challengeDifficulty)
         {
             this.level = level;
             this.environment = environment;
             this.challengeDifficulty = challengeDifficulty;
-            this.monsters = monsters;
-            this.characters = characters;
         } 
 
     }

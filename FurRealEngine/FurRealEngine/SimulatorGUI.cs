@@ -22,6 +22,19 @@ namespace FurRealEngine
             simController.fillCharacterGroup(characterGroup);
             simController.fillMonsterList(monsterList);
             simController.fillMonsterGroup(monsterGroup);
+            if (scene.environment == "dungeon")
+            {
+                BackgroundImage = Properties.Resources.dungeon;
+            }
+            else if (scene.environment == "cavern")
+            {
+                BackgroundImage = Properties.Resources.cavern;
+            }
+            else if (scene.environment == "forest")
+            {
+                BackgroundImage = Properties.Resources.forest;
+            }
+            BackgroundImageLayout = ImageLayout.Stretch;
             Show();
         }
     }

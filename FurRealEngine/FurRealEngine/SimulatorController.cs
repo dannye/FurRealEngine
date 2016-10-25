@@ -18,8 +18,6 @@ namespace FurRealEngine
 
         public SimulatorController(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters)
         {
-            //characters.Add(new Character(PROFESSION.MAGE, HEAL_OPTION.ALWAYS, true));
-            //monsters.Add(new Monster(VARIANT.ORC));
             this.scenario = scenario;
             this.scene = scene;
             this.characters = characters;

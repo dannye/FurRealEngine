@@ -111,6 +111,9 @@
     <None Include="Resources\FurRealEngine.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\cavern.jpg" />
+    <Content Include="Resources\dungeon.jpg" />
+    <Content Include="Resources\forest.jpg" />
     <Content Include="Resources\settingsBackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
