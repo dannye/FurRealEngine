@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigGUI));
             this.listBoxMonsters = new System.Windows.Forms.ListBox();
             this.selectedMonstersGroupBox = new System.Windows.Forms.GroupBox();
             this.buttonRemoveAll = new System.Windows.Forms.Button();
@@ -65,6 +66,10 @@
             this.listBoxCharacters = new System.Windows.Forms.ListBox();
             this.checkedListBoxChars = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxReviveOpt = new System.Windows.Forms.ComboBox();
+            this.buttonSelectRevive = new System.Windows.Forms.Button();
+            this.comboBoxProfessionLevel = new System.Windows.Forms.ComboBox();
+            this.buttonSelectProfessionLevel = new System.Windows.Forms.Button();
             this.selectedMonstersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
@@ -78,6 +83,7 @@
             // listBoxMonsters
             // 
             this.listBoxMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.listBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBoxMonsters.FormattingEnabled = true;
             this.listBoxMonsters.Location = new System.Drawing.Point(44, 19);
             this.listBoxMonsters.Name = "listBoxMonsters";
@@ -196,6 +202,7 @@
             // numericUpDownStartLevel
             // 
             this.numericUpDownStartLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownStartLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownStartLevel.Location = new System.Drawing.Point(712, 308);
             this.numericUpDownStartLevel.Name = "numericUpDownStartLevel";
             this.numericUpDownStartLevel.Size = new System.Drawing.Size(120, 20);
@@ -204,6 +211,7 @@
             // numericUpDownMaxLevel
             // 
             this.numericUpDownMaxLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownMaxLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownMaxLevel.Location = new System.Drawing.Point(873, 308);
             this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
             this.numericUpDownMaxLevel.Size = new System.Drawing.Size(120, 20);
@@ -212,6 +220,7 @@
             // numericUpDownRepeat
             // 
             this.numericUpDownRepeat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownRepeat.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownRepeat.Location = new System.Drawing.Point(845, 376);
             this.numericUpDownRepeat.Name = "numericUpDownRepeat";
             this.numericUpDownRepeat.Size = new System.Drawing.Size(120, 20);
@@ -235,6 +244,7 @@
             // comboBoxDifficulty
             // 
             this.comboBoxDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBoxDifficulty.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxDifficulty.FormattingEnabled = true;
             this.comboBoxDifficulty.Items.AddRange(new object[] {
             "Novice",
@@ -248,6 +258,7 @@
             // comboBoxMonsters
             // 
             this.comboBoxMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxMonsters.FormattingEnabled = true;
             this.comboBoxMonsters.Items.AddRange(new object[] {
             "Kobold",
@@ -324,6 +335,7 @@
             // numericUpDownMonsterCD
             // 
             this.numericUpDownMonsterCD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownMonsterCD.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownMonsterCD.Location = new System.Drawing.Point(764, 61);
             this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
             this.numericUpDownMonsterCD.Size = new System.Drawing.Size(120, 20);
@@ -355,6 +367,7 @@
             // comboBoxEnvironment
             // 
             this.comboBoxEnvironment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBoxEnvironment.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxEnvironment.FormattingEnabled = true;
             this.comboBoxEnvironment.Items.AddRange(new object[] {
             "Dungeon",
@@ -429,6 +442,10 @@
             // 
             // groupBoxCharacters
             // 
+            this.groupBoxCharacters.Controls.Add(this.buttonSelectProfessionLevel);
+            this.groupBoxCharacters.Controls.Add(this.comboBoxProfessionLevel);
+            this.groupBoxCharacters.Controls.Add(this.buttonSelectRevive);
+            this.groupBoxCharacters.Controls.Add(this.comboBoxReviveOpt);
             this.groupBoxCharacters.Controls.Add(this.richTextBox1);
             this.groupBoxCharacters.Controls.Add(this.buttonSelect);
             this.groupBoxCharacters.Controls.Add(this.comboBoxProfessions);
@@ -436,7 +453,7 @@
             this.groupBoxCharacters.ForeColor = System.Drawing.Color.White;
             this.groupBoxCharacters.Location = new System.Drawing.Point(20, 118);
             this.groupBoxCharacters.Name = "groupBoxCharacters";
-            this.groupBoxCharacters.Size = new System.Drawing.Size(380, 228);
+            this.groupBoxCharacters.Size = new System.Drawing.Size(400, 265);
             this.groupBoxCharacters.TabIndex = 18;
             this.groupBoxCharacters.TabStop = false;
             this.groupBoxCharacters.Text = "Character Profession Selection";
@@ -447,16 +464,14 @@
             this.richTextBox1.ForeColor = System.Drawing.Color.Black;
             this.richTextBox1.Location = new System.Drawing.Point(229, 31);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(132, 129);
+            this.richTextBox1.Size = new System.Drawing.Size(165, 210);
             this.richTextBox1.TabIndex = 20;
-            this.richTextBox1.Text = "Select one of the entered characters and choose\na profession from the drop down b" +
-    "ox and click\n\'Select\'. If a profession for a character is not chosen,\na professi" +
-    "on will be selected at random for you";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // buttonSelect
             // 
             this.buttonSelect.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelect.Location = new System.Drawing.Point(147, 152);
+            this.buttonSelect.Location = new System.Drawing.Point(147, 125);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(75, 23);
             this.buttonSelect.TabIndex = 19;
@@ -472,7 +487,7 @@
             "Combat Mage",
             "Soldier",
             "Priest"});
-            this.comboBoxProfessions.Location = new System.Drawing.Point(6, 154);
+            this.comboBoxProfessions.Location = new System.Drawing.Point(6, 125);
             this.comboBoxProfessions.Name = "comboBoxProfessions";
             this.comboBoxProfessions.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProfessions.TabIndex = 18;
@@ -483,7 +498,7 @@
             this.listBoxCharacters.FormattingEnabled = true;
             this.listBoxCharacters.Location = new System.Drawing.Point(6, 31);
             this.listBoxCharacters.Name = "listBoxCharacters";
-            this.listBoxCharacters.Size = new System.Drawing.Size(216, 108);
+            this.listBoxCharacters.Size = new System.Drawing.Size(216, 82);
             this.listBoxCharacters.TabIndex = 17;
             // 
             // checkedListBoxChars
@@ -507,6 +522,55 @@
             this.label2.Size = new System.Drawing.Size(306, 13);
             this.label2.TabIndex = 27;
             this.label2.Text = "Optionally Add Specific Monster and Set Their Combat Difficulty";
+            // 
+            // comboBoxReviveOpt
+            // 
+            this.comboBoxReviveOpt.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxReviveOpt.FormattingEnabled = true;
+            this.comboBoxReviveOpt.Items.AddRange(new object[] {
+            "Upon Death",
+            "Each Level",
+            "Never Revive"});
+            this.comboBoxReviveOpt.Location = new System.Drawing.Point(6, 220);
+            this.comboBoxReviveOpt.Name = "comboBoxReviveOpt";
+            this.comboBoxReviveOpt.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxReviveOpt.TabIndex = 21;
+            // 
+            // buttonSelectRevive
+            // 
+            this.buttonSelectRevive.ForeColor = System.Drawing.Color.Black;
+            this.buttonSelectRevive.Location = new System.Drawing.Point(148, 218);
+            this.buttonSelectRevive.Name = "buttonSelectRevive";
+            this.buttonSelectRevive.Size = new System.Drawing.Size(75, 23);
+            this.buttonSelectRevive.TabIndex = 22;
+            this.buttonSelectRevive.Text = "Select";
+            this.buttonSelectRevive.UseVisualStyleBackColor = true;
+            this.buttonSelectRevive.Click += new System.EventHandler(this.buttonSelectRevive_Click);
+            // 
+            // comboBoxProfessionLevel
+            // 
+            this.comboBoxProfessionLevel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxProfessionLevel.FormattingEnabled = true;
+            this.comboBoxProfessionLevel.Items.AddRange(new object[] {
+            "Apprentice",
+            "Novice",
+            "Expert",
+            "Master"});
+            this.comboBoxProfessionLevel.Location = new System.Drawing.Point(6, 174);
+            this.comboBoxProfessionLevel.Name = "comboBoxProfessionLevel";
+            this.comboBoxProfessionLevel.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxProfessionLevel.TabIndex = 23;
+            // 
+            // buttonSelectProfessionLevel
+            // 
+            this.buttonSelectProfessionLevel.ForeColor = System.Drawing.Color.Black;
+            this.buttonSelectProfessionLevel.Location = new System.Drawing.Point(147, 172);
+            this.buttonSelectProfessionLevel.Name = "buttonSelectProfessionLevel";
+            this.buttonSelectProfessionLevel.Size = new System.Drawing.Size(75, 23);
+            this.buttonSelectProfessionLevel.TabIndex = 24;
+            this.buttonSelectProfessionLevel.Text = "Select";
+            this.buttonSelectProfessionLevel.UseVisualStyleBackColor = true;
+            this.buttonSelectProfessionLevel.Click += new System.EventHandler(this.buttonSelectProfessionLevel_Click);
             // 
             // ConfigGUI
             // 
@@ -596,6 +660,10 @@
         private System.Windows.Forms.Label labelNumCharMsg;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonSelectProfessionLevel;
+        private System.Windows.Forms.ComboBox comboBoxProfessionLevel;
+        private System.Windows.Forms.Button buttonSelectRevive;
+        private System.Windows.Forms.ComboBox comboBoxReviveOpt;
     }
 }
 

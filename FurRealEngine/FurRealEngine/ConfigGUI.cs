@@ -289,5 +289,14 @@ namespace FurRealEngine
             return comboBoxEnvironment.SelectedItem.ToString();
         }
 
+        private void buttonSelectProfessionLevel_Click(object sender, EventArgs e)
+        {
+            // TODO: Assign profesion level to selected character
+        }
+
+        private void buttonSelectRevive_Click(object sender, EventArgs e)
+        {
+            //TODO: Assign revive option to selected character
+        }
     }
 }
