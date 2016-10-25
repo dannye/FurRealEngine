@@ -43,11 +43,11 @@ namespace FurRealEngine
             }
         }
 
-        public void fillCharacterGroup(GroupBox group)
+        public void fillCharacterGroup(GroupBox group, int index)
         {
             if (characters.Count() > 0)
             {
-                Character character = characters.First();
+                Character character = characters.ElementAt(index);
                 IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
                 List<TextBox> boxesList = boxes.ToList();
                 foreach (TextBox box in boxesList)
@@ -96,11 +96,11 @@ namespace FurRealEngine
             }
         }
 
-        public void fillMonsterGroup(GroupBox group)
+        public void fillMonsterGroup(GroupBox group, int index)
         {
             if (monsters.Count() > 0)
             {
-                Monster monster = monsters.First();
+                Monster monster = monsters.ElementAt(index);
                 IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
                 List<TextBox> boxesList = boxes.ToList();
                 foreach (TextBox box in boxesList)

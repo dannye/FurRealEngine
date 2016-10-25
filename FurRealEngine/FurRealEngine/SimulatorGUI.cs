@@ -19,9 +19,17 @@ namespace FurRealEngine
             InitializeComponent();
             simController = new SimulatorController(scenario, scene, characters, monsters);
             simController.fillCharacterList(characterList);
-            simController.fillCharacterGroup(characterGroup);
+            if (characterList.Items.Count > 0)
+            {
+                characterList.SelectedIndex = 0;
+            }
+            
             simController.fillMonsterList(monsterList);
-            simController.fillMonsterGroup(monsterGroup);
+            if (monsterList.Items.Count > 0)
+            {
+                monsterList.SelectedIndex = 0;
+            }
+            
             if (scene.environment == "dungeon")
             {
                 BackgroundImage = Properties.Resources.dungeon;
@@ -34,8 +42,17 @@ namespace FurRealEngine
             {
                 BackgroundImage = Properties.Resources.forest;
             }
-            BackgroundImageLayout = ImageLayout.Stretch;
             Show();
+        }
+
+        private void characterList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            simController.fillCharacterGroup(characterGroup, characterList.SelectedIndex);
+        }
+
+        private void monsterList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
         }
     }
 }

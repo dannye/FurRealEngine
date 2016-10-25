@@ -72,6 +72,7 @@
             this.characterList.Name = "characterList";
             this.characterList.Size = new System.Drawing.Size(120, 260);
             this.characterList.TabIndex = 0;
+            this.characterList.SelectedIndexChanged += new System.EventHandler(this.characterList_SelectedIndexChanged);
             // 
             // monsterList
             // 
@@ -81,6 +82,7 @@
             this.monsterList.Name = "monsterList";
             this.monsterList.Size = new System.Drawing.Size(120, 260);
             this.monsterList.TabIndex = 1;
+            this.monsterList.SelectedIndexChanged += new System.EventHandler(this.monsterList_SelectedIndexChanged);
             // 
             // characterGroup
             // 
@@ -109,8 +111,10 @@
             // 
             // professionText
             // 
+            this.professionText.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.professionText.Location = new System.Drawing.Point(109, 33);
             this.professionText.Name = "professionText";
+            this.professionText.ReadOnly = true;
             this.professionText.Size = new System.Drawing.Size(99, 22);
             this.professionText.TabIndex = 17;
             // 
@@ -125,8 +129,10 @@
             // 
             // charMaxHealthText
             // 
+            this.charMaxHealthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.charMaxHealthText.Location = new System.Drawing.Point(170, 71);
             this.charMaxHealthText.Name = "charMaxHealthText";
+            this.charMaxHealthText.ReadOnly = true;
             this.charMaxHealthText.Size = new System.Drawing.Size(38, 22);
             this.charMaxHealthText.TabIndex = 15;
             // 
@@ -268,22 +274,28 @@
             // 
             // nameText
             // 
+            this.nameText.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.nameText.Location = new System.Drawing.Point(128, 59);
             this.nameText.Name = "nameText";
+            this.nameText.ReadOnly = true;
             this.nameText.Size = new System.Drawing.Size(97, 22);
             this.nameText.TabIndex = 25;
             // 
             // typeText
             // 
+            this.typeText.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.typeText.Location = new System.Drawing.Point(128, 32);
             this.typeText.Name = "typeText";
+            this.typeText.ReadOnly = true;
             this.typeText.Size = new System.Drawing.Size(97, 22);
             this.typeText.TabIndex = 24;
             // 
             // difficultyLevelText
             // 
+            this.difficultyLevelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.difficultyLevelText.Location = new System.Drawing.Point(128, 125);
             this.difficultyLevelText.Name = "difficultyLevelText";
+            this.difficultyLevelText.ReadOnly = true;
             this.difficultyLevelText.Size = new System.Drawing.Size(97, 22);
             this.difficultyLevelText.TabIndex = 23;
             // 
@@ -298,8 +310,10 @@
             // 
             // monsterMaxHealthText
             // 
+            this.monsterMaxHealthText.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.monsterMaxHealthText.Location = new System.Drawing.Point(185, 92);
             this.monsterMaxHealthText.Name = "monsterMaxHealthText";
+            this.monsterMaxHealthText.ReadOnly = true;
             this.monsterMaxHealthText.Size = new System.Drawing.Size(40, 22);
             this.monsterMaxHealthText.TabIndex = 21;
             // 
@@ -370,6 +384,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1323, 663);
             this.Controls.Add(this.spellButton);
             this.Controls.Add(this.meleeButton);
@@ -377,7 +392,9 @@
             this.Controls.Add(this.characterGroup);
             this.Controls.Add(this.monsterList);
             this.Controls.Add(this.characterList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SimulatorGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SimulatorGUI";
             this.characterGroup.ResumeLayout(false);
             this.characterGroup.PerformLayout();

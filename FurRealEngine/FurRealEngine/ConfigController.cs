@@ -34,9 +34,9 @@ namespace FurRealEngine
             this.user = user;
         }
 
-        public void setScene(int level, string environment, int challengeDifficulty, List<string> monsterTypes)
+        public void setScene(int level, string environment, int challengeDifficulty)
         {
-            this.scene = new SceneSettings(level, environment.ToLower(), challengeDifficulty);
+            this.scene = new SceneSettings(level, environment.ToLower(), challengeDifficulty, characters, monsters);
         }
 
         public void setScenario(ScenarioSettings scenario)

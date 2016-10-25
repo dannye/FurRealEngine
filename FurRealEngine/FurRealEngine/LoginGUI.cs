@@ -23,22 +23,6 @@ namespace FurRealEngine
             InitializeComponent();
         }
 
-        private void LoginGUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //Cancel
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Submit
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
@@ -98,17 +82,5 @@ namespace FurRealEngine
         {
 
         }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

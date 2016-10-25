@@ -191,7 +191,7 @@ namespace FurRealEngine
         {
             setCharacterPlayability();
             List<string> monsterTypes = getSelectedMonsters();
-            configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD(), monsterTypes);
+            configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD());
         }
 
         private void mapScenarioSettings()
