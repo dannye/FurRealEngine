@@ -14,9 +14,9 @@ namespace FurRealEngine
     {
 
         //Public vars
-        static public string username;
-        static public string password;
-        static public string loginStatus; //Admin or User?
+        public string username;
+        public string password;
+        public string loginStatus; //Admin or User?
 
         public LoginGUI()
         {

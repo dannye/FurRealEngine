@@ -39,8 +39,10 @@ namespace FurRealEngine
 
         public Character clone()
         {
-            Character c = new Character(profession, healOption, playable);
+            Character c = new Character();
             c.identifier = identifier;
+            c.profession = profession;
+            c.healOption = healOption;
             c.level = level;
             c.maxHealth = maxHealth;
             c.curHealth = curHealth;
@@ -49,29 +51,33 @@ namespace FurRealEngine
             c.wisdom = wisdom;
             c.dexterity = dexterity;
             c.constitution = constitution;
+            c.playable = playable;
             c.initiative = initiative;
             return c;
         }
 
-        public Character()
+        public Character(PROFESSION prof = PROFESSION.SOLDIER)
         {
-            profession = PROFESSION.SOLDIER;
-            healOption = HEAL_OPTION.NEVER;
+            init(prof);
+        }
+
+        public Character(string prof)
+        {
+            init(stringToProfession(prof));
+        }
+
+        private void init(PROFESSION prof)
+        {
             level = 5;
-            playable = false;
             strength = SimulatorController.diceRoll(3, 6);
             intelligence = SimulatorController.diceRoll(3, 6);
             wisdom = SimulatorController.diceRoll(3, 6);
             dexterity = SimulatorController.diceRoll(3, 6);
             constitution = SimulatorController.diceRoll(3, 6);
-        }
-
-        public Character(PROFESSION prof, HEAL_OPTION heal = HEAL_OPTION.NEVER, bool playable = false)
-        : this()
-        {
             setProfession(prof);
-            setHealOption(heal);
-            setPlayable(playable);
+            setHealOption(HEAL_OPTION.NEVER);
+            setPlayable(false);
+            calcHealth();
             if (profession == PROFESSION.SOLDIER)
             {
                 if (strength < 13)
@@ -86,7 +92,6 @@ namespace FurRealEngine
                 {
                     constitution = 10;
                 }
-                maxHealth = curHealth = SimulatorController.diceRoll(level, 12) + 10 + getConMod();
                 initiative = SimulatorController.diceRoll(1, 20) + 1 + getWisMod();
             }
             else if (profession == PROFESSION.MAGE)
@@ -103,7 +108,6 @@ namespace FurRealEngine
                 {
                     wisdom = 10;
                 }
-                maxHealth = curHealth = SimulatorController.diceRoll(level, 6) + 4 + getConMod();
                 initiative = SimulatorController.diceRoll(1, 20) - 3 + getWisMod();
             }
             else if (profession == PROFESSION.PRIEST)
@@ -116,24 +120,7 @@ namespace FurRealEngine
                 {
                     wisdom = 13;
                 }
-                maxHealth = curHealth = SimulatorController.diceRoll(level, 8) + 8 + getConMod();
                 initiative = SimulatorController.diceRoll(1, 20) + getWisMod();
-            }
-        }
-
-        private void calcHealth()
-        {
-            if (profession == PROFESSION.SOLDIER)
-            {
-                maxHealth = curHealth = SimulatorController.diceRoll(level, 12) + 10 + getConMod();
-            }
-            else if (profession == PROFESSION.MAGE)
-            {
-                maxHealth = curHealth = SimulatorController.diceRoll(level, 6) + 4 + getConMod();
-            }
-            else if (profession == PROFESSION.PRIEST)
-            {
-                maxHealth = curHealth = SimulatorController.diceRoll(level, 8) + 8 + getConMod();
             }
         }
 
@@ -155,6 +142,36 @@ namespace FurRealEngine
             return prof;
         }
 
+        public static PROFESSION stringToProfession(string profession)
+        {
+            if (profession == "Combat Mage")
+            {
+                return PROFESSION.MAGE;
+            }
+
+            if (profession == "Soldier")
+            {
+                return PROFESSION.SOLDIER;
+            }
+            return PROFESSION.PRIEST;
+        }
+
+        private void calcHealth()
+        {
+            if (profession == PROFESSION.SOLDIER)
+            {
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 12) + 10 + getConMod();
+            }
+            else if (profession == PROFESSION.MAGE)
+            {
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 6) + 4 + getConMod();
+            }
+            else if (profession == PROFESSION.PRIEST)
+            {
+                maxHealth = curHealth = SimulatorController.diceRoll(level, 8) + 8 + getConMod();
+            }
+        }
+
         public int getLevel()
         {
             return level;
@@ -171,9 +188,19 @@ namespace FurRealEngine
             return curHealth;
         }
 
+        public void setCurHealth(int health)
+        {
+            curHealth = health;
+        }
+
         public int getMaxHealth()
         {
             return maxHealth;
+        }
+
+        public void setMaxHealth(int health)
+        {
+            maxHealth = health;
         }
 
         public bool isCharacterPlayable()
@@ -181,9 +208,9 @@ namespace FurRealEngine
             return playable;
         }
 
-        public void setPlayable(bool playable)
+        public void setPlayable(bool play)
         {
-            this.playable = playable;
+            playable = play;
         }
 
         public int getIdentifier()
@@ -191,9 +218,9 @@ namespace FurRealEngine
             return identifier;
         }
 
-        public void setIdentifier(int identifier)
+        public void setIdentifier(int id)
         {
-            this.identifier = identifier;
+            identifier = id;
         }
 
         public PROFESSION getProfession()
@@ -201,9 +228,9 @@ namespace FurRealEngine
             return profession;
         }
 
-        public void setProfession(PROFESSION profession)
+        public void setProfession(PROFESSION prof)
         {
-            this.profession = profession;
+            profession = prof;
         }
 
         public HEAL_OPTION getHealOption()
@@ -231,9 +258,9 @@ namespace FurRealEngine
             return intelligence;
         }
 
-        public void setIntelligence(int intelligence)
+        public void setIntelligence(int intel)
         {
-            this.intelligence = intelligence;
+            intelligence = intel;
         }
 
         public int getWisdom()
@@ -261,9 +288,9 @@ namespace FurRealEngine
             return constitution;
         }
 
-        public void setConstitution(int constitution)
+        public void setConstitution(int con)
         {
-            this.constitution = constitution;
+            constitution = con;
         }
 
         public int getStrMod()
@@ -291,7 +318,7 @@ namespace FurRealEngine
             return getStatMod(constitution);
         }
 
-        public int getStatMod(int stat)
+        private int getStatMod(int stat)
         {
             int statMod = 0;
             if (stat < 3)

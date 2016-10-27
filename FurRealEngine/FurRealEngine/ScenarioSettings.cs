@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
+    public enum DIFFICULTY
+    {
+        NOVICE,
+        APPRENTICE,
+        MASTER
+    }
+
     public struct ScenarioSettings
     {
-
-        public int difficulty;
+        public DIFFICULTY difficulty;
         public int startLevel;
         public int endLevel;
         public int numberOfRuns;
         public int numberOfCharacters;
         public int initCD;
 
-        public ScenarioSettings(int difficulty, int startLevel, int endLevel, int numberOfRuns, int numberOfCharacters, int initCD)
+        public ScenarioSettings(DIFFICULTY difficulty, int startLevel, int endLevel, int numberOfRuns, int numberOfCharacters, int initCD)
         {
             this.difficulty = difficulty;
             this.startLevel = startLevel;

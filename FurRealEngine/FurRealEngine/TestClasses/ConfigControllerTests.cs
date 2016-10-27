@@ -20,7 +20,7 @@ namespace FurRealEngine
             ConfigController controller = new ConfigController(null);
 
             // act
-            PROFESSION actual = controller.getProfessionIdentifier(selectedProfession);
+            PROFESSION actual = Character.stringToProfession(selectedProfession);
 
             // assert
             Assert.AreEqual(expectedRetVal, actual);
@@ -35,7 +35,7 @@ namespace FurRealEngine
             ConfigController controller = new ConfigController(null);
 
             // act
-            PROFESSION actual = controller.getProfessionIdentifier(selectedProfession);
+            PROFESSION actual = Character.stringToProfession(selectedProfession);
 
             // assert
             Assert.AreEqual(expectedRetVal, actual);
@@ -50,7 +50,7 @@ namespace FurRealEngine
             ConfigController controller = new ConfigController(null);
 
             // act
-            PROFESSION actual = controller.getProfessionIdentifier(selectedProfession);
+            PROFESSION actual = Character.stringToProfession(selectedProfession);
 
             // assert
             Assert.AreEqual(expectedRetVal, actual);

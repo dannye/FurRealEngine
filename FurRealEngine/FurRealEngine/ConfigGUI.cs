@@ -10,9 +10,8 @@ namespace FurRealEngine
     {
         private ConfigController configController;
         private User user;
-        private static int NOVICE = 1;
-        private static int APPRENTICE = 2;
-        private static int MASTER = 3;
+
+        Random rng = new Random();
 
         public ConfigGUI()
         {
@@ -30,6 +29,7 @@ namespace FurRealEngine
             Show();
         }
 
+        // validate input, then begin simulation
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             if (areFieldsEmpty())
@@ -41,7 +41,10 @@ namespace FurRealEngine
                 MessageBox.Show("Numeric values cannot be negative or zero!");
                 return;
             }
-            initSimulationSettings();
+            configController.setScenario(new ScenarioSettings(getStartingDifficulty(), getStartingLevel(), getMaxLevel(),
+                                                              getRepeatTimes(), getNumberOfCharacters(), getMonstersStartingCD()));
+            configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD());
+            configController.initSimulation();
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)
@@ -49,6 +52,7 @@ namespace FurRealEngine
             Application.Exit();
         }
 
+        // add a new monster if the total difficulty level does not exceed 100
         private void buttonAddMonster_Click(object sender, EventArgs e)
         {
             if (comboBoxMonsters.SelectedItem == null)
@@ -56,16 +60,15 @@ namespace FurRealEngine
                 MessageBox.Show("Cannot add empty item!");
                 return;
             }
-            int curDL = configController.initializeMonsters(listBoxMonsters.Items.Cast<string>().ToList());
-            VARIANT variant = Monster.getVariant(comboBoxMonsters.SelectedItem.ToString());
-            Monster monster = new Monster(variant);
+            int curDL = configController.currentDL();
+            Monster monster = new Monster(comboBoxMonsters.SelectedItem.ToString());
             if (curDL + monster.getDifficultyLevel() > 100)
             {
                 MessageBox.Show("There are already too many monsters!");
                 return;
             }
+            configController.addMonster(monster, numericUpDownMonsterCD);
             listBoxMonsters.Items.Add(comboBoxMonsters.SelectedItem);
-            configController.updatedMonsters(listBoxMonsters.Items.Cast<string>().ToList(), numericUpDownMonsterCD);
         }
 
         private void buttonRemoveMonster_Click(object sender, EventArgs e)
@@ -80,8 +83,8 @@ namespace FurRealEngine
                 MessageBox.Show("You must select a monster to be able to remove!");
                 return;
             }
+            configController.removeMonster(listBoxMonsters.SelectedIndex);
             listBoxMonsters.Items.Remove(listBoxMonsters.SelectedItem);
-            configController.updatedMonsters(listBoxMonsters.Items.Cast<string>().ToList(), numericUpDownMonsterCD);
         }
 
         private void buttonRemoveAll_Click(object sender, EventArgs e)
@@ -91,16 +94,17 @@ namespace FurRealEngine
                 MessageBox.Show("No monsters to remove!");
                 return;
             }
+            configController.removeAllMonsters();
             listBoxMonsters.Items.Clear();
-            configController.updatedMonsters(listBoxMonsters.Items.Cast<string>().ToList(), numericUpDownMonsterCD);
         }
 
+        // pick a random number of characters
+        // but don't pick the same current number of characters
         private void buttonRandomizeNumOfChars_Click(object sender, EventArgs e)
         {
-            Random rng = new Random();
             checkedListBoxChars.Items.Clear();
             listBoxCharacters.Items.Clear();
-            configController.resetChars();
+            configController.resetCharacters();
             int newNum;
             do
             {
@@ -111,22 +115,23 @@ namespace FurRealEngine
 
         private void buttonRandomizeEnvironment_Click(object sender, EventArgs e)
         {
-            Random rng = new Random();
             comboBoxEnvironment.SelectedIndex = rng.Next(0, comboBoxEnvironment.Items.Count);
         }
 
+        // pick a random challenge difficulty
+        // but no smaller than the current sum of monster difficulty levels
         private void buttonRadomizeCD_Click(object sender, EventArgs e)
         {
-            Random rng = new Random();
-            numericUpDownMonsterCD.Value = rng.Next(configController.initializeMonsters(listBoxMonsters.Items.Cast<string>().ToList()), 100 + 1);
+            numericUpDownMonsterCD.Value = rng.Next(configController.currentDL(), 100 + 1);
         }
 
         private void numericUpDownNumOfChars_ValueChanged(object sender, EventArgs e)
         {
-            configController.updateChars(getNumberOfCharacters(), checkedListBoxChars, listBoxCharacters);
+            configController.updateCharacters(getNumberOfCharacters(), checkedListBoxChars, listBoxCharacters);
         }
 
-        private void buttonSelect_Click(object sender, EventArgs e)
+        // assign the selected profession to the selected character
+        private void buttonSelectProfession_Click(object sender, EventArgs e)
         {
             if (comboBoxProfessions.SelectedItem == null)
             {
@@ -138,17 +143,78 @@ namespace FurRealEngine
                 MessageBox.Show("You must select a character before assigning a profession!");
                 return;
             }
-            int characterIdentifier = listBoxCharacters.SelectedIndex;
+            int character = listBoxCharacters.SelectedIndex;
             string selectedProfession = comboBoxProfessions.SelectedItem.ToString();
-            configController.assignProfession(characterIdentifier, selectedProfession, checkedListBoxChars, listBoxCharacters);
+            configController.assignProfession(character, selectedProfession, checkedListBoxChars, listBoxCharacters);
             MessageBox.Show("Profession assigned!");
         }
 
-        private void initSimulationSettings()
+        // assign the selected level to the selected character
+        private void buttonSelectProfessionLevel_Click(object sender, EventArgs e)
         {
-            mapScenarioSettings();
-            mapSceneSettings();
-            configController.initSimulation(listBoxMonsters.Items.Cast<string>().ToList());
+            if (listBoxCharacters.SelectedIndex < 0 || comboBoxProfessionLevel.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a character and a Level!");
+                return;
+            }
+            configController.setProfLevel(listBoxCharacters.SelectedIndex, comboBoxProfessionLevel.SelectedIndex + 5);
+            MessageBox.Show("Profession level assigned!");
+        }
+
+        // assign the selected heal option to the selected character
+        private void buttonSelectRevive_Click(object sender, EventArgs e)
+        {
+            if (listBoxCharacters.SelectedIndex < 0 || comboBoxReviveOpt.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a character and a revive option!");
+                return;
+            }
+            configController.setReviveOpt(listBoxCharacters.SelectedIndex, comboBoxReviveOpt.SelectedIndex);
+            MessageBox.Show("Revive option assigned!");
+        }
+
+        private void ConfigGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            configController.setProfessionFields(comboBoxProfessions, comboBoxProfessionLevel, comboBoxReviveOpt, listBoxCharacters.SelectedIndex);
+        }
+
+        // update the starting level, but do not exceed the max level
+        private void numericUpDownStartLevel_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownStartLevel.Value > numericUpDownMaxLevel.Value)
+            {
+                numericUpDownMaxLevel.Value = numericUpDownStartLevel.Value;
+            }
+        }
+
+        // updated the max level, but do not go below the starting level
+        private void numericUpDownMaxLevel_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownStartLevel.Value > numericUpDownMaxLevel.Value)
+            {
+                numericUpDownStartLevel.Value = numericUpDownMaxLevel.Value;
+            }
+        }
+
+        // update the challenge difficulty, but do not go below the sum
+        // of the monster difficulty levels
+        private void numericUpDownMonsterCD_ValueChanged(object sender, EventArgs e)
+        {
+            int curDL = configController.currentDL();
+            if (numericUpDownMonsterCD.Value < curDL)
+            {
+                numericUpDownMonsterCD.Value = curDL;
+            }
+        }
+
+        private void checkedListBoxChars_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            configController.setCharacterPlayability(e.Index, e.NewValue == CheckState.Checked);
         }
 
         private bool areNumericsValid()
@@ -187,20 +253,7 @@ namespace FurRealEngine
             return true;
         }
 
-        private void mapSceneSettings()
-        {
-            setCharacterPlayability();
-            configController.setScene(getStartingLevel(), getEnvironment(), getMonstersStartingCD());
-        }
-
-        private void mapScenarioSettings()
-        {
-            ScenarioSettings scenario = new ScenarioSettings(getStartingDifficulty(), getStartingLevel(), getMaxLevel(),
-                getRepeatTimes(), getNumberOfCharacters(), getMonstersStartingCD());
-            configController.setScenario(scenario);
-        }
-
-        public bool areFieldsEmpty()
+        private bool areFieldsEmpty()
         {
             if (comboBoxDifficulty.SelectedItem == null)
             {
@@ -214,15 +267,6 @@ namespace FurRealEngine
                 return true;
             }
             return false;
-        }
-
-        private void setCharacterPlayability()
-        {
-            foreach (int index in checkedListBoxChars.CheckedIndices)
-            {
-                int id = index + 1;
-                configController.setCharacterPlayability(id);
-            }
         }
 
         private int getStartingLevel()
@@ -240,17 +284,17 @@ namespace FurRealEngine
             return (int)numericUpDownNumOfChars.Value;
         }
 
-        private int getStartingDifficulty()
+        private DIFFICULTY getStartingDifficulty()
         {          
             if (comboBoxDifficulty.SelectedItem.ToString().Equals("Novice"))
             {
-                return NOVICE;
+                return DIFFICULTY.NOVICE;
             }
             if (comboBoxDifficulty.SelectedItem.ToString().Equals("Apprentice"))
             {
-                return APPRENTICE;
+                return DIFFICULTY.APPRENTICE;
             }
-            return MASTER;
+            return DIFFICULTY.MASTER;
         }
 
         private int getRepeatTimes()
@@ -258,7 +302,7 @@ namespace FurRealEngine
             return (int)numericUpDownRepeat.Value;
         }
 
-        private List<string> getUserSelectedMonsters()
+        public List<string> getUserSelectedMonsters()
         {
             List<string> monsterNames = new List<string>();
             foreach (var monsterName in listBoxMonsters.Items)
@@ -276,54 +320,6 @@ namespace FurRealEngine
         private string getEnvironment()
         {
             return comboBoxEnvironment.SelectedItem.ToString();
-        }
-
-        private void buttonSelectProfessionLevel_Click(object sender, EventArgs e)
-        {
-            if (listBoxCharacters.SelectedIndex < 0 || comboBoxProfessionLevel.SelectedIndex < 0)
-            {
-                MessageBox.Show("Please select a character and a Level!");
-                return;
-            }
-            configController.setProfLevel(listBoxCharacters.SelectedIndex, comboBoxProfessionLevel.SelectedIndex + 5);
-            MessageBox.Show("Profession level assigned!");
-        }
-
-        private void buttonSelectRevive_Click(object sender, EventArgs e)
-        {
-            if (listBoxCharacters.SelectedIndex < 0 || comboBoxReviveOpt.SelectedIndex < 0)
-            {
-                MessageBox.Show("Please select a character and a revive option!");
-                return;
-            }
-            configController.setReviveOpt(listBoxCharacters.SelectedIndex, comboBoxReviveOpt.SelectedIndex);
-            MessageBox.Show("Revive option assigned!");
-        }
-
-        private void ConfigGUI_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void listBoxCharacters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            configController.setProfessionFields(comboBoxProfessions, comboBoxProfessionLevel, comboBoxReviveOpt, listBoxCharacters.SelectedIndex);
-        }
-
-        private void numericUpDownStartLevel_ValueChanged(object sender, EventArgs e)
-        {
-            if (numericUpDownStartLevel.Value > numericUpDownMaxLevel.Value)
-            {
-                numericUpDownMaxLevel.Value = numericUpDownStartLevel.Value;
-            }
-        }
-
-        private void numericUpDownMaxLevel_ValueChanged(object sender, EventArgs e)
-        {
-            if (numericUpDownStartLevel.Value > numericUpDownMaxLevel.Value)
-            {
-                numericUpDownStartLevel.Value = numericUpDownMaxLevel.Value;
-            }
         }
     }
 }

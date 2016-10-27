@@ -52,6 +52,16 @@ namespace FurRealEngine
 
         public Monster(VARIANT name)
         {
+            init(name);
+        }
+
+        public Monster(string name)
+        {
+            init(stringToVariant(name));
+        }
+
+        public void init(VARIANT name)
+        {
             this.name = name;
             if (name < VARIANT.SKELETON)
             {
@@ -82,7 +92,7 @@ namespace FurRealEngine
             }
         }
 
-        public string getType()
+        public string getTypeName()
         {
             switch(type)
             {
@@ -95,7 +105,7 @@ namespace FurRealEngine
             }
         }
 
-        public string getName()
+        public string getVariantName()
         {
             switch(name)
             {
@@ -122,7 +132,7 @@ namespace FurRealEngine
             }
         }
 
-        public static VARIANT getVariant(string name)
+        private static VARIANT stringToVariant(string name)
         {
             switch (name)
             {
@@ -196,14 +206,19 @@ namespace FurRealEngine
             return curHealth;
         }
 
+        public void setCurHealth(int health)
+        {
+            curHealth = health;
+        }
+
         public int getMaxHealth()
         {
             return maxHealth;
         }
 
-        public void setCurHealth(int health)
+        public void setMaxHealth(int health)
         {
-            curHealth = health;
+            maxHealth = health;
         }
     }
 }

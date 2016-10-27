@@ -19,7 +19,7 @@ namespace FurRealEngine
             List<Monster> monsters = new List<Monster>();
             Monster mon = new Monster(VARIANT.KOBOLD);
             monsters[0] = mon;
-            Character charc = new Character(PROFESSION.SOLDIER, HEAL_OPTION.NEVER, false);
+            Character charc = new Character(PROFESSION.SOLDIER);
             characters[0] = charc;
             CombatRoundController crControl = new CombatRoundController(new ScenarioSettings(), new SceneSettings(), characters, monsters);
             int expectedValue = (int)mon.getCurHealth();
@@ -40,7 +40,7 @@ namespace FurRealEngine
             List<Monster> monsters = new List<Monster>();
             Monster mon = new Monster(VARIANT.KOBOLD);
             monsters[0] = mon;
-            Character charc = new Character(PROFESSION.MAGE, HEAL_OPTION.NEVER, false);
+            Character charc = new Character(PROFESSION.MAGE);
             characters[0] = charc;
             CombatRoundController crControl = new CombatRoundController(new ScenarioSettings(), new SceneSettings(), characters, monsters);
             int expectedValue = (int)mon.getCurHealth();

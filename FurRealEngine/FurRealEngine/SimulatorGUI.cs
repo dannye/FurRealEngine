@@ -37,14 +37,16 @@ namespace FurRealEngine
         {
             int index = monsterList.SelectedIndex;
             monsterList.Items.RemoveAt(i);
-            index = monsterList.SelectedIndex;
         }
 
+        // update character info and attack buttons
         private void characterList_SelectedIndexChanged(object sender, EventArgs e)
         {
             simController.fillCharacterGroup(characterGroup, characterList.SelectedIndex);
+            simController.activateAttackButtons(meleeButton, spellButton, characterList.SelectedIndex);
         }
 
+        // update monster info
         private void monsterList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (monsterList.SelectedIndex < 0 && monsterList.Items.Count > 0)
@@ -54,6 +56,7 @@ namespace FurRealEngine
             simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
         }
 		
+        // melee attack
         private void meleeButton_Click(object sender, EventArgs e)
         {
             int character = characterList.SelectedIndex;
@@ -64,6 +67,7 @@ namespace FurRealEngine
                 {
                     turnController.meleeAttack(character, monster);
                     simController.checkForDeath();
+                    simController.checkForEndOfLevel();
                     simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
                 }
             }
@@ -73,7 +77,8 @@ namespace FurRealEngine
                 monsterList.SelectedIndex = 0;
             }
         }
-
+        
+        // spell attack
         private void spellButton_Click(object sender, EventArgs e)
         {
             int character = characterList.SelectedIndex;
@@ -84,6 +89,7 @@ namespace FurRealEngine
                 {
                     turnController.spellAttack(character, monster);
                     simController.checkForDeath();
+                    simController.checkForEndOfLevel();
                     simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
                 }
             }

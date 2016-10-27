@@ -65,7 +65,7 @@
             this.buttonSelectRevive = new System.Windows.Forms.Button();
             this.comboBoxReviveOpt = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.buttonSelect = new System.Windows.Forms.Button();
+            this.buttonSelectProfession = new System.Windows.Forms.Button();
             this.comboBoxProfessions = new System.Windows.Forms.ComboBox();
             this.listBoxCharacters = new System.Windows.Forms.ListBox();
             this.checkedListBoxChars = new System.Windows.Forms.CheckedListBox();
@@ -191,7 +191,7 @@
             // 
             this.labelNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelNumOfChars.AutoSize = true;
-            this.labelNumOfChars.Location = new System.Drawing.Point(27, 71);
+            this.labelNumOfChars.Location = new System.Drawing.Point(27, 57);
             this.labelNumOfChars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumOfChars.Name = "labelNumOfChars";
             this.labelNumOfChars.Size = new System.Drawing.Size(151, 17);
@@ -277,7 +277,7 @@
             // 
             this.numericUpDownNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.numericUpDownNumOfChars.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownNumOfChars.Location = new System.Drawing.Point(31, 91);
+            this.numericUpDownNumOfChars.Location = new System.Drawing.Point(31, 77);
             this.numericUpDownNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownNumOfChars.Maximum = new decimal(new int[] {
             6,
@@ -343,7 +343,7 @@
             // 
             this.buttonRandomizeNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonRandomizeNumOfChars.ForeColor = System.Drawing.Color.Black;
-            this.buttonRandomizeNumOfChars.Location = new System.Drawing.Point(199, 88);
+            this.buttonRandomizeNumOfChars.Location = new System.Drawing.Point(199, 74);
             this.buttonRandomizeNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRandomizeNumOfChars.Name = "buttonRandomizeNumOfChars";
             this.buttonRandomizeNumOfChars.Size = new System.Drawing.Size(100, 25);
@@ -385,9 +385,9 @@
             this.labelMonstersCD.Location = new System.Drawing.Point(1015, 55);
             this.labelMonstersCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMonstersCD.Name = "labelMonstersCD";
-            this.labelMonstersCD.Size = new System.Drawing.Size(149, 17);
+            this.labelMonstersCD.Size = new System.Drawing.Size(132, 17);
             this.labelMonstersCD.TabIndex = 19;
-            this.labelMonstersCD.Text = "Monsters\' Starting CD:";
+            this.labelMonstersCD.Text = "Challenge Difficulty:";
             // 
             // numericUpDownMonsterCD
             // 
@@ -398,6 +398,7 @@
             this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
             this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 22);
             this.numericUpDownMonsterCD.TabIndex = 20;
+            this.numericUpDownMonsterCD.ValueChanged += new System.EventHandler(this.numericUpDownMonsterCD_ValueChanged);
             // 
             // buttonRadomizeCD
             // 
@@ -501,7 +502,7 @@
             this.labelNumCharMsg.AutoSize = true;
             this.labelNumCharMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumCharMsg.ForeColor = System.Drawing.Color.White;
-            this.labelNumCharMsg.Location = new System.Drawing.Point(27, 41);
+            this.labelNumCharMsg.Location = new System.Drawing.Point(32, 104);
             this.labelNumCharMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumCharMsg.Name = "labelNumCharMsg";
             this.labelNumCharMsg.Size = new System.Drawing.Size(134, 17);
@@ -515,7 +516,7 @@
             this.groupBoxCharacters.Controls.Add(this.buttonSelectRevive);
             this.groupBoxCharacters.Controls.Add(this.comboBoxReviveOpt);
             this.groupBoxCharacters.Controls.Add(this.richTextBox1);
-            this.groupBoxCharacters.Controls.Add(this.buttonSelect);
+            this.groupBoxCharacters.Controls.Add(this.buttonSelectProfession);
             this.groupBoxCharacters.Controls.Add(this.comboBoxProfessions);
             this.groupBoxCharacters.Controls.Add(this.listBoxCharacters);
             this.groupBoxCharacters.ForeColor = System.Drawing.Color.White;
@@ -593,21 +594,21 @@
             this.richTextBox1.Location = new System.Drawing.Point(305, 38);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(219, 264);
+            this.richTextBox1.Size = new System.Drawing.Size(219, 247);
             this.richTextBox1.TabIndex = 20;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // buttonSelect
+            // buttonSelectProfession
             // 
-            this.buttonSelect.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelect.Location = new System.Drawing.Point(197, 162);
-            this.buttonSelect.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(98, 28);
-            this.buttonSelect.TabIndex = 19;
-            this.buttonSelect.Text = "Select";
-            this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.buttonSelectProfession.ForeColor = System.Drawing.Color.Black;
+            this.buttonSelectProfession.Location = new System.Drawing.Point(197, 162);
+            this.buttonSelectProfession.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSelectProfession.Name = "buttonSelectProfession";
+            this.buttonSelectProfession.Size = new System.Drawing.Size(98, 28);
+            this.buttonSelectProfession.TabIndex = 19;
+            this.buttonSelectProfession.Text = "Select";
+            this.buttonSelectProfession.UseVisualStyleBackColor = true;
+            this.buttonSelectProfession.Click += new System.EventHandler(this.buttonSelectProfession_Click);
             // 
             // comboBoxProfessions
             // 
@@ -647,6 +648,7 @@
             this.checkedListBoxChars.Name = "checkedListBoxChars";
             this.checkedListBoxChars.Size = new System.Drawing.Size(227, 123);
             this.checkedListBoxChars.TabIndex = 16;
+            this.checkedListBoxChars.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxChars_ItemCheck);
             // 
             // label2
             // 
@@ -745,7 +747,7 @@
         private System.Windows.Forms.ListBox listBoxCharacters;
         private System.Windows.Forms.CheckedListBox checkedListBoxChars;
         private System.Windows.Forms.GroupBox groupBoxCharacterSettings;
-        private System.Windows.Forms.Button buttonSelect;
+        private System.Windows.Forms.Button buttonSelectProfession;
         private System.Windows.Forms.ComboBox comboBoxProfessions;
         private System.Windows.Forms.Button buttonRemoveAll;
         private System.Windows.Forms.Label label1;

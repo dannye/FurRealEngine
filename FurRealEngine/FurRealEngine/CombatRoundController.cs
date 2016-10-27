@@ -14,6 +14,7 @@ namespace FurRealEngine
         List<Monster> monsters;
 
         static Random rand = new Random();
+
         public CombatRoundController(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters)
         {
             this.scenario = scenario;
@@ -30,6 +31,16 @@ namespace FurRealEngine
         public void setMonsters(List<Monster> monsters)
         {
             this.monsters = monsters;
+        }
+
+        public static int diceRoll(int numRolls, int sides)
+        {
+            int result = 0;
+            for (int i = 0; i < numRolls; ++i)
+            {
+                result += (rand.Next() % sides) + 1;
+            }
+            return result;
         }
 
         public void meleeAttack(int character, int monster)
@@ -111,26 +122,16 @@ namespace FurRealEngine
             }
         }
 
-        public static int diceRoll(int numRolls, int sides)
-        {
-            int result = 0;
-            for (int i = 0; i < numRolls; ++i)
-            {
-                result += (rand.Next() % sides) + 1;
-            }
-            return result;
-        }
-
         private int getPhysAttackDef(int monster)
         {
             int attackDef = 0;
             if (monster >= 0)
             {
-                if (monsters[monster].getType() == "Humanoid")
+                if (monsters[monster].getTypeName() == "Humanoid")
                 {
                     attackDef = diceRoll(1, 20) + (2 * monsters[monster].getDifficultyLevel());
                 }
-                else if (monsters[monster].getType() == "Undead")
+                else if (monsters[monster].getTypeName() == "Undead")
                 {
                     attackDef = diceRoll(1, 10) + (2 * monsters[monster].getDifficultyLevel());
                 }
@@ -143,11 +144,11 @@ namespace FurRealEngine
             int attackDef = 0;
             if (monster >= 0)
             {
-                if (monsters[monster].getType() == "Humanoid")
+                if (monsters[monster].getTypeName() == "Humanoid")
                 {
                     attackDef = diceRoll(1, 20) - 5 + monsters[monster].getDifficultyLevel();
                 }
-                else if (monsters[monster].getType() == "Undead")
+                else if (monsters[monster].getTypeName() == "Undead")
                 {
                     attackDef = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
                 }

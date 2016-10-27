@@ -62,6 +62,8 @@
             this.monsterHealthLabel = new System.Windows.Forms.Label();
             this.meleeButton = new System.Windows.Forms.Button();
             this.spellButton = new System.Windows.Forms.Button();
+            this.playableText = new System.Windows.Forms.TextBox();
+            this.playableLabel = new System.Windows.Forms.Label();
             this.characterGroup.SuspendLayout();
             this.monsterGroup.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +90,8 @@
             // 
             // characterGroup
             // 
+            this.characterGroup.Controls.Add(this.playableText);
+            this.characterGroup.Controls.Add(this.playableLabel);
             this.characterGroup.Controls.Add(this.levelLabel);
             this.characterGroup.Controls.Add(this.levelText);
             this.characterGroup.Controls.Add(this.professionText);
@@ -108,7 +112,7 @@
             this.characterGroup.Controls.Add(this.strengthLabel);
             this.characterGroup.Location = new System.Drawing.Point(216, 73);
             this.characterGroup.Name = "characterGroup";
-            this.characterGroup.Size = new System.Drawing.Size(234, 326);
+            this.characterGroup.Size = new System.Drawing.Size(234, 351);
             this.characterGroup.TabIndex = 2;
             this.characterGroup.TabStop = false;
             this.characterGroup.Text = "Character Stats";
@@ -404,6 +408,24 @@
             this.spellButton.UseVisualStyleBackColor = true;
             this.spellButton.Click += new System.EventHandler(this.spellButton_Click);
             // 
+            // playableText
+            // 
+            this.playableText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.playableText.Location = new System.Drawing.Point(109, 315);
+            this.playableText.Name = "playableText";
+            this.playableText.ReadOnly = true;
+            this.playableText.Size = new System.Drawing.Size(99, 22);
+            this.playableText.TabIndex = 21;
+            // 
+            // playableLabel
+            // 
+            this.playableLabel.AutoSize = true;
+            this.playableLabel.Location = new System.Drawing.Point(16, 315);
+            this.playableLabel.Name = "playableLabel";
+            this.playableLabel.Size = new System.Drawing.Size(66, 17);
+            this.playableLabel.TabIndex = 20;
+            this.playableLabel.Text = "Playable:";
+            // 
             // SimulatorGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,7 +438,9 @@
             this.Controls.Add(this.characterGroup);
             this.Controls.Add(this.monsterList);
             this.Controls.Add(this.characterList);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SimulatorGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SimulatorGUI";
@@ -465,5 +489,7 @@
         private System.Windows.Forms.TextBox typeText;
         private System.Windows.Forms.Label levelLabel;
         private System.Windows.Forms.TextBox levelText;
+        private System.Windows.Forms.TextBox playableText;
+        private System.Windows.Forms.Label playableLabel;
     }
 }

@@ -32,6 +32,8 @@ namespace FurRealEngine
             simGUI = new SimulatorGUI(this, roundController);
             setBackground();
             curLevel = scenario.startLevel;
+            // make a deep copy of every character and monster in the scene settings
+            // so that they can be restored after every level
             this.scene.characters = new List<Character>();
             this.scene.monsters = new List<Monster>();
             foreach (Character character in this.characters)
@@ -54,6 +56,7 @@ namespace FurRealEngine
             return result;
         }
 
+        // fill the list box with every character
         public void fillCharacterList(ListBox list)
         {
             list.Items.Clear();
@@ -64,6 +67,7 @@ namespace FurRealEngine
             }
         }
 
+        // fill the group box with info about the selected character
         public void fillCharacterGroup(GroupBox group, int index)
         {
             if (characters.Count() > 0)
@@ -109,19 +113,32 @@ namespace FurRealEngine
                     {
                         box.Text = character.getConstitution().ToString();
                     }
+                    else if (box.Name == "playableText")
+                    {
+                        if (character.isCharacterPlayable())
+                        {
+                            box.Text = "Yes";
+                        }
+                        else
+                        {
+                            box.Text = "No";
+                        }
+                    }
                 }
             }
         }
 
+        // fill the list with every monster
         public void fillMonsterList(ListBox list)
         {
             list.Items.Clear();
             foreach (Monster monster in monsters)
             {
-                list.Items.Add(monster.getName() + " - LVL " + monster.getDifficultyLevel().ToString());
+                list.Items.Add(monster.getVariantName() + " - LVL " + monster.getDifficultyLevel().ToString());
             }
         }
 
+        // fill the group box with info about the selected monster
         public void fillMonsterGroup(GroupBox group, int index)
         {
             if (monsters.Count() > 0 && index >= 0 && index < monsters.Count())
@@ -133,11 +150,11 @@ namespace FurRealEngine
                 {
                     if (box.Name == "typeText")
                     {
-                        box.Text = monster.getType();
+                        box.Text = monster.getTypeName();
                     }
                     else if (box.Name == "nameText")
                     {
-                        box.Text = monster.getName();
+                        box.Text = monster.getVariantName();
                     }
                     else if (box.Name == "monsterCurHealthText")
                     {
@@ -155,6 +172,29 @@ namespace FurRealEngine
             }
         }
 
+        // enable/disable attack buttons based on profession of selected character
+        public void activateAttackButtons(Button meleeButton, Button spellButton, int character)
+        {
+            PROFESSION prof = characters[character].getProfession();
+            if (prof == PROFESSION.SOLDIER)
+            {
+                meleeButton.Enabled = true;
+                spellButton.Enabled = false;
+            }
+            else if (prof == PROFESSION.MAGE)
+            {
+                meleeButton.Enabled = false;
+                spellButton.Enabled = true;
+            }
+            else if (prof == PROFESSION.PRIEST)
+            {
+                meleeButton.Enabled = true;
+                spellButton.Enabled = true;
+            }
+        }
+
+        // look for any character/monster health that hit zero or below
+        // and remove them from the list
         public void checkForDeath()
         {
             for (int i = 0; i < monsters.Count(); ++i)
@@ -165,6 +205,13 @@ namespace FurRealEngine
                     monsters.RemoveAt(i);
                 }
             }
+        }
+
+        // check if every monster is dead
+        // if so, reload characters/monsters for next level
+        // close sim when all levels have finished
+        public void checkForEndOfLevel()
+        {
             if (monsters.Count() == 0)
             {
                 curLevel++;
@@ -192,6 +239,7 @@ namespace FurRealEngine
             }
         }
 
+        // set background image based on environment
         public void setBackground()
         {
             if (scene.environment == "dungeon")
@@ -208,6 +256,7 @@ namespace FurRealEngine
             }
         }
 
+        // when all levels have finished, return to the config gui
         public void close()
         {
             if (simGUI != null)
