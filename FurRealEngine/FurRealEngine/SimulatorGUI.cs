@@ -44,6 +44,7 @@ namespace FurRealEngine
         {
             simController.fillCharacterGroup(characterGroup, characterList.SelectedIndex);
             simController.activateAttackButtons(meleeButton, spellButton, characterList.SelectedIndex);
+            simController.setCharacterPicture(characterPicture, characterList.SelectedIndex);
         }
 
         // update monster info
@@ -54,6 +55,7 @@ namespace FurRealEngine
                 monsterList.SelectedIndex = 0;
             }
             simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+            simController.setMonsterPicture(monsterPicture, monsterList.SelectedIndex);
         }
 		
         // melee attack
@@ -69,6 +71,7 @@ namespace FurRealEngine
                     simController.checkForDeath();
                     simController.checkForEndOfLevel();
                     simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+                    simController.setMonsterPicture(monsterPicture, monsterList.SelectedIndex);
                 }
             }
             if (monsterList.Items.Count == 0 && characterList.Items.Count > 0) 
@@ -91,6 +94,7 @@ namespace FurRealEngine
                     simController.checkForDeath();
                     simController.checkForEndOfLevel();
                     simController.fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
+                    simController.setMonsterPicture(monsterPicture, monsterList.SelectedIndex);
                 }
             }
             if (monsterList.Items.Count == 0 && characterList.Items.Count > 0)

@@ -117,10 +117,22 @@
     <None Include="Resources\FurRealEngine.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\bugbear.png" />
     <Content Include="Resources\cavern.jpg" />
+    <Content Include="Resources\combat_mage.png" />
     <Content Include="Resources\dungeon.jpg" />
     <Content Include="Resources\forest.jpg" />
+    <Content Include="Resources\ghost.png" />
+    <Content Include="Resources\goblin.png" />
+    <Content Include="Resources\kobold.png" />
+    <Content Include="Resources\lich.png" />
+    <Content Include="Resources\orc.png" />
+    <Content Include="Resources\priest.png" />
     <Content Include="Resources\settingsBackground.jpg" />
+    <Content Include="Resources\skeleton.png" />
+    <Content Include="Resources\soldier.png" />
+    <Content Include="Resources\vampire.png" />
+    <Content Include="Resources\zombie.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

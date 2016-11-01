@@ -128,6 +128,31 @@ namespace FurRealEngine
             }
         }
 
+        public void setCharacterPicture(PictureBox characterPicture, int character)
+        {
+            if (character >= 0)
+            {
+                switch (characters[character].getProfessionName())
+                {
+                    case "Soldier":
+                        characterPicture.BackgroundImage = Properties.Resources.soldier;
+                        break;
+                    case "Combat Mage":
+                        characterPicture.BackgroundImage = Properties.Resources.combat_mage;
+                        break;
+                    case "Priest":
+                        characterPicture.BackgroundImage = Properties.Resources.priest;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                characterPicture.BackgroundImage = null;
+            }
+        }
+
         // fill the list with every monster
         public void fillMonsterList(ListBox list)
         {
@@ -169,6 +194,49 @@ namespace FurRealEngine
                         box.Text = monster.getDifficultyLevel().ToString();
                     }
                 }
+            }
+        }
+
+        public void setMonsterPicture(PictureBox monsterPicture, int monster)
+        {
+            if (monster >= 0)
+            {
+                switch (monsters[monster].getVariantName())
+                {
+                    case "Kobold":
+                        monsterPicture.BackgroundImage = Properties.Resources.kobold;
+                        break;
+                    case "Goblin":
+                        monsterPicture.BackgroundImage = Properties.Resources.goblin;
+                        break;
+                    case "Orc":
+                        monsterPicture.BackgroundImage = Properties.Resources.orc;
+                        break;
+                    case "Bugbear":
+                        monsterPicture.BackgroundImage = Properties.Resources.bugbear;
+                        break;
+                    case "Skeleton":
+                        monsterPicture.BackgroundImage = Properties.Resources.skeleton;
+                        break;
+                    case "Zombie":
+                        monsterPicture.BackgroundImage = Properties.Resources.zombie;
+                        break;
+                    case "Ghost":
+                        monsterPicture.BackgroundImage = Properties.Resources.ghost;
+                        break;
+                    case "Vampire":
+                        monsterPicture.BackgroundImage = Properties.Resources.vampire;
+                        break;
+                    case "Lich":
+                        monsterPicture.BackgroundImage = Properties.Resources.lich;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                monsterPicture.BackgroundImage = null;
             }
         }
 
