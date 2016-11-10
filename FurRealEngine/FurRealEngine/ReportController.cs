@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    class ReportManager
+    class ReportController
     {
         List<Report> reports;
 
-        public ReportManager()
+        public ReportController()
         {
             reports = new List<Report>();
         }

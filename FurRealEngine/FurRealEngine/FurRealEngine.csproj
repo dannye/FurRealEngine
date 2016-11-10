@@ -56,7 +56,7 @@
     <Compile Include="ReportGUI.Designer.cs">
       <DependentUpon>ReportGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportManager.cs" />
+    <Compile Include="ReportController.cs" />
     <Compile Include="TestClasses\CombatRoundControllerTests.cs" />
     <Compile Include="TestClasses\ConfigControllerTests.cs" />
     <Compile Include="ConfigGUI.cs">
