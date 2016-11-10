@@ -213,6 +213,16 @@ namespace FurRealEngine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap temple_parchment_desktop_by_gladlad_d4zbkdw {
+            get {
+                object obj = ResourceManager.GetObject("temple_parchment_desktop_by_gladlad-d4zbkdw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vampire {
             get {
                 object obj = ResourceManager.GetObject("vampire", resourceCulture);

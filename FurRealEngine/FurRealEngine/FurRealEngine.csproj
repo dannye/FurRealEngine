@@ -49,6 +49,14 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="ReportGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportGUI.Designer.cs">
+      <DependentUpon>ReportGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportManager.cs" />
     <Compile Include="TestClasses\CombatRoundControllerTests.cs" />
     <Compile Include="TestClasses\ConfigControllerTests.cs" />
     <Compile Include="ConfigGUI.cs">
@@ -97,6 +105,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportGUI.resx">
+      <DependentUpon>ReportGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SimulatorGUI.resx">
       <DependentUpon>SimulatorGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +142,7 @@
     <Content Include="Resources\settingsBackground.jpg" />
     <Content Include="Resources\skeleton.png" />
     <Content Include="Resources\soldier.png" />
+    <Content Include="Resources\temple_parchment_desktop_by_gladlad-d4zbkdw.jpg" />
     <Content Include="Resources\vampire.png" />
     <Content Include="Resources\zombie.png" />
   </ItemGroup>
