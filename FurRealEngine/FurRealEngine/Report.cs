@@ -11,6 +11,9 @@ namespace FurRealEngine
     //    -If a Sim is repeated, stats should be rolled over into the same Report Object
     class Report
     {
+        ScenarioSettings scenario;
+        SceneSettings scene;
+        List<Character> characters;
         int totalNumOfChars;
         int totalNumOfMonsters;
         int totalCD;
@@ -26,6 +29,13 @@ namespace FurRealEngine
         public Report()
         {
 
+        }
+
+       public Report(ScenarioSettings scenario, SceneSettings scene, List<Character> characters)
+        {
+            this.scenario = scenario;
+            this.scene = scene;
+            this.characters = characters;
         }
 
         public int getTotalNumOfChars()

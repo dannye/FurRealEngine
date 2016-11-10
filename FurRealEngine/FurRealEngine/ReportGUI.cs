@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FurRealEngine
 {
-    public partial class ReportGUI : Form
+    internal partial class ReportGUI : Form
     {
-        public ReportGUI()
+        Report report;
+        ReportController reportController;
+        public ReportGUI(Report report, ReportController reportController)
         {
+            this.report = report;
+            this.reportController = reportController;
             InitializeComponent();
+            Show();
         }
 
         private void buttonNewSim_Click(object sender, EventArgs e)
@@ -24,7 +29,7 @@ namespace FurRealEngine
 
         private void buttonExitApp_Click(object sender, EventArgs e)
         {
-
+            reportController.close();
         }
 
         private void buttonSelectReport_Click(object sender, EventArgs e)
