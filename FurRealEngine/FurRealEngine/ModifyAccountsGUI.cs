@@ -46,9 +46,9 @@ namespace FurRealEngine
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void userAccountsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            currUname = Convert.ToString(userAccountsBox.SelectedItem);
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -73,6 +73,7 @@ namespace FurRealEngine
             string confirmUsername = confirmUnameBox.Text;
             string password = passBox.Text;
             string confirmPassword = confirmPassBox.Text;
+            
 
             checkActType();
 
@@ -126,9 +127,9 @@ namespace FurRealEngine
             {
 
                 //Make User am Admin
-                editedUser user;
+                editedUser u;
 
-                user.userAT = "admin";
+                u.userAT = "admin";
             }
 
 
@@ -137,6 +138,9 @@ namespace FurRealEngine
             {
 
                 //Make User a User
+                editedUser u;
+
+                u.userAT = "user";
             }
 
        

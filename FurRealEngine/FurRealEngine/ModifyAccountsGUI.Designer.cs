@@ -60,7 +60,7 @@
             this.userAccountsBox.Name = "userAccountsBox";
             this.userAccountsBox.Size = new System.Drawing.Size(129, 225);
             this.userAccountsBox.TabIndex = 0;
-            this.userAccountsBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.userAccountsBox.SelectedIndexChanged += new System.EventHandler(this.userAccountsBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
