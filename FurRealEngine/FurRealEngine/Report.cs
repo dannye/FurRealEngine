@@ -9,7 +9,7 @@ namespace FurRealEngine
     // Class that represents Report Stats for a single ran simulation
     // (This includes levels completed and times repeated)
     //    -If a Sim is repeated, stats should be rolled over into the same Report Object
-    class Report
+    public class Report
     {
         ScenarioSettings scenario;
         SceneSettings scene;
@@ -23,6 +23,7 @@ namespace FurRealEngine
         int totalDamageGiven;
         int numOfLevelsProgressed;
         int numOfTimesSimRan;
+        int index;
         string simulationDifficulty;
         string envionrmentOfBattle;
 
@@ -119,6 +120,16 @@ namespace FurRealEngine
             this.numOfLevelsProgressed = numOfLevelsProgressed;
         }
 
+        public int getIndex()
+        {
+            return this.index;
+        }
+
+        public void setIndex(int index)
+        {
+            this.index = index;
+        }
+
         public int getNumOfTimesSimRan()
         {
             return this.numOfTimesSimRan;
@@ -148,6 +159,9 @@ namespace FurRealEngine
         {
             this.envionrmentOfBattle = envionrmentOfBattle.ToUpper();
         }
-
+        public override string ToString()
+        {
+            return "Report " + index;
+        }
     }
 }
