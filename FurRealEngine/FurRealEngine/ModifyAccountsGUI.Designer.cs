@@ -81,11 +81,12 @@
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(57, 67);
+            this.labelTitle.Location = new System.Drawing.Point(81, 68);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(337, 30);
+            this.labelTitle.Size = new System.Drawing.Size(263, 30);
             this.labelTitle.TabIndex = 26;
-            this.labelTitle.Text = "Configure Combat Simulator";
+            this.labelTitle.Text = "Modify User Accounts";
+            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // textBox1
             // 

@@ -26,5 +26,10 @@ namespace FurRealEngine
         {
 
         }
+
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
