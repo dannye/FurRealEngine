@@ -302,6 +302,7 @@ namespace FurRealEngine
                 curLevel++;
                 if (curLevel > scenario.endLevel)
                 {
+                    SimulatorController.levelsCompleted++;
                     curLevel = scenario.startLevel;
                     runNum++;
                     if (runNum > scenario.numberOfRuns)
@@ -321,7 +322,6 @@ namespace FurRealEngine
                 }
                 roundController.setCharacters(characters);
                 roundController.setMonsters(monsters);
-                SimulatorController.levelsCompleted++;
             }
         }
 

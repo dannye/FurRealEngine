@@ -20,6 +20,7 @@ namespace FurRealEngine
 
         public LoginGUI()
         {
+            ReportController.isFirstRunInstance = true;
             InitializeComponent();
         }
 

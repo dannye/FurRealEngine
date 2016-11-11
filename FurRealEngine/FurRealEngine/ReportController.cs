@@ -14,15 +14,25 @@ namespace FurRealEngine
         SceneSettings scene;
         Report report;
         static List<Report> reports;
+        public static Boolean isFirstRunInstance;
 
         public ReportController()
         {
-            reports = new List<Report>();
+            if (isFirstRunInstance)
+            {
+                reports = new List<Report>();
+                isFirstRunInstance = false;
+            }
             reportGUI = new ReportGUI(this);
         }
 
         public ReportController(Report report, ScenarioSettings scenario, SceneSettings scene, ConfigController config)
         {
+            if (isFirstRunInstance)
+            {
+                reports = new List<Report>();
+                isFirstRunInstance = false;
+            }
             this.report = report;
             this.config = config;
             this.scenario = scenario;
