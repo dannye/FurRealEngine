@@ -58,6 +58,11 @@ namespace FurRealEngine
         private void buttonSelectReport_Click(object sender, EventArgs e)
         {
             Report selectedReport = (Report)this.listBoxReports.SelectedItem;
+            if(selectedReport == null)
+            {
+                MessageBox.Show("Select a valid report to view stats!");
+                return;
+            }
             populateReportStatsBreakDown(selectedReport);
         }
     }
