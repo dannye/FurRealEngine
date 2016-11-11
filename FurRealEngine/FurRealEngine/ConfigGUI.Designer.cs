@@ -71,7 +71,7 @@
             this.checkedListBoxChars = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editAccountButton = new System.Windows.Forms.Button();
             this.selectedMonstersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
@@ -501,7 +501,7 @@
             // 
             this.buttonSelectProfessionLevel.ForeColor = System.Drawing.Color.Black;
             this.buttonSelectProfessionLevel.Location = new System.Drawing.Point(148, 171);
-            this.buttonSelectProfessionLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectProfessionLevel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectProfessionLevel.Name = "buttonSelectProfessionLevel";
             this.buttonSelectProfessionLevel.Size = new System.Drawing.Size(74, 24);
             this.buttonSelectProfessionLevel.TabIndex = 24;
@@ -527,7 +527,7 @@
             "14",
             "15"});
             this.comboBoxProfessionLevel.Location = new System.Drawing.Point(6, 172);
-            this.comboBoxProfessionLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxProfessionLevel.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProfessionLevel.Name = "comboBoxProfessionLevel";
             this.comboBoxProfessionLevel.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProfessionLevel.TabIndex = 23;
@@ -536,7 +536,7 @@
             // 
             this.buttonSelectRevive.ForeColor = System.Drawing.Color.Black;
             this.buttonSelectRevive.Location = new System.Drawing.Point(148, 210);
-            this.buttonSelectRevive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectRevive.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectRevive.Name = "buttonSelectRevive";
             this.buttonSelectRevive.Size = new System.Drawing.Size(74, 24);
             this.buttonSelectRevive.TabIndex = 22;
@@ -554,7 +554,7 @@
             "Upon Death",
             "Each Level"});
             this.comboBoxReviveOpt.Location = new System.Drawing.Point(6, 212);
-            this.comboBoxReviveOpt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxReviveOpt.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxReviveOpt.Name = "comboBoxReviveOpt";
             this.comboBoxReviveOpt.Size = new System.Drawing.Size(121, 21);
             this.comboBoxReviveOpt.TabIndex = 21;
@@ -630,7 +630,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.editAccountButton);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(547, 415);
             this.groupBox1.Name = "groupBox1";
@@ -639,16 +639,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit User Accounts";
             // 
-            // button1
+            // editAccountButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(27, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 24);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.editAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.editAccountButton.ForeColor = System.Drawing.Color.Black;
+            this.editAccountButton.Location = new System.Drawing.Point(27, 24);
+            this.editAccountButton.Name = "editAccountButton";
+            this.editAccountButton.Size = new System.Drawing.Size(75, 24);
+            this.editAccountButton.TabIndex = 29;
+            this.editAccountButton.Text = "Edit";
+            this.editAccountButton.UseVisualStyleBackColor = true;
+            this.editAccountButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // ConfigGUI
             // 
@@ -748,7 +749,7 @@
         private System.Windows.Forms.Button buttonSelectRevive;
         private System.Windows.Forms.ComboBox comboBoxReviveOpt;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button editAccountButton;
     }
 }
 

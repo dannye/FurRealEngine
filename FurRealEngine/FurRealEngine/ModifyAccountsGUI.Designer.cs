@@ -29,43 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyAccountsGUI));
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.userAccountsBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.unameBox = new System.Windows.Forms.TextBox();
+            this.confirmUnameBox = new System.Windows.Forms.TextBox();
+            this.passBox = new System.Windows.Forms.TextBox();
+            this.confirmPassBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.userButton = new System.Windows.Forms.RadioButton();
+            this.adminButton = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // userAccountsBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.userAccountsBox.FormattingEnabled = true;
+            this.userAccountsBox.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.listBox1.Location = new System.Drawing.Point(21, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(129, 225);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.userAccountsBox.Location = new System.Drawing.Point(21, 19);
+            this.userAccountsBox.Name = "userAccountsBox";
+            this.userAccountsBox.Size = new System.Drawing.Size(129, 225);
+            this.userAccountsBox.TabIndex = 0;
+            this.userAccountsBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.userAccountsBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(124, 136);
@@ -88,33 +88,34 @@
             this.labelTitle.Text = "Modify User Accounts";
             this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
-            // textBox1
+            // unameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(167, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 20);
-            this.textBox1.TabIndex = 27;
+            this.unameBox.Location = new System.Drawing.Point(167, 32);
+            this.unameBox.Name = "unameBox";
+            this.unameBox.Size = new System.Drawing.Size(114, 20);
+            this.unameBox.TabIndex = 27;
+            this.unameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // confirmUnameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(114, 20);
-            this.textBox2.TabIndex = 28;
+            this.confirmUnameBox.Location = new System.Drawing.Point(167, 75);
+            this.confirmUnameBox.Name = "confirmUnameBox";
+            this.confirmUnameBox.Size = new System.Drawing.Size(114, 20);
+            this.confirmUnameBox.TabIndex = 28;
             // 
-            // textBox3
+            // passBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(167, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(114, 20);
-            this.textBox3.TabIndex = 29;
+            this.passBox.Location = new System.Drawing.Point(167, 116);
+            this.passBox.Name = "passBox";
+            this.passBox.Size = new System.Drawing.Size(114, 20);
+            this.passBox.TabIndex = 29;
             // 
-            // textBox4
+            // confirmPassBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(167, 160);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(114, 20);
-            this.textBox4.TabIndex = 30;
+            this.confirmPassBox.Location = new System.Drawing.Point(167, 160);
+            this.confirmPassBox.Name = "confirmPassBox";
+            this.confirmPassBox.Size = new System.Drawing.Size(114, 20);
+            this.confirmPassBox.TabIndex = 30;
             // 
             // label1
             // 
@@ -164,33 +165,33 @@
             this.label4.TabIndex = 34;
             this.label4.Text = "Confirm Password: ";
             // 
-            // radioButton1
+            // userButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(167, 204);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(51, 17);
-            this.radioButton1.TabIndex = 35;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "User";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.userButton.AutoSize = true;
+            this.userButton.BackColor = System.Drawing.Color.Transparent;
+            this.userButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userButton.ForeColor = System.Drawing.Color.White;
+            this.userButton.Location = new System.Drawing.Point(167, 204);
+            this.userButton.Name = "userButton";
+            this.userButton.Size = new System.Drawing.Size(51, 17);
+            this.userButton.TabIndex = 35;
+            this.userButton.TabStop = true;
+            this.userButton.Text = "User";
+            this.userButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // adminButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(224, 204);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(59, 17);
-            this.radioButton2.TabIndex = 36;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Admin";
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.adminButton.AutoSize = true;
+            this.adminButton.BackColor = System.Drawing.Color.Transparent;
+            this.adminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminButton.ForeColor = System.Drawing.Color.White;
+            this.adminButton.Location = new System.Drawing.Point(224, 204);
+            this.adminButton.Name = "adminButton";
+            this.adminButton.Size = new System.Drawing.Size(59, 17);
+            this.adminButton.TabIndex = 36;
+            this.adminButton.TabStop = true;
+            this.adminButton.Text = "Admin";
+            this.adminButton.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -208,18 +209,18 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.saveButton);
+            this.groupBox2.Controls.Add(this.unameBox);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.adminButton);
+            this.groupBox2.Controls.Add(this.confirmUnameBox);
+            this.groupBox2.Controls.Add(this.userButton);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.passBox);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.confirmPassBox);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(588, 136);
@@ -229,29 +230,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "User Account Settings";
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(208, 236);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = false;
+            this.saveButton.BackColor = System.Drawing.Color.White;
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.Black;
+            this.saveButton.Location = new System.Drawing.Point(208, 236);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 39;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // backButton
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(12, 454);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 40;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = false;
+            this.backButton.BackColor = System.Drawing.Color.White;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.Black;
+            this.backButton.Location = new System.Drawing.Point(12, 454);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.TabIndex = 40;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = false;
             // 
             // ModifyAccountsGUI
             // 
@@ -259,7 +260,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1005, 489);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.groupBox1);
@@ -275,22 +276,22 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox userAccountsBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox unameBox;
+        private System.Windows.Forms.TextBox confirmUnameBox;
+        private System.Windows.Forms.TextBox passBox;
+        private System.Windows.Forms.TextBox confirmPassBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton userButton;
+        private System.Windows.Forms.RadioButton adminButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button backButton;
     }
 }
