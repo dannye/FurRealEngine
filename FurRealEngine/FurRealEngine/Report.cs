@@ -146,7 +146,7 @@ namespace FurRealEngine
 
         public void setEnvionrmentOfBattle(string envionrmentOfBattle)
         {
-            this.envionrmentOfBattle = envionrmentOfBattle;
+            this.envionrmentOfBattle = envionrmentOfBattle.ToUpper();
         }
 
     }
