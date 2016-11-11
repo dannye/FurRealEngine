@@ -33,6 +33,7 @@ namespace FurRealEngine
 
        public Report(ScenarioSettings scenario, SceneSettings scene, List<Character> characters)
         {
+            // Are scenario and scene needed in Report?
             this.scenario = scenario;
             this.scene = scene;
             this.characters = characters;

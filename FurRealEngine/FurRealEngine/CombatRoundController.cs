@@ -81,6 +81,7 @@ namespace FurRealEngine
                     monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
             }
+            SimulatorController.totalDamageGiven += damage;
         }
 
         public void spellAttack(int character, int monster)
@@ -120,6 +121,7 @@ namespace FurRealEngine
                     monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
             }
+            SimulatorController.totalDamageGiven += damage;
         }
 
         private int getPhysAttackDef(int monster)

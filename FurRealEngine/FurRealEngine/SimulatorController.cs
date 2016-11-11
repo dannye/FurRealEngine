@@ -21,6 +21,13 @@ namespace FurRealEngine
         int runNum = 1;
         int curLevel;
 
+        //Static variables that rollover each run for Report
+        public static int monstersDefeated;
+        public static int charactersDefeated;
+        public static int levelsCompleted;
+        public static int totalDamageGiven;
+        public static int totalDamageTaken;
+
         static Random rand = new Random();
 
         public SimulatorController(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, List<Monster> monsters, ConfigController config)
@@ -30,6 +37,11 @@ namespace FurRealEngine
             this.characters = characters;
             this.monsters = monsters;
             this.config = config;
+            SimulatorController.monstersDefeated = 0;
+            SimulatorController.charactersDefeated = 0;
+            SimulatorController.levelsCompleted = 0;
+            SimulatorController.totalDamageGiven = 0;
+            SimulatorController.totalDamageTaken = 0;
             roundController = new CombatRoundController(scenario, scene, characters, monsters);
             simGUI = new SimulatorGUI(this, roundController);
             setBackground();
@@ -273,7 +285,10 @@ namespace FurRealEngine
                 {
                     simGUI.removeFromMonsterList(i);
                     monsters.RemoveAt(i);
+                    monstersDefeated++;
                 }
+                //Must increment charactersDefeated when ever we decide to check for character death.
+                //if (characterDied) { charactersDefeated++; }
             }
         }
 
@@ -306,6 +321,7 @@ namespace FurRealEngine
                 }
                 roundController.setCharacters(characters);
                 roundController.setMonsters(monsters);
+                SimulatorController.levelsCompleted++;
             }
         }
 
@@ -326,6 +342,12 @@ namespace FurRealEngine
             }
         }
 
+        private void initializeSimulationReport()
+        {
+            report = new Report(scenario, scene, characters);
+            reportController = new ReportController(report, scenario, scene, config);
+        }
+
         // when all levels have finished, return to the config gui
         public void close()
         {
@@ -334,8 +356,7 @@ namespace FurRealEngine
                 simGUI.Hide();
             }
             simGUI = null;
-            report = new Report(scenario, scene, characters);
-            reportController = new ReportController(report, config);
+            initializeSimulationReport();
            //config.show();
         }
     }

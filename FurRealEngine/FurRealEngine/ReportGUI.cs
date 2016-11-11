@@ -12,24 +12,28 @@ namespace FurRealEngine
 {
     internal partial class ReportGUI : Form
     {
-        Report report;
+
         ReportController reportController;
-        public ReportGUI(Report report, ReportController reportController)
+        public ReportGUI(ReportController reportController)
         {
-            this.report = report;
             this.reportController = reportController;
             InitializeComponent();
             Show();
         }
 
-        private void buttonNewSim_Click(object sender, EventArgs e)
+        private void populateReportsListBox()
         {
 
         }
 
-        private void buttonExitApp_Click(object sender, EventArgs e)
+        private void buttonNewSim_Click(object sender, EventArgs e)
         {
             reportController.close();
+        }
+
+        private void buttonExitApp_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void buttonSelectReport_Click(object sender, EventArgs e)
