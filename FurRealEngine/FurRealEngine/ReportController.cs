@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    class ReportController
+    public class ReportController
     {
         ReportGUI reportGUI;
         ConfigController config;
@@ -60,6 +60,7 @@ namespace FurRealEngine
         public void addReport(Report report)
         {
             reports.Add(report);
+            this.report.setIndex(reports.Count());
         }
 
         public List<Report> getReports()
