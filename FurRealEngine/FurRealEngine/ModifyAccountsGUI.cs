@@ -12,6 +12,35 @@ namespace FurRealEngine
 {
     public partial class ModifyAccountsGUI : Form
     {
+
+        //User properties
+        public static string currUname;
+        public static string currPass;
+        public static string accountType;
+        //Change to currUname = Value clicked in userAccountsBox.
+        //Change to currPass = some DBMS value.
+
+        public struct editedUser
+        {
+            string userN;//username
+            string userP;//password
+            string userAT;//account type
+        };
+
+
+
+        //Checks to see if the user selected is an admin or not.
+        public void checkActType()
+        {
+
+            if (currUname == "Admin")
+            {
+                accountType = "Admin";
+            }
+            accountType = "User";
+
+        }
+
         public ModifyAccountsGUI()
         {
             InitializeComponent();
@@ -45,32 +74,34 @@ namespace FurRealEngine
             string password = passBox.Text;
             string confirmPassword = confirmPassBox.Text;
 
-           
+            checkActType();
+
+
             //If username and confirm username match
             if (username == confirmUsername)
             {
-                //Set currUsername to username
+                setUsername(currUname , username);
 
             }
 
             //If username and confirm username DO NOT match
             if (username != confirmUsername)
             {
-                //Throw an error message
+                MessageBox.Show("The Username and Confirm Username fields do not match!");
 
             }
 
             //If password and confirm password match
             if (password == confirmPassword)
             {
-                //Set currPassword to password
+                setPassword(currPass, password);
 
             }
 
             //If password and confirm password DO NOT match
             if (password != confirmPassword)
             {
-                //Throw an error message
+                MessageBox.Show("The Password and Confirm Password fields do not match!");
 
             }
 
@@ -79,14 +110,14 @@ namespace FurRealEngine
             if (adminButton.Checked && userButton.Checked)
             {
 
-                //Error message stating to select one or the other
+                MessageBox.Show("A user can not be BOTH a user and an admin.");
             }
 
             //Check to see if both buttons are unchecked
             if ((adminButton.Checked = false) || (userButton.Checked = false))
             {
 
-                //Error message stating to select one or the other
+                MessageBox.Show("Please select user's Account Type.");
             }
 
 
@@ -95,6 +126,9 @@ namespace FurRealEngine
             {
 
                 //Make User am Admin
+                editedUser user;
+
+                user.userAT = "admin";
             }
 
 
@@ -105,10 +139,23 @@ namespace FurRealEngine
                 //Make User a User
             }
 
+       
 
 
-            //At this point we would redirect back to where we want.
+            //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
 
+        }
+
+        //Changes the current username to the username listed in the unameBox
+        public string setUsername(string currName, string username)
+        {
+            return currName = username;
+        }
+
+        //Changes the current password to the password listed in the unameBox
+        public string setPassword(string currPass, string password)
+        {
+            return currPass = password;
         }
     }
 }

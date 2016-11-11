@@ -15,7 +15,7 @@ namespace FurRealEngine
         public void emptyusernameFieldTest()
         {
             // arrange
-            string errorMessage = "Username field has been left blank.";
+            //string errorMessage = "Username field has been left blank.";
             string blank = "";
 
 
@@ -35,7 +35,7 @@ namespace FurRealEngine
         public void emptyPasswordFieldTest()
         {
             // arrange
-            string errorMessage = "Password field has been left blank.";
+            //string errorMessage = "Password field has been left blank.";
             string blank = "";
 
 
