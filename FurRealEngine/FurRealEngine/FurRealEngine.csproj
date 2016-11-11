@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
+    <Compile Include="ModifyAccountsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyAccountsGUI.Designer.cs">
+      <DependentUpon>ModifyAccountsGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report.cs" />
     <Compile Include="ReportGUI.cs">
       <SubType>Form</SubType>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyAccountsGUI.resx">
+      <DependentUpon>ModifyAccountsGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
