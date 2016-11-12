@@ -94,6 +94,7 @@
     <Compile Include="TestClasses\LoginGUITest.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TestClasses\ReportControllerTests.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="ConfigGUI.resx">
       <DependentUpon>ConfigGUI.cs</DependentUpon>
