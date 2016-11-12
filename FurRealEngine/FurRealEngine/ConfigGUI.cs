@@ -322,16 +322,20 @@ namespace FurRealEngine
             return comboBoxEnvironment.SelectedItem.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+
+        //Also, only show button if loged in as an admin.
+
+
+        private void editAccountButton_MouseClick(object sender, MouseEventArgs e)
         {
+            ModifyAccountsGUI modify = new ModifyAccountsGUI();
+            this.Hide();
+            modify.ShowDialog();
 
         }
 
-        private void editAccountButton_Click(object sender, EventArgs e)
-        {
-            //Need to redirect to ModifyAccountsGUI.cs
 
-            //Also, only show button if loged in as an admin.
-        }
     }
 }

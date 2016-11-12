@@ -52,6 +52,7 @@
             // 
             // userAccountsBox
             // 
+            this.userAccountsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userAccountsBox.FormattingEnabled = true;
             this.userAccountsBox.Items.AddRange(new object[] {
             "User",
@@ -241,6 +242,7 @@
             this.saveButton.TabIndex = 39;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // backButton
             // 
@@ -253,6 +255,7 @@
             this.backButton.TabIndex = 40;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backButton_MouseClick);
             // 
             // ModifyAccountsGUI
             // 
@@ -266,6 +269,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ModifyAccountsGUI";
             this.Text = "FurReal Engine (Modify Accounts)";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModifyAccountsGUI_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

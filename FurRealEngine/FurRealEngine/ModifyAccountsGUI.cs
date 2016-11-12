@@ -22,9 +22,9 @@ namespace FurRealEngine
 
         public struct editedUser
         {
-            string userN;//username
-            string userP;//password
-            string userAT;//account type
+            public string userN;//username
+            public string userP;//password
+            public string userAT;//account type
         };
 
 
@@ -82,7 +82,7 @@ namespace FurRealEngine
             if (username == confirmUsername)
             {
                 setUsername(currUname , username);
-
+               
             }
 
             //If username and confirm username DO NOT match
@@ -143,10 +143,17 @@ namespace FurRealEngine
                 u.userAT = "user";
             }
 
-       
+            if (username == confirmUsername && password == confirmPassword)
+            {
+                //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
+                MessageBox.Show("User's account has been updated.\n" +
+                                " Username = " + username + ".\n" +
+                                " Password = " + password + ".\n" +
+                                " Account Type = " + accountType + ".");
+            }
 
-
-            //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
+                
+            
 
         }
 
@@ -160,6 +167,18 @@ namespace FurRealEngine
         public string setPassword(string currPass, string password)
         {
             return currPass = password;
+        }
+
+        private void ModifyAccountsGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void backButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            ConfigGUI configGui = new ConfigGUI();
+            Hide();
+            configGui.ShowDialog();
         }
     }
 }

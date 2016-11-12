@@ -649,7 +649,7 @@
             this.editAccountButton.TabIndex = 29;
             this.editAccountButton.Text = "Edit";
             this.editAccountButton.UseVisualStyleBackColor = true;
-            this.editAccountButton.Click += new System.EventHandler(this.button1_Click);
+            this.editAccountButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.editAccountButton_MouseClick);
             // 
             // ConfigGUI
             // 
