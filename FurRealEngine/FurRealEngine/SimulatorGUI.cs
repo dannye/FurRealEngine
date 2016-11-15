@@ -108,5 +108,24 @@ namespace FurRealEngine
         {
             simController.close();
         }
+
+        public void setSettings(DIFFICULTY difficulty, int level, int run, int treasure)
+        {
+            if (difficulty == DIFFICULTY.NOVICE)
+            {
+                difficultyText.Text = "Novice";
+            }
+            else if (difficulty == DIFFICULTY.APPRENTICE)
+            {
+                difficultyText.Text = "Apprentice";
+            }
+            else
+            {
+                difficultyText.Text = "Master";
+            }
+            levelText.Text = level.ToString();
+            runText.Text = run.ToString();
+            treasureText.Text = treasure.ToString();
+        }
     }
 }

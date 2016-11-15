@@ -26,6 +26,10 @@ namespace FurRealEngine
         {
             this.user = user;
             configController.setActiveUser(user);
+            if (!user.getAdminStatus())
+            {
+                editAccountGroup.Enabled = false;
+            }
             Show();
         }
 
@@ -322,12 +326,6 @@ namespace FurRealEngine
             return comboBoxEnvironment.SelectedItem.ToString();
         }
 
-
-
-
-        //Also, only show button if loged in as an admin.
-
-
         private void editAccountButton_MouseClick(object sender, MouseEventArgs e)
         {
             ModifyAccountsGUI modify = new ModifyAccountsGUI();
@@ -335,7 +333,5 @@ namespace FurRealEngine
             modify.ShowDialog();
 
         }
-
-
     }
 }

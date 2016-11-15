@@ -31,14 +31,14 @@
             this.groupBoxReportSelectin = new System.Windows.Forms.GroupBox();
             this.buttonSelectReport = new System.Windows.Forms.Button();
             this.listBoxReports = new System.Windows.Forms.ListBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.groupBoxReport = new System.Windows.Forms.GroupBox();
+            this.labelEnvironment = new System.Windows.Forms.Label();
+            this.labelCD = new System.Windows.Forms.Label();
+            this.labelDamageTaken = new System.Windows.Forms.Label();
+            this.labelMonstersDefeated = new System.Windows.Forms.Label();
             this.labelCharsDefeated = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelDamageOutput = new System.Windows.Forms.Label();
+            this.labelNumMonsters = new System.Windows.Forms.Label();
+            this.labelDamageGiven = new System.Windows.Forms.Label();
             this.labelNumOfChars = new System.Windows.Forms.Label();
             this.labelRepeated = new System.Windows.Forms.Label();
             this.labelDifficulty = new System.Windows.Forms.Label();
@@ -56,8 +56,10 @@
             this.textBoxLevelsCompleted = new System.Windows.Forms.TextBox();
             this.buttonExitApp = new System.Windows.Forms.Button();
             this.buttonNewSim = new System.Windows.Forms.Button();
+            this.labelTreasure = new System.Windows.Forms.Label();
+            this.textBoxTreasure = new System.Windows.Forms.TextBox();
             this.groupBoxReportSelectin.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxReportSelectin
@@ -67,9 +69,9 @@
             this.groupBoxReportSelectin.Controls.Add(this.listBoxReports);
             this.groupBoxReportSelectin.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxReportSelectin.Location = new System.Drawing.Point(39, 38);
-            this.groupBoxReportSelectin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxReportSelectin.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxReportSelectin.Name = "groupBoxReportSelectin";
-            this.groupBoxReportSelectin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxReportSelectin.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxReportSelectin.Size = new System.Drawing.Size(321, 558);
             this.groupBoxReportSelectin.TabIndex = 0;
             this.groupBoxReportSelectin.TabStop = false;
@@ -78,7 +80,7 @@
             // buttonSelectReport
             // 
             this.buttonSelectReport.Location = new System.Drawing.Point(87, 433);
-            this.buttonSelectReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSelectReport.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSelectReport.Name = "buttonSelectReport";
             this.buttonSelectReport.Size = new System.Drawing.Size(144, 62);
             this.buttonSelectReport.TabIndex = 3;
@@ -91,7 +93,7 @@
             this.listBoxReports.FormattingEnabled = true;
             this.listBoxReports.ItemHeight = 31;
             this.listBoxReports.Location = new System.Drawing.Point(29, 79);
-            this.listBoxReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxReports.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxReports.Name = "listBoxReports";
             this.listBoxReports.Size = new System.Drawing.Size(260, 252);
             this.listBoxReports.TabIndex = 0;
@@ -132,27 +134,6 @@
             this.groupBoxReport.TabIndex = 1;
             this.groupBoxReport.TabStop = false;
             this.groupBoxReport.Text = "Simulation Stats Breakdown";
-            // 
-            // textBoxTreasure
-            // 
-            this.textBoxTreasure.Enabled = false;
-            this.textBoxTreasure.Location = new System.Drawing.Point(595, 383);
-            this.textBoxTreasure.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTreasure.Name = "textBoxTreasure";
-            this.textBoxTreasure.ReadOnly = true;
-            this.textBoxTreasure.Size = new System.Drawing.Size(132, 39);
-            this.textBoxTreasure.TabIndex = 29;
-            // 
-            // labelTreasure
-            // 
-            this.labelTreasure.AutoSize = true;
-            this.labelTreasure.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTreasure.Location = new System.Drawing.Point(576, 350);
-            this.labelTreasure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTreasure.Name = "labelTreasure";
-            this.labelTreasure.Size = new System.Drawing.Size(164, 29);
-            this.labelTreasure.TabIndex = 28;
-            this.labelTreasure.Text = "Total Treasure";
             // 
             // labelEnvironment
             // 
@@ -209,7 +190,7 @@
             this.labelCharsDefeated.TabIndex = 23;
             this.labelCharsDefeated.Text = "Character Deaths";
             // 
-            // label6
+            // labelNumMonsters
             // 
             this.labelNumMonsters.AutoSize = true;
             this.labelNumMonsters.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,7 +201,7 @@
             this.labelNumMonsters.TabIndex = 22;
             this.labelNumMonsters.Text = "Number of Monsters";
             // 
-            // labelDamageOutput
+            // labelDamageGiven
             // 
             this.labelDamageGiven.AutoSize = true;
             this.labelDamageGiven.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -279,7 +260,7 @@
             // 
             this.textBoxTotalCD.Enabled = false;
             this.textBoxTotalCD.Location = new System.Drawing.Point(595, 300);
-            this.textBoxTotalCD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTotalCD.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotalCD.Name = "textBoxTotalCD";
             this.textBoxTotalCD.ReadOnly = true;
             this.textBoxTotalCD.Size = new System.Drawing.Size(132, 39);
@@ -289,7 +270,7 @@
             // 
             this.textBoxMonstersDefeated.Enabled = false;
             this.textBoxMonstersDefeated.Location = new System.Drawing.Point(332, 300);
-            this.textBoxMonstersDefeated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxMonstersDefeated.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMonstersDefeated.Name = "textBoxMonstersDefeated";
             this.textBoxMonstersDefeated.ReadOnly = true;
             this.textBoxMonstersDefeated.Size = new System.Drawing.Size(132, 39);
@@ -298,8 +279,8 @@
             // textBoxDamageGiven
             // 
             this.textBoxDamageGiven.Enabled = false;
-            this.textBoxDamageGiven.Location = new System.Drawing.Point(184, 383);
-            this.textBoxDamageGiven.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDamageGiven.Location = new System.Drawing.Point(55, 383);
+            this.textBoxDamageGiven.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDamageGiven.Name = "textBoxDamageGiven";
             this.textBoxDamageGiven.ReadOnly = true;
             this.textBoxDamageGiven.Size = new System.Drawing.Size(132, 39);
@@ -308,8 +289,8 @@
             // textBoxDamageTaken
             // 
             this.textBoxDamageTaken.Enabled = false;
-            this.textBoxDamageTaken.Location = new System.Drawing.Point(461, 383);
-            this.textBoxDamageTaken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDamageTaken.Location = new System.Drawing.Point(332, 383);
+            this.textBoxDamageTaken.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDamageTaken.Name = "textBoxDamageTaken";
             this.textBoxDamageTaken.ReadOnly = true;
             this.textBoxDamageTaken.Size = new System.Drawing.Size(132, 39);
@@ -319,7 +300,7 @@
             // 
             this.textBoxTotalMonsters.Enabled = false;
             this.textBoxTotalMonsters.Location = new System.Drawing.Point(52, 300);
-            this.textBoxTotalMonsters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTotalMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotalMonsters.Name = "textBoxTotalMonsters";
             this.textBoxTotalMonsters.ReadOnly = true;
             this.textBoxTotalMonsters.Size = new System.Drawing.Size(132, 39);
@@ -330,7 +311,7 @@
             this.textBoxEnv.Enabled = false;
             this.textBoxEnv.Font = new System.Drawing.Font("Matura MT Script Capitals", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEnv.Location = new System.Drawing.Point(560, 198);
-            this.textBoxEnv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEnv.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEnv.Name = "textBoxEnv";
             this.textBoxEnv.ReadOnly = true;
             this.textBoxEnv.Size = new System.Drawing.Size(213, 34);
@@ -340,7 +321,7 @@
             // 
             this.textBoxCharacterDeaths.Enabled = false;
             this.textBoxCharacterDeaths.Location = new System.Drawing.Point(332, 198);
-            this.textBoxCharacterDeaths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCharacterDeaths.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCharacterDeaths.Name = "textBoxCharacterDeaths";
             this.textBoxCharacterDeaths.ReadOnly = true;
             this.textBoxCharacterDeaths.Size = new System.Drawing.Size(132, 39);
@@ -350,7 +331,7 @@
             // 
             this.textBoxNumOfChars.Enabled = false;
             this.textBoxNumOfChars.Location = new System.Drawing.Point(52, 198);
-            this.textBoxNumOfChars.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNumOfChars.Name = "textBoxNumOfChars";
             this.textBoxNumOfChars.ReadOnly = true;
             this.textBoxNumOfChars.Size = new System.Drawing.Size(132, 39);
@@ -360,7 +341,7 @@
             // 
             this.textBoxReplays.Enabled = false;
             this.textBoxReplays.Location = new System.Drawing.Point(595, 79);
-            this.textBoxReplays.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxReplays.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxReplays.Name = "textBoxReplays";
             this.textBoxReplays.ReadOnly = true;
             this.textBoxReplays.Size = new System.Drawing.Size(132, 39);
@@ -371,7 +352,7 @@
             this.textBoxDifficulty.Enabled = false;
             this.textBoxDifficulty.Font = new System.Drawing.Font("Matura MT Script Capitals", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDifficulty.Location = new System.Drawing.Point(300, 79);
-            this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDifficulty.Name = "textBoxDifficulty";
             this.textBoxDifficulty.ReadOnly = true;
             this.textBoxDifficulty.Size = new System.Drawing.Size(205, 34);
@@ -381,7 +362,7 @@
             // 
             this.textBoxLevelsCompleted.Enabled = false;
             this.textBoxLevelsCompleted.Location = new System.Drawing.Point(52, 79);
-            this.textBoxLevelsCompleted.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLevelsCompleted.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLevelsCompleted.Name = "textBoxLevelsCompleted";
             this.textBoxLevelsCompleted.ReadOnly = true;
             this.textBoxLevelsCompleted.Size = new System.Drawing.Size(132, 39);
@@ -391,7 +372,7 @@
             // 
             this.buttonExitApp.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExitApp.Location = new System.Drawing.Point(585, 523);
-            this.buttonExitApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonExitApp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExitApp.Name = "buttonExitApp";
             this.buttonExitApp.Size = new System.Drawing.Size(144, 62);
             this.buttonExitApp.TabIndex = 4;
@@ -403,13 +384,34 @@
             // 
             this.buttonNewSim.Font = new System.Drawing.Font("Matura MT Script Capitals", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewSim.Location = new System.Drawing.Point(897, 524);
-            this.buttonNewSim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNewSim.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNewSim.Name = "buttonNewSim";
             this.buttonNewSim.Size = new System.Drawing.Size(144, 62);
             this.buttonNewSim.TabIndex = 5;
             this.buttonNewSim.Text = "New Simulation";
             this.buttonNewSim.UseVisualStyleBackColor = true;
             this.buttonNewSim.Click += new System.EventHandler(this.buttonNewSim_Click);
+            // 
+            // labelTreasure
+            // 
+            this.labelTreasure.AutoSize = true;
+            this.labelTreasure.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTreasure.Location = new System.Drawing.Point(576, 350);
+            this.labelTreasure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTreasure.Name = "labelTreasure";
+            this.labelTreasure.Size = new System.Drawing.Size(164, 29);
+            this.labelTreasure.TabIndex = 28;
+            this.labelTreasure.Text = "Total Treasure";
+            // 
+            // textBoxTreasure
+            // 
+            this.textBoxTreasure.Enabled = false;
+            this.textBoxTreasure.Location = new System.Drawing.Point(595, 383);
+            this.textBoxTreasure.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTreasure.Name = "textBoxTreasure";
+            this.textBoxTreasure.ReadOnly = true;
+            this.textBoxTreasure.Size = new System.Drawing.Size(132, 39);
+            this.textBoxTreasure.TabIndex = 29;
             // 
             // ReportGUI
             // 
@@ -419,19 +421,19 @@
             this.ClientSize = new System.Drawing.Size(1225, 601);
             this.Controls.Add(this.buttonExitApp);
             this.Controls.Add(this.buttonNewSim);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxReport);
             this.Controls.Add(this.groupBoxReportSelectin);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ReportGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Post Simulation Report";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportGUI_FormClosed);
             this.groupBoxReportSelectin.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxReport.ResumeLayout(false);
+            this.groupBoxReport.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -441,7 +443,7 @@
         private System.Windows.Forms.GroupBox groupBoxReportSelectin;
         private System.Windows.Forms.Button buttonSelectReport;
         private System.Windows.Forms.ListBox listBoxReports;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxReport;
         private System.Windows.Forms.Button buttonExitApp;
         private System.Windows.Forms.Button buttonNewSim;
         private System.Windows.Forms.TextBox textBoxTotalCD;
@@ -455,16 +457,18 @@
         private System.Windows.Forms.TextBox textBoxReplays;
         private System.Windows.Forms.TextBox textBoxDifficulty;
         private System.Windows.Forms.TextBox textBoxLevelsCompleted;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelEnvironment;
+        private System.Windows.Forms.Label labelCD;
+        private System.Windows.Forms.Label labelDamageTaken;
+        private System.Windows.Forms.Label labelMonstersDefeated;
         private System.Windows.Forms.Label labelCharsDefeated;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelDamageOutput;
+        private System.Windows.Forms.Label labelNumMonsters;
+        private System.Windows.Forms.Label labelDamageGiven;
         private System.Windows.Forms.Label labelNumOfChars;
         private System.Windows.Forms.Label labelRepeated;
         private System.Windows.Forms.Label labelDifficulty;
         private System.Windows.Forms.Label labelLevelsRan;
+        private System.Windows.Forms.TextBox textBoxTreasure;
+        private System.Windows.Forms.Label labelTreasure;
     }
 }
