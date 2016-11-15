@@ -40,8 +40,14 @@ namespace FurRealEngine
         // then add extra monsters
         public void initSimulation()
         {
+            List<Character> charactersCopy = new List<Character>();
+            foreach (Character character in characters)
+            {
+                charactersCopy.Add(character.clone());
+            }
+
             autoFillMonstersToMatchCD();
-            simController = new SimulatorController(scenario, scene, characters, monsters, this);
+            simController = new SimulatorController(scenario, scene, charactersCopy, monsters, this);
             
             gui.Hide();
         }

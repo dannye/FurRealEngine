@@ -21,7 +21,7 @@ namespace FurRealEngine
             populateReportsListBox();
             if (listBoxReports.Items.Count > 0)
             {
-                listBoxReports.SelectedIndex = 0;
+                listBoxReports.SelectedIndex = listBoxReports.Items.Count - 1;
                 populateReportStatsBreakDown((Report)listBoxReports.SelectedItem);
             }
             Show();
