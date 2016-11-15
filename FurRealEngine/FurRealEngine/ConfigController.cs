@@ -186,12 +186,18 @@ namespace FurRealEngine
         {
             if (index >= 0)
             {
+                profession.Enabled = true;
+                professionLevel.Enabled = true;
+                reviveOpt.Enabled = true;
                 profession.SelectedItem = characters[index].getProfessionName();
                 professionLevel.SelectedItem = characters[index].getLevel().ToString();
                 reviveOpt.SelectedIndex = (int)characters[index].getHealOption();
             }
             else
             {
+                profession.Enabled = false;
+                professionLevel.Enabled = false;
+                reviveOpt.Enabled = false;
                 profession.SelectedItem = null;
                 professionLevel.SelectedItem = null;
                 reviveOpt.SelectedItem = null;
