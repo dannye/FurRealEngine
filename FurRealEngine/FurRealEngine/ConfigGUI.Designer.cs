@@ -524,6 +524,7 @@
             // 
             this.comboBoxProfessionLevel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxProfessionLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProfessionLevel.Enabled = false;
             this.comboBoxProfessionLevel.FormattingEnabled = true;
             this.comboBoxProfessionLevel.Items.AddRange(new object[] {
             "5",
@@ -559,6 +560,7 @@
             // 
             this.comboBoxReviveOpt.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxReviveOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReviveOpt.Enabled = false;
             this.comboBoxReviveOpt.FormattingEnabled = true;
             this.comboBoxReviveOpt.Items.AddRange(new object[] {
             "Never Revive",
@@ -597,6 +599,7 @@
             // 
             this.comboBoxProfessions.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBoxProfessions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProfessions.Enabled = false;
             this.comboBoxProfessions.FormattingEnabled = true;
             this.comboBoxProfessions.Items.AddRange(new object[] {
             "Combat Mage",

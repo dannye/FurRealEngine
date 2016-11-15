@@ -74,6 +74,9 @@
             this.treasureLabel = new System.Windows.Forms.Label();
             this.runText = new System.Windows.Forms.TextBox();
             this.treasureText = new System.Windows.Forms.TextBox();
+            this.continueButton = new System.Windows.Forms.Button();
+            this.playerTurnLabel = new System.Windows.Forms.Label();
+            this.enemyTurnLabel = new System.Windows.Forms.Label();
             this.characterGroup.SuspendLayout();
             this.monsterGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monsterPicture)).BeginInit();
@@ -546,11 +549,47 @@
             this.treasureText.Size = new System.Drawing.Size(146, 30);
             this.treasureText.TabIndex = 15;
             // 
+            // continueButton
+            // 
+            this.continueButton.Location = new System.Drawing.Point(512, 81);
+            this.continueButton.Name = "continueButton";
+            this.continueButton.Size = new System.Drawing.Size(111, 38);
+            this.continueButton.TabIndex = 16;
+            this.continueButton.Text = "Continue";
+            this.continueButton.UseVisualStyleBackColor = true;
+            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
+            // 
+            // playerTurnLabel
+            // 
+            this.playerTurnLabel.AutoSize = true;
+            this.playerTurnLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.playerTurnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerTurnLabel.Location = new System.Drawing.Point(528, 236);
+            this.playerTurnLabel.Name = "playerTurnLabel";
+            this.playerTurnLabel.Size = new System.Drawing.Size(140, 20);
+            this.playerTurnLabel.TabIndex = 17;
+            this.playerTurnLabel.Text = "PLAYER\'S TURN";
+            // 
+            // enemyTurnLabel
+            // 
+            this.enemyTurnLabel.AutoSize = true;
+            this.enemyTurnLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.enemyTurnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemyTurnLabel.Location = new System.Drawing.Point(912, 236);
+            this.enemyTurnLabel.Name = "enemyTurnLabel";
+            this.enemyTurnLabel.Size = new System.Drawing.Size(133, 20);
+            this.enemyTurnLabel.TabIndex = 18;
+            this.enemyTurnLabel.Text = "ENEMY\'S TURN";
+            this.enemyTurnLabel.Visible = false;
+            // 
             // SimulatorGUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1169, 663);
+            this.Controls.Add(this.enemyTurnLabel);
+            this.Controls.Add(this.playerTurnLabel);
+            this.Controls.Add(this.continueButton);
             this.Controls.Add(this.treasureText);
             this.Controls.Add(this.treasureLabel);
             this.Controls.Add(this.runText);
@@ -633,5 +672,8 @@
         private System.Windows.Forms.Label treasureLabel;
         private System.Windows.Forms.TextBox runText;
         private System.Windows.Forms.TextBox treasureText;
+        private System.Windows.Forms.Button continueButton;
+        private System.Windows.Forms.Label playerTurnLabel;
+        private System.Windows.Forms.Label enemyTurnLabel;
     }
 }
