@@ -20,6 +20,7 @@ namespace FurRealEngine
         ConfigController config;
         int runNum = 1;
         int curLevel;
+        int treasure = 0;
 
         //Static variables that rollover each run for Report
         public static int monstersDefeated;
@@ -58,6 +59,7 @@ namespace FurRealEngine
             {
                 this.scene.monsters.Add(monster.clone());
             }
+            simGUI.setSettings(scenario.difficulty, curLevel, runNum, treasure);
         }
 
         public static int diceRoll(int numRolls, int sides)
@@ -95,7 +97,7 @@ namespace FurRealEngine
                     {
                         box.Text = character.getProfessionName();
                     }
-                    else if (box.Name == "levelText")
+                    else if (box.Name == "professionLevelText")
                     {
                         box.Text = character.getLevel().ToString();
                     }
@@ -299,6 +301,7 @@ namespace FurRealEngine
         {
             if (monsters.Count() == 0)
             {
+                treasure += 100 * curLevel;
                 curLevel++;
                 if (curLevel > scenario.endLevel)
                 {
@@ -309,6 +312,7 @@ namespace FurRealEngine
                     {
                         close();
                     }
+                    treasure = 0;
                 }
                 characters = new List<Character>();
                 monsters = new List<Monster>();
@@ -322,6 +326,10 @@ namespace FurRealEngine
                 }
                 roundController.setCharacters(characters);
                 roundController.setMonsters(monsters);
+                if (simGUI != null)
+                {
+                    simGUI.setSettings(scenario.difficulty, curLevel, runNum, treasure);
+                }
             }
         }
 
@@ -344,7 +352,7 @@ namespace FurRealEngine
 
         private void initializeSimulationReport()
         {
-            report = new Report(scenario, scene, characters);
+            report = new Report(scenario, scene, characters, treasure);
             reportController = new ReportController(report, scenario, scene, config);
         }
 

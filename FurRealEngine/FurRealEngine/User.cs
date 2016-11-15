@@ -34,19 +34,19 @@ namespace FurRealEngine
             this.isAdmin = isAdmin;
         }
 
-        public string getUsername(string username)
+        public string getUsername()
         {
-            return this.username;
+            return username;
         }
 
-        public string getPassword(string password)
+        public string getPassword()
         {
-            return this.password;
+            return password;
         }
 
-        public bool getAdminStatus(bool isAdmin)
+        public bool getAdminStatus()
         {
-            return this.isAdmin;
+            return isAdmin;
         }
 
     }

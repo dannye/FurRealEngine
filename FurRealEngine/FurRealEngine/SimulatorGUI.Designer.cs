@@ -33,8 +33,8 @@
             this.characterGroup = new System.Windows.Forms.GroupBox();
             this.playableText = new System.Windows.Forms.TextBox();
             this.playableLabel = new System.Windows.Forms.Label();
-            this.levelLabel = new System.Windows.Forms.Label();
-            this.levelText = new System.Windows.Forms.TextBox();
+            this.professionLevelLabel = new System.Windows.Forms.Label();
+            this.professionLevelText = new System.Windows.Forms.TextBox();
             this.professionText = new System.Windows.Forms.TextBox();
             this.professionLabel = new System.Windows.Forms.Label();
             this.charMaxHealthText = new System.Windows.Forms.TextBox();
@@ -66,6 +66,14 @@
             this.spellButton = new System.Windows.Forms.Button();
             this.monsterPicture = new System.Windows.Forms.PictureBox();
             this.characterPicture = new System.Windows.Forms.PictureBox();
+            this.difficultyLabel = new System.Windows.Forms.Label();
+            this.levelLabel = new System.Windows.Forms.Label();
+            this.runLabel = new System.Windows.Forms.Label();
+            this.difficultyText = new System.Windows.Forms.TextBox();
+            this.levelText = new System.Windows.Forms.TextBox();
+            this.treasureLabel = new System.Windows.Forms.Label();
+            this.runText = new System.Windows.Forms.TextBox();
+            this.treasureText = new System.Windows.Forms.TextBox();
             this.characterGroup.SuspendLayout();
             this.monsterGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monsterPicture)).BeginInit();
@@ -96,8 +104,8 @@
             // 
             this.characterGroup.Controls.Add(this.playableText);
             this.characterGroup.Controls.Add(this.playableLabel);
-            this.characterGroup.Controls.Add(this.levelLabel);
-            this.characterGroup.Controls.Add(this.levelText);
+            this.characterGroup.Controls.Add(this.professionLevelLabel);
+            this.characterGroup.Controls.Add(this.professionLevelText);
             this.characterGroup.Controls.Add(this.professionText);
             this.characterGroup.Controls.Add(this.professionLabel);
             this.characterGroup.Controls.Add(this.charMaxHealthText);
@@ -139,23 +147,23 @@
             this.playableLabel.TabIndex = 20;
             this.playableLabel.Text = "Playable:";
             // 
-            // levelLabel
+            // professionLevelLabel
             // 
-            this.levelLabel.AutoSize = true;
-            this.levelLabel.Location = new System.Drawing.Point(16, 61);
-            this.levelLabel.Name = "levelLabel";
-            this.levelLabel.Size = new System.Drawing.Size(46, 17);
-            this.levelLabel.TabIndex = 19;
-            this.levelLabel.Text = "Level:";
+            this.professionLevelLabel.AutoSize = true;
+            this.professionLevelLabel.Location = new System.Drawing.Point(16, 61);
+            this.professionLevelLabel.Name = "professionLevelLabel";
+            this.professionLevelLabel.Size = new System.Drawing.Size(46, 17);
+            this.professionLevelLabel.TabIndex = 19;
+            this.professionLevelLabel.Text = "Level:";
             // 
-            // levelText
+            // professionLevelText
             // 
-            this.levelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.levelText.Location = new System.Drawing.Point(109, 58);
-            this.levelText.Name = "levelText";
-            this.levelText.ReadOnly = true;
-            this.levelText.Size = new System.Drawing.Size(99, 22);
-            this.levelText.TabIndex = 18;
+            this.professionLevelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.professionLevelText.Location = new System.Drawing.Point(109, 58);
+            this.professionLevelText.Name = "professionLevelText";
+            this.professionLevelText.ReadOnly = true;
+            this.professionLevelText.Size = new System.Drawing.Size(99, 22);
+            this.professionLevelText.TabIndex = 18;
             // 
             // professionText
             // 
@@ -450,11 +458,107 @@
             this.characterPicture.TabIndex = 6;
             this.characterPicture.TabStop = false;
             // 
+            // difficultyLabel
+            // 
+            this.difficultyLabel.AutoSize = true;
+            this.difficultyLabel.BackColor = System.Drawing.Color.Transparent;
+            this.difficultyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.difficultyLabel.Location = new System.Drawing.Point(24, 404);
+            this.difficultyLabel.Name = "difficultyLabel";
+            this.difficultyLabel.Size = new System.Drawing.Size(90, 25);
+            this.difficultyLabel.TabIndex = 8;
+            this.difficultyLabel.Text = "Difficulty:";
+            // 
+            // levelLabel
+            // 
+            this.levelLabel.AutoSize = true;
+            this.levelLabel.BackColor = System.Drawing.Color.Transparent;
+            this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.levelLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.levelLabel.Location = new System.Drawing.Point(24, 457);
+            this.levelLabel.Name = "levelLabel";
+            this.levelLabel.Size = new System.Drawing.Size(65, 25);
+            this.levelLabel.TabIndex = 9;
+            this.levelLabel.Text = "Level:";
+            // 
+            // runLabel
+            // 
+            this.runLabel.AutoSize = true;
+            this.runLabel.BackColor = System.Drawing.Color.Transparent;
+            this.runLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.runLabel.Location = new System.Drawing.Point(24, 508);
+            this.runLabel.Name = "runLabel";
+            this.runLabel.Size = new System.Drawing.Size(53, 25);
+            this.runLabel.TabIndex = 10;
+            this.runLabel.Text = "Run:";
+            // 
+            // difficultyText
+            // 
+            this.difficultyText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.difficultyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyText.Location = new System.Drawing.Point(183, 399);
+            this.difficultyText.Name = "difficultyText";
+            this.difficultyText.ReadOnly = true;
+            this.difficultyText.Size = new System.Drawing.Size(146, 30);
+            this.difficultyText.TabIndex = 11;
+            // 
+            // levelText
+            // 
+            this.levelText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.levelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.levelText.Location = new System.Drawing.Point(183, 452);
+            this.levelText.Name = "levelText";
+            this.levelText.ReadOnly = true;
+            this.levelText.Size = new System.Drawing.Size(146, 30);
+            this.levelText.TabIndex = 12;
+            // 
+            // treasureLabel
+            // 
+            this.treasureLabel.AutoSize = true;
+            this.treasureLabel.BackColor = System.Drawing.Color.Transparent;
+            this.treasureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treasureLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.treasureLabel.Location = new System.Drawing.Point(24, 557);
+            this.treasureLabel.Name = "treasureLabel";
+            this.treasureLabel.Size = new System.Drawing.Size(97, 25);
+            this.treasureLabel.TabIndex = 14;
+            this.treasureLabel.Text = "Treasure:";
+            // 
+            // runText
+            // 
+            this.runText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.runText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runText.Location = new System.Drawing.Point(183, 503);
+            this.runText.Name = "runText";
+            this.runText.ReadOnly = true;
+            this.runText.Size = new System.Drawing.Size(146, 30);
+            this.runText.TabIndex = 13;
+            // 
+            // treasureText
+            // 
+            this.treasureText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.treasureText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treasureText.Location = new System.Drawing.Point(183, 552);
+            this.treasureText.Name = "treasureText";
+            this.treasureText.ReadOnly = true;
+            this.treasureText.Size = new System.Drawing.Size(146, 30);
+            this.treasureText.TabIndex = 15;
+            // 
             // SimulatorGUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1169, 663);
+            this.Controls.Add(this.treasureText);
+            this.Controls.Add(this.treasureLabel);
+            this.Controls.Add(this.runText);
+            this.Controls.Add(this.levelText);
+            this.Controls.Add(this.difficultyText);
+            this.Controls.Add(this.runLabel);
+            this.Controls.Add(this.levelLabel);
+            this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.monsterPicture);
             this.Controls.Add(this.characterPicture);
             this.Controls.Add(this.spellButton);
@@ -477,6 +581,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.monsterPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.characterPicture)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -514,11 +619,19 @@
         private System.Windows.Forms.Label difficultyLevelLabel;
         private System.Windows.Forms.TextBox nameText;
         private System.Windows.Forms.TextBox typeText;
-        private System.Windows.Forms.Label levelLabel;
-        private System.Windows.Forms.TextBox levelText;
+        private System.Windows.Forms.Label professionLevelLabel;
+        private System.Windows.Forms.TextBox professionLevelText;
         private System.Windows.Forms.TextBox playableText;
         private System.Windows.Forms.Label playableLabel;
         private System.Windows.Forms.PictureBox characterPicture;
         private System.Windows.Forms.PictureBox monsterPicture;
+        private System.Windows.Forms.Label difficultyLabel;
+        private System.Windows.Forms.Label levelLabel;
+        private System.Windows.Forms.Label runLabel;
+        private System.Windows.Forms.TextBox difficultyText;
+        private System.Windows.Forms.TextBox levelText;
+        private System.Windows.Forms.Label treasureLabel;
+        private System.Windows.Forms.TextBox runText;
+        private System.Windows.Forms.TextBox treasureText;
     }
 }

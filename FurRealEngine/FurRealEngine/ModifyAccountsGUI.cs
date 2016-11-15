@@ -13,57 +13,46 @@ namespace FurRealEngine
     public partial class ModifyAccountsGUI : Form
     {
 
-        //User properties
+        //User properties, deprecated, only used in unit tests
         public static string currUname;
         public static string currPass;
         public static string accountType;
         //Change to currUname = Value clicked in userAccountsBox.
         //Change to currPass = some DBMS value.
 
-        public struct editedUser
-        {
-            public string userN;//username
-            public string userP;//password
-            public string userAT;//account type
-        };
-
-
-
-        //Checks to see if the user selected is an admin or not.
-        public void checkActType()
-        {
-
-            if (currUname == "Admin")
-            {
-                accountType = "Admin";
-            }
-            accountType = "User";
-
-        }
+        List<User> users = new List<User>();
 
         public ModifyAccountsGUI()
         {
             InitializeComponent();
+            // eventually, loaded users from database rather than hardcode users
+            users.Add(new User("user", "password", false));
+            users.Add(new User("admin", "password", true));
+            foreach (User user in users)
+            {
+                userAccountsBox.Items.Add(user.getUsername());
+            }
+            userAccountsBox.SelectedIndex = 0;
         }
 
         private void userAccountsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currUname = Convert.ToString(userAccountsBox.SelectedItem);
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            if (userAccountsBox.SelectedIndex >= 0)
+            {
+                User user = users[userAccountsBox.SelectedIndex];
+                unameBox.Text = user.getUsername();
+                confirmUnameBox.Text = "";
+                passBox.Text = user.getPassword();
+                confirmPassBox.Text = "";
+                if (user.getAdminStatus())
+                {
+                    adminButton.Checked = true;
+                }
+                else
+                {
+                    userButton.Checked = true;
+                }
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -73,100 +62,65 @@ namespace FurRealEngine
             string confirmUsername = confirmUnameBox.Text;
             string password = passBox.Text;
             string confirmPassword = confirmPassBox.Text;
-            
-
-            checkActType();
-
-
-            //If username and confirm username match
-            if (username == confirmUsername)
-            {
-                setUsername(currUname , username);
-               
-            }
+            string accountType = "";
 
             //If username and confirm username DO NOT match
             if (username != confirmUsername)
             {
                 MessageBox.Show("The Username and Confirm Username fields do not match!");
-
-            }
-
-            //If password and confirm password match
-            if (password == confirmPassword)
-            {
-                setPassword(currPass, password);
-
+                return;
             }
 
             //If password and confirm password DO NOT match
             if (password != confirmPassword)
             {
                 MessageBox.Show("The Password and Confirm Password fields do not match!");
-
+                return;
             }
 
 
             //Check to see if both buttons are checked
             if (adminButton.Checked && userButton.Checked)
             {
-
                 MessageBox.Show("A user can not be BOTH a user and an admin.");
+                return;
             }
 
             //Check to see if both buttons are unchecked
-            if ((adminButton.Checked = false) || (userButton.Checked = false))
+            if ((adminButton.Checked == false) && (userButton.Checked == false))
             {
-
                 MessageBox.Show("Please select user's Account Type.");
+                return;
             }
 
+            User user = users[userAccountsBox.SelectedIndex];
 
             //If Admin Button is checked make the user an admin
             if (adminButton.Checked)
             {
-
                 //Make User am Admin
-                editedUser u;
-
-                u.userAT = "admin";
+                user.setAdminStatus(true);
+                accountType = "Admin";
             }
 
 
             //If User Botton checked make the user a user
             if (userButton.Checked)
             {
-
                 //Make User a User
-                editedUser u;
-
-                u.userAT = "user";
+                user.setAdminStatus(false);
+                accountType = "User";
             }
 
-            if (username == confirmUsername && password == confirmPassword)
-            {
-                //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
-                MessageBox.Show("User's account has been updated.\n" +
-                                " Username = " + username + ".\n" +
-                                " Password = " + password + ".\n" +
-                                " Account Type = " + accountType + ".");
-            }
+            user.setUsername(username);
+            user.setPassword(password);
+            userAccountsBox.Items[userAccountsBox.SelectedIndex] = username;
 
-                
-            
-
-        }
-
-        //Changes the current username to the username listed in the unameBox
-        public string setUsername(string currName, string username)
-        {
-            return currName = username;
-        }
-
-        //Changes the current password to the password listed in the unameBox
-        public string setPassword(string currPass, string password)
-        {
-            return currPass = password;
+            //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
+            MessageBox.Show("User's account has been updated.\n" +
+                            " Username = " + username + ".\n" +
+                            " Password = " + password + ".\n" +
+                            " Account Type = " + accountType + ".");
         }
 
         private void ModifyAccountsGUI_FormClosed(object sender, FormClosedEventArgs e)
