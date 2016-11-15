@@ -80,14 +80,17 @@ namespace FurRealEngine
             if (playersTurn)
             {
                 characterList.SelectedIndex = currentCharacter;
-                if (!characters[currentCharacter].isCharacterPlayable())
+                if (!characters[currentCharacter].isCharacterPlayable() && target < monsterList.Items.Count)
                 {
                     monsterList.SelectedIndex = target;
                 }
             }
             else
             {
-                characterList.SelectedIndex = target;
+                if (target < characterList.Items.Count)
+                {
+                    characterList.SelectedIndex = target;
+                }
                 monsterList.SelectedIndex = currentCharacter;
             }
             characterIndexChanged(characterList, characterGroup, characterPicture, meleeButton, spellButton, continueButton);
@@ -96,13 +99,20 @@ namespace FurRealEngine
 
         public void characterIndexChanged(ListBox characterList, GroupBox characterGroup, PictureBox characterPicture, Button meleeButton, Button spellButton, Button continueButton)
         {
+            if (characterList.SelectedIndex < 0 && characterList.Items.Count > 0)
+            {
+                characterList.SelectedIndex = 0;
+            }
             if (playersTurn)
             {
                 characterList.SelectedIndex = currentCharacter;
             }
             else
             {
-                characterList.SelectedIndex = target;
+                if (characterList.Items.Count > 0)
+                {
+                    characterList.SelectedIndex = target;
+                }
             }
             fillCharacterGroup(characterGroup, characterList.SelectedIndex);
             activateAttackButtons(meleeButton, spellButton, continueButton, characterList.SelectedIndex);
@@ -144,7 +154,7 @@ namespace FurRealEngine
         // fill the group box with info about the selected character
         private void fillCharacterGroup(GroupBox group, int index)
         {
-            if (characters.Count() > 0)
+            if (characters.Count() > 0 && index >= 0 && index < characters.Count())
             {
                 Character character = characters.ElementAt(index);
                 IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
@@ -317,7 +327,7 @@ namespace FurRealEngine
         // enable/disable attack buttons based on profession of selected character
         private void activateAttackButtons(Button meleeButton, Button spellButton, Button continueButton, int character)
         {
-            if (characters[character].isCharacterPlayable() && playersTurn)
+            if (character >= 0 && characters[character].isCharacterPlayable() && playersTurn)
             {
                 PROFESSION prof = characters[character].getProfession();
                 if (prof == PROFESSION.SOLDIER)
@@ -378,7 +388,12 @@ namespace FurRealEngine
             else
             {
                 Monster monster = monsters[currentCharacter];
-                // monster attack
+                roundController.monsterAttack(target, currentCharacter);
+                checkForDeath();
+                if (charList.Items.Count == 0)
+                {
+                    close();
+                }
                 currentCharacter++;
                 if (currentCharacter >= monsters.Count)
                 {
@@ -467,6 +482,15 @@ namespace FurRealEngine
                 //Must increment charactersDefeated when ever we decide to check for character death.
                 //if (characterDied) { charactersDefeated++; }
             }
+            for (int i = 0; i < characters.Count(); ++i)
+            {
+                if(characters[i].getCurHealth() <= 0)
+                {
+                    simGUI.removeFromCharacterList(i);
+                    characters.RemoveAt(i);
+                    charactersDefeated++;
+                }
+            }
         }
 
         // check if every monster is dead
@@ -536,6 +560,16 @@ namespace FurRealEngine
         // when all levels have finished, return to the config gui
         public void close()
         {
+            characters = new List<Character>();
+            monsters = new List<Monster>();
+            foreach (Character character in scene.characters)
+            {
+                characters.Add(character.clone());
+            }
+            foreach (Monster monster in scene.monsters)
+            {
+                monsters.Add(monster.clone());
+            }
             if (simGUI != null)
             {
                 simGUI.Hide();

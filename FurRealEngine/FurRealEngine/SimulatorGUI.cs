@@ -33,9 +33,13 @@ namespace FurRealEngine
             Show();
         }
 
+        public void removeFromCharacterList(int i)
+        {
+            characterList.Items.RemoveAt(i);
+        }
+
         public void removeFromMonsterList(int i)
         {
-            int index = monsterList.SelectedIndex;
             monsterList.Items.RemoveAt(i);
         }
 
