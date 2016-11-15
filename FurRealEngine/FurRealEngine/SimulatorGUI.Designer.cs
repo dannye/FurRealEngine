@@ -64,19 +64,19 @@
             this.monsterHealthLabel = new System.Windows.Forms.Label();
             this.meleeButton = new System.Windows.Forms.Button();
             this.spellButton = new System.Windows.Forms.Button();
-            this.characterPicture = new System.Windows.Forms.PictureBox();
             this.monsterPicture = new System.Windows.Forms.PictureBox();
+            this.characterPicture = new System.Windows.Forms.PictureBox();
             this.characterGroup.SuspendLayout();
             this.monsterGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.characterPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monsterPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // characterList
             // 
             this.characterList.FormattingEnabled = true;
             this.characterList.ItemHeight = 16;
-            this.characterList.Location = new System.Drawing.Point(57, 73);
+            this.characterList.Location = new System.Drawing.Point(24, 27);
             this.characterList.Name = "characterList";
             this.characterList.Size = new System.Drawing.Size(120, 196);
             this.characterList.TabIndex = 0;
@@ -86,7 +86,7 @@
             // 
             this.monsterList.FormattingEnabled = true;
             this.monsterList.ItemHeight = 16;
-            this.monsterList.Location = new System.Drawing.Point(1257, 73);
+            this.monsterList.Location = new System.Drawing.Point(1005, 27);
             this.monsterList.Name = "monsterList";
             this.monsterList.Size = new System.Drawing.Size(120, 196);
             this.monsterList.TabIndex = 1;
@@ -114,7 +114,7 @@
             this.characterGroup.Controls.Add(this.intelligenceLabel);
             this.characterGroup.Controls.Add(this.strengthText);
             this.characterGroup.Controls.Add(this.strengthLabel);
-            this.characterGroup.Location = new System.Drawing.Point(216, 73);
+            this.characterGroup.Location = new System.Drawing.Point(183, 27);
             this.characterGroup.Name = "characterGroup";
             this.characterGroup.Size = new System.Drawing.Size(234, 351);
             this.characterGroup.TabIndex = 2;
@@ -313,7 +313,7 @@
             this.monsterGroup.Controls.Add(this.typeLabel);
             this.monsterGroup.Controls.Add(this.monsterCurHealthText);
             this.monsterGroup.Controls.Add(this.monsterHealthLabel);
-            this.monsterGroup.Location = new System.Drawing.Point(964, 73);
+            this.monsterGroup.Location = new System.Drawing.Point(712, 27);
             this.monsterGroup.Name = "monsterGroup";
             this.monsterGroup.Size = new System.Drawing.Size(255, 196);
             this.monsterGroup.TabIndex = 3;
@@ -412,7 +412,7 @@
             // 
             // meleeButton
             // 
-            this.meleeButton.Location = new System.Drawing.Point(57, 302);
+            this.meleeButton.Location = new System.Drawing.Point(24, 256);
             this.meleeButton.Name = "meleeButton";
             this.meleeButton.Size = new System.Drawing.Size(120, 35);
             this.meleeButton.TabIndex = 4;
@@ -422,7 +422,7 @@
             // 
             // spellButton
             // 
-            this.spellButton.Location = new System.Drawing.Point(57, 364);
+            this.spellButton.Location = new System.Drawing.Point(24, 318);
             this.spellButton.Name = "spellButton";
             this.spellButton.Size = new System.Drawing.Size(120, 35);
             this.spellButton.TabIndex = 5;
@@ -430,32 +430,31 @@
             this.spellButton.UseVisualStyleBackColor = true;
             this.spellButton.Click += new System.EventHandler(this.spellButton_Click);
             // 
-            // characterPicture
-            // 
-            this.characterPicture.BackColor = System.Drawing.Color.Transparent;
-            this.characterPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.characterPicture.Location = new System.Drawing.Point(468, 277);
-            this.characterPicture.Name = "characterPicture";
-            this.characterPicture.Size = new System.Drawing.Size(397, 374);
-            this.characterPicture.TabIndex = 6;
-            this.characterPicture.TabStop = false;
-            // 
             // monsterPicture
             // 
             this.monsterPicture.BackColor = System.Drawing.Color.Transparent;
             this.monsterPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.monsterPicture.Location = new System.Drawing.Point(890, 277);
+            this.monsterPicture.Location = new System.Drawing.Point(825, 269);
             this.monsterPicture.Name = "monsterPicture";
-            this.monsterPicture.Size = new System.Drawing.Size(374, 374);
+            this.monsterPicture.Size = new System.Drawing.Size(300, 374);
             this.monsterPicture.TabIndex = 7;
             this.monsterPicture.TabStop = false;
             // 
+            // characterPicture
+            // 
+            this.characterPicture.BackColor = System.Drawing.Color.Transparent;
+            this.characterPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.characterPicture.Location = new System.Drawing.Point(442, 269);
+            this.characterPicture.Name = "characterPicture";
+            this.characterPicture.Size = new System.Drawing.Size(319, 374);
+            this.characterPicture.TabIndex = 6;
+            this.characterPicture.TabStop = false;
+            // 
             // SimulatorGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1434, 663);
+            this.ClientSize = new System.Drawing.Size(1169, 663);
             this.Controls.Add(this.monsterPicture);
             this.Controls.Add(this.characterPicture);
             this.Controls.Add(this.spellButton);
@@ -475,8 +474,8 @@
             this.characterGroup.PerformLayout();
             this.monsterGroup.ResumeLayout(false);
             this.monsterGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.characterPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monsterPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterPicture)).EndInit();
             this.ResumeLayout(false);
 
         }

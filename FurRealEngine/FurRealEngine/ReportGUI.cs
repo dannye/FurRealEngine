@@ -65,5 +65,10 @@ namespace FurRealEngine
             }
             populateReportStatsBreakDown(selectedReport);
         }
+
+        private void ReportGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reportController.close();
+        }
     }
 }

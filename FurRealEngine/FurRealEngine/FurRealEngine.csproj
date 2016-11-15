@@ -141,6 +141,7 @@
     <None Include="Resources\FurRealEngine.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\accountsBackground.jpg" />
     <Content Include="Resources\bugbear.png" />
     <Content Include="Resources\cavern.jpg" />
     <Content Include="Resources\combat_mage.png" />
@@ -155,7 +156,7 @@
     <Content Include="Resources\settingsBackground.jpg" />
     <Content Include="Resources\skeleton.png" />
     <Content Include="Resources\soldier.png" />
-    <Content Include="Resources\temple_parchment_desktop_by_gladlad-d4zbkdw.jpg" />
+    <Content Include="Resources\parchment.jpg" />
     <Content Include="Resources\vampire.png" />
     <Content Include="Resources\zombie.png" />
   </ItemGroup>
