@@ -24,7 +24,7 @@ namespace FurRealEngine
         int numOfLevelsProgressed;
         int numOfTimesSimRan;
         int index;
-        string simulationDifficulty;
+        DIFFICULTY simulationDifficulty;
         ENVIRONMENT environmentOfBattle;
         int treasure;
 
@@ -136,12 +136,12 @@ namespace FurRealEngine
             this.numOfTimesSimRan = numOfTimesSimRan;
         }
 
-        public string getSimulationDifficulty()
+        public DIFFICULTY getSimulationDifficulty()
         {
             return this.simulationDifficulty;
         }
 
-        public void setSimulationDifficulty(string simulationDifficulty)
+        public void setSimulationDifficulty(DIFFICULTY simulationDifficulty)
         {
             this.simulationDifficulty = simulationDifficulty;
         }
