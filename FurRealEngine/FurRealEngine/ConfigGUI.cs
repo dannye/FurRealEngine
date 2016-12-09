@@ -388,7 +388,20 @@ namespace FurRealEngine
 
         private void buttonSavePreset_Click(object sender, EventArgs e)
         {
-
+            configurationPreset = new DbPreset(
+                Decimal.ToInt32(numericUpDownNumOfChars.Value), 
+                checkBoxAllCharsPlayable.Checked,
+                comboBoxProfessions.SelectedIndex,
+                comboBoxProfessionLevel.SelectedIndex,
+                comboBoxReviveOpt.SelectedIndex,
+                Decimal.ToInt32(numericUpDownMonsterCD.Value),
+                comboBoxDifficulty.SelectedIndex,
+                Decimal.ToInt32(numericUpDownStartLevel.Value),
+                Decimal.ToInt32(numericUpDownMaxLevel.Value), 
+                comboBoxEnvironment.SelectedIndex,
+                Decimal.ToInt32(numericUpDownRepeat.Value)
+                );
+            configController.createNewPreset(configurationPreset);
         }
     }
 }
