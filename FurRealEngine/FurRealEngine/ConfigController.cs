@@ -52,6 +52,11 @@ namespace FurRealEngine
             gui.Hide();
         }
 
+        public User getUser()
+        {
+            return user;
+        }
+
         public void setActiveUser(User user)
         {
             this.user = user;

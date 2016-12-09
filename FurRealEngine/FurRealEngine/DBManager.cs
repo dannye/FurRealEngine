@@ -67,5 +67,46 @@ namespace FurRealEngine
         {
 
         }
+
+        static public List<Report> loadReports(User u)
+        {
+            //connection to the database
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
+
+            //query
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [Report] WHERE [user] IN (SELECT id FROM [User] WHERE username='" + u.getUsername() + "')", connection);
+
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            connection.Close();
+
+            List<Report> reports = new List<Report>();
+
+            for (int i = 0; i < dt.Rows.Count; ++i)
+            {
+                Report r = new Report();
+                r.setTotalNumOfChars((int)dt.Rows[i]["numCharacters"]);
+                r.setTotalNumOfMonsters((int)dt.Rows[i]["numMonsters"]);
+                r.setTotalCD((int)dt.Rows[i]["challengeDifficulty"]);
+                r.setNumOfCharDefeated((int)dt.Rows[i]["charactersDefeated"]);
+                r.setNumOfMonstersDefeated((int)dt.Rows[i]["monstersDefeated"]);
+                r.setTotalDamageTaken((int)dt.Rows[i]["damageTaken"]);
+                r.setTotalDamageGiven((int)dt.Rows[i]["damageGiven"]);
+                r.setNumOfLevelsProgressed((int)dt.Rows[i]["levels"]);
+                r.setNumOfTimesSimRan((int)dt.Rows[i]["replays"]);
+                r.setSimulationDifficulty((DIFFICULTY)dt.Rows[i]["difficulty"]);
+                r.setEnvironmentOfBattle((ENVIRONMENT)dt.Rows[i]["environment"]);
+                r.setTreasure((int)dt.Rows[i]["treasure"]);
+                reports.Add(r);
+            }
+
+            return reports;
+        }
+        
+        static public void saveReport(User u, Report r)
+        {
+
+        }
     }
 }
