@@ -21,7 +21,7 @@ namespace FurRealEngine
         public void verifyAccount(string username, string password)
         {
 
-
+            //DANIEL RIGHT HERE BOI!!!!!!!!!!
             //connection to the database
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ethan\Source\Repos\cs325-2_16f_guldukat\FurRealEngine\FurRealEngine\furreal.mdf;Integrated Security=True");
 
@@ -29,6 +29,7 @@ namespace FurRealEngine
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT Count(*) FROM User WHERE username='" + textBox1.Text + "' and password = '" + textBox2.Text + "'", connection);
 
             DataTable dt = new DataTable();
+            adapter.Fill(dt);
 
             if (dt.Rows[0][0].ToString() == "1")
             {
