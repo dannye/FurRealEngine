@@ -67,6 +67,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
     <Compile Include="DBManager.cs" />
+    <Compile Include="LoginController.cs" />
     <Compile Include="Preset.cs" />
     <Compile Include="ModifyAccountsGUI.cs">
       <SubType>Form</SubType>
@@ -89,9 +90,6 @@
     </Compile>
     <Compile Include="ConfigGUI.Designer.cs">
       <DependentUpon>ConfigGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginController.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginGUI.cs">
       <SubType>Form</SubType>
