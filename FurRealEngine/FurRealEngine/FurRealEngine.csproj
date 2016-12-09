@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
+    <Compile Include="DBManager.cs" />
     <Compile Include="Preset.cs" />
     <Compile Include="ModifyAccountsGUI.cs">
       <SubType>Form</SubType>

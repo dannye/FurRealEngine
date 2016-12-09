@@ -16,24 +16,8 @@ namespace FurRealEngine
 
         public bool verifyAccount(User user)
         {
-
-            //connection to the database
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ethan\Source\Repos\cs325-2_16f_guldukat\FurRealEngine\FurRealEngine\furreal.mdf;Integrated Security=True");
-
-            //query
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + user.getUsername() + "' AND password = '" + user.getPassword() + "'", connection);
-
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-
-            connection.Close();
-
-            if (dt.Rows.Count > 0)
+            if (DBManager.getUser(user))
             {
-
-                //User has been verified
-                user.setAdminStatus(dt.Rows[0]["isAdmin"].Equals(1));
-                
                 return true;
             }
             else
