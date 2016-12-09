@@ -52,6 +52,7 @@ namespace FurRealEngine
             this.report.setNumOfTimesSimRan(scenario.numberOfRuns);
             this.report.setSimulationDifficulty(scenario.difficulty.ToString());
             this.report.setEnvironmentOfBattle(scene.environment);
+            this.report.setTreasure(SimulatorController.treasure);
         }
 
         public void addReport(Report report)

@@ -27,7 +27,6 @@ namespace FurRealEngine
         ConfigController config;
         int runNum = 1;
         int curLevel;
-        int treasure = 0;
         bool playersTurn = true;
         int currentCharacter = 0;
         int target = 0;
@@ -38,6 +37,7 @@ namespace FurRealEngine
         public static int levelsCompleted;
         public static int totalDamageGiven;
         public static int totalDamageTaken;
+        public static int treasure;
 
         static Random rand = new Random();
 
@@ -53,6 +53,7 @@ namespace FurRealEngine
             SimulatorController.levelsCompleted = 0;
             SimulatorController.totalDamageGiven = 0;
             SimulatorController.totalDamageTaken = 0;
+            SimulatorController.treasure = 0;
             roundController = new CombatRoundController(scenario, scene, characters, monsters);
             simGUI = new SimulatorGUI(this, roundController);
             setBackground();
@@ -580,7 +581,7 @@ namespace FurRealEngine
 
         private void initializeSimulationReport()
         {
-            report = new Report(scenario, scene, characters, treasure);
+            report = new Report();
             reportController = new ReportController(report, scenario, scene, config);
         }
 
