@@ -13,22 +13,22 @@ namespace FurRealEngine
         ScenarioSettings scenario;
         SceneSettings scene;
         Report report;
-        static List<Report> reports;
+        List<Report> reports;
 
-        public ReportController()
+       /* public ReportController()
         {
             if (reports == null)
             {
                 reports = new List<Report>();
             }
             reportGUI = new ReportGUI(this);
-        }
+        }*/
 
         public ReportController(Report report, ScenarioSettings scenario, SceneSettings scene, ConfigController config)
         {
             if (reports == null)
             {
-                reports = new List<Report>();
+                reports = DBManager.loadReports(config.getUser());
             }
             this.report = report;
             this.config = config;
@@ -63,7 +63,7 @@ namespace FurRealEngine
 
         public List<Report> getReports()
         {
-            return ReportController.reports;
+            return reports;
         }
 
         public void close()
