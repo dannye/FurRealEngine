@@ -581,8 +581,7 @@ namespace FurRealEngine
 
         private void initializeSimulationReport()
         {
-            report = new Report();
-            reportController = new ReportController(report, scenario, scene, config);
+            reportController = new ReportController(scenario, scene, config);
         }
 
         // when all levels have finished, return to the config gui

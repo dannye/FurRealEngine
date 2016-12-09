@@ -15,27 +15,15 @@ namespace FurRealEngine
         Report report;
         List<Report> reports;
 
-       /* public ReportController()
+        public ReportController(ScenarioSettings scenario, SceneSettings scene, ConfigController config)
         {
-            if (reports == null)
-            {
-                reports = new List<Report>();
-            }
-            reportGUI = new ReportGUI(this);
-        }*/
-
-        public ReportController(Report report, ScenarioSettings scenario, SceneSettings scene, ConfigController config)
-        {
-            if (reports == null)
-            {
-                reports = DBManager.loadReports(config.getUser());
-            }
-            this.report = report;
+            this.report = new Report();
             this.config = config;
             this.scenario = scenario;
             this.scene = scene;
             initializeReport();
-            this.addReport(report);
+            DBManager.saveReport(config.getUser(), report);
+            reports = DBManager.loadReports(config.getUser());
             reportGUI = new ReportGUI(this);
         }
 
@@ -55,12 +43,6 @@ namespace FurRealEngine
             this.report.setTreasure(SimulatorController.treasure);
         }
 
-        public void addReport(Report report)
-        {
-            reports.Add(report);
-            this.report.setIndex(reports.Count());
-        }
-
         public List<Report> getReports()
         {
             return reports;
@@ -70,7 +52,7 @@ namespace FurRealEngine
         {
             reportGUI.Hide();
             reportGUI = null;
-            //config.show();
+            config.show();
         }
 
     }

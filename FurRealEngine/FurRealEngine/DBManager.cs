@@ -164,6 +164,7 @@ namespace FurRealEngine
                 r.setSimulationDifficulty((DIFFICULTY)dt.Rows[i]["difficulty"]);
                 r.setEnvironmentOfBattle((ENVIRONMENT)dt.Rows[i]["environment"]);
                 r.setTreasure((int)dt.Rows[i]["treasure"]);
+                r.setIndex((int)dt.Rows[i]["index"]);
                 reports.Add(r);
             }
 
@@ -172,7 +173,42 @@ namespace FurRealEngine
         
         static public void saveReport(User u, Report r)
         {
+            //connection to the database
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + u.getUsername() + "' AND password = '" + u.getPassword() + "'", connection);
 
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                int id = (int)dt.Rows[0]["id"];
+                
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = @"INSERT INTO [Report] (levels, replays, difficulty, numCharacters, charactersDefeated, 
+                                        environment, numMonsters, monstersDefeated, challengeDifficulty, damageGiven, damageTaken, 
+                                        treasure, [user]) VALUES (@levels, @replays, @difficulty, @numCharacters, 
+                                        @charactersDefeated, @environment, @numMonsters, @monstersDefeated, @challengeDifficulty, 
+                                        @damageGiven, @damageTaken, @treasure, @id)";
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@levels", r.getNumOfLevelsProgressed());
+                command.Parameters.AddWithValue("@replays", r.getNumOfTimesSimRan());
+                command.Parameters.AddWithValue("@difficulty", r.getSimulationDifficulty());
+                command.Parameters.AddWithValue("@numCharacters", r.getTotalNumOfChars());
+                command.Parameters.AddWithValue("@charactersDefeated", r.getNumOfCharDefeated());
+                command.Parameters.AddWithValue("@environment", r.getEnvironmentOfBattle());
+                command.Parameters.AddWithValue("@numMonsters", r.getTotalNumOfMonsters());
+                command.Parameters.AddWithValue("@monstersDefeated", r.getNumOfMonstersDefeated());
+                command.Parameters.AddWithValue("@challengeDifficulty", r.getTotalCD());
+                command.Parameters.AddWithValue("@damageGiven", r.getTotalDamageGiven());
+                command.Parameters.AddWithValue("@damageTaken", r.getTotalDamageTaken());
+                command.Parameters.AddWithValue("@treasure", r.getTreasure());
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
         }
     }
 }
