@@ -14,60 +14,61 @@ namespace FurRealEngine
     class LoginController : LoginGUI
     {
 
-        public static bool validUser = true; //Is the User a valid user from the database.
+        private bool adminPriv = true; //Is the User a valid admin from the database.
 
         
 
         public void verifyAccount(string username, string password)
         {
 
-            //DANIEL RIGHT HERE BOI!!!!!!!!!!
+
             //connection to the database
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ethan\Source\Repos\cs325-2_16f_guldukat\FurRealEngine\FurRealEngine\furreal.mdf;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
 
             //query
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Count(*) FROM User WHERE username='" + textBox1.Text + "' and password = '" + textBox2.Text + "'", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + username + "' AND password = '" + password + "'", connection);
 
             DataTable dt = new DataTable();
             adapter.Fill(dt);
+            ConfigGUI configGui = new ConfigGUI();//If User
 
             if (dt.Rows[0][0].ToString() == "1")
             {
-
-                validUser = true; //User has been verified
-
-                ConfigGUI configGui = new ConfigGUI();//If User
+                          
                 Hide();
 
-                if ( textBox1.Text == "Admin")//If admin
-                {
-                    
-                    configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, true));
+                adminPriv = true; //User has admin priv
 
-                    MessageBox.Show("Logged privilege: Admin");
+                configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, true));
+
+                    MessageBox.Show("Logged privilege: Admin");//If Admin
 
                     //Put any admin access db stuff here if there is any.
-                }
-
-
                 
-                configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, false));
 
-                MessageBox.Show("Logged privilege: User");
 
             }
             else
             {
-                validUser = false; // User is not a valid user
-                MessageBox.Show("Please check your username and password.");
+
+                adminPriv = false; //User does NOT have admin priv
+
+                configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, false));
+
+                MessageBox.Show("Logged privilege: User");//If user
+
+                
+                
 
             }
 
-    
+            //validUser = false; // User is not a valid user
+            
+
         }
 
 
-
+        
 
 
 
