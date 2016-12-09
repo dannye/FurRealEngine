@@ -58,7 +58,7 @@ namespace FurRealEngine
         // melee attack
         private void meleeButton_Click(object sender, EventArgs e)
         {
-            simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
+            //simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
             simController.meleeAttack(characterList, monsterList, monsterGroup, monsterPicture, playerTurnLabel, enemyTurnLabel);
             simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
         }
@@ -66,14 +66,14 @@ namespace FurRealEngine
         // spell attack
         private void spellButton_Click(object sender, EventArgs e)
         {
-            simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
+            //simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
             simController.spellAttack(characterList, monsterList, monsterGroup, monsterPicture, playerTurnLabel, enemyTurnLabel);
             simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
         }
 
         private void continueButton_Click(object sender, EventArgs e)
         {
-            simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
+            //simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
             simController.automateMove(characterList, monsterList, monsterGroup, monsterPicture, playerTurnLabel, enemyTurnLabel);
             simController.selectCharacters(characterList, characterGroup, characterPicture, monsterList, monsterGroup, monsterPicture, meleeButton, spellButton, continueButton);
         }
