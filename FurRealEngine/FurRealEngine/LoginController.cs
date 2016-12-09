@@ -14,64 +14,36 @@ namespace FurRealEngine
     class LoginController : LoginGUI
     {
 
-        public static bool validUser = true; //Is the User a valid user from the database.
-
-        
-
-        public void verifyAccount(string username, string password)
+        public bool verifyAccount(User user)
         {
 
-            //DANIEL RIGHT HERE BOI!!!!!!!!!!
             //connection to the database
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ethan\Source\Repos\cs325-2_16f_guldukat\FurRealEngine\FurRealEngine\furreal.mdf;Integrated Security=True");
 
             //query
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Count(*) FROM User WHERE username='" + textBox1.Text + "' and password = '" + textBox2.Text + "'", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + user.getUsername() + "' AND password = '" + user.getPassword() + "'", connection);
 
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            if (dt.Rows[0][0].ToString() == "1")
+            connection.Close();
+
+            if (dt.Rows.Count > 0)
             {
 
-                validUser = true; //User has been verified
-
-                ConfigGUI configGui = new ConfigGUI();//If User
-                Hide();
-
-                if ( textBox1.Text == "Admin")//If admin
-                {
-                    
-                    configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, true));
-
-                    MessageBox.Show("Logged privilege: Admin");
-
-                    //Put any admin access db stuff here if there is any.
-                }
-
-
+                //User has been verified
+                user.setAdminStatus(dt.Rows[0]["isAdmin"].Equals(1));
                 
-                configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, false));
-
-                MessageBox.Show("Logged privilege: User");
-
+                return true;
             }
             else
             {
-                validUser = false; // User is not a valid user
+                // User is not a valid user
                 MessageBox.Show("Please check your username and password.");
 
+                return false;
             }
-
-    
         }
-
-
-
-
-
-
-
     }
 
 }
