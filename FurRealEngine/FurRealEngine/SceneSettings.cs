@@ -9,12 +9,12 @@ namespace FurRealEngine
     public struct SceneSettings
     {
         public int level;
-        public string environment;
+        public ENVIRONMENT environment;
         public int challengeDifficulty;
         public List<Character> characters;
         public List<Monster> monsters;
 
-        public SceneSettings(int level, string environment, int challengeDifficulty, List<Character> characters, List<Monster> monsters)
+        public SceneSettings(int level, ENVIRONMENT environment, int challengeDifficulty, List<Character> characters, List<Monster> monsters)
         {
             this.level = level;
             this.environment = environment;

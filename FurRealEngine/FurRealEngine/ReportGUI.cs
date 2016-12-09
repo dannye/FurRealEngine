@@ -42,7 +42,19 @@ namespace FurRealEngine
             this.textBoxReplays.Text = report.getNumOfTimesSimRan().ToString();
             this.textBoxNumOfChars.Text = report.getTotalNumOfChars().ToString();
             this.textBoxCharacterDeaths.Text = report.getNumOfCharDefeated().ToString();
-            this.textBoxEnv.Text = report.getEnvionrmentOfBattle();
+            ENVIRONMENT env = report.getEnvironmentOfBattle();
+            if (env == ENVIRONMENT.DUNGEON)
+            {
+                this.textBoxEnv.Text = "DUNGEON";
+            }
+            else if (env == ENVIRONMENT.CAVERN)
+            {
+                this.textBoxEnv.Text = "CAVERN";
+            }
+            else if (env == ENVIRONMENT.FOREST)
+            {
+                this.textBoxEnv.Text = "FOREST";
+            }
             this.textBoxTotalMonsters.Text = report.getTotalNumOfMonsters().ToString();
             this.textBoxMonstersDefeated.Text = report.getNumOfMonstersDefeated().ToString();
             this.textBoxTotalCD.Text = report.getTotalCD().ToString();

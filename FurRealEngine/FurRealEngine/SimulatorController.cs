@@ -7,6 +7,13 @@ using System.Windows.Forms;
 
 namespace FurRealEngine
 {
+    public enum ENVIRONMENT
+    {
+        DUNGEON,
+        CAVERN,
+        FOREST
+    };
+
     public class SimulatorController
     {
         SimulatorGUI simGUI;
@@ -557,15 +564,15 @@ namespace FurRealEngine
         // set background image based on environment
         public void setBackground()
         {
-            if (scene.environment == "dungeon")
+            if (scene.environment == ENVIRONMENT.DUNGEON)
             {
                 simGUI.BackgroundImage = Properties.Resources.dungeon;
             }
-            else if (scene.environment == "cavern")
+            else if (scene.environment == ENVIRONMENT.CAVERN)
             {
                 simGUI.BackgroundImage = Properties.Resources.cavern;
             }
-            else if (scene.environment == "forest")
+            else if (scene.environment == ENVIRONMENT.FOREST)
             {
                 simGUI.BackgroundImage = Properties.Resources.forest;
             }
