@@ -74,6 +74,7 @@
             this.editAccountButton = new System.Windows.Forms.Button();
             this.groupBoxPreset = new System.Windows.Forms.GroupBox();
             this.buttonSavePreset = new System.Windows.Forms.Button();
+            this.checkBoxAllCharsPlayable = new System.Windows.Forms.CheckBox();
             this.selectedMonstersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
@@ -90,32 +91,50 @@
             // 
             this.listBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBoxMonsters.FormattingEnabled = true;
-            this.listBoxMonsters.Location = new System.Drawing.Point(44, 23);
+            this.listBoxMonsters.Location = new System.Drawing.Point(29, 143);
             this.listBoxMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxMonsters.Name = "listBoxMonsters";
-            this.listBoxMonsters.Size = new System.Drawing.Size(440, 82);
+            this.listBoxMonsters.Size = new System.Drawing.Size(270, 82);
             this.listBoxMonsters.TabIndex = 0;
             // 
             // selectedMonstersGroupBox
             // 
             this.selectedMonstersGroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.selectedMonstersGroupBox.Controls.Add(this.label2);
             this.selectedMonstersGroupBox.Controls.Add(this.buttonRemoveAll);
+            this.selectedMonstersGroupBox.Controls.Add(this.buttonRandomizeEnvironment);
             this.selectedMonstersGroupBox.Controls.Add(this.buttonRemoveMonster);
+            this.selectedMonstersGroupBox.Controls.Add(this.comboBoxEnvironment);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelEnviornment);
             this.selectedMonstersGroupBox.Controls.Add(this.listBoxMonsters);
+            this.selectedMonstersGroupBox.Controls.Add(this.numericUpDownMonsterCD);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelMonsters);
+            this.selectedMonstersGroupBox.Controls.Add(this.comboBoxMonsters);
+            this.selectedMonstersGroupBox.Controls.Add(this.numericUpDownRepeat);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelRepeatTimes);
+            this.selectedMonstersGroupBox.Controls.Add(this.comboBoxDifficulty);
+            this.selectedMonstersGroupBox.Controls.Add(this.numericUpDownMaxLevel);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelMaxLevel);
+            this.selectedMonstersGroupBox.Controls.Add(this.buttonRadomizeCD);
+            this.selectedMonstersGroupBox.Controls.Add(this.numericUpDownStartLevel);
+            this.selectedMonstersGroupBox.Controls.Add(this.buttonAddMonster);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelMonstersCD);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelStartLevel);
+            this.selectedMonstersGroupBox.Controls.Add(this.labelDifficulty);
             this.selectedMonstersGroupBox.ForeColor = System.Drawing.Color.White;
-            this.selectedMonstersGroupBox.Location = new System.Drawing.Point(694, 108);
+            this.selectedMonstersGroupBox.Location = new System.Drawing.Point(694, 75);
             this.selectedMonstersGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.selectedMonstersGroupBox.Name = "selectedMonstersGroupBox";
             this.selectedMonstersGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.selectedMonstersGroupBox.Size = new System.Drawing.Size(557, 201);
+            this.selectedMonstersGroupBox.Size = new System.Drawing.Size(592, 482);
             this.selectedMonstersGroupBox.TabIndex = 1;
             this.selectedMonstersGroupBox.TabStop = false;
-            this.selectedMonstersGroupBox.Text = "Selected Monsters";
+            this.selectedMonstersGroupBox.Text = "Combat Settings";
             // 
             // buttonRemoveAll
             // 
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.Black;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(320, 144);
+            this.buttonRemoveAll.Location = new System.Drawing.Point(199, 237);
             this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(100, 31);
@@ -127,7 +146,7 @@
             // buttonRemoveMonster
             // 
             this.buttonRemoveMonster.ForeColor = System.Drawing.Color.Black;
-            this.buttonRemoveMonster.Location = new System.Drawing.Point(154, 144);
+            this.buttonRemoveMonster.Location = new System.Drawing.Point(30, 237);
             this.buttonRemoveMonster.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRemoveMonster.Name = "buttonRemoveMonster";
             this.buttonRemoveMonster.Size = new System.Drawing.Size(100, 31);
@@ -141,7 +160,7 @@
             this.labelStartLevel.AutoSize = true;
             this.labelStartLevel.BackColor = System.Drawing.Color.Transparent;
             this.labelStartLevel.ForeColor = System.Drawing.Color.White;
-            this.labelStartLevel.Location = new System.Drawing.Point(889, 359);
+            this.labelStartLevel.Location = new System.Drawing.Point(353, 217);
             this.labelStartLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelStartLevel.Name = "labelStartLevel";
             this.labelStartLevel.Size = new System.Drawing.Size(75, 13);
@@ -153,7 +172,7 @@
             this.labelMonsters.AutoSize = true;
             this.labelMonsters.BackColor = System.Drawing.Color.Transparent;
             this.labelMonsters.ForeColor = System.Drawing.Color.White;
-            this.labelMonsters.Location = new System.Drawing.Point(692, 55);
+            this.labelMonsters.Location = new System.Drawing.Point(28, 70);
             this.labelMonsters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMonsters.Name = "labelMonsters";
             this.labelMonsters.Size = new System.Drawing.Size(95, 13);
@@ -165,7 +184,7 @@
             this.labelRepeatTimes.AutoSize = true;
             this.labelRepeatTimes.BackColor = System.Drawing.Color.Transparent;
             this.labelRepeatTimes.ForeColor = System.Drawing.Color.White;
-            this.labelRepeatTimes.Location = new System.Drawing.Point(1088, 443);
+            this.labelRepeatTimes.Location = new System.Drawing.Point(355, 405);
             this.labelRepeatTimes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRepeatTimes.Name = "labelRepeatTimes";
             this.labelRepeatTimes.Size = new System.Drawing.Size(90, 13);
@@ -177,7 +196,7 @@
             this.labelDifficulty.AutoSize = true;
             this.labelDifficulty.BackColor = System.Drawing.Color.Transparent;
             this.labelDifficulty.ForeColor = System.Drawing.Color.White;
-            this.labelDifficulty.Location = new System.Drawing.Point(690, 358);
+            this.labelDifficulty.Location = new System.Drawing.Point(352, 106);
             this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDifficulty.Name = "labelDifficulty";
             this.labelDifficulty.Size = new System.Drawing.Size(89, 13);
@@ -188,7 +207,7 @@
             // 
             this.labelNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelNumOfChars.AutoSize = true;
-            this.labelNumOfChars.Location = new System.Drawing.Point(12, 57);
+            this.labelNumOfChars.Location = new System.Drawing.Point(18, 57);
             this.labelNumOfChars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumOfChars.Name = "labelNumOfChars";
             this.labelNumOfChars.Size = new System.Drawing.Size(113, 13);
@@ -200,7 +219,7 @@
             this.labelMaxLevel.AutoSize = true;
             this.labelMaxLevel.BackColor = System.Drawing.Color.Transparent;
             this.labelMaxLevel.ForeColor = System.Drawing.Color.White;
-            this.labelMaxLevel.Location = new System.Drawing.Point(1089, 361);
+            this.labelMaxLevel.Location = new System.Drawing.Point(354, 320);
             this.labelMaxLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMaxLevel.Name = "labelMaxLevel";
             this.labelMaxLevel.Size = new System.Drawing.Size(83, 13);
@@ -210,7 +229,7 @@
             // numericUpDownStartLevel
             // 
             this.numericUpDownStartLevel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownStartLevel.Location = new System.Drawing.Point(893, 379);
+            this.numericUpDownStartLevel.Location = new System.Drawing.Point(357, 237);
             this.numericUpDownStartLevel.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownStartLevel.Minimum = new decimal(new int[] {
             1,
@@ -230,7 +249,7 @@
             // numericUpDownMaxLevel
             // 
             this.numericUpDownMaxLevel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(1093, 379);
+            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(358, 338);
             this.numericUpDownMaxLevel.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownMaxLevel.Minimum = new decimal(new int[] {
             1,
@@ -250,7 +269,7 @@
             // numericUpDownRepeat
             // 
             this.numericUpDownRepeat.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownRepeat.Location = new System.Drawing.Point(1092, 463);
+            this.numericUpDownRepeat.Location = new System.Drawing.Point(358, 422);
             this.numericUpDownRepeat.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownRepeat.Minimum = new decimal(new int[] {
             1,
@@ -270,7 +289,7 @@
             // 
             this.numericUpDownNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.numericUpDownNumOfChars.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownNumOfChars.Location = new System.Drawing.Point(16, 78);
+            this.numericUpDownNumOfChars.Location = new System.Drawing.Point(22, 78);
             this.numericUpDownNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownNumOfChars.Maximum = new decimal(new int[] {
             6,
@@ -291,7 +310,7 @@
             "Novice",
             "Apprentice",
             "Master"});
-            this.comboBoxDifficulty.Location = new System.Drawing.Point(694, 378);
+            this.comboBoxDifficulty.Location = new System.Drawing.Point(356, 126);
             this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             this.comboBoxDifficulty.Size = new System.Drawing.Size(160, 21);
@@ -312,7 +331,7 @@
             "Ghost",
             "Vampire",
             "Lich"});
-            this.comboBoxMonsters.Location = new System.Drawing.Point(694, 75);
+            this.comboBoxMonsters.Location = new System.Drawing.Point(30, 90);
             this.comboBoxMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMonsters.Name = "comboBoxMonsters";
             this.comboBoxMonsters.Size = new System.Drawing.Size(160, 21);
@@ -320,7 +339,8 @@
             // 
             // buttonAddMonster
             // 
-            this.buttonAddMonster.Location = new System.Drawing.Point(864, 75);
+            this.buttonAddMonster.ForeColor = System.Drawing.Color.Black;
+            this.buttonAddMonster.Location = new System.Drawing.Point(200, 90);
             this.buttonAddMonster.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddMonster.Name = "buttonAddMonster";
             this.buttonAddMonster.Size = new System.Drawing.Size(100, 25);
@@ -343,7 +363,7 @@
             // 
             // buttonQuit
             // 
-            this.buttonQuit.Location = new System.Drawing.Point(1152, 580);
+            this.buttonQuit.Location = new System.Drawing.Point(893, 624);
             this.buttonQuit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(100, 30);
@@ -354,7 +374,7 @@
             // 
             // buttonConfirm
             // 
-            this.buttonConfirm.Location = new System.Drawing.Point(1151, 513);
+            this.buttonConfirm.Location = new System.Drawing.Point(1110, 624);
             this.buttonConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(100, 30);
@@ -368,7 +388,7 @@
             this.labelMonstersCD.AutoSize = true;
             this.labelMonstersCD.BackColor = System.Drawing.Color.Transparent;
             this.labelMonstersCD.ForeColor = System.Drawing.Color.White;
-            this.labelMonstersCD.Location = new System.Drawing.Point(980, 55);
+            this.labelMonstersCD.Location = new System.Drawing.Point(27, 317);
             this.labelMonstersCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMonstersCD.Name = "labelMonstersCD";
             this.labelMonstersCD.Size = new System.Drawing.Size(100, 13);
@@ -378,7 +398,7 @@
             // numericUpDownMonsterCD
             // 
             this.numericUpDownMonsterCD.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownMonsterCD.Location = new System.Drawing.Point(984, 78);
+            this.numericUpDownMonsterCD.Location = new System.Drawing.Point(31, 340);
             this.numericUpDownMonsterCD.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
             this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 20);
@@ -387,7 +407,8 @@
             // 
             // buttonRadomizeCD
             // 
-            this.buttonRadomizeCD.Location = new System.Drawing.Point(1152, 76);
+            this.buttonRadomizeCD.ForeColor = System.Drawing.Color.Black;
+            this.buttonRadomizeCD.Location = new System.Drawing.Point(199, 338);
             this.buttonRadomizeCD.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRadomizeCD.Name = "buttonRadomizeCD";
             this.buttonRadomizeCD.Size = new System.Drawing.Size(100, 25);
@@ -401,7 +422,7 @@
             this.labelEnviornment.AutoSize = true;
             this.labelEnviornment.BackColor = System.Drawing.Color.Transparent;
             this.labelEnviornment.ForeColor = System.Drawing.Color.White;
-            this.labelEnviornment.Location = new System.Drawing.Point(689, 444);
+            this.labelEnviornment.Location = new System.Drawing.Point(27, 402);
             this.labelEnviornment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEnviornment.Name = "labelEnviornment";
             this.labelEnviornment.Size = new System.Drawing.Size(96, 13);
@@ -417,7 +438,7 @@
             "Dungeon",
             "Cavern",
             "Forest"});
-            this.comboBoxEnvironment.Location = new System.Drawing.Point(693, 464);
+            this.comboBoxEnvironment.Location = new System.Drawing.Point(31, 422);
             this.comboBoxEnvironment.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxEnvironment.Name = "comboBoxEnvironment";
             this.comboBoxEnvironment.Size = new System.Drawing.Size(160, 21);
@@ -425,7 +446,8 @@
             // 
             // buttonRandomizeEnvironment
             // 
-            this.buttonRandomizeEnvironment.Location = new System.Drawing.Point(863, 464);
+            this.buttonRandomizeEnvironment.ForeColor = System.Drawing.Color.Black;
+            this.buttonRandomizeEnvironment.Location = new System.Drawing.Point(201, 422);
             this.buttonRandomizeEnvironment.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRandomizeEnvironment.Name = "buttonRandomizeEnvironment";
             this.buttonRandomizeEnvironment.Size = new System.Drawing.Size(100, 25);
@@ -440,7 +462,7 @@
             this.labelTitle.BackColor = System.Drawing.Color.Transparent;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(1, 22);
+            this.labelTitle.Location = new System.Drawing.Point(50, 22);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(337, 30);
@@ -458,11 +480,11 @@
             this.groupBoxCharacterSettings.Controls.Add(this.numericUpDownNumOfChars);
             this.groupBoxCharacterSettings.Controls.Add(this.buttonRandomizeNumOfChars);
             this.groupBoxCharacterSettings.ForeColor = System.Drawing.Color.White;
-            this.groupBoxCharacterSettings.Location = new System.Drawing.Point(24, 80);
+            this.groupBoxCharacterSettings.Location = new System.Drawing.Point(33, 75);
             this.groupBoxCharacterSettings.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCharacterSettings.Name = "groupBoxCharacterSettings";
             this.groupBoxCharacterSettings.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxCharacterSettings.Size = new System.Drawing.Size(615, 507);
+            this.groupBoxCharacterSettings.Size = new System.Drawing.Size(626, 482);
             this.groupBoxCharacterSettings.TabIndex = 26;
             this.groupBoxCharacterSettings.TabStop = false;
             this.groupBoxCharacterSettings.Text = "Character Settings";
@@ -501,11 +523,11 @@
             this.groupBoxCharacters.Controls.Add(this.comboBoxProfessions);
             this.groupBoxCharacters.Controls.Add(this.listBoxCharacters);
             this.groupBoxCharacters.ForeColor = System.Drawing.Color.White;
-            this.groupBoxCharacters.Location = new System.Drawing.Point(12, 172);
+            this.groupBoxCharacters.Location = new System.Drawing.Point(12, 143);
             this.groupBoxCharacters.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCharacters.Name = "groupBoxCharacters";
             this.groupBoxCharacters.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxCharacters.Size = new System.Drawing.Size(532, 310);
+            this.groupBoxCharacters.Size = new System.Drawing.Size(562, 310);
             this.groupBoxCharacters.TabIndex = 18;
             this.groupBoxCharacters.TabStop = false;
             this.groupBoxCharacters.Text = "Character Profession Selection";
@@ -578,7 +600,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.richTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox1.Location = new System.Drawing.Point(290, 38);
+            this.richTextBox1.Location = new System.Drawing.Point(313, 38);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(219, 246);
@@ -643,7 +665,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(721, 22);
+            this.label2.Location = new System.Drawing.Point(28, 34);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(306, 13);
@@ -655,11 +677,11 @@
             this.editAccountGroup.BackColor = System.Drawing.Color.Transparent;
             this.editAccountGroup.Controls.Add(this.editAccountButton);
             this.editAccountGroup.ForeColor = System.Drawing.Color.White;
-            this.editAccountGroup.Location = new System.Drawing.Point(695, 511);
+            this.editAccountGroup.Location = new System.Drawing.Point(91, 584);
             this.editAccountGroup.Margin = new System.Windows.Forms.Padding(4);
             this.editAccountGroup.Name = "editAccountGroup";
             this.editAccountGroup.Padding = new System.Windows.Forms.Padding(4);
-            this.editAccountGroup.Size = new System.Drawing.Size(139, 76);
+            this.editAccountGroup.Size = new System.Drawing.Size(186, 105);
             this.editAccountGroup.TabIndex = 28;
             this.editAccountGroup.TabStop = false;
             this.editAccountGroup.Text = "User Accounts";
@@ -667,7 +689,7 @@
             // editAccountButton
             // 
             this.editAccountButton.ForeColor = System.Drawing.Color.Black;
-            this.editAccountButton.Location = new System.Drawing.Point(22, 29);
+            this.editAccountButton.Location = new System.Drawing.Point(41, 40);
             this.editAccountButton.Margin = new System.Windows.Forms.Padding(4);
             this.editAccountButton.Name = "editAccountButton";
             this.editAccountButton.Size = new System.Drawing.Size(100, 30);
@@ -679,13 +701,14 @@
             // groupBoxPreset
             // 
             this.groupBoxPreset.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxPreset.Controls.Add(this.checkBoxAllCharsPlayable);
             this.groupBoxPreset.Controls.Add(this.buttonSavePreset);
             this.groupBoxPreset.ForeColor = System.Drawing.Color.White;
-            this.groupBoxPreset.Location = new System.Drawing.Point(928, 513);
+            this.groupBoxPreset.Location = new System.Drawing.Point(378, 584);
             this.groupBoxPreset.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxPreset.Name = "groupBoxPreset";
             this.groupBoxPreset.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxPreset.Size = new System.Drawing.Size(125, 76);
+            this.groupBoxPreset.Size = new System.Drawing.Size(199, 105);
             this.groupBoxPreset.TabIndex = 30;
             this.groupBoxPreset.TabStop = false;
             this.groupBoxPreset.Text = "Configuration Preset";
@@ -693,7 +716,7 @@
             // buttonSavePreset
             // 
             this.buttonSavePreset.ForeColor = System.Drawing.Color.Black;
-            this.buttonSavePreset.Location = new System.Drawing.Point(16, 27);
+            this.buttonSavePreset.Location = new System.Drawing.Point(42, 40);
             this.buttonSavePreset.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSavePreset.Name = "buttonSavePreset";
             this.buttonSavePreset.Size = new System.Drawing.Size(100, 30);
@@ -702,37 +725,29 @@
             this.buttonSavePreset.UseVisualStyleBackColor = true;
             this.buttonSavePreset.Click += new System.EventHandler(this.buttonSavePreset_Click);
             // 
+            // checkBoxAllCharsPlayable
+            // 
+            this.checkBoxAllCharsPlayable.AutoSize = true;
+            this.checkBoxAllCharsPlayable.Location = new System.Drawing.Point(24, 80);
+            this.checkBoxAllCharsPlayable.Name = "checkBoxAllCharsPlayable";
+            this.checkBoxAllCharsPlayable.Size = new System.Drawing.Size(156, 17);
+            this.checkBoxAllCharsPlayable.TabIndex = 30;
+            this.checkBoxAllCharsPlayable.Text = "Are all characters playable?";
+            this.checkBoxAllCharsPlayable.UseVisualStyleBackColor = true;
+            // 
             // ConfigGUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::FurRealEngine.Properties.Resources.settingsBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1300, 638);
+            this.ClientSize = new System.Drawing.Size(1340, 721);
             this.Controls.Add(this.groupBoxPreset);
-            this.Controls.Add(this.editAccountGroup);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBoxCharacterSettings);
+            this.Controls.Add(this.editAccountGroup);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.buttonRandomizeEnvironment);
-            this.Controls.Add(this.comboBoxEnvironment);
-            this.Controls.Add(this.labelEnviornment);
-            this.Controls.Add(this.buttonRadomizeCD);
-            this.Controls.Add(this.numericUpDownMonsterCD);
-            this.Controls.Add(this.labelMonstersCD);
             this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.buttonQuit);
-            this.Controls.Add(this.buttonAddMonster);
-            this.Controls.Add(this.comboBoxMonsters);
-            this.Controls.Add(this.comboBoxDifficulty);
-            this.Controls.Add(this.numericUpDownRepeat);
-            this.Controls.Add(this.numericUpDownMaxLevel);
-            this.Controls.Add(this.numericUpDownStartLevel);
-            this.Controls.Add(this.labelMaxLevel);
-            this.Controls.Add(this.labelDifficulty);
-            this.Controls.Add(this.labelRepeatTimes);
-            this.Controls.Add(this.labelMonsters);
-            this.Controls.Add(this.labelStartLevel);
             this.Controls.Add(this.selectedMonstersGroupBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -743,6 +758,7 @@
             this.Text = "FurReal Engine (Simulation Settings)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigGUI_FormClosed);
             this.selectedMonstersGroupBox.ResumeLayout(false);
+            this.selectedMonstersGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).EndInit();
@@ -753,6 +769,7 @@
             this.groupBoxCharacters.ResumeLayout(false);
             this.editAccountGroup.ResumeLayout(false);
             this.groupBoxPreset.ResumeLayout(false);
+            this.groupBoxPreset.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -805,6 +822,7 @@
         private System.Windows.Forms.Button editAccountButton;
         private System.Windows.Forms.GroupBox groupBoxPreset;
         private System.Windows.Forms.Button buttonSavePreset;
+        private System.Windows.Forms.CheckBox checkBoxAllCharsPlayable;
     }
 }
 
