@@ -19,6 +19,11 @@ namespace FurRealEngine
             this.reportController = reportController;
             InitializeComponent();
             populateReportsListBox();
+            if (listBoxReports.Items.Count > 0)
+            {
+                listBoxReports.SelectedIndex = listBoxReports.Items.Count - 1;
+                populateReportStatsBreakDown((Report)listBoxReports.SelectedItem);
+            }
             Show();
         }
 
@@ -43,6 +48,7 @@ namespace FurRealEngine
             this.textBoxTotalCD.Text = report.getTotalCD().ToString();
             this.textBoxDamageGiven.Text = report.getTotalDamageGiven().ToString();
             this.textBoxDamageTaken.Text = report.getTotalDamageTaken().ToString();
+            this.textBoxTreasure.Text = report.getTreasure().ToString();
         }
 
         private void buttonNewSim_Click(object sender, EventArgs e)
@@ -64,6 +70,11 @@ namespace FurRealEngine
                 return;
             }
             populateReportStatsBreakDown(selectedReport);
+        }
+
+        private void ReportGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

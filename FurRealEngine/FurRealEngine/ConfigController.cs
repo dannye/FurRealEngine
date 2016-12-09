@@ -40,8 +40,14 @@ namespace FurRealEngine
         // then add extra monsters
         public void initSimulation()
         {
+            List<Character> charactersCopy = new List<Character>();
+            foreach (Character character in characters)
+            {
+                charactersCopy.Add(character.clone());
+            }
+
             autoFillMonstersToMatchCD();
-            simController = new SimulatorController(scenario, scene, characters, monsters, this);
+            simController = new SimulatorController(scenario, scene, charactersCopy, monsters, this);
             
             gui.Hide();
         }
@@ -186,12 +192,18 @@ namespace FurRealEngine
         {
             if (index >= 0)
             {
+                profession.Enabled = true;
+                professionLevel.Enabled = true;
+                reviveOpt.Enabled = true;
                 profession.SelectedItem = characters[index].getProfessionName();
                 professionLevel.SelectedItem = characters[index].getLevel().ToString();
                 reviveOpt.SelectedIndex = (int)characters[index].getHealOption();
             }
             else
             {
+                profession.Enabled = false;
+                professionLevel.Enabled = false;
+                reviveOpt.Enabled = false;
                 profession.SelectedItem = null;
                 professionLevel.SelectedItem = null;
                 reviveOpt.SelectedItem = null;

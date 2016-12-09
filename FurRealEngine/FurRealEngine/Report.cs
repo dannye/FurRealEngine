@@ -26,18 +26,20 @@ namespace FurRealEngine
         int index;
         string simulationDifficulty;
         string envionrmentOfBattle;
+        int treasure;
 
         public Report()
         {
 
         }
 
-       public Report(ScenarioSettings scenario, SceneSettings scene, List<Character> characters)
+       public Report(ScenarioSettings scenario, SceneSettings scene, List<Character> characters, int treasure)
         {
             // Are scenario and scene needed in Report?
             this.scenario = scenario;
             this.scene = scene;
             this.characters = characters;
+            this.treasure = treasure;
         }
 
         public int getTotalNumOfChars()
@@ -159,6 +161,17 @@ namespace FurRealEngine
         {
             this.envionrmentOfBattle = envionrmentOfBattle.ToUpper();
         }
+
+        public int getTreasure()
+        {
+            return this.treasure;
+        }
+
+        public void setTreasure(int treasure)
+        {
+            this.treasure = treasure;
+        }
+
         public override string ToString()
         {
             return "Report " + index;

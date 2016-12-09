@@ -63,6 +63,16 @@ namespace FurRealEngine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap accountsBackground {
+            get {
+                object obj = ResourceManager.GetObject("accountsBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bugbear {
             get {
                 object obj = ResourceManager.GetObject("bugbear", resourceCulture);
@@ -173,6 +183,16 @@ namespace FurRealEngine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap parchment {
+            get {
+                object obj = ResourceManager.GetObject("parchment", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap priest {
             get {
                 object obj = ResourceManager.GetObject("priest", resourceCulture);
@@ -206,16 +226,6 @@ namespace FurRealEngine.Properties {
         internal static System.Drawing.Bitmap soldier {
             get {
                 object obj = ResourceManager.GetObject("soldier", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap temple_parchment_desktop_by_gladlad_d4zbkdw {
-            get {
-                object obj = ResourceManager.GetObject("temple_parchment_desktop_by_gladlad-d4zbkdw", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

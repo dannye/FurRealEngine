@@ -47,7 +47,7 @@ namespace FurRealEngine
         {
             int damage = 0;
             int toHit = 0;
-            int attackDef = 0;
+            int attackDef = getPhysAttackDef(monster);
 
             if (character >= 0 && monster >= 0)
             {
@@ -55,7 +55,6 @@ namespace FurRealEngine
                 if (c.getProfessionName() == "Soldier")
                 {
                     toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getStrMod();
-                    attackDef = getPhysAttackDef(monster);
                     if (toHit >= 20)
                     {
                         damage = 12 + c.getLevel();
@@ -64,19 +63,26 @@ namespace FurRealEngine
                     {
                         damage = diceRoll(1, 12) + c.getLevel();
                     }
+                    if (monsters[monster].getVariantName() == "Ghost")
+                    {
+                        damage = 0;
+                    }
                     monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
                 else if (c.getProfessionName() == "Priest")
                 {
                     toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getWisMod();
-                    attackDef = getPhysAttackDef(monster);
                     if (toHit >= 20)
                     {
-                        damage = 6 + c.getLevel();
+                        damage = 12 + c.getLevel();
                     }
                     else if (toHit >= attackDef)
                     {
                         damage = diceRoll(2, 6) + c.getLevel();
+                    }
+                    if (monsters[monster].getVariantName() == "Ghost")
+                    {
+                        damage = 0;
                     }
                     monsters[monster].setCurHealth(monsters[monster].getCurHealth() - damage);
                 }
@@ -98,7 +104,16 @@ namespace FurRealEngine
                     attackDef = getMagicAttackDef(monster);
                     if (toHit >= 20)
                     {
-                        damage = 8 + c.getLevel();
+                        for (int i = 0; i < monsters.Count; ++i)
+                        {
+                            if (i != monster)
+                            {
+                                damage = diceRoll(2, 4);
+                                monsters[i].setCurHealth(monsters[i].getCurHealth() - damage);
+                                SimulatorController.totalDamageGiven += damage;
+                            }
+                        }
+                        damage = diceRoll(2, 8) + c.getLevel();
                     }
                     else if (toHit >= attackDef)
                     {
@@ -110,9 +125,22 @@ namespace FurRealEngine
                 {
                     toHit = diceRoll(1, 20) + (2 * c.getLevel()) + c.getWisMod();
                     attackDef = getPhysAttackDef(monster);
+                    if (monsters[monster].getTypeName() == "Undead")
+                    {
+                        attackDef -= 10;
+                    }
                     if (toHit >= 20)
                     {
-                        damage = 6 + c.getLevel();
+                        for (int i = 0; i < monsters.Count; ++i)
+                        {
+                            if (i != monster)
+                            {
+                                damage = diceRoll(1, 4);
+                                monsters[i].setCurHealth(monsters[i].getCurHealth() - damage);
+                                SimulatorController.totalDamageGiven += damage;
+                            }
+                        }
+                        damage = diceRoll(2, 6) + c.getLevel();
                     }
                     else if (toHit >= attackDef)
                     {
@@ -124,6 +152,65 @@ namespace FurRealEngine
             SimulatorController.totalDamageGiven += damage;
         }
 
+        public void monsterAttack(int character, int monster)
+        {
+            int damage = 0;
+            int toHit = 0;
+            int attackDef = 0;
+            if (monsters[monster].getTypeName() == "Humanoid")
+            {
+                toHit = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
+                attackDef = getCharacterPhysAttackDef(character);
+                if (toHit >= 20)
+                {
+                    damage = 6 + monsters[monster].getDifficultyLevel();
+                }
+                else if (toHit >= attackDef)
+                {
+                    damage = diceRoll(1, 6) + monsters[monster].getDifficultyLevel();
+                }
+                characters[character].setCurHealth(characters[character].getCurHealth() - damage);
+            }
+            else
+            {
+                toHit = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
+                if (monsters[monster].getVariantName() == "Lich")
+                {
+                    attackDef = getCharacterMagicAttackDef(character);
+                }
+                else
+                {
+                    attackDef = getCharacterPhysAttackDef(character);
+                }
+                if (characters[character].getProfession() == PROFESSION.PRIEST)
+                {
+                    attackDef += characters[character].getLevel();
+                }
+                if (toHit >= 20)
+                {
+                    if (monsters[monster].getVariantName() == "Lich")
+                    {
+                        for (int i = 0; i < characters.Count; ++i)
+                        {
+                            if (i != character)
+                            {
+                                damage = diceRoll(1, 4);
+                                characters[i].setCurHealth(characters[i].getCurHealth() - damage);
+                                SimulatorController.totalDamageTaken += damage;
+                            }
+                        }
+                    }
+                    damage = 8 + monsters[monster].getDifficultyLevel();
+                }
+                else if (toHit >= attackDef)
+                {
+                    damage = diceRoll(2, 4) + monsters[monster].getDifficultyLevel();
+                }
+                characters[character].setCurHealth(characters[character].getCurHealth() - damage);
+            }
+            SimulatorController.totalDamageTaken += damage;
+        }
+
         private int getPhysAttackDef(int monster)
         {
             int attackDef = 0;
@@ -133,7 +220,7 @@ namespace FurRealEngine
                 {
                     attackDef = diceRoll(1, 20) + (2 * monsters[monster].getDifficultyLevel());
                 }
-                else if (monsters[monster].getTypeName() == "Undead")
+                else
                 {
                     attackDef = diceRoll(1, 10) + (2 * monsters[monster].getDifficultyLevel());
                 }
@@ -150,10 +237,46 @@ namespace FurRealEngine
                 {
                     attackDef = diceRoll(1, 20) - 5 + monsters[monster].getDifficultyLevel();
                 }
-                else if (monsters[monster].getTypeName() == "Undead")
+                else
                 {
                     attackDef = diceRoll(1, 20) + monsters[monster].getDifficultyLevel();
                 }
+            }
+            return attackDef;
+        }
+
+        private int getCharacterPhysAttackDef(int character)
+        {
+            int attackDef = 0;
+            if (characters[character].getProfession() == PROFESSION.SOLDIER)
+            {
+                attackDef = diceRoll(1, 20) + 2 * characters[character].getLevel() + characters[character].getDexMod();
+            }
+            else if (characters[character].getProfession() == PROFESSION.MAGE)
+            {
+                attackDef = diceRoll(1, 20) + characters[character].getDexMod();
+            }
+            else
+            {
+                attackDef = diceRoll(1, 20) + characters[character].getDexMod();
+            }
+            return attackDef;
+        }
+
+        private int getCharacterMagicAttackDef(int character)
+        {
+            int attackDef = 0;
+            if (characters[character].getProfession() == PROFESSION.SOLDIER)
+            {
+                attackDef = diceRoll(1, 20) + characters[character].getIntMod();
+            }
+            else if (characters[character].getProfession() == PROFESSION.MAGE)
+            {
+                attackDef = diceRoll(1, 20) + 2 * characters[character].getLevel() + characters[character].getIntMod();
+            }
+            else
+            {
+                attackDef = diceRoll(1, 20) + 2 * characters[character].getLevel() + characters[character].getIntMod();
             }
             return attackDef;
         }

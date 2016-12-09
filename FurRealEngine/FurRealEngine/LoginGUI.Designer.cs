@@ -39,7 +39,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(571, 380);
+            this.textBox1.Location = new System.Drawing.Point(404, 302);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(212, 22);
@@ -47,7 +47,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(571, 489);
+            this.textBox2.Location = new System.Drawing.Point(404, 395);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(212, 22);
@@ -57,7 +57,7 @@
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSubmit.Location = new System.Drawing.Point(684, 581);
+            this.buttonSubmit.Location = new System.Drawing.Point(517, 477);
             this.buttonSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(100, 28);
@@ -70,7 +70,7 @@
             // 
             this.buttonCancel.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCancel.Location = new System.Drawing.Point(571, 581);
+            this.buttonCancel.Location = new System.Drawing.Point(404, 477);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 28);
@@ -84,7 +84,7 @@
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.Location = new System.Drawing.Point(580, 534);
+            this.checkBox1.Location = new System.Drawing.Point(413, 438);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(185, 22);
@@ -96,7 +96,7 @@
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(496, 688);
+            this.textBox3.Location = new System.Drawing.Point(329, 569);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(356, 15);
@@ -106,7 +106,7 @@
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(496, 652);
+            this.textBox4.Location = new System.Drawing.Point(329, 533);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(356, 15);
@@ -115,12 +115,10 @@
             // 
             // LoginGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.BackgroundImage = global::FurRealEngine.Properties.Resources.FurRealEngine;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1327, 767);
+            this.ClientSize = new System.Drawing.Size(1000, 624);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.checkBox1);
