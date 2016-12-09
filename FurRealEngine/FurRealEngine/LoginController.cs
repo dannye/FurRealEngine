@@ -14,65 +14,36 @@ namespace FurRealEngine
     class LoginController : LoginGUI
     {
 
-        private bool adminPriv = true; //Is the User a valid admin from the database.
-
-        
-
-        public void verifyAccount(string username, string password)
+        public bool verifyAccount(User user)
         {
-
 
             //connection to the database
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
 
             //query
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + username + "' AND password = '" + password + "'", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + user.getUsername() + "' AND password = '" + user.getPassword() + "'", connection);
 
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            ConfigGUI configGui = new ConfigGUI();//If User
 
-            if (dt.Rows[0][0].ToString() == "1")
+            connection.Close();
+
+            if (dt.Rows.Count > 0)
             {
-                          
-                Hide();
 
-                adminPriv = true; //User has admin priv
-
-                configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, true));
-
-                    MessageBox.Show("Logged privilege: Admin");//If Admin
-
-                    //Put any admin access db stuff here if there is any.
+                //User has been verified
+                user.setAdminStatus(dt.Rows[0]["isAdmin"].Equals(1));
                 
-
-
+                return true;
             }
             else
             {
+                // User is not a valid user
+                MessageBox.Show("Please check your username and password.");
 
-                adminPriv = false; //User does NOT have admin priv
-
-                configGui.initConfigGui(new User(textBox1.Text, textBox2.Text, false));
-
-                MessageBox.Show("Logged privilege: User");//If user
-
-                
-                
-
+                return false;
             }
-
-            //validUser = false; // User is not a valid user
-            
-
         }
-
-
-        
-
-
-
-
     }
 
 }

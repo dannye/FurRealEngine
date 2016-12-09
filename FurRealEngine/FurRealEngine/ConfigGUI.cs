@@ -37,6 +37,14 @@ namespace FurRealEngine
             configurationPreset = configController.loadDefaultPreset(user);        
             Show();
             intializeConfigurationPreset(configurationPreset);
+            if (user.getAdminStatus())
+            {
+                MessageBox.Show("Logged privilege: Admin");
+            }
+            else
+            {
+                MessageBox.Show("Logged privilege: User");
+            }
             areInitializing = false;
         }
 
