@@ -10,6 +10,8 @@ namespace FurRealEngine
     {
         private ConfigController configController;
         private User user;
+        private DbPreset configurationPreset;
+        private Boolean areInitializing;
 
         Random rng = new Random();
 
@@ -20,17 +22,22 @@ namespace FurRealEngine
             comboBoxMonsters.SelectedIndex = 0;
             comboBoxDifficulty.SelectedIndex = 0;
             comboBoxEnvironment.SelectedIndex = 0;
+
         }
 
         public void initConfigGui(User user)
         {
+            areInitializing = true;
             this.user = user;
             configController.setActiveUser(user);
             if (!user.getAdminStatus())
             {
                 editAccountGroup.Enabled = false;
             }
+            configurationPreset = configController.loadDefaultPreset(user);        
             Show();
+            intializeConfigurationPreset(configurationPreset);
+            areInitializing = false;
         }
 
         // validate input, then begin simulation
@@ -150,7 +157,7 @@ namespace FurRealEngine
             int character = listBoxCharacters.SelectedIndex;
             string selectedProfession = comboBoxProfessions.SelectedItem.ToString();
             configController.assignProfession(character, selectedProfession, checkedListBoxChars, listBoxCharacters);
-            MessageBox.Show("Profession assigned!");
+            if (!areInitializing) { MessageBox.Show("Profession assigned!"); }
         }
 
         // assign the selected level to the selected character
@@ -162,7 +169,7 @@ namespace FurRealEngine
                 return;
             }
             configController.setProfLevel(listBoxCharacters.SelectedIndex, comboBoxProfessionLevel.SelectedIndex + 5);
-            MessageBox.Show("Profession level assigned!");
+            if (!areInitializing) { MessageBox.Show("Profession level assigned!"); }
         }
 
         // assign the selected heal option to the selected character
@@ -174,7 +181,7 @@ namespace FurRealEngine
                 return;
             }
             configController.setReviveOpt(listBoxCharacters.SelectedIndex, comboBoxReviveOpt.SelectedIndex);
-            MessageBox.Show("Revive option assigned!");
+            if (!areInitializing) { MessageBox.Show("Revive option assigned!"); }
         }
 
         private void ConfigGUI_FormClosed(object sender, FormClosedEventArgs e)
@@ -331,6 +338,56 @@ namespace FurRealEngine
             ModifyAccountsGUI modify = new ModifyAccountsGUI();
             this.Hide();
             modify.ShowDialog();
+
+        }
+
+        private void intializeConfigurationPreset(DbPreset preset)
+        {
+            this.configurationPreset = preset;
+            initializeCharacterPresets();
+            initializeCharProfessionPresets();
+            initializeScenePresets();
+        }
+
+        private void initializeCharacterPresets()
+        {
+            numericUpDownNumOfChars.Value = this.configurationPreset.numberOfCharacters;
+            if (this.configurationPreset.areCharsPlayablePreset)
+            {
+                for (int i = 0; i < checkedListBoxChars.Items.Count; i++)
+                {
+                    checkedListBoxChars.SetItemChecked(i, true);
+                }
+            }
+        }
+
+        private void initializeCharProfessionPresets()
+        {
+            for (int i = 0; i < listBoxCharacters.Items.Count; i++)
+            {
+                listBoxCharacters.SelectedIndex = i;
+                comboBoxProfessions.SelectedIndex = this.configurationPreset.defaultProfessionPreset;
+                buttonSelectProfession.PerformClick();
+                comboBoxProfessionLevel.SelectedIndex = this.configurationPreset.defaultProfessionLevelPreset;
+                buttonSelectProfessionLevel.PerformClick();
+                comboBoxReviveOpt.SelectedIndex = this.configurationPreset.defaultReviveOptionPreset;
+                buttonSelectRevive.PerformClick();
+            }
+        }
+
+        private void initializeScenePresets()
+        {
+            numericUpDownMonsterCD.Value = this.configurationPreset.defaultCdPreset;
+            comboBoxDifficulty.SelectedIndex = this.configurationPreset.defaultStartingDifficultyPreset;
+            numericUpDownStartLevel.Value = this.configurationPreset.defaultStartingLevelPreset;
+            numericUpDownMaxLevel.Value = this.configurationPreset.defaultMaxLevelPreset;
+            comboBoxEnvironment.SelectedIndex = this.configurationPreset.defaultEnviornmentPreset;
+            numericUpDownRepeat.Value = this.configurationPreset.defaultRepeatScenarioPreset;
+
+        }
+
+        private void buttonSavePreset_Click(object sender, EventArgs e)
+        {
 
         }
     }
