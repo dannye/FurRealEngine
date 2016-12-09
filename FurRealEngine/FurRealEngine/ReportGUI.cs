@@ -76,5 +76,10 @@ namespace FurRealEngine
         {
             Application.Exit();
         }
+
+        private void textBoxLevelsCompleted_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
