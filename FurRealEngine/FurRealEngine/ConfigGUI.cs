@@ -10,8 +10,8 @@ namespace FurRealEngine
     {
         private ConfigController configController;
         private User user;
-        private DbPreset configurationPreset;
-        private Boolean areInitializing;
+        private Preset configurationPreset;
+        private bool areInitializing;
 
         Random rng = new Random();
 
@@ -341,7 +341,7 @@ namespace FurRealEngine
 
         }
 
-        private void intializeConfigurationPreset(DbPreset preset)
+        private void intializeConfigurationPreset(Preset preset)
         {
             this.configurationPreset = preset;
             initializeCharacterPresets();
@@ -381,14 +381,14 @@ namespace FurRealEngine
             comboBoxDifficulty.SelectedIndex = this.configurationPreset.defaultStartingDifficultyPreset;
             numericUpDownStartLevel.Value = this.configurationPreset.defaultStartingLevelPreset;
             numericUpDownMaxLevel.Value = this.configurationPreset.defaultMaxLevelPreset;
-            comboBoxEnvironment.SelectedIndex = this.configurationPreset.defaultEnviornmentPreset;
+            comboBoxEnvironment.SelectedIndex = this.configurationPreset.defaultEnvironmentPreset;
             numericUpDownRepeat.Value = this.configurationPreset.defaultRepeatScenarioPreset;
 
         }
 
         private void buttonSavePreset_Click(object sender, EventArgs e)
         {
-            configurationPreset = new DbPreset(
+            configurationPreset = new Preset(
                 Decimal.ToInt32(numericUpDownNumOfChars.Value), 
                 checkBoxAllCharsPlayable.Checked,
                 comboBoxProfessions.SelectedIndex,

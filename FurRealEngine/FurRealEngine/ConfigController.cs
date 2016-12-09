@@ -265,20 +265,20 @@ namespace FurRealEngine
             return characters;
         }
 
-        public void createNewPreset(DbPreset newPreset)
+        public void createNewPreset(Preset newPreset)
         {
             // DbClassObject.addPresetToDB(preset); <!- REPLACE WITH ACTUAL CALL ->
         }
 
-        public DbPreset loadDefaultPreset(User user)
+        public Preset loadDefaultPreset(User user)
         {
             return mockDataBaseReturnCall(user); // <!-- CHANGE ME DAN -->
         }
 
         // THIS IS TEMPORARY --- DELETE ONCE ^^^^^ ABOVE RETURN CALL IS REPLACED WITH ACTUAL DB CALL
-        private DbPreset mockDataBaseReturnCall(User user)
+        private Preset mockDataBaseReturnCall(User user)
         {
-            return new DbPreset(3, true, 0, 0, 0, 2, 1, 3, 4, 1, 1);
+            return new Preset(3, true, 0, 0, 0, 2, 1, 3, 4, 1, 1);
         }
 
     }

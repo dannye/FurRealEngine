@@ -42,15 +42,16 @@
             this.textBox1.Location = new System.Drawing.Point(404, 302);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 22);
+            this.textBox1.Size = new System.Drawing.Size(212, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(404, 395);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 22);
+            this.textBox2.Size = new System.Drawing.Size(212, 20);
             this.textBox2.TabIndex = 1;
             // 
             // buttonSubmit
@@ -87,7 +88,7 @@
             this.checkBox1.Location = new System.Drawing.Point(413, 438);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(185, 22);
+            this.checkBox1.Size = new System.Drawing.Size(153, 19);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "Remember Password?";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -99,7 +100,7 @@
             this.textBox3.Location = new System.Drawing.Point(329, 569);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(356, 15);
+            this.textBox3.Size = new System.Drawing.Size(356, 13);
             this.textBox3.TabIndex = 7;
             this.textBox3.Text = "Admin || Username: admin   || Password = password";
             // 
@@ -109,7 +110,7 @@
             this.textBox4.Location = new System.Drawing.Point(329, 533);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(356, 15);
+            this.textBox4.Size = new System.Drawing.Size(356, 13);
             this.textBox4.TabIndex = 8;
             this.textBox4.Text = "User || Username: user        || Password = password";
             // 
@@ -141,13 +142,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }
