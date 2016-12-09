@@ -70,7 +70,7 @@ namespace FurRealEngine
         {
             reportGUI.Hide();
             reportGUI = null;
-            config.show();
+            //config.show();
         }
 
     }

@@ -86,7 +86,52 @@ namespace FurRealEngine
 
         static public void savePreset(User u, Preset p)
         {
+            //connection to the database
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User] WHERE username='" + u.getUsername() + "' AND password = '" + u.getPassword() + "'", connection);
 
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                int id = (int)dt.Rows[0]["id"];
+
+                adapter = new SqlDataAdapter("SELECT * FROM [Preset] WHERE [user] IN (SELECT id FROM [User] WHERE username='" + u.getUsername() + "')", connection);
+                dt = new DataTable();
+                adapter.Fill(dt);
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                if (dt.Rows.Count > 0)
+                {
+                    command.CommandText = @"UPDATE [Preset] SET profession = @profession, professionLevel = @professionLevel, reviveOpt = @reviveOpt, 
+                                            playability = @playability, challengeDifficulty = @challengeDifficulty, difficulty = @difficulty, startLevel = @startLevel, 
+                                            maxLevel = @maxLevel, replays = @replays, environment = @environment, numCharacters = @numCharacters 
+                                            WHERE [user] = @id";
+                }
+                else
+                {
+                    command.CommandText = @"INSERT INTO [Preset] VALUES (@id, @profession, @professionLevel, @reviveOpt, 
+                                            @playability, @challengeDifficulty, @difficulty, @startLevel, @maxLevel, 
+                                            @replays, @environment, @numCharacters)";
+                }
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@profession", p.defaultProfessionPreset);
+                command.Parameters.AddWithValue("@professionLevel", p.defaultProfessionLevelPreset);
+                command.Parameters.AddWithValue("@reviveOpt", p.defaultReviveOptionPreset);
+                command.Parameters.AddWithValue("@playability", p.areCharsPlayablePreset);
+                command.Parameters.AddWithValue("@challengeDifficulty", p.defaultCdPreset);
+                command.Parameters.AddWithValue("@difficulty", p.defaultStartingDifficultyPreset);
+                command.Parameters.AddWithValue("@startLevel", p.defaultStartingLevelPreset);
+                command.Parameters.AddWithValue("@maxLevel", p.defaultMaxLevelPreset);
+                command.Parameters.AddWithValue("@replays", p.defaultRepeatScenarioPreset);
+                command.Parameters.AddWithValue("@environment", p.defaultEnvironmentPreset);
+                command.Parameters.AddWithValue("@numCharacters", p.numberOfCharacters);
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
         }
 
         static public List<Report> loadReports(User u)
