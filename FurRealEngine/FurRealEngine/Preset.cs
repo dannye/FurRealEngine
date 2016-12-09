@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FurRealEngine
 {
-    public struct DbPreset
+    public struct Preset
     {
         public int numberOfCharacters;
-        public Boolean areCharsPlayablePreset;
+        public bool areCharsPlayablePreset;
         public int defaultProfessionPreset;
         public int defaultProfessionLevelPreset;
         public int defaultReviveOptionPreset;
@@ -17,19 +17,19 @@ namespace FurRealEngine
         public int defaultStartingDifficultyPreset;
         public int defaultStartingLevelPreset;
         public int defaultMaxLevelPreset;
-        public int defaultEnviornmentPreset;
+        public int defaultEnvironmentPreset;
         public int defaultRepeatScenarioPreset;
 
-        public DbPreset(int numberOfCharacters, Boolean areCharsPlayablePreset,
+        public Preset(int numberOfCharacters, bool areCharsPlayablePreset,
            int defaultProfessionPreset,
            int defaultProfessionLevelPreset,
            int defaultReviveOptionPreset,
            int defaultCdPreset,
-           int defalutStartingDifficultyPreset,
+           int defaultStartingDifficultyPreset,
            int defaultStartingLevelPreset,
            int defaultMaxLevelPreset,
-           int defalutEnviornmentPreset,
-           int defalutRepeatScenarioPreset)
+           int defaultEnvironmentPreset,
+           int defaultRepeatScenarioPreset)
         {
             this.numberOfCharacters = numberOfCharacters;
             this.areCharsPlayablePreset = areCharsPlayablePreset;
@@ -37,11 +37,11 @@ namespace FurRealEngine
             this.defaultProfessionLevelPreset = defaultProfessionLevelPreset;
             this.defaultReviveOptionPreset = defaultReviveOptionPreset;
             this.defaultCdPreset = defaultCdPreset;
-            this.defaultStartingDifficultyPreset = defalutStartingDifficultyPreset;
+            this.defaultStartingDifficultyPreset = defaultStartingDifficultyPreset;
             this.defaultStartingLevelPreset = defaultStartingLevelPreset;
             this.defaultMaxLevelPreset = defaultMaxLevelPreset;
-            this.defaultEnviornmentPreset = defalutEnviornmentPreset;
-            this.defaultRepeatScenarioPreset = defalutRepeatScenarioPreset;
+            this.defaultEnvironmentPreset = defaultEnvironmentPreset;
+            this.defaultRepeatScenarioPreset = defaultRepeatScenarioPreset;
         }
 
     }
