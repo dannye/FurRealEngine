@@ -203,7 +203,7 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
-*.mdf
+#*.mdf
 *.ldf
 
 # Business Intelligence projects
