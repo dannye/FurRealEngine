@@ -50,7 +50,7 @@ namespace FurRealEngine
             this.report.setTotalDamageGiven(SimulatorController.totalDamageGiven);
             this.report.setNumOfLevelsProgressed(SimulatorController.levelsCompleted);
             this.report.setNumOfTimesSimRan(scenario.numberOfRuns);
-            this.report.setSimulationDifficulty(scenario.difficulty.ToString());
+            this.report.setSimulationDifficulty(scenario.difficulty);
             this.report.setEnvironmentOfBattle(scene.environment);
             this.report.setTreasure(SimulatorController.treasure);
         }
