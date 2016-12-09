@@ -10,25 +10,25 @@ namespace FurRealEngine
     {
         public int numberOfCharacters;
         public bool areCharsPlayablePreset;
-        public int defaultProfessionPreset;
+        public PROFESSION defaultProfessionPreset;
         public int defaultProfessionLevelPreset;
-        public int defaultReviveOptionPreset;
+        public HEAL_OPTION defaultReviveOptionPreset;
         public int defaultCdPreset;
-        public int defaultStartingDifficultyPreset;
+        public DIFFICULTY defaultStartingDifficultyPreset;
         public int defaultStartingLevelPreset;
         public int defaultMaxLevelPreset;
-        public int defaultEnvironmentPreset;
+        public ENVIRONMENT defaultEnvironmentPreset;
         public int defaultRepeatScenarioPreset;
 
         public Preset(int numberOfCharacters, bool areCharsPlayablePreset,
-           int defaultProfessionPreset,
+           PROFESSION defaultProfessionPreset,
            int defaultProfessionLevelPreset,
-           int defaultReviveOptionPreset,
+           HEAL_OPTION defaultReviveOptionPreset,
            int defaultCdPreset,
-           int defaultStartingDifficultyPreset,
+           DIFFICULTY defaultStartingDifficultyPreset,
            int defaultStartingLevelPreset,
            int defaultMaxLevelPreset,
-           int defaultEnvironmentPreset,
+           ENVIRONMENT defaultEnvironmentPreset,
            int defaultRepeatScenarioPreset)
         {
             this.numberOfCharacters = numberOfCharacters;

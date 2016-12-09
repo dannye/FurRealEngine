@@ -31,30 +31,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigGUI));
             this.listBoxMonsters = new System.Windows.Forms.ListBox();
             this.selectedMonstersGroupBox = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonRemoveAll = new System.Windows.Forms.Button();
+            this.buttonRandomizeEnvironment = new System.Windows.Forms.Button();
             this.buttonRemoveMonster = new System.Windows.Forms.Button();
-            this.labelStartLevel = new System.Windows.Forms.Label();
+            this.comboBoxEnvironment = new System.Windows.Forms.ComboBox();
+            this.labelEnviornment = new System.Windows.Forms.Label();
+            this.numericUpDownMonsterCD = new System.Windows.Forms.NumericUpDown();
             this.labelMonsters = new System.Windows.Forms.Label();
+            this.comboBoxMonsters = new System.Windows.Forms.ComboBox();
+            this.numericUpDownRepeat = new System.Windows.Forms.NumericUpDown();
             this.labelRepeatTimes = new System.Windows.Forms.Label();
+            this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
+            this.numericUpDownMaxLevel = new System.Windows.Forms.NumericUpDown();
+            this.labelMaxLevel = new System.Windows.Forms.Label();
+            this.buttonRadomizeCD = new System.Windows.Forms.Button();
+            this.numericUpDownStartLevel = new System.Windows.Forms.NumericUpDown();
+            this.buttonAddMonster = new System.Windows.Forms.Button();
+            this.labelMonstersCD = new System.Windows.Forms.Label();
+            this.labelStartLevel = new System.Windows.Forms.Label();
             this.labelDifficulty = new System.Windows.Forms.Label();
             this.labelNumOfChars = new System.Windows.Forms.Label();
-            this.labelMaxLevel = new System.Windows.Forms.Label();
-            this.numericUpDownStartLevel = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMaxLevel = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownRepeat = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownNumOfChars = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
-            this.comboBoxMonsters = new System.Windows.Forms.ComboBox();
-            this.buttonAddMonster = new System.Windows.Forms.Button();
             this.buttonRandomizeNumOfChars = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonConfirm = new System.Windows.Forms.Button();
-            this.labelMonstersCD = new System.Windows.Forms.Label();
-            this.numericUpDownMonsterCD = new System.Windows.Forms.NumericUpDown();
-            this.buttonRadomizeCD = new System.Windows.Forms.Button();
-            this.labelEnviornment = new System.Windows.Forms.Label();
-            this.comboBoxEnvironment = new System.Windows.Forms.ComboBox();
-            this.buttonRandomizeEnvironment = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.groupBoxCharacterSettings = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,18 +70,17 @@
             this.comboBoxProfessions = new System.Windows.Forms.ComboBox();
             this.listBoxCharacters = new System.Windows.Forms.ListBox();
             this.checkedListBoxChars = new System.Windows.Forms.CheckedListBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.editAccountGroup = new System.Windows.Forms.GroupBox();
             this.editAccountButton = new System.Windows.Forms.Button();
             this.groupBoxPreset = new System.Windows.Forms.GroupBox();
-            this.buttonSavePreset = new System.Windows.Forms.Button();
             this.checkBoxAllCharsPlayable = new System.Windows.Forms.CheckBox();
+            this.buttonSavePreset = new System.Windows.Forms.Button();
             this.selectedMonstersGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumOfChars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterCD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumOfChars)).BeginInit();
             this.groupBoxCharacterSettings.SuspendLayout();
             this.groupBoxCharacters.SuspendLayout();
             this.editAccountGroup.SuspendLayout();
@@ -91,10 +91,11 @@
             // 
             this.listBoxMonsters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBoxMonsters.FormattingEnabled = true;
+            this.listBoxMonsters.ItemHeight = 16;
             this.listBoxMonsters.Location = new System.Drawing.Point(29, 143);
             this.listBoxMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxMonsters.Name = "listBoxMonsters";
-            this.listBoxMonsters.Size = new System.Drawing.Size(270, 82);
+            this.listBoxMonsters.Size = new System.Drawing.Size(270, 68);
             this.listBoxMonsters.TabIndex = 0;
             // 
             // selectedMonstersGroupBox
@@ -131,6 +132,18 @@
             this.selectedMonstersGroupBox.TabStop = false;
             this.selectedMonstersGroupBox.Text = "Combat Settings";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(28, 34);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(407, 17);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Optionally Add Specific Monster and Set Their Combat Difficulty";
+            // 
             // buttonRemoveAll
             // 
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.Black;
@@ -142,6 +155,18 @@
             this.buttonRemoveAll.Text = "Remove All";
             this.buttonRemoveAll.UseVisualStyleBackColor = true;
             this.buttonRemoveAll.Click += new System.EventHandler(this.buttonRemoveAll_Click);
+            // 
+            // buttonRandomizeEnvironment
+            // 
+            this.buttonRandomizeEnvironment.ForeColor = System.Drawing.Color.Black;
+            this.buttonRandomizeEnvironment.Location = new System.Drawing.Point(201, 422);
+            this.buttonRandomizeEnvironment.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonRandomizeEnvironment.Name = "buttonRandomizeEnvironment";
+            this.buttonRandomizeEnvironment.Size = new System.Drawing.Size(100, 25);
+            this.buttonRandomizeEnvironment.TabIndex = 24;
+            this.buttonRandomizeEnvironment.Text = "Randomize";
+            this.buttonRandomizeEnvironment.UseVisualStyleBackColor = true;
+            this.buttonRandomizeEnvironment.Click += new System.EventHandler(this.buttonRandomizeEnvironment_Click);
             // 
             // buttonRemoveMonster
             // 
@@ -155,17 +180,42 @@
             this.buttonRemoveMonster.UseVisualStyleBackColor = true;
             this.buttonRemoveMonster.Click += new System.EventHandler(this.buttonRemoveMonster_Click);
             // 
-            // labelStartLevel
+            // comboBoxEnvironment
             // 
-            this.labelStartLevel.AutoSize = true;
-            this.labelStartLevel.BackColor = System.Drawing.Color.Transparent;
-            this.labelStartLevel.ForeColor = System.Drawing.Color.White;
-            this.labelStartLevel.Location = new System.Drawing.Point(353, 217);
-            this.labelStartLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelStartLevel.Name = "labelStartLevel";
-            this.labelStartLevel.Size = new System.Drawing.Size(75, 13);
-            this.labelStartLevel.TabIndex = 2;
-            this.labelStartLevel.Text = "Starting Level:";
+            this.comboBoxEnvironment.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxEnvironment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEnvironment.FormattingEnabled = true;
+            this.comboBoxEnvironment.Items.AddRange(new object[] {
+            "Dungeon",
+            "Cavern",
+            "Forest"});
+            this.comboBoxEnvironment.Location = new System.Drawing.Point(31, 422);
+            this.comboBoxEnvironment.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxEnvironment.Name = "comboBoxEnvironment";
+            this.comboBoxEnvironment.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxEnvironment.TabIndex = 23;
+            // 
+            // labelEnviornment
+            // 
+            this.labelEnviornment.AutoSize = true;
+            this.labelEnviornment.BackColor = System.Drawing.Color.Transparent;
+            this.labelEnviornment.ForeColor = System.Drawing.Color.White;
+            this.labelEnviornment.Location = new System.Drawing.Point(27, 402);
+            this.labelEnviornment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEnviornment.Name = "labelEnviornment";
+            this.labelEnviornment.Size = new System.Drawing.Size(127, 17);
+            this.labelEnviornment.TabIndex = 22;
+            this.labelEnviornment.Text = "Battle Environment";
+            // 
+            // numericUpDownMonsterCD
+            // 
+            this.numericUpDownMonsterCD.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDownMonsterCD.Location = new System.Drawing.Point(31, 340);
+            this.numericUpDownMonsterCD.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
+            this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownMonsterCD.TabIndex = 20;
+            this.numericUpDownMonsterCD.ValueChanged += new System.EventHandler(this.numericUpDownMonsterCD_ValueChanged);
             // 
             // labelMonsters
             // 
@@ -175,146 +225,9 @@
             this.labelMonsters.Location = new System.Drawing.Point(28, 70);
             this.labelMonsters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMonsters.Name = "labelMonsters";
-            this.labelMonsters.Size = new System.Drawing.Size(95, 13);
+            this.labelMonsters.Size = new System.Drawing.Size(125, 17);
             this.labelMonsters.TabIndex = 3;
             this.labelMonsters.Text = "Monster Selection:";
-            // 
-            // labelRepeatTimes
-            // 
-            this.labelRepeatTimes.AutoSize = true;
-            this.labelRepeatTimes.BackColor = System.Drawing.Color.Transparent;
-            this.labelRepeatTimes.ForeColor = System.Drawing.Color.White;
-            this.labelRepeatTimes.Location = new System.Drawing.Point(355, 405);
-            this.labelRepeatTimes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelRepeatTimes.Name = "labelRepeatTimes";
-            this.labelRepeatTimes.Size = new System.Drawing.Size(90, 13);
-            this.labelRepeatTimes.TabIndex = 4;
-            this.labelRepeatTimes.Text = "Repeat Scenario:";
-            // 
-            // labelDifficulty
-            // 
-            this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.BackColor = System.Drawing.Color.Transparent;
-            this.labelDifficulty.ForeColor = System.Drawing.Color.White;
-            this.labelDifficulty.Location = new System.Drawing.Point(352, 106);
-            this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(89, 13);
-            this.labelDifficulty.TabIndex = 5;
-            this.labelDifficulty.Text = "Starting Difficulty:";
-            // 
-            // labelNumOfChars
-            // 
-            this.labelNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelNumOfChars.AutoSize = true;
-            this.labelNumOfChars.Location = new System.Drawing.Point(18, 57);
-            this.labelNumOfChars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNumOfChars.Name = "labelNumOfChars";
-            this.labelNumOfChars.Size = new System.Drawing.Size(113, 13);
-            this.labelNumOfChars.TabIndex = 6;
-            this.labelNumOfChars.Text = "Number of Characters:";
-            // 
-            // labelMaxLevel
-            // 
-            this.labelMaxLevel.AutoSize = true;
-            this.labelMaxLevel.BackColor = System.Drawing.Color.Transparent;
-            this.labelMaxLevel.ForeColor = System.Drawing.Color.White;
-            this.labelMaxLevel.Location = new System.Drawing.Point(354, 320);
-            this.labelMaxLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelMaxLevel.Name = "labelMaxLevel";
-            this.labelMaxLevel.Size = new System.Drawing.Size(83, 13);
-            this.labelMaxLevel.TabIndex = 7;
-            this.labelMaxLevel.Text = "Maximum Level:";
-            // 
-            // numericUpDownStartLevel
-            // 
-            this.numericUpDownStartLevel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownStartLevel.Location = new System.Drawing.Point(357, 237);
-            this.numericUpDownStartLevel.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDownStartLevel.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownStartLevel.Name = "numericUpDownStartLevel";
-            this.numericUpDownStartLevel.Size = new System.Drawing.Size(160, 20);
-            this.numericUpDownStartLevel.TabIndex = 8;
-            this.numericUpDownStartLevel.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownStartLevel.ValueChanged += new System.EventHandler(this.numericUpDownStartLevel_ValueChanged);
-            // 
-            // numericUpDownMaxLevel
-            // 
-            this.numericUpDownMaxLevel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(358, 338);
-            this.numericUpDownMaxLevel.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDownMaxLevel.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
-            this.numericUpDownMaxLevel.Size = new System.Drawing.Size(160, 20);
-            this.numericUpDownMaxLevel.TabIndex = 9;
-            this.numericUpDownMaxLevel.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownMaxLevel.ValueChanged += new System.EventHandler(this.numericUpDownMaxLevel_ValueChanged);
-            // 
-            // numericUpDownRepeat
-            // 
-            this.numericUpDownRepeat.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownRepeat.Location = new System.Drawing.Point(358, 422);
-            this.numericUpDownRepeat.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDownRepeat.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownRepeat.Name = "numericUpDownRepeat";
-            this.numericUpDownRepeat.Size = new System.Drawing.Size(160, 20);
-            this.numericUpDownRepeat.TabIndex = 10;
-            this.numericUpDownRepeat.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDownNumOfChars
-            // 
-            this.numericUpDownNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.numericUpDownNumOfChars.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownNumOfChars.Location = new System.Drawing.Point(22, 78);
-            this.numericUpDownNumOfChars.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDownNumOfChars.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.numericUpDownNumOfChars.Name = "numericUpDownNumOfChars";
-            this.numericUpDownNumOfChars.Size = new System.Drawing.Size(160, 20);
-            this.numericUpDownNumOfChars.TabIndex = 11;
-            this.numericUpDownNumOfChars.ValueChanged += new System.EventHandler(this.numericUpDownNumOfChars_ValueChanged);
-            // 
-            // comboBoxDifficulty
-            // 
-            this.comboBoxDifficulty.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDifficulty.FormattingEnabled = true;
-            this.comboBoxDifficulty.Items.AddRange(new object[] {
-            "Novice",
-            "Apprentice",
-            "Master"});
-            this.comboBoxDifficulty.Location = new System.Drawing.Point(356, 126);
-            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxDifficulty.Name = "comboBoxDifficulty";
-            this.comboBoxDifficulty.Size = new System.Drawing.Size(160, 21);
-            this.comboBoxDifficulty.TabIndex = 12;
             // 
             // comboBoxMonsters
             // 
@@ -334,8 +247,118 @@
             this.comboBoxMonsters.Location = new System.Drawing.Point(30, 90);
             this.comboBoxMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxMonsters.Name = "comboBoxMonsters";
-            this.comboBoxMonsters.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxMonsters.Size = new System.Drawing.Size(160, 24);
             this.comboBoxMonsters.TabIndex = 13;
+            // 
+            // numericUpDownRepeat
+            // 
+            this.numericUpDownRepeat.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDownRepeat.Location = new System.Drawing.Point(358, 422);
+            this.numericUpDownRepeat.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownRepeat.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRepeat.Name = "numericUpDownRepeat";
+            this.numericUpDownRepeat.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownRepeat.TabIndex = 10;
+            this.numericUpDownRepeat.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // labelRepeatTimes
+            // 
+            this.labelRepeatTimes.AutoSize = true;
+            this.labelRepeatTimes.BackColor = System.Drawing.Color.Transparent;
+            this.labelRepeatTimes.ForeColor = System.Drawing.Color.White;
+            this.labelRepeatTimes.Location = new System.Drawing.Point(355, 405);
+            this.labelRepeatTimes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRepeatTimes.Name = "labelRepeatTimes";
+            this.labelRepeatTimes.Size = new System.Drawing.Size(118, 17);
+            this.labelRepeatTimes.TabIndex = 4;
+            this.labelRepeatTimes.Text = "Repeat Scenario:";
+            // 
+            // comboBoxDifficulty
+            // 
+            this.comboBoxDifficulty.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDifficulty.FormattingEnabled = true;
+            this.comboBoxDifficulty.Items.AddRange(new object[] {
+            "Novice",
+            "Apprentice",
+            "Master"});
+            this.comboBoxDifficulty.Location = new System.Drawing.Point(356, 126);
+            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDifficulty.Name = "comboBoxDifficulty";
+            this.comboBoxDifficulty.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxDifficulty.TabIndex = 12;
+            // 
+            // numericUpDownMaxLevel
+            // 
+            this.numericUpDownMaxLevel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(358, 338);
+            this.numericUpDownMaxLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownMaxLevel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
+            this.numericUpDownMaxLevel.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownMaxLevel.TabIndex = 9;
+            this.numericUpDownMaxLevel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownMaxLevel.ValueChanged += new System.EventHandler(this.numericUpDownMaxLevel_ValueChanged);
+            // 
+            // labelMaxLevel
+            // 
+            this.labelMaxLevel.AutoSize = true;
+            this.labelMaxLevel.BackColor = System.Drawing.Color.Transparent;
+            this.labelMaxLevel.ForeColor = System.Drawing.Color.White;
+            this.labelMaxLevel.Location = new System.Drawing.Point(354, 320);
+            this.labelMaxLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMaxLevel.Name = "labelMaxLevel";
+            this.labelMaxLevel.Size = new System.Drawing.Size(108, 17);
+            this.labelMaxLevel.TabIndex = 7;
+            this.labelMaxLevel.Text = "Maximum Level:";
+            // 
+            // buttonRadomizeCD
+            // 
+            this.buttonRadomizeCD.ForeColor = System.Drawing.Color.Black;
+            this.buttonRadomizeCD.Location = new System.Drawing.Point(199, 338);
+            this.buttonRadomizeCD.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonRadomizeCD.Name = "buttonRadomizeCD";
+            this.buttonRadomizeCD.Size = new System.Drawing.Size(100, 25);
+            this.buttonRadomizeCD.TabIndex = 21;
+            this.buttonRadomizeCD.Text = "Randomize";
+            this.buttonRadomizeCD.UseVisualStyleBackColor = true;
+            this.buttonRadomizeCD.Click += new System.EventHandler(this.buttonRadomizeCD_Click);
+            // 
+            // numericUpDownStartLevel
+            // 
+            this.numericUpDownStartLevel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDownStartLevel.Location = new System.Drawing.Point(357, 237);
+            this.numericUpDownStartLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownStartLevel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownStartLevel.Name = "numericUpDownStartLevel";
+            this.numericUpDownStartLevel.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownStartLevel.TabIndex = 8;
+            this.numericUpDownStartLevel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownStartLevel.ValueChanged += new System.EventHandler(this.numericUpDownStartLevel_ValueChanged);
             // 
             // buttonAddMonster
             // 
@@ -348,6 +371,69 @@
             this.buttonAddMonster.Text = "Add";
             this.buttonAddMonster.UseVisualStyleBackColor = true;
             this.buttonAddMonster.Click += new System.EventHandler(this.buttonAddMonster_Click);
+            // 
+            // labelMonstersCD
+            // 
+            this.labelMonstersCD.AutoSize = true;
+            this.labelMonstersCD.BackColor = System.Drawing.Color.Transparent;
+            this.labelMonstersCD.ForeColor = System.Drawing.Color.White;
+            this.labelMonstersCD.Location = new System.Drawing.Point(27, 317);
+            this.labelMonstersCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMonstersCD.Name = "labelMonstersCD";
+            this.labelMonstersCD.Size = new System.Drawing.Size(132, 17);
+            this.labelMonstersCD.TabIndex = 19;
+            this.labelMonstersCD.Text = "Challenge Difficulty:";
+            // 
+            // labelStartLevel
+            // 
+            this.labelStartLevel.AutoSize = true;
+            this.labelStartLevel.BackColor = System.Drawing.Color.Transparent;
+            this.labelStartLevel.ForeColor = System.Drawing.Color.White;
+            this.labelStartLevel.Location = new System.Drawing.Point(353, 217);
+            this.labelStartLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelStartLevel.Name = "labelStartLevel";
+            this.labelStartLevel.Size = new System.Drawing.Size(99, 17);
+            this.labelStartLevel.TabIndex = 2;
+            this.labelStartLevel.Text = "Starting Level:";
+            // 
+            // labelDifficulty
+            // 
+            this.labelDifficulty.AutoSize = true;
+            this.labelDifficulty.BackColor = System.Drawing.Color.Transparent;
+            this.labelDifficulty.ForeColor = System.Drawing.Color.White;
+            this.labelDifficulty.Location = new System.Drawing.Point(352, 106);
+            this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDifficulty.Name = "labelDifficulty";
+            this.labelDifficulty.Size = new System.Drawing.Size(118, 17);
+            this.labelDifficulty.TabIndex = 5;
+            this.labelDifficulty.Text = "Starting Difficulty:";
+            // 
+            // labelNumOfChars
+            // 
+            this.labelNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelNumOfChars.AutoSize = true;
+            this.labelNumOfChars.Location = new System.Drawing.Point(18, 57);
+            this.labelNumOfChars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumOfChars.Name = "labelNumOfChars";
+            this.labelNumOfChars.Size = new System.Drawing.Size(151, 17);
+            this.labelNumOfChars.TabIndex = 6;
+            this.labelNumOfChars.Text = "Number of Characters:";
+            // 
+            // numericUpDownNumOfChars
+            // 
+            this.numericUpDownNumOfChars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.numericUpDownNumOfChars.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.numericUpDownNumOfChars.Location = new System.Drawing.Point(22, 78);
+            this.numericUpDownNumOfChars.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownNumOfChars.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDownNumOfChars.Name = "numericUpDownNumOfChars";
+            this.numericUpDownNumOfChars.Size = new System.Drawing.Size(160, 22);
+            this.numericUpDownNumOfChars.TabIndex = 11;
+            this.numericUpDownNumOfChars.ValueChanged += new System.EventHandler(this.numericUpDownNumOfChars_ValueChanged);
             // 
             // buttonRandomizeNumOfChars
             // 
@@ -383,79 +469,6 @@
             this.buttonConfirm.UseVisualStyleBackColor = true;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
-            // labelMonstersCD
-            // 
-            this.labelMonstersCD.AutoSize = true;
-            this.labelMonstersCD.BackColor = System.Drawing.Color.Transparent;
-            this.labelMonstersCD.ForeColor = System.Drawing.Color.White;
-            this.labelMonstersCD.Location = new System.Drawing.Point(27, 317);
-            this.labelMonstersCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelMonstersCD.Name = "labelMonstersCD";
-            this.labelMonstersCD.Size = new System.Drawing.Size(100, 13);
-            this.labelMonstersCD.TabIndex = 19;
-            this.labelMonstersCD.Text = "Challenge Difficulty:";
-            // 
-            // numericUpDownMonsterCD
-            // 
-            this.numericUpDownMonsterCD.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.numericUpDownMonsterCD.Location = new System.Drawing.Point(31, 340);
-            this.numericUpDownMonsterCD.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDownMonsterCD.Name = "numericUpDownMonsterCD";
-            this.numericUpDownMonsterCD.Size = new System.Drawing.Size(160, 20);
-            this.numericUpDownMonsterCD.TabIndex = 20;
-            this.numericUpDownMonsterCD.ValueChanged += new System.EventHandler(this.numericUpDownMonsterCD_ValueChanged);
-            // 
-            // buttonRadomizeCD
-            // 
-            this.buttonRadomizeCD.ForeColor = System.Drawing.Color.Black;
-            this.buttonRadomizeCD.Location = new System.Drawing.Point(199, 338);
-            this.buttonRadomizeCD.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonRadomizeCD.Name = "buttonRadomizeCD";
-            this.buttonRadomizeCD.Size = new System.Drawing.Size(100, 25);
-            this.buttonRadomizeCD.TabIndex = 21;
-            this.buttonRadomizeCD.Text = "Randomize";
-            this.buttonRadomizeCD.UseVisualStyleBackColor = true;
-            this.buttonRadomizeCD.Click += new System.EventHandler(this.buttonRadomizeCD_Click);
-            // 
-            // labelEnviornment
-            // 
-            this.labelEnviornment.AutoSize = true;
-            this.labelEnviornment.BackColor = System.Drawing.Color.Transparent;
-            this.labelEnviornment.ForeColor = System.Drawing.Color.White;
-            this.labelEnviornment.Location = new System.Drawing.Point(27, 402);
-            this.labelEnviornment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelEnviornment.Name = "labelEnviornment";
-            this.labelEnviornment.Size = new System.Drawing.Size(96, 13);
-            this.labelEnviornment.TabIndex = 22;
-            this.labelEnviornment.Text = "Battle Environment";
-            // 
-            // comboBoxEnvironment
-            // 
-            this.comboBoxEnvironment.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.comboBoxEnvironment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEnvironment.FormattingEnabled = true;
-            this.comboBoxEnvironment.Items.AddRange(new object[] {
-            "Dungeon",
-            "Cavern",
-            "Forest"});
-            this.comboBoxEnvironment.Location = new System.Drawing.Point(31, 422);
-            this.comboBoxEnvironment.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxEnvironment.Name = "comboBoxEnvironment";
-            this.comboBoxEnvironment.Size = new System.Drawing.Size(160, 21);
-            this.comboBoxEnvironment.TabIndex = 23;
-            // 
-            // buttonRandomizeEnvironment
-            // 
-            this.buttonRandomizeEnvironment.ForeColor = System.Drawing.Color.Black;
-            this.buttonRandomizeEnvironment.Location = new System.Drawing.Point(201, 422);
-            this.buttonRandomizeEnvironment.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonRandomizeEnvironment.Name = "buttonRandomizeEnvironment";
-            this.buttonRandomizeEnvironment.Size = new System.Drawing.Size(100, 25);
-            this.buttonRandomizeEnvironment.TabIndex = 24;
-            this.buttonRandomizeEnvironment.Text = "Randomize";
-            this.buttonRandomizeEnvironment.UseVisualStyleBackColor = true;
-            this.buttonRandomizeEnvironment.Click += new System.EventHandler(this.buttonRandomizeEnvironment_Click);
-            // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
@@ -465,7 +478,7 @@
             this.labelTitle.Location = new System.Drawing.Point(50, 22);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(337, 30);
+            this.labelTitle.Size = new System.Drawing.Size(423, 37);
             this.labelTitle.TabIndex = 25;
             this.labelTitle.Text = "Configure Combat Simulator";
             // 
@@ -496,7 +509,7 @@
             this.label1.Location = new System.Drawing.Point(300, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 13);
+            this.label1.Size = new System.Drawing.Size(267, 17);
             this.label1.TabIndex = 21;
             this.label1.Text = "Check a Character to Identify as Playable";
             // 
@@ -508,7 +521,7 @@
             this.labelNumCharMsg.Location = new System.Drawing.Point(17, 103);
             this.labelNumCharMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumCharMsg.Name = "labelNumCharMsg";
-            this.labelNumCharMsg.Size = new System.Drawing.Size(102, 13);
+            this.labelNumCharMsg.Size = new System.Drawing.Size(134, 17);
             this.labelNumCharMsg.TabIndex = 20;
             this.labelNumCharMsg.Text = "Max of 6 Characters";
             // 
@@ -551,6 +564,10 @@
             this.comboBoxProfessionLevel.Enabled = false;
             this.comboBoxProfessionLevel.FormattingEnabled = true;
             this.comboBoxProfessionLevel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
             "5",
             "6",
             "7",
@@ -565,7 +582,7 @@
             this.comboBoxProfessionLevel.Location = new System.Drawing.Point(9, 212);
             this.comboBoxProfessionLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxProfessionLevel.Name = "comboBoxProfessionLevel";
-            this.comboBoxProfessionLevel.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxProfessionLevel.Size = new System.Drawing.Size(160, 24);
             this.comboBoxProfessionLevel.TabIndex = 23;
             // 
             // buttonSelectRevive
@@ -593,7 +610,7 @@
             this.comboBoxReviveOpt.Location = new System.Drawing.Point(9, 261);
             this.comboBoxReviveOpt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxReviveOpt.Name = "comboBoxReviveOpt";
-            this.comboBoxReviveOpt.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxReviveOpt.Size = new System.Drawing.Size(160, 24);
             this.comboBoxReviveOpt.TabIndex = 21;
             // 
             // richTextBox1
@@ -626,23 +643,24 @@
             this.comboBoxProfessions.Enabled = false;
             this.comboBoxProfessions.FormattingEnabled = true;
             this.comboBoxProfessions.Items.AddRange(new object[] {
-            "Combat Mage",
             "Soldier",
+            "Combat Mage",
             "Priest"});
             this.comboBoxProfessions.Location = new System.Drawing.Point(9, 162);
             this.comboBoxProfessions.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxProfessions.Name = "comboBoxProfessions";
-            this.comboBoxProfessions.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxProfessions.Size = new System.Drawing.Size(160, 24);
             this.comboBoxProfessions.TabIndex = 18;
             // 
             // listBoxCharacters
             // 
             this.listBoxCharacters.BackColor = System.Drawing.SystemColors.ControlLight;
             this.listBoxCharacters.FormattingEnabled = true;
+            this.listBoxCharacters.ItemHeight = 16;
             this.listBoxCharacters.Location = new System.Drawing.Point(8, 38);
             this.listBoxCharacters.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxCharacters.Name = "listBoxCharacters";
-            this.listBoxCharacters.Size = new System.Drawing.Size(273, 95);
+            this.listBoxCharacters.Size = new System.Drawing.Size(273, 84);
             this.listBoxCharacters.TabIndex = 17;
             this.listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.listBoxCharacters_SelectedIndexChanged);
             // 
@@ -656,21 +674,9 @@
             this.checkedListBoxChars.Location = new System.Drawing.Point(317, 34);
             this.checkedListBoxChars.Margin = new System.Windows.Forms.Padding(4);
             this.checkedListBoxChars.Name = "checkedListBoxChars";
-            this.checkedListBoxChars.Size = new System.Drawing.Size(227, 94);
+            this.checkedListBoxChars.Size = new System.Drawing.Size(227, 89);
             this.checkedListBoxChars.TabIndex = 16;
             this.checkedListBoxChars.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxChars_ItemCheck);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(28, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(306, 13);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Optionally Add Specific Monster and Set Their Combat Difficulty";
             // 
             // editAccountGroup
             // 
@@ -713,6 +719,16 @@
             this.groupBoxPreset.TabStop = false;
             this.groupBoxPreset.Text = "Configuration Preset";
             // 
+            // checkBoxAllCharsPlayable
+            // 
+            this.checkBoxAllCharsPlayable.AutoSize = true;
+            this.checkBoxAllCharsPlayable.Location = new System.Drawing.Point(24, 80);
+            this.checkBoxAllCharsPlayable.Name = "checkBoxAllCharsPlayable";
+            this.checkBoxAllCharsPlayable.Size = new System.Drawing.Size(206, 21);
+            this.checkBoxAllCharsPlayable.TabIndex = 30;
+            this.checkBoxAllCharsPlayable.Text = "Are all characters playable?";
+            this.checkBoxAllCharsPlayable.UseVisualStyleBackColor = true;
+            // 
             // buttonSavePreset
             // 
             this.buttonSavePreset.ForeColor = System.Drawing.Color.Black;
@@ -724,16 +740,6 @@
             this.buttonSavePreset.Text = "Save";
             this.buttonSavePreset.UseVisualStyleBackColor = true;
             this.buttonSavePreset.Click += new System.EventHandler(this.buttonSavePreset_Click);
-            // 
-            // checkBoxAllCharsPlayable
-            // 
-            this.checkBoxAllCharsPlayable.AutoSize = true;
-            this.checkBoxAllCharsPlayable.Location = new System.Drawing.Point(24, 80);
-            this.checkBoxAllCharsPlayable.Name = "checkBoxAllCharsPlayable";
-            this.checkBoxAllCharsPlayable.Size = new System.Drawing.Size(156, 17);
-            this.checkBoxAllCharsPlayable.TabIndex = 30;
-            this.checkBoxAllCharsPlayable.Text = "Are all characters playable?";
-            this.checkBoxAllCharsPlayable.UseVisualStyleBackColor = true;
             // 
             // ConfigGUI
             // 
@@ -759,11 +765,11 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigGUI_FormClosed);
             this.selectedMonstersGroupBox.ResumeLayout(false);
             this.selectedMonstersGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumOfChars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMonsterCD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStartLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumOfChars)).EndInit();
             this.groupBoxCharacterSettings.ResumeLayout(false);
             this.groupBoxCharacterSettings.PerformLayout();
             this.groupBoxCharacters.ResumeLayout(false);
