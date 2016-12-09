@@ -71,6 +71,11 @@ namespace FurRealEngine
             DBManager.updatePassword(user, password);
         }
 
+        public void updateUserUsername(User user, string username)
+        {
+            DBManager.updateUsername(user, username);
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
 
@@ -82,26 +87,29 @@ namespace FurRealEngine
             
 
 
-            if (username == confirmUsername && password == confirmPassword)
-            {
+            
+                //Updates the user's password
+                updateUserPassword(getUser(), password); 
+                MessageBox.Show("User " + username + "'s account password is now: " + password +".");
 
-                updateUserPassword(getUser(), password); //Updates the users password
+                //Updates the user's username
+                updateUserUsername(getUser(), username);
+                MessageBox.Show("User " + username + "'s account username is now: " + username + ".");
 
-            }
 
-            //If username and confirm username DO NOT match
-            if (username != confirmUsername)
-            {
-                MessageBox.Show("The Username and Confirm Username fields do not match!");
-                return;
-            }
+            ////If username and confirm username DO NOT match
+            //if (username != confirmUsername)
+            //{
+            //    MessageBox.Show("The Username and Confirm Username fields do not match!");
+            //    return;
+            //}
 
-            //If password and confirm password DO NOT match
-            if (password != confirmPassword)
-            {
-                MessageBox.Show("The Password and Confirm Password fields do not match!");
-                return;
-            }
+            ////If password and confirm password DO NOT match
+            //if (password != confirmPassword)
+            //{
+            //    MessageBox.Show("The Password and Confirm Password fields do not match!");
+            //    return;
+            //}
 
 
             //Check to see if both buttons are checked
@@ -166,6 +174,11 @@ namespace FurRealEngine
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
