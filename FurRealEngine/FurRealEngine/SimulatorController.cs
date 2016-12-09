@@ -75,8 +75,10 @@ namespace FurRealEngine
             return result;
         }
 
+        // after every attack, hightlight the current attacker and target
         public void selectCharacters(ListBox characterList, GroupBox characterGroup, PictureBox characterPicture, ListBox monsterList, GroupBox monsterGroup, PictureBox monsterPicture, Button meleeButton, Button spellButton, Button continueButton)
         {
+            // if players turn, highlight current character and target monster
             if (playersTurn)
             {
                 characterList.SelectedIndex = currentCharacter;
@@ -85,6 +87,7 @@ namespace FurRealEngine
                     monsterList.SelectedIndex = target;
                 }
             }
+            // if enemys turn, highlight current monster and target character
             else
             {
                 if (target < characterList.Items.Count)
@@ -97,44 +100,54 @@ namespace FurRealEngine
             monsterIndexChanged(monsterList, monsterGroup, monsterPicture);
         }
 
+        // if a new character is selected
         public void characterIndexChanged(ListBox characterList, GroupBox characterGroup, PictureBox characterPicture, Button meleeButton, Button spellButton, Button continueButton)
         {
-            if (characterList.SelectedIndex < 0 && characterList.Items.Count > 0)
+            if (characterList.Items.Count > 0)
             {
-                characterList.SelectedIndex = 0;
-            }
-            if (playersTurn)
-            {
-                characterList.SelectedIndex = currentCharacter;
-            }
-            else
-            {
-                if (characterList.Items.Count > 0)
+                // if the selection was deselected, force the first character to be selected
+                if (characterList.SelectedIndex < 0)
+                {
+                    characterList.SelectedIndex = 0;
+                }
+                // if players turn, force the current character to be selected
+                if (playersTurn)
+                {
+                    characterList.SelectedIndex = currentCharacter;
+                }
+                // if enemys turn, force the target characger to be selected
+                else
                 {
                     characterList.SelectedIndex = target;
                 }
             }
             fillCharacterGroup(characterGroup, characterList.SelectedIndex);
-            activateAttackButtons(meleeButton, spellButton, continueButton, characterList.SelectedIndex);
             setCharacterPicture(characterPicture, characterList.SelectedIndex);
+            activateAttackButtons(meleeButton, spellButton, continueButton, characterList.SelectedIndex);
         }
 
+        // if a new monster is selected
         public void monsterIndexChanged(ListBox monsterList, GroupBox monsterGroup, PictureBox monsterPicture)
         {
-            if (monsterList.SelectedIndex < 0 && monsterList.Items.Count > 0)
+            if (monsterList.Items.Count > 0)
             {
-                monsterList.SelectedIndex = 0;
-            }
-            if (!playersTurn)
-            {
-                monsterList.SelectedIndex = currentCharacter;
-            }
-            else
-            {
-                if (!characters[currentCharacter].isCharacterPlayable() && monsterList.Items.Count > 0)
+                // if the selection was deselected, force the first monster to be selected
+                if (monsterList.SelectedIndex < 0)
+                {
+                    monsterList.SelectedIndex = 0;
+                }
+                // if enemys turn, force the current monster to be selected
+                if (!playersTurn)
+                {
+                    monsterList.SelectedIndex = currentCharacter;
+                }
+                // if players turn and current character is not playable,
+                // force target monster to be selected
+                else if (!characters[currentCharacter].isCharacterPlayable())
                 {
                     monsterList.SelectedIndex = target;
                 }
+                // otherwise, leave the user selection alone
             }
             fillMonsterGroup(monsterGroup, monsterList.SelectedIndex);
             setMonsterPicture(monsterPicture, monsterList.SelectedIndex);
@@ -154,7 +167,7 @@ namespace FurRealEngine
         // fill the group box with info about the selected character
         private void fillCharacterGroup(GroupBox group, int index)
         {
-            if (characters.Count() > 0 && index >= 0 && index < characters.Count())
+            if (characters.Count > 0 && index >= 0 && index < characters.Count)
             {
                 Character character = characters.ElementAt(index);
                 IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
@@ -250,7 +263,7 @@ namespace FurRealEngine
         // fill the group box with info about the selected monster
         private void fillMonsterGroup(GroupBox group, int index)
         {
-            if (monsters.Count() > 0 && index >= 0 && index < monsters.Count())
+            if (monsters.Count > 0 && index >= 0 && index < monsters.Count)
             {
                 Monster monster = monsters.ElementAt(index);
                 IEnumerable<TextBox> boxes = group.Controls.OfType<TextBox>();
@@ -327,7 +340,8 @@ namespace FurRealEngine
         // enable/disable attack buttons based on profession of selected character
         private void activateAttackButtons(Button meleeButton, Button spellButton, Button continueButton, int character)
         {
-            if (character >= 0 && characters[character].isCharacterPlayable() && playersTurn)
+            // only enable attack button if players turn and current character is playable
+            if (playersTurn && character >= 0 && characters[character].isCharacterPlayable())
             {
                 PROFESSION prof = characters[character].getProfession();
                 if (prof == PROFESSION.SOLDIER)
@@ -347,6 +361,7 @@ namespace FurRealEngine
                 }
                 continueButton.Enabled = false;
             }
+            // otherwise, only enable 'continue'
             else
             {
                 meleeButton.Enabled = false;
@@ -375,7 +390,7 @@ namespace FurRealEngine
                 }
                 else
                 {
-                    if (rand.Next() % 2 == 0)
+                    if (rand.Next() % 10 > 5)
                     {
                         meleeAttack(charList, monsterList, monsterGroup, monsterPicture, playerTurnLabel, enemyTurnLabel);
                     }
@@ -390,10 +405,7 @@ namespace FurRealEngine
                 Monster monster = monsters[currentCharacter];
                 roundController.monsterAttack(target, currentCharacter);
                 checkForDeath();
-                if (charList.Items.Count == 0)
-                {
-                    close();
-                }
+                checkForEndOfLevel();
                 currentCharacter++;
                 if (currentCharacter >= monsters.Count)
                 {
@@ -420,7 +432,7 @@ namespace FurRealEngine
                     setMonsterPicture(monsterPicture, monsterList.SelectedIndex);
                 }
             }
-            if (monsterList.Items.Count == 0 && characterList.Items.Count > 0)
+            if (monsterList.Items.Count == 0)
             {
                 fillMonsterList(monsterList);
                 monsterList.SelectedIndex = 0;
@@ -433,7 +445,10 @@ namespace FurRealEngine
                 playerTurnLabel.Visible = false;
                 enemyTurnLabel.Visible = true;
             }
-            characterList.SelectedIndex = currentCharacter;
+            else
+            {
+                characterList.SelectedIndex = currentCharacter;
+            }
         }
 
         public void spellAttack(ListBox characterList, ListBox monsterList, GroupBox monsterGroup, PictureBox monsterPicture, Label playerTurnLabel, Label enemyTurnLabel)
@@ -451,7 +466,7 @@ namespace FurRealEngine
                     setMonsterPicture(monsterPicture, monsterList.SelectedIndex);
                 }
             }
-            if (monsterList.Items.Count == 0 && characterList.Items.Count > 0)
+            if (monsterList.Items.Count == 0)
             {
                 fillMonsterList(monsterList);
                 monsterList.SelectedIndex = 0;
@@ -464,14 +479,17 @@ namespace FurRealEngine
                 playerTurnLabel.Visible = false;
                 enemyTurnLabel.Visible = true;
             }
-            characterList.SelectedIndex = currentCharacter;
+            else
+            {
+                characterList.SelectedIndex = currentCharacter;
+            }
         }
 
         // look for any character/monster health that hit zero or below
         // and remove them from the list
         public void checkForDeath()
         {
-            for (int i = 0; i < monsters.Count(); ++i)
+            for (int i = 0; i < monsters.Count; ++i)
             {
                 if (monsters[i].getCurHealth() <= 0)
                 {
@@ -479,10 +497,8 @@ namespace FurRealEngine
                     monsters.RemoveAt(i);
                     monstersDefeated++;
                 }
-                //Must increment charactersDefeated when ever we decide to check for character death.
-                //if (characterDied) { charactersDefeated++; }
             }
-            for (int i = 0; i < characters.Count(); ++i)
+            for (int i = 0; i < characters.Count; ++i)
             {
                 if(characters[i].getCurHealth() <= 0)
                 {
@@ -498,7 +514,11 @@ namespace FurRealEngine
         // close sim when all levels have finished
         public void checkForEndOfLevel()
         {
-            if (monsters.Count() == 0)
+            if (characters.Count == 0)
+            {
+                close();
+            }
+            if (monsters.Count == 0)
             {
                 treasure += 100 * curLevel;
                 curLevel++;
@@ -576,7 +596,6 @@ namespace FurRealEngine
             }
             simGUI = null;
             initializeSimulationReport();
-           //config.show();
         }
     }
 }
