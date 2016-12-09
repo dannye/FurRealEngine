@@ -72,6 +72,32 @@ namespace FurRealEngine
             return false;
         }
 
+        static public List<User> getUsers()
+        {
+            //connection to the database
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
+
+            //query
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [User]", connection);
+
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            connection.Close();
+
+            List<User> users = new List<User>();
+
+            for (int i = 0; i < dt.Rows.Count; ++i)
+            {
+                string name = (string)dt.Rows[i]["username"];
+                string pass = (string)dt.Rows[i]["password"];
+                bool isAdmin = dt.Rows[i]["isAdmin"].Equals(1);
+                users.Add(new User(name, pass, isAdmin));
+            }
+
+            return users;
+        }
+
         static public Preset getPreset(User u)
         {
             //connection to the database

@@ -19,7 +19,6 @@ namespace FurRealEngine
         SimulatorGUI simGUI;
         CombatRoundController roundController;
         ReportController reportController;
-        Report report;
         ScenarioSettings scenario;
         SceneSettings scene;
         List<Character> characters;
