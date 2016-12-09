@@ -52,7 +52,27 @@ namespace FurRealEngine
             return false;
         }
 
-        static public List<User> getUsers()
+        static public bool updateUsername(User u, string newUname)
+        {
+            Regex r = new Regex("^[a-zA-Z0-9_]*$");
+            if (r.IsMatch(newUname))
+            {
+
+                //connection to the database
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
+                connection.Open();
+                //query
+                SqlCommand command = new SqlCommand("UPDATE [User] SET username='" + newUname + "' WHERE username='" + u.getUsername() + "'", connection);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+                return true;
+            }
+            return false;
+        }
+		
+		static public List<User> getUsers()
         {
             //connection to the database
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
@@ -76,7 +96,7 @@ namespace FurRealEngine
             }
 
             return users;
-        }
+		}
 
         static public Preset getPreset(User u)
         {
