@@ -328,9 +328,9 @@ namespace FurRealEngine
             return (int) numericUpDownMonsterCD.Value;
         }
 
-        private string getEnvironment()
+        private ENVIRONMENT getEnvironment()
         {
-            return comboBoxEnvironment.SelectedItem.ToString();
+            return (ENVIRONMENT)comboBoxEnvironment.SelectedIndex;
         }
 
         private void editAccountButton_MouseClick(object sender, MouseEventArgs e)

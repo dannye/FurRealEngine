@@ -25,7 +25,7 @@ namespace FurRealEngine
         int numOfTimesSimRan;
         int index;
         string simulationDifficulty;
-        string envionrmentOfBattle;
+        ENVIRONMENT environmentOfBattle;
         int treasure;
 
         public Report()
@@ -152,14 +152,14 @@ namespace FurRealEngine
             this.simulationDifficulty = simulationDifficulty;
         }
 
-        public string getEnvionrmentOfBattle()
+        public ENVIRONMENT getEnvironmentOfBattle()
         {
-            return this.envionrmentOfBattle;
+            return this.environmentOfBattle;
         }
 
-        public void setEnvionrmentOfBattle(string envionrmentOfBattle)
+        public void setEnvironmentOfBattle(ENVIRONMENT environmentOfBattle)
         {
-            this.envionrmentOfBattle = envionrmentOfBattle.ToUpper();
+            this.environmentOfBattle = environmentOfBattle;
         }
 
         public int getTreasure()
