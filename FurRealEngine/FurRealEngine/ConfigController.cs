@@ -264,5 +264,17 @@ namespace FurRealEngine
         {
             return characters;
         }
+
+        public DbPreset loadDefaultPreset(User user)
+        {
+            return mockDataBaseReturnCall(user); // <!-- CHANGE ME DAN -->
+        }
+
+        // THIS IS TEMPORARY --- DELETE ONCE ^^^^^ ABOVE RETURN CALL IS REPLACED WITH ACTUAL DB CALL
+        private DbPreset mockDataBaseReturnCall(User user)
+        {
+            return new DbPreset(3, true, 0, 0, 0, 2, 1, 3, 4, 1, 1);
+        }
+
     }
 }
