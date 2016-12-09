@@ -17,6 +17,7 @@ namespace FurRealEngine
         public static string currUname;
         public static string currPass;
         public static string accountType;
+        private User user;
         //Change to currUname = Value clicked in userAccountsBox.
         //Change to currPass = some DBMS value.
 
@@ -55,6 +56,21 @@ namespace FurRealEngine
             }
         }
 
+        public User getUser()
+        {
+            return user;
+        }
+
+        public void setActiveUser(User user)
+        {
+            this.user = user;
+        }
+
+        public void updateUserPassword(User user, string password)
+        {
+            DBManager.updatePassword(user, password);
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
 
@@ -63,6 +79,15 @@ namespace FurRealEngine
             string password = passBox.Text;
             string confirmPassword = confirmPassBox.Text;
             string accountType = "";
+            
+
+
+            if (username == confirmUsername && password == confirmPassword)
+            {
+
+                updateUserPassword(getUser(), password); //Updates the users password
+
+            }
 
             //If username and confirm username DO NOT match
             if (username != confirmUsername)
@@ -104,7 +129,7 @@ namespace FurRealEngine
             }
 
 
-            //If User Botton checked make the user a user
+            //If User Button checked make the user a user
             if (userButton.Checked)
             {
                 //Make User a User
@@ -133,6 +158,16 @@ namespace FurRealEngine
             ConfigGUI configGui = new ConfigGUI();
             Hide();
             configGui.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

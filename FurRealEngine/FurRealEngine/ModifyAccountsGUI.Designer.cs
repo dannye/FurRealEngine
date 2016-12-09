@@ -53,11 +53,10 @@
             // 
             this.userAccountsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userAccountsBox.FormattingEnabled = true;
-            this.userAccountsBox.ItemHeight = 17;
             this.userAccountsBox.Location = new System.Drawing.Point(28, 23);
             this.userAccountsBox.Margin = new System.Windows.Forms.Padding(4);
             this.userAccountsBox.Name = "userAccountsBox";
-            this.userAccountsBox.Size = new System.Drawing.Size(171, 276);
+            this.userAccountsBox.Size = new System.Drawing.Size(171, 264);
             this.userAccountsBox.TabIndex = 0;
             this.userAccountsBox.SelectedIndexChanged += new System.EventHandler(this.userAccountsBox_SelectedIndexChanged);
             // 
@@ -85,7 +84,7 @@
             this.labelTitle.Location = new System.Drawing.Point(108, 19);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(328, 37);
+            this.labelTitle.Size = new System.Drawing.Size(263, 30);
             this.labelTitle.TabIndex = 26;
             this.labelTitle.Text = "Modify User Accounts";
             // 
@@ -94,7 +93,7 @@
             this.unameBox.Location = new System.Drawing.Point(223, 39);
             this.unameBox.Margin = new System.Windows.Forms.Padding(4);
             this.unameBox.Name = "unameBox";
-            this.unameBox.Size = new System.Drawing.Size(151, 23);
+            this.unameBox.Size = new System.Drawing.Size(151, 20);
             this.unameBox.TabIndex = 27;
             // 
             // confirmUnameBox
@@ -102,7 +101,7 @@
             this.confirmUnameBox.Location = new System.Drawing.Point(223, 92);
             this.confirmUnameBox.Margin = new System.Windows.Forms.Padding(4);
             this.confirmUnameBox.Name = "confirmUnameBox";
-            this.confirmUnameBox.Size = new System.Drawing.Size(151, 23);
+            this.confirmUnameBox.Size = new System.Drawing.Size(151, 20);
             this.confirmUnameBox.TabIndex = 28;
             // 
             // passBox
@@ -110,7 +109,7 @@
             this.passBox.Location = new System.Drawing.Point(223, 143);
             this.passBox.Margin = new System.Windows.Forms.Padding(4);
             this.passBox.Name = "passBox";
-            this.passBox.Size = new System.Drawing.Size(151, 23);
+            this.passBox.Size = new System.Drawing.Size(151, 20);
             this.passBox.TabIndex = 29;
             // 
             // confirmPassBox
@@ -118,7 +117,7 @@
             this.confirmPassBox.Location = new System.Drawing.Point(223, 197);
             this.confirmPassBox.Margin = new System.Windows.Forms.Padding(4);
             this.confirmPassBox.Name = "confirmPassBox";
-            this.confirmPassBox.Size = new System.Drawing.Size(151, 23);
+            this.confirmPassBox.Size = new System.Drawing.Size(151, 20);
             this.confirmPassBox.TabIndex = 30;
             // 
             // label1
@@ -130,9 +129,9 @@
             this.label1.Location = new System.Drawing.Point(120, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Username: ";
+            this.label1.Text = "New Username: ";
             // 
             // label2
             // 
@@ -140,12 +139,13 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(59, 96);
+            this.label2.Location = new System.Drawing.Point(69, 99);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 17);
+            this.label2.Size = new System.Drawing.Size(146, 13);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Confirm Username: ";
+            this.label2.Text = "Confirm New Username: ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -156,9 +156,9 @@
             this.label3.Location = new System.Drawing.Point(120, 151);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 17);
+            this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 33;
-            this.label3.Text = "Password: ";
+            this.label3.Text = "New Password: ";
             // 
             // label4
             // 
@@ -166,12 +166,13 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(59, 201);
+            this.label4.Location = new System.Drawing.Point(76, 204);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 17);
+            this.label4.Size = new System.Drawing.Size(144, 13);
             this.label4.TabIndex = 34;
-            this.label4.Text = "Confirm Password: ";
+            this.label4.Text = "Confirm New Password: ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // userButton
             // 
@@ -182,7 +183,7 @@
             this.userButton.Location = new System.Drawing.Point(223, 251);
             this.userButton.Margin = new System.Windows.Forms.Padding(4);
             this.userButton.Name = "userButton";
-            this.userButton.Size = new System.Drawing.Size(63, 21);
+            this.userButton.Size = new System.Drawing.Size(51, 17);
             this.userButton.TabIndex = 35;
             this.userButton.TabStop = true;
             this.userButton.Text = "User";
@@ -197,7 +198,7 @@
             this.adminButton.Location = new System.Drawing.Point(299, 251);
             this.adminButton.Margin = new System.Windows.Forms.Padding(4);
             this.adminButton.Name = "adminButton";
-            this.adminButton.Size = new System.Drawing.Size(73, 21);
+            this.adminButton.Size = new System.Drawing.Size(59, 17);
             this.adminButton.TabIndex = 36;
             this.adminButton.TabStop = true;
             this.adminButton.Text = "Admin";
@@ -212,7 +213,7 @@
             this.label5.Location = new System.Drawing.Point(89, 251);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 17);
+            this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 37;
             this.label5.Text = "Account Type: ";
             // 
