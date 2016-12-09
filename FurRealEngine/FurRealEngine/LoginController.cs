@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Forms;
-
 
 namespace FurRealEngine
 {
-
-    class LoginController : LoginGUI
+    class LoginController
     {
-
         public bool verifyAccount(User user)
         {
             if (DBManager.getUser(user))
@@ -29,5 +24,4 @@ namespace FurRealEngine
             }
         }
     }
-
 }

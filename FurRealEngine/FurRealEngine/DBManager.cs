@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace FurRealEngine
 {
@@ -26,6 +27,26 @@ namespace FurRealEngine
             if (dt.Rows.Count > 0)
             {
                 u.setAdminStatus(dt.Rows[0]["isAdmin"].Equals(1));
+                return true;
+            }
+            return false;
+        }
+
+        static public bool updatePassword(User u, string newPass)
+        {
+            Regex r = new Regex("^[a-zA-Z0-9_]*$");
+            if (r.IsMatch(newPass))
+            {
+
+                //connection to the database
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\furreal.mdf;Integrated Security=True");
+                connection.Open();
+                //query
+                SqlCommand command = new SqlCommand("UPDATE [User] SET password='" + newPass + "' WHERE username='" + u.getUsername() + "'", connection);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
                 return true;
             }
             return false;
