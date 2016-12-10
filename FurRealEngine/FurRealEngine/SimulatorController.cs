@@ -412,9 +412,9 @@ namespace FurRealEngine
                 Monster monster = monsters[currentCharacter];
                 roundController.monsterAttack(target, currentCharacter);
                 checkForDeath();
-                checkForEndOfLevel();
                 currentCharacter++;
-                if (currentCharacter >= monsters.Count)
+                checkForEndOfLevel();
+                if (currentCharacter >= monsterList.Items.Count)
                 {
                     playersTurn = !playersTurn;
                     currentCharacter = 0;
@@ -445,7 +445,7 @@ namespace FurRealEngine
                 monsterList.SelectedIndex = 0;
             }
             currentCharacter++;
-            if (currentCharacter >= characters.Count)
+            if (currentCharacter >= characterList.Items.Count)
             {
                 playersTurn = !playersTurn;
                 currentCharacter = 0;
@@ -479,7 +479,7 @@ namespace FurRealEngine
                 monsterList.SelectedIndex = 0;
             }
             currentCharacter++;
-            if (currentCharacter >= characters.Count)
+            if (currentCharacter >= characterList.Items.Count)
             {
                 playersTurn = !playersTurn;
                 currentCharacter = 0;
@@ -496,7 +496,7 @@ namespace FurRealEngine
         // and remove them from the list
         public void checkForDeath()
         {
-            for (int i = 0; i < monsters.Count; ++i)
+            for (int i = monsters.Count - 1; i >= 0; --i)
             {
                 if (monsters[i].getCurHealth() <= 0)
                 {
@@ -505,7 +505,7 @@ namespace FurRealEngine
                     monstersDefeated++;
                 }
             }
-            for (int i = 0; i < characters.Count; ++i)
+            for (int i = characters.Count - 1; i >= 0; --i)
             {
                 if(characters[i].getCurHealth() <= 0)
                 {
