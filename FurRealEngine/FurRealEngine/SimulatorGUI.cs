@@ -80,7 +80,7 @@ namespace FurRealEngine
 
         private void SimulatorGUI_FormClosed(object sender, FormClosedEventArgs e)
         {
-            simController.close();
+            Application.Exit();
         }
 
         public void setSettings(DIFFICULTY difficulty, int level, int run, int treasure)
