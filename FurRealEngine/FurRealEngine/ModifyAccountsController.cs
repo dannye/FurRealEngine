@@ -19,14 +19,19 @@ namespace FurRealEngine
             return users;
         }
 
-        public void updateUserPassword(User user, string password)
+        public bool updateUserPassword(User user, string password)
         {
-            DBManager.updatePassword(user, password);
+            return DBManager.updatePassword(user, password);
         }
 
-        public void updateUserUsername(User user, string username)
+        public bool updateUserUsername(User user, string username)
         {
-            DBManager.updateUsername(user, username);
+            return DBManager.updateUsername(user, username);
+        }
+
+        public bool updateUserType(User user, bool admin)
+        {
+            return DBManager.updateType(user, admin);
         }
 
     }

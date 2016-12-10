@@ -70,7 +70,8 @@ namespace FurRealEngine
             string confirmUsername = confirmUnameBox.Text;
             string password = passBox.Text;
             string confirmPassword = confirmPassBox.Text;
-            string accountType = "";
+            string accountType = "User";
+            bool admin = false;
 
             //If username and confirm username DO NOT match
             if (username != confirmUsername)
@@ -100,40 +101,72 @@ namespace FurRealEngine
                 MessageBox.Show("Please select user's Account Type.");
                 return;
             }
-            
-            //Updates the user's password
-            controller.updateUserPassword(getUser(), password);
-
-            //Updates the user's username
-            controller.updateUserUsername(getUser(), username);
 
             User user = users[userAccountsBox.SelectedIndex];
+            if (user.getAdminStatus())
+            {
+                accountType = "Admin";
+            }
 
             //If Admin Button is checked make the user an admin
             if (adminButton.Checked)
             {
                 //Make User am Admin
-                user.setAdminStatus(true);
-                accountType = "Admin";
+                admin = true;
             }
 
             //If User Button checked make the user a user
             if (userButton.Checked)
             {
                 //Make User a User
-                user.setAdminStatus(false);
-                accountType = "User";
+                admin = false;
             }
 
-            user.setUsername(username);
-            user.setPassword(password);
-            userAccountsBox.Items[userAccountsBox.SelectedIndex] = username;
+            bool passSuccess;
+            bool nameSuccess;
+            bool adminSuccess;
 
-            //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
-            MessageBox.Show("User's account has been updated.\n" +
-                            " Username = " + username + ".\n" +
-                            " Password = " + password + ".\n" +
-                            " Account Type = " + accountType + ".");
+            //Updates the user's password
+            passSuccess = controller.updateUserPassword(getUser(), password);
+
+            if (passSuccess)
+            {
+                user.setPassword(password);
+            }
+
+            //Updates the user's username
+            nameSuccess = controller.updateUserUsername(getUser(), username);
+
+            if (nameSuccess)
+            {
+                user.setUsername(username);
+                userAccountsBox.Items[userAccountsBox.SelectedIndex] = username;
+            }
+
+            //Updates the user's privileges
+            adminSuccess = controller.updateUserType(getUser(), admin);
+
+            if (adminSuccess)
+            {
+                user.setAdminStatus(admin);
+                if (admin)
+                {
+                    accountType = "Admin";
+                }
+                else
+                {
+                    accountType = "User";
+                }
+            }
+
+            if (passSuccess || nameSuccess || adminSuccess)
+            {
+                //At this point we would redirect back to where we want. This takes place after the user clicks "SAVE"
+                MessageBox.Show("User's account has been updated.\n" +
+                                " Username = " + user.getUsername() + ".\n" +
+                                " Password = " + user.getPassword() + ".\n" +
+                                " Account Type = " + accountType + ".");
+            }
         }
 
         private void ModifyAccountsGUI_FormClosed(object sender, FormClosedEventArgs e)
