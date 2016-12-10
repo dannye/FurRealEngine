@@ -20,19 +20,16 @@ namespace FurRealEngine
         private User user;
         //Change to currUname = Value clicked in userAccountsBox.
         //Change to currPass = some DBMS value.
+        ModifyAccountsController controller = new ModifyAccountsController();
 
-        List<User> users = new List<User>();
+        List<User> users;
 
         public ModifyAccountsGUI()
         {
             InitializeComponent();
             // eventually, loaded users from database rather than hardcode users
-            users.Add(new User("user", "password", false));
-            users.Add(new User("admin", "password", true));
-            foreach (User user in users)
-            {
-                userAccountsBox.Items.Add(user.getUsername());
-            }
+            users = controller.init(userAccountsBox);
+
             userAccountsBox.SelectedIndex = 0;
         }
 
@@ -40,7 +37,7 @@ namespace FurRealEngine
         {
             if (userAccountsBox.SelectedIndex >= 0)
             {
-                User user = users[userAccountsBox.SelectedIndex];
+                user = users[userAccountsBox.SelectedIndex];
                 unameBox.Text = user.getUsername();
                 confirmUnameBox.Text = "";
                 passBox.Text = user.getPassword();
@@ -66,16 +63,6 @@ namespace FurRealEngine
             this.user = user;
         }
 
-        public void updateUserPassword(User user, string password)
-        {
-            DBManager.updatePassword(user, password);
-        }
-
-        public void updateUserUsername(User user, string username)
-        {
-            DBManager.updateUsername(user, username);
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
 
@@ -84,32 +71,20 @@ namespace FurRealEngine
             string password = passBox.Text;
             string confirmPassword = confirmPassBox.Text;
             string accountType = "";
-            
 
+            //If username and confirm username DO NOT match
+            if (username != confirmUsername)
+            {
+                MessageBox.Show("The Username and Confirm Username fields do not match!");
+                return;
+            }
 
-            
-                //Updates the user's password
-                updateUserPassword(getUser(), password); 
-                MessageBox.Show("User " + username + "'s account password is now: " + password +".");
-
-                //Updates the user's username
-                updateUserUsername(getUser(), username);
-                MessageBox.Show("User " + username + "'s account username is now: " + username + ".");
-
-
-            ////If username and confirm username DO NOT match
-            //if (username != confirmUsername)
-            //{
-            //    MessageBox.Show("The Username and Confirm Username fields do not match!");
-            //    return;
-            //}
-
-            ////If password and confirm password DO NOT match
-            //if (password != confirmPassword)
-            //{
-            //    MessageBox.Show("The Password and Confirm Password fields do not match!");
-            //    return;
-            //}
+            //If password and confirm password DO NOT match
+            if (password != confirmPassword)
+            {
+                MessageBox.Show("The Password and Confirm Password fields do not match!");
+                return;
+            }
 
 
             //Check to see if both buttons are checked
@@ -125,6 +100,12 @@ namespace FurRealEngine
                 MessageBox.Show("Please select user's Account Type.");
                 return;
             }
+            
+            //Updates the user's password
+            controller.updateUserPassword(getUser(), password);
+
+            //Updates the user's username
+            controller.updateUserUsername(getUser(), username);
 
             User user = users[userAccountsBox.SelectedIndex];
 
@@ -135,7 +116,6 @@ namespace FurRealEngine
                 user.setAdminStatus(true);
                 accountType = "Admin";
             }
-
 
             //If User Button checked make the user a user
             if (userButton.Checked)
@@ -166,21 +146,6 @@ namespace FurRealEngine
             ConfigGUI configGui = new ConfigGUI();
             Hide();
             configGui.ShowDialog();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
