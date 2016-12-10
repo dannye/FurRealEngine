@@ -389,7 +389,6 @@
             this.textBoxLevelsCompleted.ReadOnly = true;
             this.textBoxLevelsCompleted.Size = new System.Drawing.Size(132, 29);
             this.textBoxLevelsCompleted.TabIndex = 6;
-            this.textBoxLevelsCompleted.TextChanged += new System.EventHandler(this.textBoxLevelsCompleted_TextChanged);
             // 
             // buttonExitApp
             // 

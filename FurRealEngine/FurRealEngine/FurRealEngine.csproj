@@ -68,6 +68,7 @@
     <Compile Include="ConfigController.cs" />
     <Compile Include="DBManager.cs" />
     <Compile Include="LoginController.cs" />
+    <Compile Include="ModifyAccountsController.cs" />
     <Compile Include="Preset.cs" />
     <Compile Include="ModifyAccountsGUI.cs">
       <SubType>Form</SubType>
