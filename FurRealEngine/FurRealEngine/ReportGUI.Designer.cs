@@ -68,7 +68,7 @@
             this.groupBoxReportSelectin.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxReportSelectin.Controls.Add(this.buttonSelectReport);
             this.groupBoxReportSelectin.Controls.Add(this.listBoxReports);
-            this.groupBoxReportSelectin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxReportSelectin.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxReportSelectin.Location = new System.Drawing.Point(39, 38);
             this.groupBoxReportSelectin.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxReportSelectin.Name = "groupBoxReportSelectin";
@@ -126,7 +126,7 @@
             this.groupBoxReport.Controls.Add(this.textBoxReplays);
             this.groupBoxReport.Controls.Add(this.textBoxDifficulty);
             this.groupBoxReport.Controls.Add(this.textBoxLevelsCompleted);
-            this.groupBoxReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxReport.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxReport.Location = new System.Drawing.Point(412, 38);
             this.groupBoxReport.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxReport.Name = "groupBoxReport";
@@ -149,7 +149,7 @@
             // labelTreasure
             // 
             this.labelTreasure.AutoSize = true;
-            this.labelTreasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTreasure.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTreasure.Location = new System.Drawing.Point(576, 350);
             this.labelTreasure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTreasure.Name = "labelTreasure";
@@ -160,7 +160,7 @@
             // labelEnvironment
             // 
             this.labelEnvironment.AutoSize = true;
-            this.labelEnvironment.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnvironment.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnvironment.Location = new System.Drawing.Point(555, 165);
             this.labelEnvironment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEnvironment.Name = "labelEnvironment";
@@ -171,7 +171,7 @@
             // labelCD
             // 
             this.labelCD.AutoSize = true;
-            this.labelCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCD.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCD.Location = new System.Drawing.Point(585, 266);
             this.labelCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCD.Name = "labelCD";
@@ -182,7 +182,7 @@
             // labelDamageTaken
             // 
             this.labelDamageTaken.AutoSize = true;
-            this.labelDamageTaken.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDamageTaken.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDamageTaken.Location = new System.Drawing.Point(292, 350);
             this.labelDamageTaken.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDamageTaken.Name = "labelDamageTaken";
@@ -193,7 +193,7 @@
             // labelMonstersDefeated
             // 
             this.labelMonstersDefeated.AutoSize = true;
-            this.labelMonstersDefeated.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMonstersDefeated.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonstersDefeated.Location = new System.Drawing.Point(309, 266);
             this.labelMonstersDefeated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMonstersDefeated.Name = "labelMonstersDefeated";
@@ -204,7 +204,7 @@
             // labelCharsDefeated
             // 
             this.labelCharsDefeated.AutoSize = true;
-            this.labelCharsDefeated.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCharsDefeated.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCharsDefeated.Location = new System.Drawing.Point(295, 165);
             this.labelCharsDefeated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCharsDefeated.Name = "labelCharsDefeated";
@@ -215,7 +215,7 @@
             // labelNumMonsters
             // 
             this.labelNumMonsters.AutoSize = true;
-            this.labelNumMonsters.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumMonsters.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumMonsters.Location = new System.Drawing.Point(5, 266);
             this.labelNumMonsters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumMonsters.Name = "labelNumMonsters";
@@ -226,7 +226,7 @@
             // labelDamageGiven
             // 
             this.labelDamageGiven.AutoSize = true;
-            this.labelDamageGiven.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDamageGiven.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDamageGiven.Location = new System.Drawing.Point(0, 350);
             this.labelDamageGiven.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDamageGiven.Name = "labelDamageGiven";
@@ -237,7 +237,7 @@
             // labelNumOfChars
             // 
             this.labelNumOfChars.AutoSize = true;
-            this.labelNumOfChars.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumOfChars.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumOfChars.Location = new System.Drawing.Point(7, 165);
             this.labelNumOfChars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumOfChars.Name = "labelNumOfChars";
@@ -248,7 +248,7 @@
             // labelRepeated
             // 
             this.labelRepeated.AutoSize = true;
-            this.labelRepeated.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRepeated.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRepeated.Location = new System.Drawing.Point(541, 46);
             this.labelRepeated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRepeated.Name = "labelRepeated";
@@ -259,7 +259,7 @@
             // labelDifficulty
             // 
             this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDifficulty.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDifficulty.Location = new System.Drawing.Point(325, 44);
             this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDifficulty.Name = "labelDifficulty";
@@ -270,7 +270,7 @@
             // labelLevelsRan
             // 
             this.labelLevelsRan.AutoSize = true;
-            this.labelLevelsRan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLevelsRan.Font = new System.Drawing.Font("Matura MT Script Capitals", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLevelsRan.Location = new System.Drawing.Point(8, 46);
             this.labelLevelsRan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLevelsRan.Name = "labelLevelsRan";
@@ -331,7 +331,7 @@
             // textBoxEnv
             // 
             this.textBoxEnv.Enabled = false;
-            this.textBoxEnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEnv.Font = new System.Drawing.Font("Matura MT Script Capitals", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEnv.Location = new System.Drawing.Point(560, 198);
             this.textBoxEnv.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEnv.Name = "textBoxEnv";
@@ -372,7 +372,7 @@
             // textBoxDifficulty
             // 
             this.textBoxDifficulty.Enabled = false;
-            this.textBoxDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDifficulty.Font = new System.Drawing.Font("Matura MT Script Capitals", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDifficulty.Location = new System.Drawing.Point(300, 79);
             this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDifficulty.Name = "textBoxDifficulty";
@@ -393,7 +393,7 @@
             // 
             // buttonExitApp
             // 
-            this.buttonExitApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExitApp.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExitApp.Location = new System.Drawing.Point(585, 523);
             this.buttonExitApp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExitApp.Name = "buttonExitApp";
@@ -405,7 +405,7 @@
             // 
             // buttonNewSim
             // 
-            this.buttonNewSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewSim.Font = new System.Drawing.Font("Matura MT Script Capitals", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewSim.Location = new System.Drawing.Point(897, 524);
             this.buttonNewSim.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNewSim.Name = "buttonNewSim";
