@@ -71,6 +71,15 @@ namespace FurRealEngine.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Acquisition {
+            get {
+                return ResourceManager.GetStream("Acquisition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bugbear {
@@ -107,6 +116,15 @@ namespace FurRealEngine.Properties {
             get {
                 object obj = ResourceManager.GetObject("dungeon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Ferocity {
+            get {
+                return ResourceManager.GetStream("Ferocity", resourceCulture);
             }
         }
         
@@ -167,6 +185,15 @@ namespace FurRealEngine.Properties {
             get {
                 object obj = ResourceManager.GetObject("lich", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Moratorium {
+            get {
+                return ResourceManager.GetStream("Moratorium", resourceCulture);
             }
         }
         

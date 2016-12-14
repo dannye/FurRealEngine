@@ -22,15 +22,18 @@ namespace FurRealEngine
         //Change to currPass = some DBMS value.
         ModifyAccountsController controller = new ModifyAccountsController();
 
+        ConfigController config;
+
         List<User> users;
 
-        public ModifyAccountsGUI()
+        public ModifyAccountsGUI(ConfigController config = null)
         {
             InitializeComponent();
             // eventually, loaded users from database rather than hardcode users
             users = controller.init(userAccountsBox);
 
             userAccountsBox.SelectedIndex = 0;
+            this.config = config;
         }
 
         private void userAccountsBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,9 +179,8 @@ namespace FurRealEngine
 
         private void backButton_MouseClick(object sender, MouseEventArgs e)
         {
-            ConfigGUI configGui = new ConfigGUI();
             Hide();
-            configGui.ShowDialog();
+            config.show();
         }
     }
 }

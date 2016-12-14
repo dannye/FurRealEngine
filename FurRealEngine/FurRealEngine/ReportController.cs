@@ -25,6 +25,7 @@ namespace FurRealEngine
             DBManager.saveReport(config.getUser(), report);
             reports = DBManager.loadReports(config.getUser());
             reportGUI = new ReportGUI(this);
+            AudioController.playMoratorium();
         }
 
         public void initializeReport()

@@ -70,6 +70,7 @@ namespace FurRealEngine
                 this.scene.monsters.Add(monster.clone());
             }
             simGUI.setSettings(scenario.difficulty, curLevel, runNum, treasure);
+            AudioController.playFerocity();
         }
 
         public static int diceRoll(int numRolls, int sides)

@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioController.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ConfigController.cs" />
     <Compile Include="DBManager.cs" />
@@ -172,15 +173,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>furreal.mdf</DependentUpon>
     </Content>
+    <Content Include="Resources\Acquisition.wav" />
     <Content Include="Resources\bugbear.png" />
     <Content Include="Resources\cavern.jpg" />
     <Content Include="Resources\combat_mage.png" />
     <Content Include="Resources\dungeon.jpg" />
+    <Content Include="Resources\Ferocity.wav" />
     <Content Include="Resources\forest.jpg" />
     <Content Include="Resources\ghost.png" />
     <Content Include="Resources\goblin.png" />
     <Content Include="Resources\kobold.png" />
     <Content Include="Resources\lich.png" />
+    <Content Include="Resources\Moratorium.wav" />
     <Content Include="Resources\orc.png" />
     <Content Include="Resources\priest.png" />
     <Content Include="Resources\settingsBackground.jpg" />

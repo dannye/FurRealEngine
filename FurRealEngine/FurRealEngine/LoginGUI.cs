@@ -22,6 +22,7 @@ namespace FurRealEngine
         public LoginGUI()
         {
             InitializeComponent();
+            AudioController.playAcquisition();
         }
 
         //Submit

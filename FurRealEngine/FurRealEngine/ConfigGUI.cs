@@ -22,7 +22,7 @@ namespace FurRealEngine
             comboBoxMonsters.SelectedIndex = 0;
             comboBoxDifficulty.SelectedIndex = 0;
             comboBoxEnvironment.SelectedIndex = 0;
-
+            AudioController.playMoratorium();
         }
 
         public void initConfigGui(User user)
@@ -343,7 +343,7 @@ namespace FurRealEngine
 
         private void editAccountButton_MouseClick(object sender, MouseEventArgs e)
         {
-            ModifyAccountsGUI modify = new ModifyAccountsGUI();
+            ModifyAccountsGUI modify = new ModifyAccountsGUI(configController);
             this.Hide();
             modify.ShowDialog();
 
