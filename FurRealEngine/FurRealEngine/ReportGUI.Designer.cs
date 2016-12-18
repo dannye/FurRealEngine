@@ -91,7 +91,7 @@
             // listBoxReports
             // 
             this.listBoxReports.FormattingEnabled = true;
-            this.listBoxReports.ItemHeight = 24;
+            this.listBoxReports.ItemHeight = 31;
             this.listBoxReports.Location = new System.Drawing.Point(29, 79);
             this.listBoxReports.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxReports.Name = "listBoxReports";
@@ -142,7 +142,7 @@
             this.textBoxTreasure.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTreasure.Name = "textBoxTreasure";
             this.textBoxTreasure.ReadOnly = true;
-            this.textBoxTreasure.Size = new System.Drawing.Size(132, 29);
+            this.textBoxTreasure.Size = new System.Drawing.Size(132, 39);
             this.textBoxTreasure.TabIndex = 29;
             // 
             // labelTreasure
@@ -152,7 +152,7 @@
             this.labelTreasure.Location = new System.Drawing.Point(576, 350);
             this.labelTreasure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTreasure.Name = "labelTreasure";
-            this.labelTreasure.Size = new System.Drawing.Size(129, 22);
+            this.labelTreasure.Size = new System.Drawing.Size(164, 29);
             this.labelTreasure.TabIndex = 28;
             this.labelTreasure.Text = "Total Treasure";
             // 
@@ -163,7 +163,7 @@
             this.labelEnvironment.Location = new System.Drawing.Point(555, 165);
             this.labelEnvironment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEnvironment.Name = "labelEnvironment";
-            this.labelEnvironment.Size = new System.Drawing.Size(161, 22);
+            this.labelEnvironment.Size = new System.Drawing.Size(204, 29);
             this.labelEnvironment.TabIndex = 27;
             this.labelEnvironment.Text = "Battle Environment";
             // 
@@ -174,7 +174,7 @@
             this.labelCD.Location = new System.Drawing.Point(585, 266);
             this.labelCD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCD.Name = "labelCD";
-            this.labelCD.Size = new System.Drawing.Size(82, 22);
+            this.labelCD.Size = new System.Drawing.Size(123, 29);
             this.labelCD.TabIndex = 26;
             this.labelCD.Text = "Total CD";
             // 
@@ -185,7 +185,7 @@
             this.labelDamageTaken.Location = new System.Drawing.Point(292, 350);
             this.labelDamageTaken.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDamageTaken.Name = "labelDamageTaken";
-            this.labelDamageTaken.Size = new System.Drawing.Size(179, 22);
+            this.labelDamageTaken.Size = new System.Drawing.Size(231, 29);
             this.labelDamageTaken.TabIndex = 25;
             this.labelDamageTaken.Text = "Total Damage Taken";
             // 
@@ -196,7 +196,7 @@
             this.labelMonstersDefeated.Location = new System.Drawing.Point(309, 266);
             this.labelMonstersDefeated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMonstersDefeated.Name = "labelMonstersDefeated";
-            this.labelMonstersDefeated.Size = new System.Drawing.Size(161, 22);
+            this.labelMonstersDefeated.Size = new System.Drawing.Size(212, 29);
             this.labelMonstersDefeated.TabIndex = 24;
             this.labelMonstersDefeated.Text = "Monsters Defeated";
             // 
@@ -207,7 +207,7 @@
             this.labelCharsDefeated.Location = new System.Drawing.Point(295, 165);
             this.labelCharsDefeated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCharsDefeated.Name = "labelCharsDefeated";
-            this.labelCharsDefeated.Size = new System.Drawing.Size(151, 22);
+            this.labelCharsDefeated.Size = new System.Drawing.Size(190, 29);
             this.labelCharsDefeated.TabIndex = 23;
             this.labelCharsDefeated.Text = "Character Deaths";
             // 
@@ -218,7 +218,7 @@
             this.labelNumMonsters.Location = new System.Drawing.Point(5, 266);
             this.labelNumMonsters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumMonsters.Name = "labelNumMonsters";
-            this.labelNumMonsters.Size = new System.Drawing.Size(171, 22);
+            this.labelNumMonsters.Size = new System.Drawing.Size(232, 29);
             this.labelNumMonsters.TabIndex = 22;
             this.labelNumMonsters.Text = "Number of Monsters";
             // 
@@ -229,7 +229,7 @@
             this.labelDamageGiven.Location = new System.Drawing.Point(0, 350);
             this.labelDamageGiven.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDamageGiven.Name = "labelDamageGiven";
-            this.labelDamageGiven.Size = new System.Drawing.Size(175, 22);
+            this.labelDamageGiven.Size = new System.Drawing.Size(224, 29);
             this.labelDamageGiven.TabIndex = 21;
             this.labelDamageGiven.Text = "Total Damage Given";
             // 
@@ -240,7 +240,7 @@
             this.labelNumOfChars.Location = new System.Drawing.Point(7, 165);
             this.labelNumOfChars.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumOfChars.Name = "labelNumOfChars";
-            this.labelNumOfChars.Size = new System.Drawing.Size(186, 22);
+            this.labelNumOfChars.Size = new System.Drawing.Size(236, 29);
             this.labelNumOfChars.TabIndex = 20;
             this.labelNumOfChars.Text = "Number of Characters";
             // 
@@ -251,7 +251,7 @@
             this.labelRepeated.Location = new System.Drawing.Point(541, 46);
             this.labelRepeated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRepeated.Name = "labelRepeated";
-            this.labelRepeated.Size = new System.Drawing.Size(163, 22);
+            this.labelRepeated.Size = new System.Drawing.Size(213, 29);
             this.labelRepeated.TabIndex = 19;
             this.labelRepeated.Text = "Number of Replays";
             // 
@@ -262,7 +262,7 @@
             this.labelDifficulty.Location = new System.Drawing.Point(325, 44);
             this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(78, 22);
+            this.labelDifficulty.Size = new System.Drawing.Size(117, 29);
             this.labelDifficulty.TabIndex = 18;
             this.labelDifficulty.Text = "Difficulty";
             // 
@@ -273,7 +273,7 @@
             this.labelLevelsRan.Location = new System.Drawing.Point(8, 46);
             this.labelLevelsRan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLevelsRan.Name = "labelLevelsRan";
-            this.labelLevelsRan.Size = new System.Drawing.Size(199, 22);
+            this.labelLevelsRan.Size = new System.Drawing.Size(256, 29);
             this.labelLevelsRan.TabIndex = 17;
             this.labelLevelsRan.Text = "Total Levels Completed";
             // 
@@ -284,7 +284,7 @@
             this.textBoxTotalCD.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotalCD.Name = "textBoxTotalCD";
             this.textBoxTotalCD.ReadOnly = true;
-            this.textBoxTotalCD.Size = new System.Drawing.Size(132, 29);
+            this.textBoxTotalCD.Size = new System.Drawing.Size(132, 39);
             this.textBoxTotalCD.TabIndex = 16;
             // 
             // textBoxMonstersDefeated
@@ -294,7 +294,7 @@
             this.textBoxMonstersDefeated.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMonstersDefeated.Name = "textBoxMonstersDefeated";
             this.textBoxMonstersDefeated.ReadOnly = true;
-            this.textBoxMonstersDefeated.Size = new System.Drawing.Size(132, 29);
+            this.textBoxMonstersDefeated.Size = new System.Drawing.Size(132, 39);
             this.textBoxMonstersDefeated.TabIndex = 15;
             // 
             // textBoxDamageGiven
@@ -304,7 +304,7 @@
             this.textBoxDamageGiven.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDamageGiven.Name = "textBoxDamageGiven";
             this.textBoxDamageGiven.ReadOnly = true;
-            this.textBoxDamageGiven.Size = new System.Drawing.Size(132, 29);
+            this.textBoxDamageGiven.Size = new System.Drawing.Size(132, 39);
             this.textBoxDamageGiven.TabIndex = 14;
             // 
             // textBoxDamageTaken
@@ -314,7 +314,7 @@
             this.textBoxDamageTaken.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDamageTaken.Name = "textBoxDamageTaken";
             this.textBoxDamageTaken.ReadOnly = true;
-            this.textBoxDamageTaken.Size = new System.Drawing.Size(132, 29);
+            this.textBoxDamageTaken.Size = new System.Drawing.Size(132, 39);
             this.textBoxDamageTaken.TabIndex = 13;
             // 
             // textBoxTotalMonsters
@@ -324,7 +324,7 @@
             this.textBoxTotalMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTotalMonsters.Name = "textBoxTotalMonsters";
             this.textBoxTotalMonsters.ReadOnly = true;
-            this.textBoxTotalMonsters.Size = new System.Drawing.Size(132, 29);
+            this.textBoxTotalMonsters.Size = new System.Drawing.Size(132, 39);
             this.textBoxTotalMonsters.TabIndex = 12;
             // 
             // textBoxEnv
@@ -335,7 +335,7 @@
             this.textBoxEnv.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEnv.Name = "textBoxEnv";
             this.textBoxEnv.ReadOnly = true;
-            this.textBoxEnv.Size = new System.Drawing.Size(213, 26);
+            this.textBoxEnv.Size = new System.Drawing.Size(213, 34);
             this.textBoxEnv.TabIndex = 11;
             // 
             // textBoxCharacterDeaths
@@ -345,7 +345,7 @@
             this.textBoxCharacterDeaths.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCharacterDeaths.Name = "textBoxCharacterDeaths";
             this.textBoxCharacterDeaths.ReadOnly = true;
-            this.textBoxCharacterDeaths.Size = new System.Drawing.Size(132, 29);
+            this.textBoxCharacterDeaths.Size = new System.Drawing.Size(132, 39);
             this.textBoxCharacterDeaths.TabIndex = 10;
             // 
             // textBoxNumOfChars
@@ -355,7 +355,7 @@
             this.textBoxNumOfChars.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNumOfChars.Name = "textBoxNumOfChars";
             this.textBoxNumOfChars.ReadOnly = true;
-            this.textBoxNumOfChars.Size = new System.Drawing.Size(132, 29);
+            this.textBoxNumOfChars.Size = new System.Drawing.Size(132, 39);
             this.textBoxNumOfChars.TabIndex = 9;
             // 
             // textBoxReplays
@@ -365,7 +365,7 @@
             this.textBoxReplays.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxReplays.Name = "textBoxReplays";
             this.textBoxReplays.ReadOnly = true;
-            this.textBoxReplays.Size = new System.Drawing.Size(132, 29);
+            this.textBoxReplays.Size = new System.Drawing.Size(132, 39);
             this.textBoxReplays.TabIndex = 8;
             // 
             // textBoxDifficulty
@@ -376,7 +376,7 @@
             this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDifficulty.Name = "textBoxDifficulty";
             this.textBoxDifficulty.ReadOnly = true;
-            this.textBoxDifficulty.Size = new System.Drawing.Size(205, 26);
+            this.textBoxDifficulty.Size = new System.Drawing.Size(205, 34);
             this.textBoxDifficulty.TabIndex = 7;
             // 
             // textBoxLevelsCompleted
@@ -386,7 +386,7 @@
             this.textBoxLevelsCompleted.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLevelsCompleted.Name = "textBoxLevelsCompleted";
             this.textBoxLevelsCompleted.ReadOnly = true;
-            this.textBoxLevelsCompleted.Size = new System.Drawing.Size(132, 29);
+            this.textBoxLevelsCompleted.Size = new System.Drawing.Size(132, 39);
             this.textBoxLevelsCompleted.TabIndex = 6;
             // 
             // buttonExitApp
